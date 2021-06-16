@@ -1,0 +1,1 @@
+<h6 class="post-count text-body mb-0">Showing <span id="<?php echo $current_block_ID; ?>-post-count-num" class="post-count-num"><?php echo $query_block[$current_block_ID]['results']->post_count; ?></span> results</h6>

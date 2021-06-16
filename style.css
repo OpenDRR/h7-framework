@@ -1,10 +1,10 @@
 /*
-Theme Name: Framework
-Theme URI: http://makeitoperativ.com
-Author: Operativ
-Author URI: http://makeitoperativ.com
-Description: 
+Theme Name: [fw] Parent
+Theme URI: http://habitatseven.com
+Author: Habitat Seven
+Author URI: http://habitatseven.com
+Description:
 Version: 1.0
-Text Domain: 
+Text Domain:
 */
-@import url(resources/css/screen.css);
+@import url(resources/css/global.css);

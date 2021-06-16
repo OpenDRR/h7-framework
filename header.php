@@ -1,43 +1,81 @@
 <?php
-  
-  include('vars.php');
-  
+
+  if ( current_user_can ( 'administrator' ) ) {
+
+    echo "<!-- --- VARS --- -->";
+    echo "\n\n<!--\n\n";
+    print_r($GLOBALS['vars']);
+    echo "\n\n-->";
+
+    echo "\n\n<!-- --- IDs --- -->";
+    echo "\n\n<!--\n\n";
+    print_r($GLOBALS['ids']);
+    echo "\n\n-->";
+
+    echo "\n\n<!-- --- CLASSES --- -->";
+    echo "\n\n<!--\n\n";
+    print_r($GLOBALS['classes']);
+    echo "\n\n-->";
+
+    echo "\n\n<!-- --- DEFAULTS --- -->";
+    echo "\n\n<!--\n\n";
+    print_r($GLOBALS['defaults']);
+    echo "\n\n-->";
+
+    echo "\n\n";
+
+  }
+
 ?>
 <!doctype html>
-<html>
+<html class="no-js">
   <head>
-     <title><?php
-    	wp_title( '—', true, 'right' );
-    
-    	bloginfo('title');
-    
-    	if (is_front_page()) echo ' — ' . get_bloginfo('description');
-    
-    ?></title>
-    
+		<meta charset="<?php bloginfo ( 'charset' ); ?>">
+
+		<title><?php
+
+			// current object
+
+			wp_title ( '—', true, 'right' );
+
+			// site title
+
+			bloginfo ( 'title' );
+
+			// description on home page
+
+			if ( is_front_page() && get_bloginfo ( 'description' ) != '' ) {
+				echo ' — ' . get_bloginfo ( 'description' );
+			}
+
+		?></title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <?php
-      
+
+      if ( get_field ( 'favicon', 'option' ) != '' ) {
+
+    ?>
+
+    <link rel="icon" type="image/png" href="<?php echo wp_get_attachment_image_url ( get_field ( 'favicon', 'option' ), 'thumbnail' ); ?>">
+
+    <?php
+
+      }
+
       wp_head();
-      
+
     ?>
 
   </head>
-  
-  <?php
-    
-    $body_ID = 'page';
-    $body_class = '';
-    
-    if (is_front_page()) {
-      $body_ID = 'page-home';
-    } else {
-      $body_ID = 'page-' . get_the_slug();
-    }
-    
-    if (!is_front_page()) {
-      $body_class .= ' sub-page';
-    }
-    
-  ?>
-  
-  <body id="<?php echo $body_ID; ?>" <?php body_class($body_class); ?>>
+
+  <body id="<?php echo $GLOBALS['ids']['body']; ?>" <?php body_class ( implode ( ' ', $GLOBALS['classes']['body'] ) ); ?>>
+
+    <?php
+
+			wp_body_open();
+
+    ?>
+
+    <main>

@@ -1,32 +1,29 @@
 <?php
-  
-  include('vars.php');
-  
+
   get_header();
-  
 
 ?>
 
+<?php
 
+  if ( have_posts() ) : while ( have_posts() ) : the_post();
 
-    <?php
-      
-      if (have_posts()) : while (have_posts()) : the_post();
-      
-    ?>
-    
-    <?php the_title(); ?>
-    
-    <?php
-      
-      endwhile; endif;
-      
-    ?>
-    
-    
+?>
+
+<article <?php post_class(); ?>>
+  <h4><?php the_title(); ?></h4>
+
+  <?php
+
+    the_content();
+
+  ?>
+</article>
 
 <?php
-  
+
+  endwhile; endif;
+
   get_footer();
-  
+
 ?>
