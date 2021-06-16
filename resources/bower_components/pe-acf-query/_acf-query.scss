@@ -1,0 +1,19 @@
+$query-filter-item-selected-color: $primary !default;
+
+.query-item-wrap {
+  transition: opacity 0.25s;
+
+  &.loading {
+    opacity: 0.1;
+  }
+}
+
+.query-filter-item {
+  &.selected {
+    color: $query-filter-item-selected-color;
+  }
+}
+
+#ajax-output {
+  display: none !important;
+}

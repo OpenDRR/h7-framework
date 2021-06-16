@@ -1,0 +1,18 @@
+$image-margin-bottom: 2em !default;
+
+.block-type-image {
+  .image-wrap {
+    &.has-caption,
+    &.has-description {
+      .image {
+        margin-bottom: $image-margin-bottom;
+      }
+    }
+
+    &.has-title {
+      .image.order-1 {
+        margin-bottom: $image-margin-bottom;
+      }
+    }
+  }
+}

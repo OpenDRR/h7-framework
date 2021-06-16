@@ -1,0 +1,118 @@
+$carousel-controls-color: $body-color !default;
+$carousel-controls-hover-color: $primary !default;
+$carousel-controls-disabled-color: transparentize($carousel-controls-color, 0.7) !default;
+
+$carousel-controls-arrow-z-index: 20 !default;
+
+.carousel {
+  .slick-list,
+  .slick-track {
+    height: 100%;
+  }
+
+  .slide {
+    position: relative;
+  }
+
+  .slide-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  &:not(.adaptive-height) {
+    .slick-track {
+      // display: flex;
+    }
+
+    .slick-slide {
+      // float: none;
+      height: auto;
+    }
+  }
+
+  &.full-height {
+    height: $full-height-height;
+
+    .slick-slider {
+      height: $full-height-height;
+    }
+  }
+
+  &.adaptive-height {
+    .slick-list,
+    .slick-track {
+      height: auto;
+    }
+  }
+}
+
+.carousel-controls {
+  display: flex;
+  align-items: center;
+	justify-content: space-between;
+  padding: 10px 0;
+
+  .carousel-arrow {
+		position: relative;
+    cursor: pointer;
+    font-size: 1rem;
+    color: $carousel-controls-color;
+    transition: 0.25s;
+		z-index: $carousel-controls-arrow-z-index;
+
+    &:hover {
+      color: $carousel-controls-hover-color;
+    }
+
+    &.slick-disabled {
+      cursor: not-allowed;
+      color: $carousel-controls-disabled-color;
+      pointer-events: none;
+      opacity: 0.25;
+    }
+  }
+
+  .carousel-dots {
+
+    .slick-dots {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    li {
+      display: inline-block;
+      margin: 0 6px;
+
+      button {
+        appearance: none;
+        -webkit-appearance: none;
+        display: block;
+        width: 10px;
+        height: 10px;
+        padding: 0;
+        background-color: $carousel-controls-color;
+        border: none;
+        border-radius: 50%;
+        text-indent: -9999px;
+        cursor: pointer;
+        transition: 0.25s;
+      }
+
+      &.slick-active {
+        button {
+          background-color: $carousel-controls-hover-color;
+        }
+      }
+    }
+  }
+}
+
+.carousel-container {
+  & > .row {
+    display: block;
+  }
+}

@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+
+  <head>
+
+    <link rel="stylesheet" href="carousel.css">
+    <meta charset="utf-8">
+
+  </head>
+
+  <body>
+    <div id="test-carousel">
+
+        <div class='slide'>
+          <p>1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vestibulum congue ipsum eu bibendum. Suspendisse maximus mollis odio, in scelerisque massa hendrerit et.</p>
+        </div>
+        <div class='slide'>
+          <p>2 Maecenas eu est sit amet nunc feugiat dictum. Curabitur rutrum odio vitae velit dignissim, ac bibendum lectus auctor. Donec nec elit ac purus elementum efficitur. Aliquam erat volutpat. Aenean eget faucibus ex. In ultrices semper hendrerit. Nullam eu nulla lectus.</p>
+        </div>
+        <div class='slide'>
+          <p>3 Aenean tempor, ante in faucibus feugiat, dui nisl cursus nisi, nec euismod tortor neque id nibh. Donec lectus erat, efficitur ut sapien eget, elementum posuere lacus. Aliquam purus lectus, hendrerit a tellus ac, vulputate accumsan massa. Integer et erat tempus, dapibus velit ut, imperdiet justo. Morbi sit amet metus nec ante ullamcorper maximus. Sed lobortis eros nunc, in tincidunt leo pharetra vel. Aliquam hendrerit pretium nisi, vitae finibus eros. Mauris vulputate sollicitudin lacus quis luctus. Nullam quis ligula at nunc pellentesque dapibus sit amet in lectus. Sed accumsan non turpis aliquet finibus. Cras vel elit et massa feugiat tempus. Vivamus blandit cursus luctus.</p>
+        </div>
+        <div class='slide is-ref'>
+          <p>4 Fusce pharetra diam at neque rhoncus, et mattis ante convallis. Vestibulum nulla tellus, molestie facilisis turpis sodales, auctor pretium metus. Nulla metus nisl, tempus a mauris at, efficitur condimentum nisl. Etiam vulputate id eros ut efficitur. Etiam interdum ultricies augue, at malesuada lorem pellentesque eget. Pellentesque eleifend porttitor ipsum. Vestibulum hendrerit non libero in sagittis. In et mollis tellus, a congue urna. Curabitur aliquet ante in lacus bibendum, vitae ultricies nisl euismod. Cras sagittis sem vitae eros posuere, a posuere erat fringilla. Curabitur condimentum leo eros, id aliquet turpis rutrum sit amet. Maecenas pellentesque volutpat magna sed laoreet. Curabitur at nisi vehicula, suscipit leo egestas, sollicitudin quam. Ut sed accumsan leo, non interdum tortor. Morbi pharetra metus erat, sit amet pellentesque sapien porta ac. Nunc non aliquet nibh.</p>
+        </div>
+
+    </div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="carousel.js"></script>
+
+    <script type="text/javascript">
+
+      (function($) {
+        $(function() {
+
+          $('#test-carousel').new_carousel({
+            auto_height: false
+          })
+
+        });
+      })(jQuery);
+
+    </script>
+
+  </body>
+
+
+</html>

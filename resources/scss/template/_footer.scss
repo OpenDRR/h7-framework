@@ -1,0 +1,16 @@
+#page-footer {
+  position: relative;
+  z-index: $footer-z-index;
+  padding-top: $footer-padding-top;
+  padding-bottom: $footer-padding-bottom;
+
+  .fw-footer-section {
+    padding-top: $footer-section-padding-top;
+    padding-bottom: $footer-section-padding-bottom;
+    z-index: 2; // above bg
+  }
+
+  .fw-footer-block {
+    margin-bottom: $footer-block-margin-bottom;
+  }
+}

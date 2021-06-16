@@ -1,0 +1,801 @@
+@import url(//use.fontawesome.com/releases/v5.9.0/css/all.css);
+
+//
+// VARIABLES
+//
+
+// COLOURS
+
+// backgrounds
+
+$level-1-bg: #ddd;
+$level-2-bg: lighten($level-1-bg, 3%);
+$level-3-bg: lighten($level-2-bg, 3%);
+$level-4-bg: lighten($level-3-bg, 3%);
+
+// font sizes
+
+$level-1-accordion-font-size: 16px;
+$level-2-accordion-font-size: 14px;
+
+/*
+//
+//
+// FIELD TYPES
+//
+//
+
+//
+// ACCORDION
+//
+
+.acf-field {
+
+  // LEVEL 1
+
+  // backgrounds
+
+  &.acf-field-5d09415a9a111,
+  &.acf-field-5d07e11aa7460,
+  &.acf-field-5d07e123a7461,
+  &.acf-field-5d1254bbcafff,
+  &.acf-field-5d1261ff9b49f,
+  &.acf-field-5d30b5918357d,
+  &.acf-field-5d30b6a0f3913,
+  &.acf-field-5d30bcdb160ba,
+  &.acf-field-5d30bce4160bb {
+    background-color: $level-1-bg;
+
+    & > .acf-accordion-content {
+      background-color: $level-1-bg;
+    }
+  }
+
+  // fonts
+
+  &.acf-field-5d07e11aa7460 > .acf-accordion-title,
+  &.acf-field-5d1254bbcafff > .acf-accordion-title {
+    label {
+      font-size: $level-1-accordion-font-size;
+    }
+  }
+
+  // LEVEL 2
+
+  // backgrounds
+
+  &.acf-field-5d0b96415efd8,
+  &.acf-field-5d07dcf472108,
+  &.acf-field-5d07dd0c72109,
+  &.acf-field-5d30bcdb160ba .acf-field-5d30b5918357d,
+  &.acf-field-5d30bcdb160ba .acf-field-5d30b6a0f3913 {
+    background-color: $level-2-bg;
+
+    & > .acf-accordion-content {
+      background-color: $level-2-bg;
+    }
+  }
+
+  // fonts
+
+  &.acf-field-5d07dcf472108 > .acf-accordion-title {
+    label {
+      font-size: $level-2-accordion-font-size;
+    }
+  }
+
+  // 'SETTINGS' ACCORDION
+
+  &.acf-field-5d07e123a7461,
+  &.acf-field-5d07dd0c72109,
+  &.acf-field-5d1261ff9b49f,
+  &.acf-field-5d30b6a0f3913,
+  &.acf-field-5d30bce4160bb,
+  &.acf-field-5d07efc7ab7cb,
+  &.acf-field-5d408d09fa1c1,
+  &.acf-field-5db9bf6bd9724,
+  &.acf-field-5dc19e4dbe054,
+  &.acf-field-5dc19e62be055,
+  &.acf-field-5dc1e431e1aa6,
+  &.acf-field-5dc1e63338ffc {
+    & > .acf-accordion-title {
+      label {
+        font-size: 12px;
+        font-weight: normal;
+        color: #999;
+
+        &:before {
+          content: '\f013';
+          display: inline-block;
+          margin-right: 10px;
+          font-family: "Font Awesome 5 Free";
+        }
+      }
+    }
+
+    &.-open {
+      & > .acf-accordion-title {
+        label {
+          color: #666;
+
+          &:before {
+            content: '\f00d';
+          }
+        }
+      }
+    }
+
+    & > .acf-accordion-content {
+      box-shadow: inset 0 7px 7px -5px transparentize(#000, 0.8);
+    }
+  }
+
+  &.setting-field {
+    background-color: $level-1-bg;
+  }
+
+  // 'LAYOUT' ACCORDION
+
+  &.acf-field-5d5d86c89dcd8,
+  &.acf-field-5d641d185eb99,
+  &.acf-field-5dc1a2aaa2a50 {
+    & > .acf-accordion-title {
+      background-color: $level-3-bg;
+
+      label {
+        font-size: 12px;
+        font-weight: normal;
+        color: #999;
+
+        &:before {
+          content: '\f0db';
+          display: inline-block;
+          margin-right: 10px;
+          font-family: "Font Awesome 5 Free";
+        }
+      }
+    }
+
+    &.-open {
+      & > .acf-accordion-title {
+        label {
+          color: #666;
+
+          &:before {
+            content: '\f00d';
+          }
+        }
+      }
+    }
+  }
+
+}
+
+//
+// FLEX
+//
+
+//
+//
+// PAGE CONTENT FIELDS
+//
+//
+
+.acf-field {
+
+
+  //
+  // START/END MESSAGES
+  //
+
+  // common
+
+  &.acf-field-5d09415a9a111,
+  &.acf-field-5d0b96415efd8,
+  &.acf-field-5d3f496616d02,
+  &.acf-field-5d3f4b035a813 {
+
+    .acf-label {
+      margin-bottom: 0;
+
+      label {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0;
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: #aaa;
+
+        &:before {
+          content: '#';
+          font-weight: normal;
+          opacity: 0.5;
+          margin-right: 5px;
+        }
+
+        &:after {
+          content: '';
+          display: block;
+          flex-grow: 1;
+          width: 20px;
+          height: 1px;
+          margin-left: 10px;
+          background-color: #aaa;
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+
+  // section
+
+  &.acf-field-5d09415a9a111 {
+  }
+
+  // hero templates
+
+  // container message
+
+  &.acf-field-5d3f4b035a813 {
+    background-color: $level-1-bg;
+  }
+
+  // hero template
+
+  &.acf-field-5d3f496616d02 {
+    background-color: #f9f9f9;
+  }
+
+  //
+  // LABELS
+  //
+
+  &.acf-field-5d07dcec72107 {
+    & > .acf-label {
+      display: none;
+    }
+  }
+
+  //
+  // BUTTONS
+  //
+
+  &.acf-field-5d07dbff09f53 {
+    & > .acf-input {
+      & > .acf-repeater {
+        & > .acf-actions {
+          .button {
+            font-size: 17px;
+            line-height: 32px;
+            height: 34px;
+          }
+        }
+      }
+    }
+  }
+
+
+
+}
+
+//
+//
+// OPTIONS PAGES
+//
+//
+
+
+//
+
+
+
+
+//
+//
+// EDIT TAXONOMY SCREEN
+//
+//
+
+.taxonomy-campaign {
+  #edittag {
+    max-width: 9999px;
+  }
+}
+
+
+
+//
+//
+//
+//
+//
+
+
+*/
+
+
+// SETTINGS
+
+.acf-field {
+	&.section-settings-accordion,
+	&.container-settings-accordion,
+	&.column-settings-accordion,
+	&.block-settings-accordion,
+  &.acf-field-5dc19e4dbe054,    // section
+  &.acf-field-5dc19e62be055,    // container
+  &.acf-field-5dc5b174572e8,    // column
+  &.acf-field-5dc1e431e1aa6,    // block - content
+  &.acf-field-5dc31ad69ca7f,    // block - interactive
+  &.acf-field-5dc442ad42103     // block - navigation
+  {
+    & > .acf-accordion-title {
+      label {
+        font-size: 12px;
+        font-weight: normal;
+        color: #999;
+
+        &:before {
+          content: '\f013';
+          display: inline-block;
+          margin-right: 10px;
+          font-family: "Font Awesome 5 Free";
+        }
+      }
+    }
+
+    &.-open {
+      & > .acf-accordion-title {
+        label {
+          color: #666;
+
+          &:before {
+            content: '\f00d';
+          }
+        }
+      }
+    }
+  }
+
+  &.setting-field {
+    background-color: $level-1-bg;
+  }
+}
+
+// accordion box shadow
+
+.acf-field {
+	&.section-settings-accordion,
+	&.container-settings-accordion,
+	&.column-breakpoints-accordion,
+	&.column-settings-accordion,
+	&.block-settings-accordion,
+  &.acf-field-5dc19e4dbe054,    // section
+  &.acf-field-5dc19e62be055,    // container
+  &.acf-field-5dc5b174572e8,    // column
+  &.acf-field-5dc1e431e1aa6,    // block - content
+  &.acf-field-5dc31ad69ca7f,    // block - interactive
+  &.acf-field-5dc442ad42103,    // block - navigation
+  &.acf-field-5dc1a2aaa2a50     // breakpoints
+  {
+
+    & > .acf-accordion-content {
+      box-shadow: inset 0 2px 7px transparentize(#000, 0.8);
+    }
+  }
+}
+
+// LAYOUT / BREAKPOINTS
+
+.acf-field {
+	&.column-breakpoints-accordion,
+  &.acf-field-5dc1a2aaa2a50 { // column
+    & > .acf-accordion-title {
+      background-color: $level-3-bg;
+
+      label {
+        font-size: 12px;
+        font-weight: normal;
+        color: #999;
+
+        &:before {
+          content: '\f0db';
+          display: inline-block;
+          margin-right: 10px;
+          font-family: "Font Awesome 5 Free";
+        }
+      }
+    }
+
+    &.-open {
+      & > .acf-accordion-title {
+        label {
+          color: #666;
+
+          &:before {
+            content: '\f00d';
+          }
+        }
+      }
+    }
+  }
+
+  //
+  // BACKGROUNDS
+  //
+
+  // section
+
+  &.section-settings-accordion {
+    & > .acf-accordion-title {
+      background-color: $level-1-bg;
+    }
+
+    & > .acf-accordion-content {
+      background-color: darken($level-1-bg, 3%);
+    }
+  }
+
+  // container
+
+  &.container-settings-accordion {
+    & > .acf-accordion-title {
+      background-color: $level-2-bg;
+    }
+
+    & > .acf-accordion-content {
+      background-color: darken($level-2-bg, 3%);
+    }
+  }
+
+  // column
+  &.column-settings-accordion,    // column settings
+  &.column-breakpoints-accordion     // breakpoints
+  {
+    & > .acf-accordion-title {
+      background-color: $level-3-bg;
+    }
+
+    & > .acf-accordion-content {
+      background-color: darken($level-3-bg, 3%);
+    }
+  }
+
+  // block
+
+	&.block-settings-accordion
+  {
+    & > .acf-accordion-title {
+      background-color: $level-4-bg;
+    }
+
+    & > .acf-accordion-content {
+      background-color: darken($level-4-bg, 3%);
+    }
+  }
+
+}
+
+//
+// ELEMENT TITLE BARS
+//
+
+// section
+
+.acf-flexible-content {
+  .layout {
+    &[data-layout="section"] {
+      background-color: $level-1-bg;
+
+      & > .acf-fc-layout-handle {
+        font-size: 1.6em;
+      }
+    }
+
+    &[data-layout="container"] {
+      background-color: $level-2-bg;
+
+      & > .acf-fc-layout-handle {
+        font-size: 1.4em;
+      }
+    }
+
+    &[data-layout="column"] {
+      background-color: $level-3-bg;
+
+      & > .acf-fc-layout-handle {
+        font-size: 1.2em;
+      }
+    }
+
+    &[data-layout="block_content"],
+    &[data-layout="block_interactive"],
+    &[data-layout="block_navigation"] {
+      background-color: $level-4-bg;
+
+      & > .acf-fc-layout-handle {
+      }
+    }
+  }
+}
+
+//
+// FIELD GROUPS
+//
+
+$sub-field-border-color: transparentize(#000, 0.8);
+
+html .acf-fields > .acf-field {
+  border-left-color: $sub-field-border-color;
+  border-top-color: $sub-field-border-color;
+
+  &[data-width]+.acf-field[data-width],
+  .acf-flexible-content .layout,
+  .acf-flexible-content .layout .acf-fc-layout-handle,
+  &.acf-accordion .acf-accordion-content > .acf-fields {
+    border-color: $sub-field-border-color;
+    border-bottom-color: $sub-field-border-color;
+    border-top-color: $sub-field-border-color;
+    border-left-color: $sub-field-border-color;
+  }
+
+  // section
+
+  &.sections-loop-field {
+    & > .acf-input {
+      & > .acf-flexible-content {
+        & > .values {
+          & > .layout {
+            border-color: #a5a5a5;
+
+            & > .acf-fc-layout-handle,
+            & > .acf-fields {
+              background-color: $level-1-bg;
+            }
+          }
+        }
+
+        & > .acf-actions {
+          padding-top: 15px;
+
+          .button {
+            font-size: 17px;
+            line-height: 32px;
+            height: 34px;
+          }
+        }
+      }
+    }
+  }
+
+  // container
+
+  &.containers-loop-field {
+    // padding: 0;
+    // border-top: none;
+
+    & > .acf-input {
+      & > .acf-repeater {
+        & > table {
+          background: transparent;
+          border-color: $sub-field-border-color;
+
+          & > tbody {
+            & > .acf-row {
+              & > .acf-row-handle {
+                background: $level-2-bg;
+
+                &:hover {
+                  background: $level-3-bg;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // column
+
+  &.columns-loop-field {
+    background-color: $level-2-bg;
+
+    & > .acf-input {
+      & > .acf-repeater {
+        & > table {
+          background: transparent;
+          border-color: $sub-field-border-color;
+
+          & > tbody {
+            & > .acf-row {
+              & > .acf-row-handle {
+                background: $level-3-bg;
+
+                &:hover {
+                  background: #fff;
+                }
+              }
+
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+  // block
+
+  &.blocks-loop-field {
+    background-color: $level-4-bg;
+  }
+}
+
+//
+// INDIVIDUAL FIELD GROUPS
+//
+
+.acf-field {
+
+  // HIDE LABEL
+
+  &.hide-label {
+    & > .acf-label {
+      display: none;
+    }
+  }
+
+  // PAGE BUILDER
+
+  &.page-builder-field {
+    & > .acf-input {
+      & > .acf-flexible-content {
+        & > .values {
+          & > .layout {
+            &:hover {
+              border-left-color: transparentize(#000, 0.5);
+              border-right-color: transparentize(#000, 0.5);
+              border-top-color: transparentize(#000, 0.5);
+              border-bottom-color: transparentize(#000, 0.5);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // BREAKPOINTS
+
+  &.col-breakpoints {
+    .acf-fields {
+      .acf-fields {
+        .acf-label {
+          display: none; // hide column/offset/order labels
+        }
+      }
+    }
+  }
+
+  // IMAGE HOTSPOTS
+
+  .acf-field-5d3b16f0600a5 {
+    transition: background-color 0.25s;
+
+    img {
+      transition: box-shadow 0.25s;
+      cursor: not-allowed;
+    }
+
+    &.coord-mode {
+      background-color: #f7fcfe;
+
+      img {
+        box-shadow: 0 5px 50px rgba(0,0,0,0.5);
+        cursor: crosshair;
+      }
+    }
+  }
+
+	// layout - theme files
+
+	&.layout-theme-files {
+		.acf-checkbox-list {
+			display: flex;
+			flex-wrap: wrap;
+
+			li {
+				display: flex;
+				align-items: center;
+				flex: 0 0 29%;
+				margin: 0 0 0.5% 0.5%;
+				background-color: #fff;
+				padding: 1em;
+			}
+
+			label {
+				display: block;
+			}
+
+			input[type="text"] {
+				margin: 0;
+				font-size: 12px;
+			}
+
+			.acf-add-checkbox {
+				margin: 0;
+			}
+		}
+	}
+
+}
+
+//
+// NEW PAGE BUILDER
+//
+
+.acf-field {
+
+}
+
+//
+// TOOLBAR
+//
+
+#page-builder-toolbar {
+	display: flex;
+	float: right;
+	justify-content: flex-end;
+}
+
+.toolbar-icon {
+	margin-left: 10px;
+
+	i {
+		margin-right: 10px;
+	}
+}
+
+//
+// INSERT FROM TEMPLATE MODAL
+//
+
+#page-builder-modal-overlay {
+	position: fixed;
+	left: -9999px;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+	opacity: 0;
+	transition: left 0s linear 0.25s, opacity 0.25s;
+	z-index: 9999;
+
+	&.open {
+		left: 0;
+		opacity: 1;
+		transition: left 0s, opacity 0.25s;
+	}
+}
+
+.page-builder-modal {
+	display: none;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	background: #fff;
+	box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+}
+
+.page-builder-modal-body {
+	padding: 0 1.5em 1em 1.5em;
+}
+
+.page-builder-modal-footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1.5em;
+	border-top: 1px solid #ddd;
+}
