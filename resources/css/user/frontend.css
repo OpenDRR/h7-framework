@@ -1,9 +1,6 @@
 .admin-bar .fixed-top {
   top: 32px;
 }
-.admin-bar #main-header {
-  top: 32px;
-}
 .admin-bar.has-alert #main-header {
   top: 0;
 }
@@ -50,9 +47,6 @@
   .admin-bar.has-alert.alert-closed .overlay {
     height: calc(100% - (46px));
   }
-}
-#wpadminbar {
-  position: fixed !important;
 }
 
 /*# sourceMappingURL=frontend.css.map */

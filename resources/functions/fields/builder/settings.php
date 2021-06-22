@@ -282,6 +282,8 @@ $GLOBALS['fw_fields']['common']['settings']['spacing'] = array(
 					6 => '6',
 					7 => '7',
 					8 => '8',
+					9 => '9',
+					10 => '10'
 				),
 				'default_value' => 0,
 				'allow_null' => 0,
@@ -314,6 +316,8 @@ $GLOBALS['fw_fields']['common']['settings']['spacing'] = array(
 					6 => '6',
 					7 => '7',
 					8 => '8',
+					9 => '9',
+					10 => '10'
 				),
 				'default_value' => 0,
 				'allow_null' => 0,

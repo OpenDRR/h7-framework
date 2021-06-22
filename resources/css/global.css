@@ -1,8 +1,8 @@
 @charset "UTF-8";
 @import 'https://unpkg.com/swiper/swiper-bundle.min.css';
 :root {
-  --blue: #007bff;
-  --indigo: #6610f2;
+  --blue: #001ffa;
+  --indigo: #545f92;
   --purple: #6f42c1;
   --pink: #e83e8c;
   --red: #dc3545;
@@ -10,24 +10,25 @@
   --yellow: #ffc107;
   --green: #28a745;
   --teal: #20c997;
-  --cyan: #17a2b8;
+  --cyan: #00eaff;
   --white: #fff;
   --gray: #6c757d;
   --gray-dark: #343a40;
-  --primary: #007bff;
-  --secondary: #6c757d;
+  --primary: #001ffa;
+  --secondary: #00eaff;
+  --indigo: #545f92;
   --success: #28a745;
   --info: #17a2b8;
   --warning: #ffc107;
   --danger: #dc3545;
-  --light: #f8f9fa;
+  --light: #faf7f6;
   --dark: #343a40;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family-sans-serif: "HTGSans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
@@ -50,13 +51,13 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: "HTGSans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
+  color: #252525;
   text-align: left;
-  background-color: #fff;
+  background-color: #faf7f6;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -71,7 +72,7 @@ hr {
 
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
 p {
@@ -147,12 +148,12 @@ sup {
 }
 
 a {
-  color: #007bff;
+  color: #001ffa;
   text-decoration: none;
   background-color: transparent;
 }
 a:hover {
-  color: #0056b3;
+  color: #005ae7;
   text-decoration: underline;
 }
 
@@ -306,6 +307,11 @@ legend {
   color: inherit;
   white-space: normal;
 }
+@media (max-width: 1200px) {
+  legend {
+    font-size: calc(1.275rem + 0.3vw);
+  }
+}
 
 progress {
   vertical-align: baseline;
@@ -349,25 +355,46 @@ template {
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  margin-bottom: 0.5rem;
-  font-weight: 500;
+  margin-bottom: 1.5rem;
+  font-family: "HTGDisplay", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-weight: 400;
   line-height: 1.2;
 }
 
 h1, .h1 {
-  font-size: 2.5rem;
+  font-size: 5rem;
+}
+@media (max-width: 1200px) {
+  h1, .h1 {
+    font-size: calc(1.625rem + 4.5vw);
+  }
 }
 
 h2, .h2 {
-  font-size: 2rem;
+  font-size: 3.5rem;
+}
+@media (max-width: 1200px) {
+  h2, .h2 {
+    font-size: calc(1.475rem + 2.7vw);
+  }
 }
 
 h3, .h3 {
   font-size: 1.75rem;
 }
+@media (max-width: 1200px) {
+  h3, .h3 {
+    font-size: calc(1.3rem + 0.6vw);
+  }
+}
 
 h4, .h4 {
   font-size: 1.5rem;
+}
+@media (max-width: 1200px) {
+  h4, .h4 {
+    font-size: calc(1.275rem + 0.3vw);
+  }
 }
 
 h5, .h5 {
@@ -379,8 +406,13 @@ h6, .h6 {
 }
 
 .lead {
-  font-size: 1.25rem;
-  font-weight: 300;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+@media (max-width: 1200px) {
+  .lead {
+    font-size: calc(1.275rem + 0.3vw);
+  }
 }
 
 .display-1 {
@@ -388,23 +420,43 @@ h6, .h6 {
   font-weight: 300;
   line-height: 1.2;
 }
+@media (max-width: 1200px) {
+  .display-1 {
+    font-size: calc(1.725rem + 5.7vw);
+  }
+}
 
 .display-2 {
   font-size: 5.5rem;
   font-weight: 300;
   line-height: 1.2;
 }
+@media (max-width: 1200px) {
+  .display-2 {
+    font-size: calc(1.675rem + 5.1vw);
+  }
+}
 
 .display-3 {
-  font-size: 4.5rem;
+  font-size: 2.25rem;
   font-weight: 300;
   line-height: 1.2;
 }
+@media (max-width: 1200px) {
+  .display-3 {
+    font-size: calc(1.35rem + 1.2vw);
+  }
+}
 
 .display-4 {
-  font-size: 3.5rem;
-  font-weight: 300;
+  font-size: 1.75rem;
+  font-weight: 400;
   line-height: 1.2;
+}
+@media (max-width: 1200px) {
+  .display-4 {
+    font-size: calc(1.3rem + 0.6vw);
+  }
 }
 
 hr {
@@ -530,8 +582,8 @@ pre code {
 
 .container {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   margin-right: auto;
   margin-left: auto;
 }
@@ -558,8 +610,8 @@ pre code {
 
 .container-fluid, .container-xl, .container-lg, .container-md, .container-sm {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   margin-right: auto;
   margin-left: auto;
 }
@@ -587,8 +639,8 @@ pre code {
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
+  margin-right: 0;
+  margin-left: 0;
 }
 
 .no-gutters {
@@ -609,8 +661,8 @@ pre code {
 .col-auto, .col-12, .col-11, .col-10, .col-9, .col-8, .col-7, .col-6, .col-5, .col-4, .col-3, .col-2, .col-1 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
 }
 
 .col {
@@ -1718,41 +1770,61 @@ pre code {
 .table-primary,
 .table-primary > th,
 .table-primary > td {
-  background-color: #b8daff;
+  background-color: #b8c0fe;
 }
 .table-primary th,
 .table-primary td,
 .table-primary thead th,
 .table-primary tbody + tbody {
-  border-color: #7abaff;
+  border-color: #7a8bfc;
 }
 
 .table-hover .table-primary:hover {
-  background-color: #9fcdff;
+  background-color: #9faafe;
 }
 .table-hover .table-primary:hover > td,
 .table-hover .table-primary:hover > th {
-  background-color: #9fcdff;
+  background-color: #9faafe;
 }
 
 .table-secondary,
 .table-secondary > th,
 .table-secondary > td {
-  background-color: #d6d8db;
+  background-color: #b8f9ff;
 }
 .table-secondary th,
 .table-secondary td,
 .table-secondary thead th,
 .table-secondary tbody + tbody {
-  border-color: #b3b7bb;
+  border-color: #7af4ff;
 }
 
 .table-hover .table-secondary:hover {
-  background-color: #c8cbcf;
+  background-color: #9ff7ff;
 }
 .table-hover .table-secondary:hover > td,
 .table-hover .table-secondary:hover > th {
-  background-color: #c8cbcf;
+  background-color: #9ff7ff;
+}
+
+.table-indigo,
+.table-indigo > th,
+.table-indigo > td {
+  background-color: #cfd2e0;
+}
+.table-indigo th,
+.table-indigo td,
+.table-indigo thead th,
+.table-indigo tbody + tbody {
+  border-color: #a6acc6;
+}
+
+.table-hover .table-indigo:hover {
+  background-color: #c0c3d6;
+}
+.table-hover .table-indigo:hover > td,
+.table-hover .table-indigo:hover > th {
+  background-color: #c0c3d6;
 }
 
 .table-success,
@@ -1838,21 +1910,21 @@ pre code {
 .table-light,
 .table-light > th,
 .table-light > td {
-  background-color: #fdfdfe;
+  background-color: #fefdfc;
 }
 .table-light th,
 .table-light td,
 .table-light thead th,
 .table-light tbody + tbody {
-  border-color: #fbfcfc;
+  border-color: #fcfbfa;
 }
 
 .table-hover .table-light:hover {
-  background-color: #ececf6;
+  background-color: #f8f0e9;
 }
 .table-hover .table-light:hover > td,
 .table-hover .table-light:hover > th {
-  background-color: #ececf6;
+  background-color: #f8f0e9;
 }
 
 .table-dark,
@@ -2388,15 +2460,16 @@ textarea.form-control {
 
 .btn {
   display: inline-block;
-  font-weight: 400;
-  color: #212529;
+  font-family: "HTGDisplay", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-weight: 500;
+  color: #252525;
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
   user-select: none;
   background-color: transparent;
   border: 1px solid transparent;
-  padding: 0.375rem 0.75rem;
+  padding: 0.5rem 1.5rem;
   font-size: 1rem;
   line-height: 1.5;
   border-radius: 0.25rem;
@@ -2408,7 +2481,7 @@ textarea.form-control {
   }
 }
 .btn:hover {
-  color: #212529;
+  color: #252525;
   text-decoration: none;
 }
 .btn:focus, .btn.focus {
@@ -2425,62 +2498,92 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #001ffa;
+  border-color: #001ffa;
 }
 .btn-primary:hover {
   color: #fff;
-  background-color: #0069d9;
-  border-color: #0062cc;
+  background-color: #001ad4;
+  border-color: #0019c7;
 }
 .btn-primary:focus, .btn-primary.focus {
   color: #fff;
-  background-color: #0069d9;
-  border-color: #0062cc;
-  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+  background-color: #001ad4;
+  border-color: #0019c7;
+  box-shadow: 0 0 0 0.2rem rgba(38, 65, 251, 0.5);
 }
 .btn-primary.disabled, .btn-primary:disabled {
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #001ffa;
+  border-color: #001ffa;
 }
 .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
   color: #fff;
-  background-color: #0062cc;
-  border-color: #005cbf;
+  background-color: #0019c7;
+  border-color: #0017ba;
 }
 .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-primary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(38, 65, 251, 0.5);
 }
 
 .btn-secondary {
-  color: #fff;
-  background-color: #6c757d;
-  border-color: #6c757d;
+  color: #212529;
+  background-color: #00eaff;
+  border-color: #00eaff;
 }
 .btn-secondary:hover {
   color: #fff;
-  background-color: #5a6268;
-  border-color: #545b62;
+  background-color: #00c7d9;
+  border-color: #00bbcc;
 }
 .btn-secondary:focus, .btn-secondary.focus {
   color: #fff;
-  background-color: #5a6268;
-  border-color: #545b62;
-  box-shadow: 0 0 0 0.2rem rgba(130, 138, 145, 0.5);
+  background-color: #00c7d9;
+  border-color: #00bbcc;
+  box-shadow: 0 0 0 0.2rem rgba(5, 204, 223, 0.5);
 }
 .btn-secondary.disabled, .btn-secondary:disabled {
-  color: #fff;
-  background-color: #6c757d;
-  border-color: #6c757d;
+  color: #212529;
+  background-color: #00eaff;
+  border-color: #00eaff;
 }
 .btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active, .show > .btn-secondary.dropdown-toggle {
   color: #fff;
-  background-color: #545b62;
-  border-color: #4e555b;
+  background-color: #00bbcc;
+  border-color: #00b0bf;
 }
 .btn-secondary:not(:disabled):not(.disabled):active:focus, .btn-secondary:not(:disabled):not(.disabled).active:focus, .show > .btn-secondary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem rgba(130, 138, 145, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(5, 204, 223, 0.5);
+}
+
+.btn-indigo {
+  color: #fff;
+  background-color: #545f92;
+  border-color: #545f92;
+}
+.btn-indigo:hover {
+  color: #fff;
+  background-color: #464f7a;
+  border-color: #414a72;
+}
+.btn-indigo:focus, .btn-indigo.focus {
+  color: #fff;
+  background-color: #464f7a;
+  border-color: #414a72;
+  box-shadow: 0 0 0 0.2rem rgba(110, 119, 162, 0.5);
+}
+.btn-indigo.disabled, .btn-indigo:disabled {
+  color: #fff;
+  background-color: #545f92;
+  border-color: #545f92;
+}
+.btn-indigo:not(:disabled):not(.disabled):active, .btn-indigo:not(:disabled):not(.disabled).active, .show > .btn-indigo.dropdown-toggle {
+  color: #fff;
+  background-color: #414a72;
+  border-color: #3d456a;
+}
+.btn-indigo:not(:disabled):not(.disabled):active:focus, .btn-indigo:not(:disabled):not(.disabled).active:focus, .show > .btn-indigo.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(110, 119, 162, 0.5);
 }
 
 .btn-success {
@@ -2605,32 +2708,32 @@ fieldset:disabled a.btn {
 
 .btn-light {
   color: #212529;
-  background-color: #f8f9fa;
-  border-color: #f8f9fa;
+  background-color: #faf7f6;
+  border-color: #faf7f6;
 }
 .btn-light:hover {
   color: #212529;
-  background-color: #e2e6ea;
-  border-color: #dae0e5;
+  background-color: #ece1dd;
+  border-color: #e8dad5;
 }
 .btn-light:focus, .btn-light.focus {
   color: #212529;
-  background-color: #e2e6ea;
-  border-color: #dae0e5;
-  box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, 0.5);
+  background-color: #ece1dd;
+  border-color: #e8dad5;
+  box-shadow: 0 0 0 0.2rem rgba(217, 216, 215, 0.5);
 }
 .btn-light.disabled, .btn-light:disabled {
   color: #212529;
-  background-color: #f8f9fa;
-  border-color: #f8f9fa;
+  background-color: #faf7f6;
+  border-color: #faf7f6;
 }
 .btn-light:not(:disabled):not(.disabled):active, .btn-light:not(:disabled):not(.disabled).active, .show > .btn-light.dropdown-toggle {
   color: #212529;
-  background-color: #dae0e5;
-  border-color: #d3d9df;
+  background-color: #e8dad5;
+  border-color: #e3d3cd;
 }
 .btn-light:not(:disabled):not(.disabled):active:focus, .btn-light:not(:disabled):not(.disabled).active:focus, .show > .btn-light.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(217, 216, 215, 0.5);
 }
 
 .btn-dark {
@@ -2664,53 +2767,78 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-primary {
-  color: #007bff;
-  border-color: #007bff;
+  color: #001ffa;
+  border-color: #001ffa;
 }
 .btn-outline-primary:hover {
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #001ffa;
+  border-color: #001ffa;
 }
 .btn-outline-primary:focus, .btn-outline-primary.focus {
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(0, 31, 250, 0.5);
 }
 .btn-outline-primary.disabled, .btn-outline-primary:disabled {
-  color: #007bff;
+  color: #001ffa;
   background-color: transparent;
 }
 .btn-outline-primary:not(:disabled):not(.disabled):active, .btn-outline-primary:not(:disabled):not(.disabled).active, .show > .btn-outline-primary.dropdown-toggle {
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #001ffa;
+  border-color: #001ffa;
 }
 .btn-outline-primary:not(:disabled):not(.disabled):active:focus, .btn-outline-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-primary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(0, 31, 250, 0.5);
 }
 
 .btn-outline-secondary {
-  color: #6c757d;
-  border-color: #6c757d;
+  color: #00eaff;
+  border-color: #00eaff;
 }
 .btn-outline-secondary:hover {
-  color: #fff;
-  background-color: #6c757d;
-  border-color: #6c757d;
+  color: #212529;
+  background-color: #00eaff;
+  border-color: #00eaff;
 }
 .btn-outline-secondary:focus, .btn-outline-secondary.focus {
-  box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(0, 234, 255, 0.5);
 }
 .btn-outline-secondary.disabled, .btn-outline-secondary:disabled {
-  color: #6c757d;
+  color: #00eaff;
   background-color: transparent;
 }
 .btn-outline-secondary:not(:disabled):not(.disabled):active, .btn-outline-secondary:not(:disabled):not(.disabled).active, .show > .btn-outline-secondary.dropdown-toggle {
-  color: #fff;
-  background-color: #6c757d;
-  border-color: #6c757d;
+  color: #212529;
+  background-color: #00eaff;
+  border-color: #00eaff;
 }
 .btn-outline-secondary:not(:disabled):not(.disabled):active:focus, .btn-outline-secondary:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-secondary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(0, 234, 255, 0.5);
+}
+
+.btn-outline-indigo {
+  color: #545f92;
+  border-color: #545f92;
+}
+.btn-outline-indigo:hover {
+  color: #fff;
+  background-color: #545f92;
+  border-color: #545f92;
+}
+.btn-outline-indigo:focus, .btn-outline-indigo.focus {
+  box-shadow: 0 0 0 0.2rem rgba(84, 95, 146, 0.5);
+}
+.btn-outline-indigo.disabled, .btn-outline-indigo:disabled {
+  color: #545f92;
+  background-color: transparent;
+}
+.btn-outline-indigo:not(:disabled):not(.disabled):active, .btn-outline-indigo:not(:disabled):not(.disabled).active, .show > .btn-outline-indigo.dropdown-toggle {
+  color: #fff;
+  background-color: #545f92;
+  border-color: #545f92;
+}
+.btn-outline-indigo:not(:disabled):not(.disabled):active:focus, .btn-outline-indigo:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-indigo.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(84, 95, 146, 0.5);
 }
 
 .btn-outline-success {
@@ -2814,28 +2942,28 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-light {
-  color: #f8f9fa;
-  border-color: #f8f9fa;
+  color: #faf7f6;
+  border-color: #faf7f6;
 }
 .btn-outline-light:hover {
   color: #212529;
-  background-color: #f8f9fa;
-  border-color: #f8f9fa;
+  background-color: #faf7f6;
+  border-color: #faf7f6;
 }
 .btn-outline-light:focus, .btn-outline-light.focus {
-  box-shadow: 0 0 0 0.2rem rgba(248, 249, 250, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(250, 247, 246, 0.5);
 }
 .btn-outline-light.disabled, .btn-outline-light:disabled {
-  color: #f8f9fa;
+  color: #faf7f6;
   background-color: transparent;
 }
 .btn-outline-light:not(:disabled):not(.disabled):active, .btn-outline-light:not(:disabled):not(.disabled).active, .show > .btn-outline-light.dropdown-toggle {
   color: #212529;
-  background-color: #f8f9fa;
-  border-color: #f8f9fa;
+  background-color: #faf7f6;
+  border-color: #faf7f6;
 }
 .btn-outline-light:not(:disabled):not(.disabled):active:focus, .btn-outline-light:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-light.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem rgba(248, 249, 250, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(250, 247, 246, 0.5);
 }
 
 .btn-outline-dark {
@@ -2865,11 +2993,11 @@ fieldset:disabled a.btn {
 
 .btn-link {
   font-weight: 400;
-  color: #007bff;
+  color: #001ffa;
   text-decoration: none;
 }
 .btn-link:hover {
-  color: #0056b3;
+  color: #005ae7;
   text-decoration: underline;
 }
 .btn-link:focus, .btn-link.focus {
@@ -3217,8 +3345,8 @@ input[type=button].btn-block {
 }
 
 .dropdown-toggle-split {
-  padding-right: 0.5625rem;
-  padding-left: 0.5625rem;
+  padding-right: 1.125rem;
+  padding-left: 1.125rem;
 }
 .dropdown-toggle-split::after, .dropup .dropdown-toggle-split::after, .dropright .dropdown-toggle-split::after {
   margin-left: 0;
@@ -4636,28 +4764,41 @@ a.badge:hover, a.badge:focus {
 
 .badge-primary {
   color: #fff;
-  background-color: #007bff;
+  background-color: #001ffa;
 }
 a.badge-primary:hover, a.badge-primary:focus {
   color: #fff;
-  background-color: #0062cc;
+  background-color: #0019c7;
 }
 a.badge-primary:focus, a.badge-primary.focus {
   outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(0, 31, 250, 0.5);
 }
 
 .badge-secondary {
-  color: #fff;
-  background-color: #6c757d;
+  color: #212529;
+  background-color: #00eaff;
 }
 a.badge-secondary:hover, a.badge-secondary:focus {
-  color: #fff;
-  background-color: #545b62;
+  color: #212529;
+  background-color: #00bbcc;
 }
 a.badge-secondary:focus, a.badge-secondary.focus {
   outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(0, 234, 255, 0.5);
+}
+
+.badge-indigo {
+  color: #fff;
+  background-color: #545f92;
+}
+a.badge-indigo:hover, a.badge-indigo:focus {
+  color: #fff;
+  background-color: #414a72;
+}
+a.badge-indigo:focus, a.badge-indigo.focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(84, 95, 146, 0.5);
 }
 
 .badge-success {
@@ -4714,15 +4855,15 @@ a.badge-danger:focus, a.badge-danger.focus {
 
 .badge-light {
   color: #212529;
-  background-color: #f8f9fa;
+  background-color: #faf7f6;
 }
 a.badge-light:hover, a.badge-light:focus {
   color: #212529;
-  background-color: #dae0e5;
+  background-color: #e8dad5;
 }
 a.badge-light:focus, a.badge-light.focus {
   outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(248, 249, 250, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(250, 247, 246, 0.5);
 }
 
 .badge-dark {
@@ -4784,27 +4925,39 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .alert-primary {
-  color: #004085;
-  background-color: #cce5ff;
-  border-color: #b8daff;
+  color: #001082;
+  background-color: #ccd2fe;
+  border-color: #b8c0fe;
 }
 .alert-primary hr {
-  border-top-color: #9fcdff;
+  border-top-color: #9faafe;
 }
 .alert-primary .alert-link {
-  color: #002752;
+  color: #000a4f;
 }
 
 .alert-secondary {
-  color: #383d41;
-  background-color: #e2e3e5;
-  border-color: #d6d8db;
+  color: #007a85;
+  background-color: #ccfbff;
+  border-color: #b8f9ff;
 }
 .alert-secondary hr {
-  border-top-color: #c8cbcf;
+  border-top-color: #9ff7ff;
 }
 .alert-secondary .alert-link {
-  color: #202326;
+  color: #004b52;
+}
+
+.alert-indigo {
+  color: #2c314c;
+  background-color: #dddfe9;
+  border-color: #cfd2e0;
+}
+.alert-indigo hr {
+  border-top-color: #c0c3d6;
+}
+.alert-indigo .alert-link {
+  color: #191c2c;
 }
 
 .alert-success {
@@ -4856,15 +5009,15 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .alert-light {
-  color: #818182;
-  background-color: #fefefe;
-  border-color: #fdfdfe;
+  color: #828080;
+  background-color: #fefdfd;
+  border-color: #fefdfc;
 }
 .alert-light hr {
-  border-top-color: #ececf6;
+  border-top-color: #f8f0e9;
 }
 .alert-light .alert-link {
-  color: #686868;
+  color: #686767;
 }
 
 .alert-dark {
@@ -5125,31 +5278,45 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .list-group-item-primary {
-  color: #004085;
-  background-color: #b8daff;
+  color: #001082;
+  background-color: #b8c0fe;
 }
 .list-group-item-primary.list-group-item-action:hover, .list-group-item-primary.list-group-item-action:focus {
-  color: #004085;
-  background-color: #9fcdff;
+  color: #001082;
+  background-color: #9faafe;
 }
 .list-group-item-primary.list-group-item-action.active {
   color: #fff;
-  background-color: #004085;
-  border-color: #004085;
+  background-color: #001082;
+  border-color: #001082;
 }
 
 .list-group-item-secondary {
-  color: #383d41;
-  background-color: #d6d8db;
+  color: #007a85;
+  background-color: #b8f9ff;
 }
 .list-group-item-secondary.list-group-item-action:hover, .list-group-item-secondary.list-group-item-action:focus {
-  color: #383d41;
-  background-color: #c8cbcf;
+  color: #007a85;
+  background-color: #9ff7ff;
 }
 .list-group-item-secondary.list-group-item-action.active {
   color: #fff;
-  background-color: #383d41;
-  border-color: #383d41;
+  background-color: #007a85;
+  border-color: #007a85;
+}
+
+.list-group-item-indigo {
+  color: #2c314c;
+  background-color: #cfd2e0;
+}
+.list-group-item-indigo.list-group-item-action:hover, .list-group-item-indigo.list-group-item-action:focus {
+  color: #2c314c;
+  background-color: #c0c3d6;
+}
+.list-group-item-indigo.list-group-item-action.active {
+  color: #fff;
+  background-color: #2c314c;
+  border-color: #2c314c;
 }
 
 .list-group-item-success {
@@ -5209,17 +5376,17 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .list-group-item-light {
-  color: #818182;
-  background-color: #fdfdfe;
+  color: #828080;
+  background-color: #fefdfc;
 }
 .list-group-item-light.list-group-item-action:hover, .list-group-item-light.list-group-item-action:focus {
-  color: #818182;
-  background-color: #ececf6;
+  color: #828080;
+  background-color: #f8f0e9;
 }
 .list-group-item-light.list-group-item-action.active {
   color: #fff;
-  background-color: #818182;
-  border-color: #818182;
+  background-color: #828080;
+  border-color: #828080;
 }
 
 .list-group-item-dark {
@@ -5244,6 +5411,11 @@ a.badge-dark:focus, a.badge-dark.focus {
   color: #000;
   text-shadow: 0 1px 0 #fff;
   opacity: 0.5;
+}
+@media (max-width: 1200px) {
+  .close {
+    font-size: calc(1.275rem + 0.3vw);
+  }
 }
 .close:hover {
   color: #000;
@@ -5500,7 +5672,7 @@ a.close.disabled {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: "HTGSans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -5602,7 +5774,7 @@ a.close.disabled {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: "HTGSans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -5989,23 +6161,33 @@ a.close.disabled {
 }
 
 .bg-primary {
-  background-color: #007bff !important;
+  background-color: #001ffa !important;
 }
 
 a.bg-primary:hover, a.bg-primary:focus,
 button.bg-primary:hover,
 button.bg-primary:focus {
-  background-color: #0062cc !important;
+  background-color: #0019c7 !important;
 }
 
 .bg-secondary {
-  background-color: #6c757d !important;
+  background-color: #00eaff !important;
 }
 
 a.bg-secondary:hover, a.bg-secondary:focus,
 button.bg-secondary:hover,
 button.bg-secondary:focus {
-  background-color: #545b62 !important;
+  background-color: #00bbcc !important;
+}
+
+.bg-indigo {
+  background-color: #545f92 !important;
+}
+
+a.bg-indigo:hover, a.bg-indigo:focus,
+button.bg-indigo:hover,
+button.bg-indigo:focus {
+  background-color: #414a72 !important;
 }
 
 .bg-success {
@@ -6049,13 +6231,13 @@ button.bg-danger:focus {
 }
 
 .bg-light {
-  background-color: #f8f9fa !important;
+  background-color: #faf7f6 !important;
 }
 
 a.bg-light:hover, a.bg-light:focus,
 button.bg-light:hover,
 button.bg-light:focus {
-  background-color: #dae0e5 !important;
+  background-color: #e8dad5 !important;
 }
 
 .bg-dark {
@@ -6117,11 +6299,15 @@ button.bg-dark:focus {
 }
 
 .border-primary {
-  border-color: #007bff !important;
+  border-color: #001ffa !important;
 }
 
 .border-secondary {
-  border-color: #6c757d !important;
+  border-color: #00eaff !important;
+}
+
+.border-indigo {
+  border-color: #545f92 !important;
 }
 
 .border-success {
@@ -6141,7 +6327,7 @@ button.bg-dark:focus {
 }
 
 .border-light {
-  border-color: #f8f9fa !important;
+  border-color: #faf7f6 !important;
 }
 
 .border-dark {
@@ -7537,6 +7723,126 @@ button.bg-dark:focus {
   margin-left: 3rem !important;
 }
 
+.m-6 {
+  margin: 4.5rem !important;
+}
+
+.mt-6,
+.my-6 {
+  margin-top: 4.5rem !important;
+}
+
+.mr-6,
+.mx-6 {
+  margin-right: 4.5rem !important;
+}
+
+.mb-6,
+.my-6 {
+  margin-bottom: 4.5rem !important;
+}
+
+.ml-6,
+.mx-6 {
+  margin-left: 4.5rem !important;
+}
+
+.m-7 {
+  margin: 6rem !important;
+}
+
+.mt-7,
+.my-7 {
+  margin-top: 6rem !important;
+}
+
+.mr-7,
+.mx-7 {
+  margin-right: 6rem !important;
+}
+
+.mb-7,
+.my-7 {
+  margin-bottom: 6rem !important;
+}
+
+.ml-7,
+.mx-7 {
+  margin-left: 6rem !important;
+}
+
+.m-8 {
+  margin: 7.5rem !important;
+}
+
+.mt-8,
+.my-8 {
+  margin-top: 7.5rem !important;
+}
+
+.mr-8,
+.mx-8 {
+  margin-right: 7.5rem !important;
+}
+
+.mb-8,
+.my-8 {
+  margin-bottom: 7.5rem !important;
+}
+
+.ml-8,
+.mx-8 {
+  margin-left: 7.5rem !important;
+}
+
+.m-9 {
+  margin: 9rem !important;
+}
+
+.mt-9,
+.my-9 {
+  margin-top: 9rem !important;
+}
+
+.mr-9,
+.mx-9 {
+  margin-right: 9rem !important;
+}
+
+.mb-9,
+.my-9 {
+  margin-bottom: 9rem !important;
+}
+
+.ml-9,
+.mx-9 {
+  margin-left: 9rem !important;
+}
+
+.m-10 {
+  margin: 10.5rem !important;
+}
+
+.mt-10,
+.my-10 {
+  margin-top: 10.5rem !important;
+}
+
+.mr-10,
+.mx-10 {
+  margin-right: 10.5rem !important;
+}
+
+.mb-10,
+.my-10 {
+  margin-bottom: 10.5rem !important;
+}
+
+.ml-10,
+.mx-10 {
+  margin-left: 10.5rem !important;
+}
+
 .p-0 {
   padding: 0 !important;
 }
@@ -7681,6 +7987,126 @@ button.bg-dark:focus {
   padding-left: 3rem !important;
 }
 
+.p-6 {
+  padding: 4.5rem !important;
+}
+
+.pt-6,
+.py-6 {
+  padding-top: 4.5rem !important;
+}
+
+.pr-6,
+.px-6 {
+  padding-right: 4.5rem !important;
+}
+
+.pb-6,
+.py-6 {
+  padding-bottom: 4.5rem !important;
+}
+
+.pl-6,
+.px-6 {
+  padding-left: 4.5rem !important;
+}
+
+.p-7 {
+  padding: 6rem !important;
+}
+
+.pt-7,
+.py-7 {
+  padding-top: 6rem !important;
+}
+
+.pr-7,
+.px-7 {
+  padding-right: 6rem !important;
+}
+
+.pb-7,
+.py-7 {
+  padding-bottom: 6rem !important;
+}
+
+.pl-7,
+.px-7 {
+  padding-left: 6rem !important;
+}
+
+.p-8 {
+  padding: 7.5rem !important;
+}
+
+.pt-8,
+.py-8 {
+  padding-top: 7.5rem !important;
+}
+
+.pr-8,
+.px-8 {
+  padding-right: 7.5rem !important;
+}
+
+.pb-8,
+.py-8 {
+  padding-bottom: 7.5rem !important;
+}
+
+.pl-8,
+.px-8 {
+  padding-left: 7.5rem !important;
+}
+
+.p-9 {
+  padding: 9rem !important;
+}
+
+.pt-9,
+.py-9 {
+  padding-top: 9rem !important;
+}
+
+.pr-9,
+.px-9 {
+  padding-right: 9rem !important;
+}
+
+.pb-9,
+.py-9 {
+  padding-bottom: 9rem !important;
+}
+
+.pl-9,
+.px-9 {
+  padding-left: 9rem !important;
+}
+
+.p-10 {
+  padding: 10.5rem !important;
+}
+
+.pt-10,
+.py-10 {
+  padding-top: 10.5rem !important;
+}
+
+.pr-10,
+.px-10 {
+  padding-right: 10.5rem !important;
+}
+
+.pb-10,
+.py-10 {
+  padding-bottom: 10.5rem !important;
+}
+
+.pl-10,
+.px-10 {
+  padding-left: 10.5rem !important;
+}
+
 .m-n1 {
   margin: -0.25rem !important;
 }
@@ -7799,6 +8225,126 @@ button.bg-dark:focus {
 .ml-n5,
 .mx-n5 {
   margin-left: -3rem !important;
+}
+
+.m-n6 {
+  margin: -4.5rem !important;
+}
+
+.mt-n6,
+.my-n6 {
+  margin-top: -4.5rem !important;
+}
+
+.mr-n6,
+.mx-n6 {
+  margin-right: -4.5rem !important;
+}
+
+.mb-n6,
+.my-n6 {
+  margin-bottom: -4.5rem !important;
+}
+
+.ml-n6,
+.mx-n6 {
+  margin-left: -4.5rem !important;
+}
+
+.m-n7 {
+  margin: -6rem !important;
+}
+
+.mt-n7,
+.my-n7 {
+  margin-top: -6rem !important;
+}
+
+.mr-n7,
+.mx-n7 {
+  margin-right: -6rem !important;
+}
+
+.mb-n7,
+.my-n7 {
+  margin-bottom: -6rem !important;
+}
+
+.ml-n7,
+.mx-n7 {
+  margin-left: -6rem !important;
+}
+
+.m-n8 {
+  margin: -7.5rem !important;
+}
+
+.mt-n8,
+.my-n8 {
+  margin-top: -7.5rem !important;
+}
+
+.mr-n8,
+.mx-n8 {
+  margin-right: -7.5rem !important;
+}
+
+.mb-n8,
+.my-n8 {
+  margin-bottom: -7.5rem !important;
+}
+
+.ml-n8,
+.mx-n8 {
+  margin-left: -7.5rem !important;
+}
+
+.m-n9 {
+  margin: -9rem !important;
+}
+
+.mt-n9,
+.my-n9 {
+  margin-top: -9rem !important;
+}
+
+.mr-n9,
+.mx-n9 {
+  margin-right: -9rem !important;
+}
+
+.mb-n9,
+.my-n9 {
+  margin-bottom: -9rem !important;
+}
+
+.ml-n9,
+.mx-n9 {
+  margin-left: -9rem !important;
+}
+
+.m-n10 {
+  margin: -10.5rem !important;
+}
+
+.mt-n10,
+.my-n10 {
+  margin-top: -10.5rem !important;
+}
+
+.mr-n10,
+.mx-n10 {
+  margin-right: -10.5rem !important;
+}
+
+.mb-n10,
+.my-n10 {
+  margin-bottom: -10.5rem !important;
+}
+
+.ml-n10,
+.mx-n10 {
+  margin-left: -10.5rem !important;
 }
 
 .m-auto {
@@ -7970,6 +8516,126 @@ button.bg-dark:focus {
     margin-left: 3rem !important;
   }
 
+  .m-sm-6 {
+    margin: 4.5rem !important;
+  }
+
+  .mt-sm-6,
+.my-sm-6 {
+    margin-top: 4.5rem !important;
+  }
+
+  .mr-sm-6,
+.mx-sm-6 {
+    margin-right: 4.5rem !important;
+  }
+
+  .mb-sm-6,
+.my-sm-6 {
+    margin-bottom: 4.5rem !important;
+  }
+
+  .ml-sm-6,
+.mx-sm-6 {
+    margin-left: 4.5rem !important;
+  }
+
+  .m-sm-7 {
+    margin: 6rem !important;
+  }
+
+  .mt-sm-7,
+.my-sm-7 {
+    margin-top: 6rem !important;
+  }
+
+  .mr-sm-7,
+.mx-sm-7 {
+    margin-right: 6rem !important;
+  }
+
+  .mb-sm-7,
+.my-sm-7 {
+    margin-bottom: 6rem !important;
+  }
+
+  .ml-sm-7,
+.mx-sm-7 {
+    margin-left: 6rem !important;
+  }
+
+  .m-sm-8 {
+    margin: 7.5rem !important;
+  }
+
+  .mt-sm-8,
+.my-sm-8 {
+    margin-top: 7.5rem !important;
+  }
+
+  .mr-sm-8,
+.mx-sm-8 {
+    margin-right: 7.5rem !important;
+  }
+
+  .mb-sm-8,
+.my-sm-8 {
+    margin-bottom: 7.5rem !important;
+  }
+
+  .ml-sm-8,
+.mx-sm-8 {
+    margin-left: 7.5rem !important;
+  }
+
+  .m-sm-9 {
+    margin: 9rem !important;
+  }
+
+  .mt-sm-9,
+.my-sm-9 {
+    margin-top: 9rem !important;
+  }
+
+  .mr-sm-9,
+.mx-sm-9 {
+    margin-right: 9rem !important;
+  }
+
+  .mb-sm-9,
+.my-sm-9 {
+    margin-bottom: 9rem !important;
+  }
+
+  .ml-sm-9,
+.mx-sm-9 {
+    margin-left: 9rem !important;
+  }
+
+  .m-sm-10 {
+    margin: 10.5rem !important;
+  }
+
+  .mt-sm-10,
+.my-sm-10 {
+    margin-top: 10.5rem !important;
+  }
+
+  .mr-sm-10,
+.mx-sm-10 {
+    margin-right: 10.5rem !important;
+  }
+
+  .mb-sm-10,
+.my-sm-10 {
+    margin-bottom: 10.5rem !important;
+  }
+
+  .ml-sm-10,
+.mx-sm-10 {
+    margin-left: 10.5rem !important;
+  }
+
   .p-sm-0 {
     padding: 0 !important;
   }
@@ -8114,6 +8780,126 @@ button.bg-dark:focus {
     padding-left: 3rem !important;
   }
 
+  .p-sm-6 {
+    padding: 4.5rem !important;
+  }
+
+  .pt-sm-6,
+.py-sm-6 {
+    padding-top: 4.5rem !important;
+  }
+
+  .pr-sm-6,
+.px-sm-6 {
+    padding-right: 4.5rem !important;
+  }
+
+  .pb-sm-6,
+.py-sm-6 {
+    padding-bottom: 4.5rem !important;
+  }
+
+  .pl-sm-6,
+.px-sm-6 {
+    padding-left: 4.5rem !important;
+  }
+
+  .p-sm-7 {
+    padding: 6rem !important;
+  }
+
+  .pt-sm-7,
+.py-sm-7 {
+    padding-top: 6rem !important;
+  }
+
+  .pr-sm-7,
+.px-sm-7 {
+    padding-right: 6rem !important;
+  }
+
+  .pb-sm-7,
+.py-sm-7 {
+    padding-bottom: 6rem !important;
+  }
+
+  .pl-sm-7,
+.px-sm-7 {
+    padding-left: 6rem !important;
+  }
+
+  .p-sm-8 {
+    padding: 7.5rem !important;
+  }
+
+  .pt-sm-8,
+.py-sm-8 {
+    padding-top: 7.5rem !important;
+  }
+
+  .pr-sm-8,
+.px-sm-8 {
+    padding-right: 7.5rem !important;
+  }
+
+  .pb-sm-8,
+.py-sm-8 {
+    padding-bottom: 7.5rem !important;
+  }
+
+  .pl-sm-8,
+.px-sm-8 {
+    padding-left: 7.5rem !important;
+  }
+
+  .p-sm-9 {
+    padding: 9rem !important;
+  }
+
+  .pt-sm-9,
+.py-sm-9 {
+    padding-top: 9rem !important;
+  }
+
+  .pr-sm-9,
+.px-sm-9 {
+    padding-right: 9rem !important;
+  }
+
+  .pb-sm-9,
+.py-sm-9 {
+    padding-bottom: 9rem !important;
+  }
+
+  .pl-sm-9,
+.px-sm-9 {
+    padding-left: 9rem !important;
+  }
+
+  .p-sm-10 {
+    padding: 10.5rem !important;
+  }
+
+  .pt-sm-10,
+.py-sm-10 {
+    padding-top: 10.5rem !important;
+  }
+
+  .pr-sm-10,
+.px-sm-10 {
+    padding-right: 10.5rem !important;
+  }
+
+  .pb-sm-10,
+.py-sm-10 {
+    padding-bottom: 10.5rem !important;
+  }
+
+  .pl-sm-10,
+.px-sm-10 {
+    padding-left: 10.5rem !important;
+  }
+
   .m-sm-n1 {
     margin: -0.25rem !important;
   }
@@ -8232,6 +9018,126 @@ button.bg-dark:focus {
   .ml-sm-n5,
 .mx-sm-n5 {
     margin-left: -3rem !important;
+  }
+
+  .m-sm-n6 {
+    margin: -4.5rem !important;
+  }
+
+  .mt-sm-n6,
+.my-sm-n6 {
+    margin-top: -4.5rem !important;
+  }
+
+  .mr-sm-n6,
+.mx-sm-n6 {
+    margin-right: -4.5rem !important;
+  }
+
+  .mb-sm-n6,
+.my-sm-n6 {
+    margin-bottom: -4.5rem !important;
+  }
+
+  .ml-sm-n6,
+.mx-sm-n6 {
+    margin-left: -4.5rem !important;
+  }
+
+  .m-sm-n7 {
+    margin: -6rem !important;
+  }
+
+  .mt-sm-n7,
+.my-sm-n7 {
+    margin-top: -6rem !important;
+  }
+
+  .mr-sm-n7,
+.mx-sm-n7 {
+    margin-right: -6rem !important;
+  }
+
+  .mb-sm-n7,
+.my-sm-n7 {
+    margin-bottom: -6rem !important;
+  }
+
+  .ml-sm-n7,
+.mx-sm-n7 {
+    margin-left: -6rem !important;
+  }
+
+  .m-sm-n8 {
+    margin: -7.5rem !important;
+  }
+
+  .mt-sm-n8,
+.my-sm-n8 {
+    margin-top: -7.5rem !important;
+  }
+
+  .mr-sm-n8,
+.mx-sm-n8 {
+    margin-right: -7.5rem !important;
+  }
+
+  .mb-sm-n8,
+.my-sm-n8 {
+    margin-bottom: -7.5rem !important;
+  }
+
+  .ml-sm-n8,
+.mx-sm-n8 {
+    margin-left: -7.5rem !important;
+  }
+
+  .m-sm-n9 {
+    margin: -9rem !important;
+  }
+
+  .mt-sm-n9,
+.my-sm-n9 {
+    margin-top: -9rem !important;
+  }
+
+  .mr-sm-n9,
+.mx-sm-n9 {
+    margin-right: -9rem !important;
+  }
+
+  .mb-sm-n9,
+.my-sm-n9 {
+    margin-bottom: -9rem !important;
+  }
+
+  .ml-sm-n9,
+.mx-sm-n9 {
+    margin-left: -9rem !important;
+  }
+
+  .m-sm-n10 {
+    margin: -10.5rem !important;
+  }
+
+  .mt-sm-n10,
+.my-sm-n10 {
+    margin-top: -10.5rem !important;
+  }
+
+  .mr-sm-n10,
+.mx-sm-n10 {
+    margin-right: -10.5rem !important;
+  }
+
+  .mb-sm-n10,
+.my-sm-n10 {
+    margin-bottom: -10.5rem !important;
+  }
+
+  .ml-sm-n10,
+.mx-sm-n10 {
+    margin-left: -10.5rem !important;
   }
 
   .m-sm-auto {
@@ -8403,6 +9309,126 @@ button.bg-dark:focus {
     margin-left: 3rem !important;
   }
 
+  .m-md-6 {
+    margin: 4.5rem !important;
+  }
+
+  .mt-md-6,
+.my-md-6 {
+    margin-top: 4.5rem !important;
+  }
+
+  .mr-md-6,
+.mx-md-6 {
+    margin-right: 4.5rem !important;
+  }
+
+  .mb-md-6,
+.my-md-6 {
+    margin-bottom: 4.5rem !important;
+  }
+
+  .ml-md-6,
+.mx-md-6 {
+    margin-left: 4.5rem !important;
+  }
+
+  .m-md-7 {
+    margin: 6rem !important;
+  }
+
+  .mt-md-7,
+.my-md-7 {
+    margin-top: 6rem !important;
+  }
+
+  .mr-md-7,
+.mx-md-7 {
+    margin-right: 6rem !important;
+  }
+
+  .mb-md-7,
+.my-md-7 {
+    margin-bottom: 6rem !important;
+  }
+
+  .ml-md-7,
+.mx-md-7 {
+    margin-left: 6rem !important;
+  }
+
+  .m-md-8 {
+    margin: 7.5rem !important;
+  }
+
+  .mt-md-8,
+.my-md-8 {
+    margin-top: 7.5rem !important;
+  }
+
+  .mr-md-8,
+.mx-md-8 {
+    margin-right: 7.5rem !important;
+  }
+
+  .mb-md-8,
+.my-md-8 {
+    margin-bottom: 7.5rem !important;
+  }
+
+  .ml-md-8,
+.mx-md-8 {
+    margin-left: 7.5rem !important;
+  }
+
+  .m-md-9 {
+    margin: 9rem !important;
+  }
+
+  .mt-md-9,
+.my-md-9 {
+    margin-top: 9rem !important;
+  }
+
+  .mr-md-9,
+.mx-md-9 {
+    margin-right: 9rem !important;
+  }
+
+  .mb-md-9,
+.my-md-9 {
+    margin-bottom: 9rem !important;
+  }
+
+  .ml-md-9,
+.mx-md-9 {
+    margin-left: 9rem !important;
+  }
+
+  .m-md-10 {
+    margin: 10.5rem !important;
+  }
+
+  .mt-md-10,
+.my-md-10 {
+    margin-top: 10.5rem !important;
+  }
+
+  .mr-md-10,
+.mx-md-10 {
+    margin-right: 10.5rem !important;
+  }
+
+  .mb-md-10,
+.my-md-10 {
+    margin-bottom: 10.5rem !important;
+  }
+
+  .ml-md-10,
+.mx-md-10 {
+    margin-left: 10.5rem !important;
+  }
+
   .p-md-0 {
     padding: 0 !important;
   }
@@ -8547,6 +9573,126 @@ button.bg-dark:focus {
     padding-left: 3rem !important;
   }
 
+  .p-md-6 {
+    padding: 4.5rem !important;
+  }
+
+  .pt-md-6,
+.py-md-6 {
+    padding-top: 4.5rem !important;
+  }
+
+  .pr-md-6,
+.px-md-6 {
+    padding-right: 4.5rem !important;
+  }
+
+  .pb-md-6,
+.py-md-6 {
+    padding-bottom: 4.5rem !important;
+  }
+
+  .pl-md-6,
+.px-md-6 {
+    padding-left: 4.5rem !important;
+  }
+
+  .p-md-7 {
+    padding: 6rem !important;
+  }
+
+  .pt-md-7,
+.py-md-7 {
+    padding-top: 6rem !important;
+  }
+
+  .pr-md-7,
+.px-md-7 {
+    padding-right: 6rem !important;
+  }
+
+  .pb-md-7,
+.py-md-7 {
+    padding-bottom: 6rem !important;
+  }
+
+  .pl-md-7,
+.px-md-7 {
+    padding-left: 6rem !important;
+  }
+
+  .p-md-8 {
+    padding: 7.5rem !important;
+  }
+
+  .pt-md-8,
+.py-md-8 {
+    padding-top: 7.5rem !important;
+  }
+
+  .pr-md-8,
+.px-md-8 {
+    padding-right: 7.5rem !important;
+  }
+
+  .pb-md-8,
+.py-md-8 {
+    padding-bottom: 7.5rem !important;
+  }
+
+  .pl-md-8,
+.px-md-8 {
+    padding-left: 7.5rem !important;
+  }
+
+  .p-md-9 {
+    padding: 9rem !important;
+  }
+
+  .pt-md-9,
+.py-md-9 {
+    padding-top: 9rem !important;
+  }
+
+  .pr-md-9,
+.px-md-9 {
+    padding-right: 9rem !important;
+  }
+
+  .pb-md-9,
+.py-md-9 {
+    padding-bottom: 9rem !important;
+  }
+
+  .pl-md-9,
+.px-md-9 {
+    padding-left: 9rem !important;
+  }
+
+  .p-md-10 {
+    padding: 10.5rem !important;
+  }
+
+  .pt-md-10,
+.py-md-10 {
+    padding-top: 10.5rem !important;
+  }
+
+  .pr-md-10,
+.px-md-10 {
+    padding-right: 10.5rem !important;
+  }
+
+  .pb-md-10,
+.py-md-10 {
+    padding-bottom: 10.5rem !important;
+  }
+
+  .pl-md-10,
+.px-md-10 {
+    padding-left: 10.5rem !important;
+  }
+
   .m-md-n1 {
     margin: -0.25rem !important;
   }
@@ -8665,6 +9811,126 @@ button.bg-dark:focus {
   .ml-md-n5,
 .mx-md-n5 {
     margin-left: -3rem !important;
+  }
+
+  .m-md-n6 {
+    margin: -4.5rem !important;
+  }
+
+  .mt-md-n6,
+.my-md-n6 {
+    margin-top: -4.5rem !important;
+  }
+
+  .mr-md-n6,
+.mx-md-n6 {
+    margin-right: -4.5rem !important;
+  }
+
+  .mb-md-n6,
+.my-md-n6 {
+    margin-bottom: -4.5rem !important;
+  }
+
+  .ml-md-n6,
+.mx-md-n6 {
+    margin-left: -4.5rem !important;
+  }
+
+  .m-md-n7 {
+    margin: -6rem !important;
+  }
+
+  .mt-md-n7,
+.my-md-n7 {
+    margin-top: -6rem !important;
+  }
+
+  .mr-md-n7,
+.mx-md-n7 {
+    margin-right: -6rem !important;
+  }
+
+  .mb-md-n7,
+.my-md-n7 {
+    margin-bottom: -6rem !important;
+  }
+
+  .ml-md-n7,
+.mx-md-n7 {
+    margin-left: -6rem !important;
+  }
+
+  .m-md-n8 {
+    margin: -7.5rem !important;
+  }
+
+  .mt-md-n8,
+.my-md-n8 {
+    margin-top: -7.5rem !important;
+  }
+
+  .mr-md-n8,
+.mx-md-n8 {
+    margin-right: -7.5rem !important;
+  }
+
+  .mb-md-n8,
+.my-md-n8 {
+    margin-bottom: -7.5rem !important;
+  }
+
+  .ml-md-n8,
+.mx-md-n8 {
+    margin-left: -7.5rem !important;
+  }
+
+  .m-md-n9 {
+    margin: -9rem !important;
+  }
+
+  .mt-md-n9,
+.my-md-n9 {
+    margin-top: -9rem !important;
+  }
+
+  .mr-md-n9,
+.mx-md-n9 {
+    margin-right: -9rem !important;
+  }
+
+  .mb-md-n9,
+.my-md-n9 {
+    margin-bottom: -9rem !important;
+  }
+
+  .ml-md-n9,
+.mx-md-n9 {
+    margin-left: -9rem !important;
+  }
+
+  .m-md-n10 {
+    margin: -10.5rem !important;
+  }
+
+  .mt-md-n10,
+.my-md-n10 {
+    margin-top: -10.5rem !important;
+  }
+
+  .mr-md-n10,
+.mx-md-n10 {
+    margin-right: -10.5rem !important;
+  }
+
+  .mb-md-n10,
+.my-md-n10 {
+    margin-bottom: -10.5rem !important;
+  }
+
+  .ml-md-n10,
+.mx-md-n10 {
+    margin-left: -10.5rem !important;
   }
 
   .m-md-auto {
@@ -8836,6 +10102,126 @@ button.bg-dark:focus {
     margin-left: 3rem !important;
   }
 
+  .m-lg-6 {
+    margin: 4.5rem !important;
+  }
+
+  .mt-lg-6,
+.my-lg-6 {
+    margin-top: 4.5rem !important;
+  }
+
+  .mr-lg-6,
+.mx-lg-6 {
+    margin-right: 4.5rem !important;
+  }
+
+  .mb-lg-6,
+.my-lg-6 {
+    margin-bottom: 4.5rem !important;
+  }
+
+  .ml-lg-6,
+.mx-lg-6 {
+    margin-left: 4.5rem !important;
+  }
+
+  .m-lg-7 {
+    margin: 6rem !important;
+  }
+
+  .mt-lg-7,
+.my-lg-7 {
+    margin-top: 6rem !important;
+  }
+
+  .mr-lg-7,
+.mx-lg-7 {
+    margin-right: 6rem !important;
+  }
+
+  .mb-lg-7,
+.my-lg-7 {
+    margin-bottom: 6rem !important;
+  }
+
+  .ml-lg-7,
+.mx-lg-7 {
+    margin-left: 6rem !important;
+  }
+
+  .m-lg-8 {
+    margin: 7.5rem !important;
+  }
+
+  .mt-lg-8,
+.my-lg-8 {
+    margin-top: 7.5rem !important;
+  }
+
+  .mr-lg-8,
+.mx-lg-8 {
+    margin-right: 7.5rem !important;
+  }
+
+  .mb-lg-8,
+.my-lg-8 {
+    margin-bottom: 7.5rem !important;
+  }
+
+  .ml-lg-8,
+.mx-lg-8 {
+    margin-left: 7.5rem !important;
+  }
+
+  .m-lg-9 {
+    margin: 9rem !important;
+  }
+
+  .mt-lg-9,
+.my-lg-9 {
+    margin-top: 9rem !important;
+  }
+
+  .mr-lg-9,
+.mx-lg-9 {
+    margin-right: 9rem !important;
+  }
+
+  .mb-lg-9,
+.my-lg-9 {
+    margin-bottom: 9rem !important;
+  }
+
+  .ml-lg-9,
+.mx-lg-9 {
+    margin-left: 9rem !important;
+  }
+
+  .m-lg-10 {
+    margin: 10.5rem !important;
+  }
+
+  .mt-lg-10,
+.my-lg-10 {
+    margin-top: 10.5rem !important;
+  }
+
+  .mr-lg-10,
+.mx-lg-10 {
+    margin-right: 10.5rem !important;
+  }
+
+  .mb-lg-10,
+.my-lg-10 {
+    margin-bottom: 10.5rem !important;
+  }
+
+  .ml-lg-10,
+.mx-lg-10 {
+    margin-left: 10.5rem !important;
+  }
+
   .p-lg-0 {
     padding: 0 !important;
   }
@@ -8980,6 +10366,126 @@ button.bg-dark:focus {
     padding-left: 3rem !important;
   }
 
+  .p-lg-6 {
+    padding: 4.5rem !important;
+  }
+
+  .pt-lg-6,
+.py-lg-6 {
+    padding-top: 4.5rem !important;
+  }
+
+  .pr-lg-6,
+.px-lg-6 {
+    padding-right: 4.5rem !important;
+  }
+
+  .pb-lg-6,
+.py-lg-6 {
+    padding-bottom: 4.5rem !important;
+  }
+
+  .pl-lg-6,
+.px-lg-6 {
+    padding-left: 4.5rem !important;
+  }
+
+  .p-lg-7 {
+    padding: 6rem !important;
+  }
+
+  .pt-lg-7,
+.py-lg-7 {
+    padding-top: 6rem !important;
+  }
+
+  .pr-lg-7,
+.px-lg-7 {
+    padding-right: 6rem !important;
+  }
+
+  .pb-lg-7,
+.py-lg-7 {
+    padding-bottom: 6rem !important;
+  }
+
+  .pl-lg-7,
+.px-lg-7 {
+    padding-left: 6rem !important;
+  }
+
+  .p-lg-8 {
+    padding: 7.5rem !important;
+  }
+
+  .pt-lg-8,
+.py-lg-8 {
+    padding-top: 7.5rem !important;
+  }
+
+  .pr-lg-8,
+.px-lg-8 {
+    padding-right: 7.5rem !important;
+  }
+
+  .pb-lg-8,
+.py-lg-8 {
+    padding-bottom: 7.5rem !important;
+  }
+
+  .pl-lg-8,
+.px-lg-8 {
+    padding-left: 7.5rem !important;
+  }
+
+  .p-lg-9 {
+    padding: 9rem !important;
+  }
+
+  .pt-lg-9,
+.py-lg-9 {
+    padding-top: 9rem !important;
+  }
+
+  .pr-lg-9,
+.px-lg-9 {
+    padding-right: 9rem !important;
+  }
+
+  .pb-lg-9,
+.py-lg-9 {
+    padding-bottom: 9rem !important;
+  }
+
+  .pl-lg-9,
+.px-lg-9 {
+    padding-left: 9rem !important;
+  }
+
+  .p-lg-10 {
+    padding: 10.5rem !important;
+  }
+
+  .pt-lg-10,
+.py-lg-10 {
+    padding-top: 10.5rem !important;
+  }
+
+  .pr-lg-10,
+.px-lg-10 {
+    padding-right: 10.5rem !important;
+  }
+
+  .pb-lg-10,
+.py-lg-10 {
+    padding-bottom: 10.5rem !important;
+  }
+
+  .pl-lg-10,
+.px-lg-10 {
+    padding-left: 10.5rem !important;
+  }
+
   .m-lg-n1 {
     margin: -0.25rem !important;
   }
@@ -9098,6 +10604,126 @@ button.bg-dark:focus {
   .ml-lg-n5,
 .mx-lg-n5 {
     margin-left: -3rem !important;
+  }
+
+  .m-lg-n6 {
+    margin: -4.5rem !important;
+  }
+
+  .mt-lg-n6,
+.my-lg-n6 {
+    margin-top: -4.5rem !important;
+  }
+
+  .mr-lg-n6,
+.mx-lg-n6 {
+    margin-right: -4.5rem !important;
+  }
+
+  .mb-lg-n6,
+.my-lg-n6 {
+    margin-bottom: -4.5rem !important;
+  }
+
+  .ml-lg-n6,
+.mx-lg-n6 {
+    margin-left: -4.5rem !important;
+  }
+
+  .m-lg-n7 {
+    margin: -6rem !important;
+  }
+
+  .mt-lg-n7,
+.my-lg-n7 {
+    margin-top: -6rem !important;
+  }
+
+  .mr-lg-n7,
+.mx-lg-n7 {
+    margin-right: -6rem !important;
+  }
+
+  .mb-lg-n7,
+.my-lg-n7 {
+    margin-bottom: -6rem !important;
+  }
+
+  .ml-lg-n7,
+.mx-lg-n7 {
+    margin-left: -6rem !important;
+  }
+
+  .m-lg-n8 {
+    margin: -7.5rem !important;
+  }
+
+  .mt-lg-n8,
+.my-lg-n8 {
+    margin-top: -7.5rem !important;
+  }
+
+  .mr-lg-n8,
+.mx-lg-n8 {
+    margin-right: -7.5rem !important;
+  }
+
+  .mb-lg-n8,
+.my-lg-n8 {
+    margin-bottom: -7.5rem !important;
+  }
+
+  .ml-lg-n8,
+.mx-lg-n8 {
+    margin-left: -7.5rem !important;
+  }
+
+  .m-lg-n9 {
+    margin: -9rem !important;
+  }
+
+  .mt-lg-n9,
+.my-lg-n9 {
+    margin-top: -9rem !important;
+  }
+
+  .mr-lg-n9,
+.mx-lg-n9 {
+    margin-right: -9rem !important;
+  }
+
+  .mb-lg-n9,
+.my-lg-n9 {
+    margin-bottom: -9rem !important;
+  }
+
+  .ml-lg-n9,
+.mx-lg-n9 {
+    margin-left: -9rem !important;
+  }
+
+  .m-lg-n10 {
+    margin: -10.5rem !important;
+  }
+
+  .mt-lg-n10,
+.my-lg-n10 {
+    margin-top: -10.5rem !important;
+  }
+
+  .mr-lg-n10,
+.mx-lg-n10 {
+    margin-right: -10.5rem !important;
+  }
+
+  .mb-lg-n10,
+.my-lg-n10 {
+    margin-bottom: -10.5rem !important;
+  }
+
+  .ml-lg-n10,
+.mx-lg-n10 {
+    margin-left: -10.5rem !important;
   }
 
   .m-lg-auto {
@@ -9269,6 +10895,126 @@ button.bg-dark:focus {
     margin-left: 3rem !important;
   }
 
+  .m-xl-6 {
+    margin: 4.5rem !important;
+  }
+
+  .mt-xl-6,
+.my-xl-6 {
+    margin-top: 4.5rem !important;
+  }
+
+  .mr-xl-6,
+.mx-xl-6 {
+    margin-right: 4.5rem !important;
+  }
+
+  .mb-xl-6,
+.my-xl-6 {
+    margin-bottom: 4.5rem !important;
+  }
+
+  .ml-xl-6,
+.mx-xl-6 {
+    margin-left: 4.5rem !important;
+  }
+
+  .m-xl-7 {
+    margin: 6rem !important;
+  }
+
+  .mt-xl-7,
+.my-xl-7 {
+    margin-top: 6rem !important;
+  }
+
+  .mr-xl-7,
+.mx-xl-7 {
+    margin-right: 6rem !important;
+  }
+
+  .mb-xl-7,
+.my-xl-7 {
+    margin-bottom: 6rem !important;
+  }
+
+  .ml-xl-7,
+.mx-xl-7 {
+    margin-left: 6rem !important;
+  }
+
+  .m-xl-8 {
+    margin: 7.5rem !important;
+  }
+
+  .mt-xl-8,
+.my-xl-8 {
+    margin-top: 7.5rem !important;
+  }
+
+  .mr-xl-8,
+.mx-xl-8 {
+    margin-right: 7.5rem !important;
+  }
+
+  .mb-xl-8,
+.my-xl-8 {
+    margin-bottom: 7.5rem !important;
+  }
+
+  .ml-xl-8,
+.mx-xl-8 {
+    margin-left: 7.5rem !important;
+  }
+
+  .m-xl-9 {
+    margin: 9rem !important;
+  }
+
+  .mt-xl-9,
+.my-xl-9 {
+    margin-top: 9rem !important;
+  }
+
+  .mr-xl-9,
+.mx-xl-9 {
+    margin-right: 9rem !important;
+  }
+
+  .mb-xl-9,
+.my-xl-9 {
+    margin-bottom: 9rem !important;
+  }
+
+  .ml-xl-9,
+.mx-xl-9 {
+    margin-left: 9rem !important;
+  }
+
+  .m-xl-10 {
+    margin: 10.5rem !important;
+  }
+
+  .mt-xl-10,
+.my-xl-10 {
+    margin-top: 10.5rem !important;
+  }
+
+  .mr-xl-10,
+.mx-xl-10 {
+    margin-right: 10.5rem !important;
+  }
+
+  .mb-xl-10,
+.my-xl-10 {
+    margin-bottom: 10.5rem !important;
+  }
+
+  .ml-xl-10,
+.mx-xl-10 {
+    margin-left: 10.5rem !important;
+  }
+
   .p-xl-0 {
     padding: 0 !important;
   }
@@ -9413,6 +11159,126 @@ button.bg-dark:focus {
     padding-left: 3rem !important;
   }
 
+  .p-xl-6 {
+    padding: 4.5rem !important;
+  }
+
+  .pt-xl-6,
+.py-xl-6 {
+    padding-top: 4.5rem !important;
+  }
+
+  .pr-xl-6,
+.px-xl-6 {
+    padding-right: 4.5rem !important;
+  }
+
+  .pb-xl-6,
+.py-xl-6 {
+    padding-bottom: 4.5rem !important;
+  }
+
+  .pl-xl-6,
+.px-xl-6 {
+    padding-left: 4.5rem !important;
+  }
+
+  .p-xl-7 {
+    padding: 6rem !important;
+  }
+
+  .pt-xl-7,
+.py-xl-7 {
+    padding-top: 6rem !important;
+  }
+
+  .pr-xl-7,
+.px-xl-7 {
+    padding-right: 6rem !important;
+  }
+
+  .pb-xl-7,
+.py-xl-7 {
+    padding-bottom: 6rem !important;
+  }
+
+  .pl-xl-7,
+.px-xl-7 {
+    padding-left: 6rem !important;
+  }
+
+  .p-xl-8 {
+    padding: 7.5rem !important;
+  }
+
+  .pt-xl-8,
+.py-xl-8 {
+    padding-top: 7.5rem !important;
+  }
+
+  .pr-xl-8,
+.px-xl-8 {
+    padding-right: 7.5rem !important;
+  }
+
+  .pb-xl-8,
+.py-xl-8 {
+    padding-bottom: 7.5rem !important;
+  }
+
+  .pl-xl-8,
+.px-xl-8 {
+    padding-left: 7.5rem !important;
+  }
+
+  .p-xl-9 {
+    padding: 9rem !important;
+  }
+
+  .pt-xl-9,
+.py-xl-9 {
+    padding-top: 9rem !important;
+  }
+
+  .pr-xl-9,
+.px-xl-9 {
+    padding-right: 9rem !important;
+  }
+
+  .pb-xl-9,
+.py-xl-9 {
+    padding-bottom: 9rem !important;
+  }
+
+  .pl-xl-9,
+.px-xl-9 {
+    padding-left: 9rem !important;
+  }
+
+  .p-xl-10 {
+    padding: 10.5rem !important;
+  }
+
+  .pt-xl-10,
+.py-xl-10 {
+    padding-top: 10.5rem !important;
+  }
+
+  .pr-xl-10,
+.px-xl-10 {
+    padding-right: 10.5rem !important;
+  }
+
+  .pb-xl-10,
+.py-xl-10 {
+    padding-bottom: 10.5rem !important;
+  }
+
+  .pl-xl-10,
+.px-xl-10 {
+    padding-left: 10.5rem !important;
+  }
+
   .m-xl-n1 {
     margin: -0.25rem !important;
   }
@@ -9531,6 +11397,126 @@ button.bg-dark:focus {
   .ml-xl-n5,
 .mx-xl-n5 {
     margin-left: -3rem !important;
+  }
+
+  .m-xl-n6 {
+    margin: -4.5rem !important;
+  }
+
+  .mt-xl-n6,
+.my-xl-n6 {
+    margin-top: -4.5rem !important;
+  }
+
+  .mr-xl-n6,
+.mx-xl-n6 {
+    margin-right: -4.5rem !important;
+  }
+
+  .mb-xl-n6,
+.my-xl-n6 {
+    margin-bottom: -4.5rem !important;
+  }
+
+  .ml-xl-n6,
+.mx-xl-n6 {
+    margin-left: -4.5rem !important;
+  }
+
+  .m-xl-n7 {
+    margin: -6rem !important;
+  }
+
+  .mt-xl-n7,
+.my-xl-n7 {
+    margin-top: -6rem !important;
+  }
+
+  .mr-xl-n7,
+.mx-xl-n7 {
+    margin-right: -6rem !important;
+  }
+
+  .mb-xl-n7,
+.my-xl-n7 {
+    margin-bottom: -6rem !important;
+  }
+
+  .ml-xl-n7,
+.mx-xl-n7 {
+    margin-left: -6rem !important;
+  }
+
+  .m-xl-n8 {
+    margin: -7.5rem !important;
+  }
+
+  .mt-xl-n8,
+.my-xl-n8 {
+    margin-top: -7.5rem !important;
+  }
+
+  .mr-xl-n8,
+.mx-xl-n8 {
+    margin-right: -7.5rem !important;
+  }
+
+  .mb-xl-n8,
+.my-xl-n8 {
+    margin-bottom: -7.5rem !important;
+  }
+
+  .ml-xl-n8,
+.mx-xl-n8 {
+    margin-left: -7.5rem !important;
+  }
+
+  .m-xl-n9 {
+    margin: -9rem !important;
+  }
+
+  .mt-xl-n9,
+.my-xl-n9 {
+    margin-top: -9rem !important;
+  }
+
+  .mr-xl-n9,
+.mx-xl-n9 {
+    margin-right: -9rem !important;
+  }
+
+  .mb-xl-n9,
+.my-xl-n9 {
+    margin-bottom: -9rem !important;
+  }
+
+  .ml-xl-n9,
+.mx-xl-n9 {
+    margin-left: -9rem !important;
+  }
+
+  .m-xl-n10 {
+    margin: -10.5rem !important;
+  }
+
+  .mt-xl-n10,
+.my-xl-n10 {
+    margin-top: -10.5rem !important;
+  }
+
+  .mr-xl-n10,
+.mx-xl-n10 {
+    margin-right: -10.5rem !important;
+  }
+
+  .mb-xl-n10,
+.my-xl-n10 {
+    margin-bottom: -10.5rem !important;
+  }
+
+  .ml-xl-n10,
+.mx-xl-n10 {
+    margin-left: -10.5rem !important;
   }
 
   .m-xl-auto {
@@ -9684,19 +11670,27 @@ button.bg-dark:focus {
 }
 
 .text-primary {
-  color: #007bff !important;
+  color: #001ffa !important;
 }
 
 a.text-primary:hover, a.text-primary:focus {
-  color: #0056b3 !important;
+  color: #0016ae !important;
 }
 
 .text-secondary {
-  color: #6c757d !important;
+  color: #00eaff !important;
 }
 
 a.text-secondary:hover, a.text-secondary:focus {
-  color: #494f54 !important;
+  color: #00a4b3 !important;
+}
+
+.text-indigo {
+  color: #545f92 !important;
+}
+
+a.text-indigo:hover, a.text-indigo:focus {
+  color: #383f61 !important;
 }
 
 .text-success {
@@ -9732,11 +11726,11 @@ a.text-danger:hover, a.text-danger:focus {
 }
 
 .text-light {
-  color: #f8f9fa !important;
+  color: #faf7f6 !important;
 }
 
 a.text-light:hover, a.text-light:focus {
-  color: #cbd3da !important;
+  color: #dfcbc5 !important;
 }
 
 .text-dark {
@@ -9748,7 +11742,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .text-body {
-  color: #212529 !important;
+  color: #252525 !important;
 }
 
 .text-muted {
@@ -9868,7 +11862,7 @@ h3 {
 
   .table-bordered th,
 .table-bordered td {
-    border: 1px solid #dee2e6 !important;
+    border: 1px solid #ece9f0 !important;
   }
 
   .table-dark {
@@ -9889,8 +11883,8 @@ h3 {
 .col-1-of-3 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 33.3333333333%;
   max-width: 33.3333333333%;
   width: 33.3333333333%;
@@ -9903,8 +11897,8 @@ h3 {
 .col-2-of-3 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 66.6666666667%;
   max-width: 66.6666666667%;
   width: 66.6666666667%;
@@ -9917,8 +11911,8 @@ h3 {
 .col-1-of-4 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 25%;
   max-width: 25%;
   width: 25%;
@@ -9931,8 +11925,8 @@ h3 {
 .col-2-of-4 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 50%;
   max-width: 50%;
   width: 50%;
@@ -9945,8 +11939,8 @@ h3 {
 .col-3-of-4 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 75%;
   max-width: 75%;
   width: 75%;
@@ -9959,8 +11953,8 @@ h3 {
 .col-1-of-5 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 20%;
   max-width: 20%;
   width: 20%;
@@ -9973,8 +11967,8 @@ h3 {
 .col-2-of-5 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 40%;
   max-width: 40%;
   width: 40%;
@@ -9987,8 +11981,8 @@ h3 {
 .col-3-of-5 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 60%;
   max-width: 60%;
   width: 60%;
@@ -10001,8 +11995,8 @@ h3 {
 .col-4-of-5 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 80%;
   max-width: 80%;
   width: 80%;
@@ -10015,8 +12009,8 @@ h3 {
 .col-1-of-6 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 16.6666666667%;
   max-width: 16.6666666667%;
   width: 16.6666666667%;
@@ -10029,8 +12023,8 @@ h3 {
 .col-2-of-6 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 33.3333333333%;
   max-width: 33.3333333333%;
   width: 33.3333333333%;
@@ -10043,8 +12037,8 @@ h3 {
 .col-3-of-6 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 50%;
   max-width: 50%;
   width: 50%;
@@ -10057,8 +12051,8 @@ h3 {
 .col-4-of-6 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 66.6666666667%;
   max-width: 66.6666666667%;
   width: 66.6666666667%;
@@ -10071,8 +12065,8 @@ h3 {
 .col-5-of-6 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 83.3333333333%;
   max-width: 83.3333333333%;
   width: 83.3333333333%;
@@ -10085,8 +12079,8 @@ h3 {
 .col-1-of-7 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 14.2857142857%;
   max-width: 14.2857142857%;
   width: 14.2857142857%;
@@ -10099,8 +12093,8 @@ h3 {
 .col-2-of-7 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 28.5714285714%;
   max-width: 28.5714285714%;
   width: 28.5714285714%;
@@ -10113,8 +12107,8 @@ h3 {
 .col-3-of-7 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 42.8571428571%;
   max-width: 42.8571428571%;
   width: 42.8571428571%;
@@ -10127,8 +12121,8 @@ h3 {
 .col-4-of-7 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 57.1428571429%;
   max-width: 57.1428571429%;
   width: 57.1428571429%;
@@ -10141,8 +12135,8 @@ h3 {
 .col-5-of-7 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 71.4285714286%;
   max-width: 71.4285714286%;
   width: 71.4285714286%;
@@ -10155,8 +12149,8 @@ h3 {
 .col-6-of-7 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 85.7142857143%;
   max-width: 85.7142857143%;
   width: 85.7142857143%;
@@ -10169,8 +12163,8 @@ h3 {
 .col-1-of-8 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 12.5%;
   max-width: 12.5%;
   width: 12.5%;
@@ -10183,8 +12177,8 @@ h3 {
 .col-2-of-8 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 25%;
   max-width: 25%;
   width: 25%;
@@ -10197,8 +12191,8 @@ h3 {
 .col-3-of-8 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 37.5%;
   max-width: 37.5%;
   width: 37.5%;
@@ -10211,8 +12205,8 @@ h3 {
 .col-4-of-8 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 50%;
   max-width: 50%;
   width: 50%;
@@ -10225,8 +12219,8 @@ h3 {
 .col-5-of-8 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 62.5%;
   max-width: 62.5%;
   width: 62.5%;
@@ -10239,8 +12233,8 @@ h3 {
 .col-6-of-8 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 75%;
   max-width: 75%;
   width: 75%;
@@ -10253,8 +12247,8 @@ h3 {
 .col-7-of-8 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 87.5%;
   max-width: 87.5%;
   width: 87.5%;
@@ -10267,8 +12261,8 @@ h3 {
 .col-1-of-9 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 11.1111111111%;
   max-width: 11.1111111111%;
   width: 11.1111111111%;
@@ -10281,8 +12275,8 @@ h3 {
 .col-2-of-9 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 22.2222222222%;
   max-width: 22.2222222222%;
   width: 22.2222222222%;
@@ -10295,8 +12289,8 @@ h3 {
 .col-3-of-9 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 33.3333333333%;
   max-width: 33.3333333333%;
   width: 33.3333333333%;
@@ -10309,8 +12303,8 @@ h3 {
 .col-4-of-9 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 44.4444444444%;
   max-width: 44.4444444444%;
   width: 44.4444444444%;
@@ -10323,8 +12317,8 @@ h3 {
 .col-5-of-9 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 55.5555555556%;
   max-width: 55.5555555556%;
   width: 55.5555555556%;
@@ -10337,8 +12331,8 @@ h3 {
 .col-6-of-9 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 66.6666666667%;
   max-width: 66.6666666667%;
   width: 66.6666666667%;
@@ -10351,8 +12345,8 @@ h3 {
 .col-7-of-9 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 77.7777777778%;
   max-width: 77.7777777778%;
   width: 77.7777777778%;
@@ -10365,8 +12359,8 @@ h3 {
 .col-8-of-9 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 88.8888888889%;
   max-width: 88.8888888889%;
   width: 88.8888888889%;
@@ -10379,8 +12373,8 @@ h3 {
 .col-1-of-10 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 10%;
   max-width: 10%;
   width: 10%;
@@ -10393,8 +12387,8 @@ h3 {
 .col-2-of-10 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 20%;
   max-width: 20%;
   width: 20%;
@@ -10407,8 +12401,8 @@ h3 {
 .col-3-of-10 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 30%;
   max-width: 30%;
   width: 30%;
@@ -10421,8 +12415,8 @@ h3 {
 .col-4-of-10 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 40%;
   max-width: 40%;
   width: 40%;
@@ -10435,8 +12429,8 @@ h3 {
 .col-5-of-10 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 50%;
   max-width: 50%;
   width: 50%;
@@ -10449,8 +12443,8 @@ h3 {
 .col-6-of-10 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 60%;
   max-width: 60%;
   width: 60%;
@@ -10463,8 +12457,8 @@ h3 {
 .col-7-of-10 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 70%;
   max-width: 70%;
   width: 70%;
@@ -10477,8 +12471,8 @@ h3 {
 .col-8-of-10 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 80%;
   max-width: 80%;
   width: 80%;
@@ -10491,8 +12485,8 @@ h3 {
 .col-9-of-10 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 90%;
   max-width: 90%;
   width: 90%;
@@ -10505,8 +12499,8 @@ h3 {
 .col-1-of-11 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 9.0909090909%;
   max-width: 9.0909090909%;
   width: 9.0909090909%;
@@ -10519,8 +12513,8 @@ h3 {
 .col-2-of-11 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 18.1818181818%;
   max-width: 18.1818181818%;
   width: 18.1818181818%;
@@ -10533,8 +12527,8 @@ h3 {
 .col-3-of-11 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 27.2727272727%;
   max-width: 27.2727272727%;
   width: 27.2727272727%;
@@ -10547,8 +12541,8 @@ h3 {
 .col-4-of-11 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 36.3636363636%;
   max-width: 36.3636363636%;
   width: 36.3636363636%;
@@ -10561,8 +12555,8 @@ h3 {
 .col-5-of-11 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 45.4545454545%;
   max-width: 45.4545454545%;
   width: 45.4545454545%;
@@ -10575,8 +12569,8 @@ h3 {
 .col-6-of-11 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 54.5454545455%;
   max-width: 54.5454545455%;
   width: 54.5454545455%;
@@ -10589,8 +12583,8 @@ h3 {
 .col-7-of-11 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 63.6363636364%;
   max-width: 63.6363636364%;
   width: 63.6363636364%;
@@ -10603,8 +12597,8 @@ h3 {
 .col-8-of-11 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 72.7272727273%;
   max-width: 72.7272727273%;
   width: 72.7272727273%;
@@ -10617,8 +12611,8 @@ h3 {
 .col-9-of-11 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 81.8181818182%;
   max-width: 81.8181818182%;
   width: 81.8181818182%;
@@ -10631,8 +12625,8 @@ h3 {
 .col-10-of-11 {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 0 90.9090909091%;
   max-width: 90.9090909091%;
   width: 90.9090909091%;
@@ -10646,8 +12640,8 @@ h3 {
   .col-sm-0-of-3 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 0%;
     max-width: 0%;
     width: 0%;
@@ -10660,8 +12654,8 @@ h3 {
   .col-sm-1-of-3 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 33.3333333333%;
     max-width: 33.3333333333%;
     width: 33.3333333333%;
@@ -10674,8 +12668,8 @@ h3 {
   .col-sm-2-of-3 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 66.6666666667%;
     max-width: 66.6666666667%;
     width: 66.6666666667%;
@@ -10688,8 +12682,8 @@ h3 {
   .col-sm-0-of-4 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 0%;
     max-width: 0%;
     width: 0%;
@@ -10702,8 +12696,8 @@ h3 {
   .col-sm-1-of-4 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 25%;
     max-width: 25%;
     width: 25%;
@@ -10716,8 +12710,8 @@ h3 {
   .col-sm-2-of-4 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 50%;
     max-width: 50%;
     width: 50%;
@@ -10730,8 +12724,8 @@ h3 {
   .col-sm-3-of-4 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 75%;
     max-width: 75%;
     width: 75%;
@@ -10744,8 +12738,8 @@ h3 {
   .col-sm-0-of-5 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 0%;
     max-width: 0%;
     width: 0%;
@@ -10758,8 +12752,8 @@ h3 {
   .col-sm-1-of-5 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 20%;
     max-width: 20%;
     width: 20%;
@@ -10772,8 +12766,8 @@ h3 {
   .col-sm-2-of-5 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 40%;
     max-width: 40%;
     width: 40%;
@@ -10786,8 +12780,8 @@ h3 {
   .col-sm-3-of-5 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 60%;
     max-width: 60%;
     width: 60%;
@@ -10800,8 +12794,8 @@ h3 {
   .col-sm-4-of-5 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 80%;
     max-width: 80%;
     width: 80%;
@@ -10814,8 +12808,8 @@ h3 {
   .col-sm-0-of-6 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 0%;
     max-width: 0%;
     width: 0%;
@@ -10828,8 +12822,8 @@ h3 {
   .col-sm-1-of-6 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 16.6666666667%;
     max-width: 16.6666666667%;
     width: 16.6666666667%;
@@ -10842,8 +12836,8 @@ h3 {
   .col-sm-2-of-6 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 33.3333333333%;
     max-width: 33.3333333333%;
     width: 33.3333333333%;
@@ -10856,8 +12850,8 @@ h3 {
   .col-sm-3-of-6 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 50%;
     max-width: 50%;
     width: 50%;
@@ -10870,8 +12864,8 @@ h3 {
   .col-sm-4-of-6 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 66.6666666667%;
     max-width: 66.6666666667%;
     width: 66.6666666667%;
@@ -10884,8 +12878,8 @@ h3 {
   .col-sm-5-of-6 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 83.3333333333%;
     max-width: 83.3333333333%;
     width: 83.3333333333%;
@@ -10898,8 +12892,8 @@ h3 {
   .col-sm-0-of-7 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 0%;
     max-width: 0%;
     width: 0%;
@@ -10912,8 +12906,8 @@ h3 {
   .col-sm-1-of-7 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 14.2857142857%;
     max-width: 14.2857142857%;
     width: 14.2857142857%;
@@ -10926,8 +12920,8 @@ h3 {
   .col-sm-2-of-7 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 28.5714285714%;
     max-width: 28.5714285714%;
     width: 28.5714285714%;
@@ -10940,8 +12934,8 @@ h3 {
   .col-sm-3-of-7 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 42.8571428571%;
     max-width: 42.8571428571%;
     width: 42.8571428571%;
@@ -10954,8 +12948,8 @@ h3 {
   .col-sm-4-of-7 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 57.1428571429%;
     max-width: 57.1428571429%;
     width: 57.1428571429%;
@@ -10968,8 +12962,8 @@ h3 {
   .col-sm-5-of-7 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 71.4285714286%;
     max-width: 71.4285714286%;
     width: 71.4285714286%;
@@ -10982,8 +12976,8 @@ h3 {
   .col-sm-6-of-7 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 85.7142857143%;
     max-width: 85.7142857143%;
     width: 85.7142857143%;
@@ -10996,8 +12990,8 @@ h3 {
   .col-sm-0-of-8 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 0%;
     max-width: 0%;
     width: 0%;
@@ -11010,8 +13004,8 @@ h3 {
   .col-sm-1-of-8 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 12.5%;
     max-width: 12.5%;
     width: 12.5%;
@@ -11024,8 +13018,8 @@ h3 {
   .col-sm-2-of-8 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 25%;
     max-width: 25%;
     width: 25%;
@@ -11038,8 +13032,8 @@ h3 {
   .col-sm-3-of-8 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 37.5%;
     max-width: 37.5%;
     width: 37.5%;
@@ -11052,8 +13046,8 @@ h3 {
   .col-sm-4-of-8 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 50%;
     max-width: 50%;
     width: 50%;
@@ -11066,8 +13060,8 @@ h3 {
   .col-sm-5-of-8 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 62.5%;
     max-width: 62.5%;
     width: 62.5%;
@@ -11080,8 +13074,8 @@ h3 {
   .col-sm-6-of-8 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 75%;
     max-width: 75%;
     width: 75%;
@@ -11094,8 +13088,8 @@ h3 {
   .col-sm-7-of-8 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 87.5%;
     max-width: 87.5%;
     width: 87.5%;
@@ -11108,8 +13102,8 @@ h3 {
   .col-sm-0-of-9 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 0%;
     max-width: 0%;
     width: 0%;
@@ -11122,8 +13116,8 @@ h3 {
   .col-sm-1-of-9 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 11.1111111111%;
     max-width: 11.1111111111%;
     width: 11.1111111111%;
@@ -11136,8 +13130,8 @@ h3 {
   .col-sm-2-of-9 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 22.2222222222%;
     max-width: 22.2222222222%;
     width: 22.2222222222%;
@@ -11150,8 +13144,8 @@ h3 {
   .col-sm-3-of-9 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 33.3333333333%;
     max-width: 33.3333333333%;
     width: 33.3333333333%;
@@ -11164,8 +13158,8 @@ h3 {
   .col-sm-4-of-9 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 44.4444444444%;
     max-width: 44.4444444444%;
     width: 44.4444444444%;
@@ -11178,8 +13172,8 @@ h3 {
   .col-sm-5-of-9 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 55.5555555556%;
     max-width: 55.5555555556%;
     width: 55.5555555556%;
@@ -11192,8 +13186,8 @@ h3 {
   .col-sm-6-of-9 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 66.6666666667%;
     max-width: 66.6666666667%;
     width: 66.6666666667%;
@@ -11206,8 +13200,8 @@ h3 {
   .col-sm-7-of-9 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 77.7777777778%;
     max-width: 77.7777777778%;
     width: 77.7777777778%;
@@ -11220,8 +13214,8 @@ h3 {
   .col-sm-8-of-9 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 88.8888888889%;
     max-width: 88.8888888889%;
     width: 88.8888888889%;
@@ -11234,8 +13228,8 @@ h3 {
   .col-sm-0-of-10 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 0%;
     max-width: 0%;
     width: 0%;
@@ -11248,8 +13242,8 @@ h3 {
   .col-sm-1-of-10 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 10%;
     max-width: 10%;
     width: 10%;
@@ -11262,8 +13256,8 @@ h3 {
   .col-sm-2-of-10 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 20%;
     max-width: 20%;
     width: 20%;
@@ -11276,8 +13270,8 @@ h3 {
   .col-sm-3-of-10 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 30%;
     max-width: 30%;
     width: 30%;
@@ -11290,8 +13284,8 @@ h3 {
   .col-sm-4-of-10 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 40%;
     max-width: 40%;
     width: 40%;
@@ -11304,8 +13298,8 @@ h3 {
   .col-sm-5-of-10 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 50%;
     max-width: 50%;
     width: 50%;
@@ -11318,8 +13312,8 @@ h3 {
   .col-sm-6-of-10 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 60%;
     max-width: 60%;
     width: 60%;
@@ -11332,8 +13326,8 @@ h3 {
   .col-sm-7-of-10 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 70%;
     max-width: 70%;
     width: 70%;
@@ -11346,8 +13340,8 @@ h3 {
   .col-sm-8-of-10 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 80%;
     max-width: 80%;
     width: 80%;
@@ -11360,8 +13354,8 @@ h3 {
   .col-sm-9-of-10 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 90%;
     max-width: 90%;
     width: 90%;
@@ -11374,8 +13368,8 @@ h3 {
   .col-sm-0-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 0%;
     max-width: 0%;
     width: 0%;
@@ -11388,8 +13382,8 @@ h3 {
   .col-sm-1-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 9.0909090909%;
     max-width: 9.0909090909%;
     width: 9.0909090909%;
@@ -11402,8 +13396,8 @@ h3 {
   .col-sm-2-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 18.1818181818%;
     max-width: 18.1818181818%;
     width: 18.1818181818%;
@@ -11416,8 +13410,8 @@ h3 {
   .col-sm-3-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 27.2727272727%;
     max-width: 27.2727272727%;
     width: 27.2727272727%;
@@ -11430,8 +13424,8 @@ h3 {
   .col-sm-4-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 36.3636363636%;
     max-width: 36.3636363636%;
     width: 36.3636363636%;
@@ -11444,8 +13438,8 @@ h3 {
   .col-sm-5-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 45.4545454545%;
     max-width: 45.4545454545%;
     width: 45.4545454545%;
@@ -11458,8 +13452,8 @@ h3 {
   .col-sm-6-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 54.5454545455%;
     max-width: 54.5454545455%;
     width: 54.5454545455%;
@@ -11472,8 +13466,8 @@ h3 {
   .col-sm-7-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 63.6363636364%;
     max-width: 63.6363636364%;
     width: 63.6363636364%;
@@ -11486,8 +13480,8 @@ h3 {
   .col-sm-8-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 72.7272727273%;
     max-width: 72.7272727273%;
     width: 72.7272727273%;
@@ -11500,8 +13494,8 @@ h3 {
   .col-sm-9-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 81.8181818182%;
     max-width: 81.8181818182%;
     width: 81.8181818182%;
@@ -11514,8 +13508,8 @@ h3 {
   .col-sm-10-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 90.9090909091%;
     max-width: 90.9090909091%;
     width: 90.9090909091%;
@@ -11529,8 +13523,8 @@ h3 {
   .col-md-0-of-3 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 0%;
     max-width: 0%;
     width: 0%;
@@ -11543,8 +13537,8 @@ h3 {
   .col-md-1-of-3 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 33.3333333333%;
     max-width: 33.3333333333%;
     width: 33.3333333333%;
@@ -11557,8 +13551,8 @@ h3 {
   .col-md-2-of-3 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 66.6666666667%;
     max-width: 66.6666666667%;
     width: 66.6666666667%;
@@ -11571,8 +13565,8 @@ h3 {
   .col-md-0-of-4 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 0%;
     max-width: 0%;
     width: 0%;
@@ -11585,8 +13579,8 @@ h3 {
   .col-md-1-of-4 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 25%;
     max-width: 25%;
     width: 25%;
@@ -11599,8 +13593,8 @@ h3 {
   .col-md-2-of-4 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 50%;
     max-width: 50%;
     width: 50%;
@@ -11613,8 +13607,8 @@ h3 {
   .col-md-3-of-4 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 75%;
     max-width: 75%;
     width: 75%;
@@ -11627,8 +13621,8 @@ h3 {
   .col-md-0-of-5 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 0%;
     max-width: 0%;
     width: 0%;
@@ -11641,8 +13635,8 @@ h3 {
   .col-md-1-of-5 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 20%;
     max-width: 20%;
     width: 20%;
@@ -11655,8 +13649,8 @@ h3 {
   .col-md-2-of-5 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 40%;
     max-width: 40%;
     width: 40%;
@@ -11669,8 +13663,8 @@ h3 {
   .col-md-3-of-5 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 60%;
     max-width: 60%;
     width: 60%;
@@ -11683,8 +13677,8 @@ h3 {
   .col-md-4-of-5 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 80%;
     max-width: 80%;
     width: 80%;
@@ -11697,8 +13691,8 @@ h3 {
   .col-md-0-of-6 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 0%;
     max-width: 0%;
     width: 0%;
@@ -11711,8 +13705,8 @@ h3 {
   .col-md-1-of-6 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 16.6666666667%;
     max-width: 16.6666666667%;
     width: 16.6666666667%;
@@ -11725,8 +13719,8 @@ h3 {
   .col-md-2-of-6 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 33.3333333333%;
     max-width: 33.3333333333%;
     width: 33.3333333333%;
@@ -11739,8 +13733,8 @@ h3 {
   .col-md-3-of-6 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 50%;
     max-width: 50%;
     width: 50%;
@@ -11753,8 +13747,8 @@ h3 {
   .col-md-4-of-6 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 66.6666666667%;
     max-width: 66.6666666667%;
     width: 66.6666666667%;
@@ -11767,8 +13761,8 @@ h3 {
   .col-md-5-of-6 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 83.3333333333%;
     max-width: 83.3333333333%;
     width: 83.3333333333%;
@@ -11781,8 +13775,8 @@ h3 {
   .col-md-0-of-7 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 0%;
     max-width: 0%;
     width: 0%;
@@ -11795,8 +13789,8 @@ h3 {
   .col-md-1-of-7 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 14.2857142857%;
     max-width: 14.2857142857%;
     width: 14.2857142857%;
@@ -11809,8 +13803,8 @@ h3 {
   .col-md-2-of-7 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 28.5714285714%;
     max-width: 28.5714285714%;
     width: 28.5714285714%;
@@ -11823,8 +13817,8 @@ h3 {
   .col-md-3-of-7 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 42.8571428571%;
     max-width: 42.8571428571%;
     width: 42.8571428571%;
@@ -11837,8 +13831,8 @@ h3 {
   .col-md-4-of-7 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 57.1428571429%;
     max-width: 57.1428571429%;
     width: 57.1428571429%;
@@ -11851,8 +13845,8 @@ h3 {
   .col-md-5-of-7 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 71.4285714286%;
     max-width: 71.4285714286%;
     width: 71.4285714286%;
@@ -11865,8 +13859,8 @@ h3 {
   .col-md-6-of-7 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 85.7142857143%;
     max-width: 85.7142857143%;
     width: 85.7142857143%;
@@ -11879,8 +13873,8 @@ h3 {
   .col-md-0-of-8 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 0%;
     max-width: 0%;
     width: 0%;
@@ -11893,8 +13887,8 @@ h3 {
   .col-md-1-of-8 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 12.5%;
     max-width: 12.5%;
     width: 12.5%;
@@ -11907,8 +13901,8 @@ h3 {
   .col-md-2-of-8 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 25%;
     max-width: 25%;
     width: 25%;
@@ -11921,8 +13915,8 @@ h3 {
   .col-md-3-of-8 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 37.5%;
     max-width: 37.5%;
     width: 37.5%;
@@ -11935,8 +13929,8 @@ h3 {
   .col-md-4-of-8 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 50%;
     max-width: 50%;
     width: 50%;
@@ -11949,8 +13943,8 @@ h3 {
   .col-md-5-of-8 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 62.5%;
     max-width: 62.5%;
     width: 62.5%;
@@ -11963,8 +13957,8 @@ h3 {
   .col-md-6-of-8 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 75%;
     max-width: 75%;
     width: 75%;
@@ -11977,8 +13971,8 @@ h3 {
   .col-md-7-of-8 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 87.5%;
     max-width: 87.5%;
     width: 87.5%;
@@ -11991,8 +13985,8 @@ h3 {
   .col-md-0-of-9 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 0%;
     max-width: 0%;
     width: 0%;
@@ -12005,8 +13999,8 @@ h3 {
   .col-md-1-of-9 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 11.1111111111%;
     max-width: 11.1111111111%;
     width: 11.1111111111%;
@@ -12019,8 +14013,8 @@ h3 {
   .col-md-2-of-9 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 22.2222222222%;
     max-width: 22.2222222222%;
     width: 22.2222222222%;
@@ -12033,8 +14027,8 @@ h3 {
   .col-md-3-of-9 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 33.3333333333%;
     max-width: 33.3333333333%;
     width: 33.3333333333%;
@@ -12047,8 +14041,8 @@ h3 {
   .col-md-4-of-9 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 44.4444444444%;
     max-width: 44.4444444444%;
     width: 44.4444444444%;
@@ -12061,8 +14055,8 @@ h3 {
   .col-md-5-of-9 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 55.5555555556%;
     max-width: 55.5555555556%;
     width: 55.5555555556%;
@@ -12075,8 +14069,8 @@ h3 {
   .col-md-6-of-9 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 66.6666666667%;
     max-width: 66.6666666667%;
     width: 66.6666666667%;
@@ -12089,8 +14083,8 @@ h3 {
   .col-md-7-of-9 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 77.7777777778%;
     max-width: 77.7777777778%;
     width: 77.7777777778%;
@@ -12103,8 +14097,8 @@ h3 {
   .col-md-8-of-9 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 88.8888888889%;
     max-width: 88.8888888889%;
     width: 88.8888888889%;
@@ -12117,8 +14111,8 @@ h3 {
   .col-md-0-of-10 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 0%;
     max-width: 0%;
     width: 0%;
@@ -12131,8 +14125,8 @@ h3 {
   .col-md-1-of-10 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 10%;
     max-width: 10%;
     width: 10%;
@@ -12145,8 +14139,8 @@ h3 {
   .col-md-2-of-10 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 20%;
     max-width: 20%;
     width: 20%;
@@ -12159,8 +14153,8 @@ h3 {
   .col-md-3-of-10 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 30%;
     max-width: 30%;
     width: 30%;
@@ -12173,8 +14167,8 @@ h3 {
   .col-md-4-of-10 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 40%;
     max-width: 40%;
     width: 40%;
@@ -12187,8 +14181,8 @@ h3 {
   .col-md-5-of-10 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 50%;
     max-width: 50%;
     width: 50%;
@@ -12201,8 +14195,8 @@ h3 {
   .col-md-6-of-10 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 60%;
     max-width: 60%;
     width: 60%;
@@ -12215,8 +14209,8 @@ h3 {
   .col-md-7-of-10 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 70%;
     max-width: 70%;
     width: 70%;
@@ -12229,8 +14223,8 @@ h3 {
   .col-md-8-of-10 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 80%;
     max-width: 80%;
     width: 80%;
@@ -12243,8 +14237,8 @@ h3 {
   .col-md-9-of-10 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 90%;
     max-width: 90%;
     width: 90%;
@@ -12257,8 +14251,8 @@ h3 {
   .col-md-0-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 0%;
     max-width: 0%;
     width: 0%;
@@ -12271,8 +14265,8 @@ h3 {
   .col-md-1-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 9.0909090909%;
     max-width: 9.0909090909%;
     width: 9.0909090909%;
@@ -12285,8 +14279,8 @@ h3 {
   .col-md-2-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 18.1818181818%;
     max-width: 18.1818181818%;
     width: 18.1818181818%;
@@ -12299,8 +14293,8 @@ h3 {
   .col-md-3-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 27.2727272727%;
     max-width: 27.2727272727%;
     width: 27.2727272727%;
@@ -12313,8 +14307,8 @@ h3 {
   .col-md-4-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 36.3636363636%;
     max-width: 36.3636363636%;
     width: 36.3636363636%;
@@ -12327,8 +14321,8 @@ h3 {
   .col-md-5-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 45.4545454545%;
     max-width: 45.4545454545%;
     width: 45.4545454545%;
@@ -12341,8 +14335,8 @@ h3 {
   .col-md-6-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 54.5454545455%;
     max-width: 54.5454545455%;
     width: 54.5454545455%;
@@ -12355,8 +14349,8 @@ h3 {
   .col-md-7-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 63.6363636364%;
     max-width: 63.6363636364%;
     width: 63.6363636364%;
@@ -12369,8 +14363,8 @@ h3 {
   .col-md-8-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 72.7272727273%;
     max-width: 72.7272727273%;
     width: 72.7272727273%;
@@ -12383,8 +14377,8 @@ h3 {
   .col-md-9-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 81.8181818182%;
     max-width: 81.8181818182%;
     width: 81.8181818182%;
@@ -12397,8 +14391,8 @@ h3 {
   .col-md-10-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 90.9090909091%;
     max-width: 90.9090909091%;
     width: 90.9090909091%;
@@ -12412,8 +14406,8 @@ h3 {
   .col-lg-0-of-3 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 0%;
     max-width: 0%;
     width: 0%;
@@ -12426,8 +14420,8 @@ h3 {
   .col-lg-1-of-3 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 33.3333333333%;
     max-width: 33.3333333333%;
     width: 33.3333333333%;
@@ -12440,8 +14434,8 @@ h3 {
   .col-lg-2-of-3 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 66.6666666667%;
     max-width: 66.6666666667%;
     width: 66.6666666667%;
@@ -12454,8 +14448,8 @@ h3 {
   .col-lg-0-of-4 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 0%;
     max-width: 0%;
     width: 0%;
@@ -12468,8 +14462,8 @@ h3 {
   .col-lg-1-of-4 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 25%;
     max-width: 25%;
     width: 25%;
@@ -12482,8 +14476,8 @@ h3 {
   .col-lg-2-of-4 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 50%;
     max-width: 50%;
     width: 50%;
@@ -12496,8 +14490,8 @@ h3 {
   .col-lg-3-of-4 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 75%;
     max-width: 75%;
     width: 75%;
@@ -12510,8 +14504,8 @@ h3 {
   .col-lg-0-of-5 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 0%;
     max-width: 0%;
     width: 0%;
@@ -12524,8 +14518,8 @@ h3 {
   .col-lg-1-of-5 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 20%;
     max-width: 20%;
     width: 20%;
@@ -12538,8 +14532,8 @@ h3 {
   .col-lg-2-of-5 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 40%;
     max-width: 40%;
     width: 40%;
@@ -12552,8 +14546,8 @@ h3 {
   .col-lg-3-of-5 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 60%;
     max-width: 60%;
     width: 60%;
@@ -12566,8 +14560,8 @@ h3 {
   .col-lg-4-of-5 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 80%;
     max-width: 80%;
     width: 80%;
@@ -12580,8 +14574,8 @@ h3 {
   .col-lg-0-of-6 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 0%;
     max-width: 0%;
     width: 0%;
@@ -12594,8 +14588,8 @@ h3 {
   .col-lg-1-of-6 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 16.6666666667%;
     max-width: 16.6666666667%;
     width: 16.6666666667%;
@@ -12608,8 +14602,8 @@ h3 {
   .col-lg-2-of-6 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 33.3333333333%;
     max-width: 33.3333333333%;
     width: 33.3333333333%;
@@ -12622,8 +14616,8 @@ h3 {
   .col-lg-3-of-6 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 50%;
     max-width: 50%;
     width: 50%;
@@ -12636,8 +14630,8 @@ h3 {
   .col-lg-4-of-6 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 66.6666666667%;
     max-width: 66.6666666667%;
     width: 66.6666666667%;
@@ -12650,8 +14644,8 @@ h3 {
   .col-lg-5-of-6 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 83.3333333333%;
     max-width: 83.3333333333%;
     width: 83.3333333333%;
@@ -12664,8 +14658,8 @@ h3 {
   .col-lg-0-of-7 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 0%;
     max-width: 0%;
     width: 0%;
@@ -12678,8 +14672,8 @@ h3 {
   .col-lg-1-of-7 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 14.2857142857%;
     max-width: 14.2857142857%;
     width: 14.2857142857%;
@@ -12692,8 +14686,8 @@ h3 {
   .col-lg-2-of-7 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 28.5714285714%;
     max-width: 28.5714285714%;
     width: 28.5714285714%;
@@ -12706,8 +14700,8 @@ h3 {
   .col-lg-3-of-7 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 42.8571428571%;
     max-width: 42.8571428571%;
     width: 42.8571428571%;
@@ -12720,8 +14714,8 @@ h3 {
   .col-lg-4-of-7 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 57.1428571429%;
     max-width: 57.1428571429%;
     width: 57.1428571429%;
@@ -12734,8 +14728,8 @@ h3 {
   .col-lg-5-of-7 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 71.4285714286%;
     max-width: 71.4285714286%;
     width: 71.4285714286%;
@@ -12748,8 +14742,8 @@ h3 {
   .col-lg-6-of-7 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 85.7142857143%;
     max-width: 85.7142857143%;
     width: 85.7142857143%;
@@ -12762,8 +14756,8 @@ h3 {
   .col-lg-0-of-8 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 0%;
     max-width: 0%;
     width: 0%;
@@ -12776,8 +14770,8 @@ h3 {
   .col-lg-1-of-8 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 12.5%;
     max-width: 12.5%;
     width: 12.5%;
@@ -12790,8 +14784,8 @@ h3 {
   .col-lg-2-of-8 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 25%;
     max-width: 25%;
     width: 25%;
@@ -12804,8 +14798,8 @@ h3 {
   .col-lg-3-of-8 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 37.5%;
     max-width: 37.5%;
     width: 37.5%;
@@ -12818,8 +14812,8 @@ h3 {
   .col-lg-4-of-8 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 50%;
     max-width: 50%;
     width: 50%;
@@ -12832,8 +14826,8 @@ h3 {
   .col-lg-5-of-8 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 62.5%;
     max-width: 62.5%;
     width: 62.5%;
@@ -12846,8 +14840,8 @@ h3 {
   .col-lg-6-of-8 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 75%;
     max-width: 75%;
     width: 75%;
@@ -12860,8 +14854,8 @@ h3 {
   .col-lg-7-of-8 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 87.5%;
     max-width: 87.5%;
     width: 87.5%;
@@ -12874,8 +14868,8 @@ h3 {
   .col-lg-0-of-9 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 0%;
     max-width: 0%;
     width: 0%;
@@ -12888,8 +14882,8 @@ h3 {
   .col-lg-1-of-9 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 11.1111111111%;
     max-width: 11.1111111111%;
     width: 11.1111111111%;
@@ -12902,8 +14896,8 @@ h3 {
   .col-lg-2-of-9 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 22.2222222222%;
     max-width: 22.2222222222%;
     width: 22.2222222222%;
@@ -12916,8 +14910,8 @@ h3 {
   .col-lg-3-of-9 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 33.3333333333%;
     max-width: 33.3333333333%;
     width: 33.3333333333%;
@@ -12930,8 +14924,8 @@ h3 {
   .col-lg-4-of-9 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 44.4444444444%;
     max-width: 44.4444444444%;
     width: 44.4444444444%;
@@ -12944,8 +14938,8 @@ h3 {
   .col-lg-5-of-9 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 55.5555555556%;
     max-width: 55.5555555556%;
     width: 55.5555555556%;
@@ -12958,8 +14952,8 @@ h3 {
   .col-lg-6-of-9 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 66.6666666667%;
     max-width: 66.6666666667%;
     width: 66.6666666667%;
@@ -12972,8 +14966,8 @@ h3 {
   .col-lg-7-of-9 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 77.7777777778%;
     max-width: 77.7777777778%;
     width: 77.7777777778%;
@@ -12986,8 +14980,8 @@ h3 {
   .col-lg-8-of-9 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 88.8888888889%;
     max-width: 88.8888888889%;
     width: 88.8888888889%;
@@ -13000,8 +14994,8 @@ h3 {
   .col-lg-0-of-10 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 0%;
     max-width: 0%;
     width: 0%;
@@ -13014,8 +15008,8 @@ h3 {
   .col-lg-1-of-10 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 10%;
     max-width: 10%;
     width: 10%;
@@ -13028,8 +15022,8 @@ h3 {
   .col-lg-2-of-10 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 20%;
     max-width: 20%;
     width: 20%;
@@ -13042,8 +15036,8 @@ h3 {
   .col-lg-3-of-10 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 30%;
     max-width: 30%;
     width: 30%;
@@ -13056,8 +15050,8 @@ h3 {
   .col-lg-4-of-10 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 40%;
     max-width: 40%;
     width: 40%;
@@ -13070,8 +15064,8 @@ h3 {
   .col-lg-5-of-10 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 50%;
     max-width: 50%;
     width: 50%;
@@ -13084,8 +15078,8 @@ h3 {
   .col-lg-6-of-10 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 60%;
     max-width: 60%;
     width: 60%;
@@ -13098,8 +15092,8 @@ h3 {
   .col-lg-7-of-10 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 70%;
     max-width: 70%;
     width: 70%;
@@ -13112,8 +15106,8 @@ h3 {
   .col-lg-8-of-10 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 80%;
     max-width: 80%;
     width: 80%;
@@ -13126,8 +15120,8 @@ h3 {
   .col-lg-9-of-10 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 90%;
     max-width: 90%;
     width: 90%;
@@ -13140,8 +15134,8 @@ h3 {
   .col-lg-0-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 0%;
     max-width: 0%;
     width: 0%;
@@ -13154,8 +15148,8 @@ h3 {
   .col-lg-1-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 9.0909090909%;
     max-width: 9.0909090909%;
     width: 9.0909090909%;
@@ -13168,8 +15162,8 @@ h3 {
   .col-lg-2-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 18.1818181818%;
     max-width: 18.1818181818%;
     width: 18.1818181818%;
@@ -13182,8 +15176,8 @@ h3 {
   .col-lg-3-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 27.2727272727%;
     max-width: 27.2727272727%;
     width: 27.2727272727%;
@@ -13196,8 +15190,8 @@ h3 {
   .col-lg-4-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 36.3636363636%;
     max-width: 36.3636363636%;
     width: 36.3636363636%;
@@ -13210,8 +15204,8 @@ h3 {
   .col-lg-5-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 45.4545454545%;
     max-width: 45.4545454545%;
     width: 45.4545454545%;
@@ -13224,8 +15218,8 @@ h3 {
   .col-lg-6-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 54.5454545455%;
     max-width: 54.5454545455%;
     width: 54.5454545455%;
@@ -13238,8 +15232,8 @@ h3 {
   .col-lg-7-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 63.6363636364%;
     max-width: 63.6363636364%;
     width: 63.6363636364%;
@@ -13252,8 +15246,8 @@ h3 {
   .col-lg-8-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 72.7272727273%;
     max-width: 72.7272727273%;
     width: 72.7272727273%;
@@ -13266,8 +15260,8 @@ h3 {
   .col-lg-9-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 81.8181818182%;
     max-width: 81.8181818182%;
     width: 81.8181818182%;
@@ -13280,8 +15274,8 @@ h3 {
   .col-lg-10-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 90.9090909091%;
     max-width: 90.9090909091%;
     width: 90.9090909091%;
@@ -13295,8 +15289,8 @@ h3 {
   .col-xl-0-of-3 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 0%;
     max-width: 0%;
     width: 0%;
@@ -13309,8 +15303,8 @@ h3 {
   .col-xl-1-of-3 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 33.3333333333%;
     max-width: 33.3333333333%;
     width: 33.3333333333%;
@@ -13323,8 +15317,8 @@ h3 {
   .col-xl-2-of-3 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 66.6666666667%;
     max-width: 66.6666666667%;
     width: 66.6666666667%;
@@ -13337,8 +15331,8 @@ h3 {
   .col-xl-0-of-4 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 0%;
     max-width: 0%;
     width: 0%;
@@ -13351,8 +15345,8 @@ h3 {
   .col-xl-1-of-4 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 25%;
     max-width: 25%;
     width: 25%;
@@ -13365,8 +15359,8 @@ h3 {
   .col-xl-2-of-4 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 50%;
     max-width: 50%;
     width: 50%;
@@ -13379,8 +15373,8 @@ h3 {
   .col-xl-3-of-4 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 75%;
     max-width: 75%;
     width: 75%;
@@ -13393,8 +15387,8 @@ h3 {
   .col-xl-0-of-5 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 0%;
     max-width: 0%;
     width: 0%;
@@ -13407,8 +15401,8 @@ h3 {
   .col-xl-1-of-5 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 20%;
     max-width: 20%;
     width: 20%;
@@ -13421,8 +15415,8 @@ h3 {
   .col-xl-2-of-5 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 40%;
     max-width: 40%;
     width: 40%;
@@ -13435,8 +15429,8 @@ h3 {
   .col-xl-3-of-5 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 60%;
     max-width: 60%;
     width: 60%;
@@ -13449,8 +15443,8 @@ h3 {
   .col-xl-4-of-5 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 80%;
     max-width: 80%;
     width: 80%;
@@ -13463,8 +15457,8 @@ h3 {
   .col-xl-0-of-6 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 0%;
     max-width: 0%;
     width: 0%;
@@ -13477,8 +15471,8 @@ h3 {
   .col-xl-1-of-6 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 16.6666666667%;
     max-width: 16.6666666667%;
     width: 16.6666666667%;
@@ -13491,8 +15485,8 @@ h3 {
   .col-xl-2-of-6 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 33.3333333333%;
     max-width: 33.3333333333%;
     width: 33.3333333333%;
@@ -13505,8 +15499,8 @@ h3 {
   .col-xl-3-of-6 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 50%;
     max-width: 50%;
     width: 50%;
@@ -13519,8 +15513,8 @@ h3 {
   .col-xl-4-of-6 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 66.6666666667%;
     max-width: 66.6666666667%;
     width: 66.6666666667%;
@@ -13533,8 +15527,8 @@ h3 {
   .col-xl-5-of-6 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 83.3333333333%;
     max-width: 83.3333333333%;
     width: 83.3333333333%;
@@ -13547,8 +15541,8 @@ h3 {
   .col-xl-0-of-7 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 0%;
     max-width: 0%;
     width: 0%;
@@ -13561,8 +15555,8 @@ h3 {
   .col-xl-1-of-7 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 14.2857142857%;
     max-width: 14.2857142857%;
     width: 14.2857142857%;
@@ -13575,8 +15569,8 @@ h3 {
   .col-xl-2-of-7 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 28.5714285714%;
     max-width: 28.5714285714%;
     width: 28.5714285714%;
@@ -13589,8 +15583,8 @@ h3 {
   .col-xl-3-of-7 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 42.8571428571%;
     max-width: 42.8571428571%;
     width: 42.8571428571%;
@@ -13603,8 +15597,8 @@ h3 {
   .col-xl-4-of-7 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 57.1428571429%;
     max-width: 57.1428571429%;
     width: 57.1428571429%;
@@ -13617,8 +15611,8 @@ h3 {
   .col-xl-5-of-7 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 71.4285714286%;
     max-width: 71.4285714286%;
     width: 71.4285714286%;
@@ -13631,8 +15625,8 @@ h3 {
   .col-xl-6-of-7 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 85.7142857143%;
     max-width: 85.7142857143%;
     width: 85.7142857143%;
@@ -13645,8 +15639,8 @@ h3 {
   .col-xl-0-of-8 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 0%;
     max-width: 0%;
     width: 0%;
@@ -13659,8 +15653,8 @@ h3 {
   .col-xl-1-of-8 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 12.5%;
     max-width: 12.5%;
     width: 12.5%;
@@ -13673,8 +15667,8 @@ h3 {
   .col-xl-2-of-8 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 25%;
     max-width: 25%;
     width: 25%;
@@ -13687,8 +15681,8 @@ h3 {
   .col-xl-3-of-8 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 37.5%;
     max-width: 37.5%;
     width: 37.5%;
@@ -13701,8 +15695,8 @@ h3 {
   .col-xl-4-of-8 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 50%;
     max-width: 50%;
     width: 50%;
@@ -13715,8 +15709,8 @@ h3 {
   .col-xl-5-of-8 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 62.5%;
     max-width: 62.5%;
     width: 62.5%;
@@ -13729,8 +15723,8 @@ h3 {
   .col-xl-6-of-8 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 75%;
     max-width: 75%;
     width: 75%;
@@ -13743,8 +15737,8 @@ h3 {
   .col-xl-7-of-8 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 87.5%;
     max-width: 87.5%;
     width: 87.5%;
@@ -13757,8 +15751,8 @@ h3 {
   .col-xl-0-of-9 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 0%;
     max-width: 0%;
     width: 0%;
@@ -13771,8 +15765,8 @@ h3 {
   .col-xl-1-of-9 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 11.1111111111%;
     max-width: 11.1111111111%;
     width: 11.1111111111%;
@@ -13785,8 +15779,8 @@ h3 {
   .col-xl-2-of-9 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 22.2222222222%;
     max-width: 22.2222222222%;
     width: 22.2222222222%;
@@ -13799,8 +15793,8 @@ h3 {
   .col-xl-3-of-9 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 33.3333333333%;
     max-width: 33.3333333333%;
     width: 33.3333333333%;
@@ -13813,8 +15807,8 @@ h3 {
   .col-xl-4-of-9 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 44.4444444444%;
     max-width: 44.4444444444%;
     width: 44.4444444444%;
@@ -13827,8 +15821,8 @@ h3 {
   .col-xl-5-of-9 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 55.5555555556%;
     max-width: 55.5555555556%;
     width: 55.5555555556%;
@@ -13841,8 +15835,8 @@ h3 {
   .col-xl-6-of-9 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 66.6666666667%;
     max-width: 66.6666666667%;
     width: 66.6666666667%;
@@ -13855,8 +15849,8 @@ h3 {
   .col-xl-7-of-9 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 77.7777777778%;
     max-width: 77.7777777778%;
     width: 77.7777777778%;
@@ -13869,8 +15863,8 @@ h3 {
   .col-xl-8-of-9 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 88.8888888889%;
     max-width: 88.8888888889%;
     width: 88.8888888889%;
@@ -13883,8 +15877,8 @@ h3 {
   .col-xl-0-of-10 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 0%;
     max-width: 0%;
     width: 0%;
@@ -13897,8 +15891,8 @@ h3 {
   .col-xl-1-of-10 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 10%;
     max-width: 10%;
     width: 10%;
@@ -13911,8 +15905,8 @@ h3 {
   .col-xl-2-of-10 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 20%;
     max-width: 20%;
     width: 20%;
@@ -13925,8 +15919,8 @@ h3 {
   .col-xl-3-of-10 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 30%;
     max-width: 30%;
     width: 30%;
@@ -13939,8 +15933,8 @@ h3 {
   .col-xl-4-of-10 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 40%;
     max-width: 40%;
     width: 40%;
@@ -13953,8 +15947,8 @@ h3 {
   .col-xl-5-of-10 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 50%;
     max-width: 50%;
     width: 50%;
@@ -13967,8 +15961,8 @@ h3 {
   .col-xl-6-of-10 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 60%;
     max-width: 60%;
     width: 60%;
@@ -13981,8 +15975,8 @@ h3 {
   .col-xl-7-of-10 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 70%;
     max-width: 70%;
     width: 70%;
@@ -13995,8 +15989,8 @@ h3 {
   .col-xl-8-of-10 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 80%;
     max-width: 80%;
     width: 80%;
@@ -14009,8 +16003,8 @@ h3 {
   .col-xl-9-of-10 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 90%;
     max-width: 90%;
     width: 90%;
@@ -14023,8 +16017,8 @@ h3 {
   .col-xl-0-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 0%;
     max-width: 0%;
     width: 0%;
@@ -14037,8 +16031,8 @@ h3 {
   .col-xl-1-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 9.0909090909%;
     max-width: 9.0909090909%;
     width: 9.0909090909%;
@@ -14051,8 +16045,8 @@ h3 {
   .col-xl-2-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 18.1818181818%;
     max-width: 18.1818181818%;
     width: 18.1818181818%;
@@ -14065,8 +16059,8 @@ h3 {
   .col-xl-3-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 27.2727272727%;
     max-width: 27.2727272727%;
     width: 27.2727272727%;
@@ -14079,8 +16073,8 @@ h3 {
   .col-xl-4-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 36.3636363636%;
     max-width: 36.3636363636%;
     width: 36.3636363636%;
@@ -14093,8 +16087,8 @@ h3 {
   .col-xl-5-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 45.4545454545%;
     max-width: 45.4545454545%;
     width: 45.4545454545%;
@@ -14107,8 +16101,8 @@ h3 {
   .col-xl-6-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 54.5454545455%;
     max-width: 54.5454545455%;
     width: 54.5454545455%;
@@ -14121,8 +16115,8 @@ h3 {
   .col-xl-7-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 63.6363636364%;
     max-width: 63.6363636364%;
     width: 63.6363636364%;
@@ -14135,8 +16129,8 @@ h3 {
   .col-xl-8-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 72.7272727273%;
     max-width: 72.7272727273%;
     width: 72.7272727273%;
@@ -14149,8 +16143,8 @@ h3 {
   .col-xl-9-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 81.8181818182%;
     max-width: 81.8181818182%;
     width: 81.8181818182%;
@@ -14163,8 +16157,8 @@ h3 {
   .col-xl-10-of-11 {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     flex: 0 0 90.9090909091%;
     max-width: 90.9090909091%;
     width: 90.9090909091%;
@@ -14408,7 +16402,7 @@ h3 {
 
 .btn-white {
   background-color: #fff;
-  color: #007bff;
+  color: #001ffa;
 }
 
 .btn-black {
@@ -14724,11 +16718,11 @@ video {
 
 :root {
   --black: #000;
-  --body: #212529;
+  --body: #252525;
 }
 
 *[class^=bg-].scheme-dark {
-  background-color: #007bff;
+  background-color: #001ffa;
 }
 
 .scheme-dark {
@@ -14891,133 +16885,198 @@ video {
 }
 
 .bg-primary.bg-opacity-10 {
-  background-color: rgba(0, 123, 255, 0.1) !important;
+  background-color: rgba(0, 31, 250, 0.1) !important;
 }
 .bg-primary.bg-opacity-20 {
-  background-color: rgba(0, 123, 255, 0.2) !important;
+  background-color: rgba(0, 31, 250, 0.2) !important;
 }
 .bg-primary.bg-opacity-30 {
-  background-color: rgba(0, 123, 255, 0.3) !important;
+  background-color: rgba(0, 31, 250, 0.3) !important;
 }
 .bg-primary.bg-opacity-40 {
-  background-color: rgba(0, 123, 255, 0.4) !important;
+  background-color: rgba(0, 31, 250, 0.4) !important;
 }
 .bg-primary.bg-opacity-50 {
-  background-color: rgba(0, 123, 255, 0.5) !important;
+  background-color: rgba(0, 31, 250, 0.5) !important;
 }
 .bg-primary.bg-opacity-60 {
-  background-color: rgba(0, 123, 255, 0.6) !important;
+  background-color: rgba(0, 31, 250, 0.6) !important;
 }
 .bg-primary.bg-opacity-70 {
-  background-color: rgba(0, 123, 255, 0.7) !important;
+  background-color: rgba(0, 31, 250, 0.7) !important;
 }
 .bg-primary.bg-opacity-80 {
-  background-color: rgba(0, 123, 255, 0.8) !important;
+  background-color: rgba(0, 31, 250, 0.8) !important;
 }
 .bg-primary.bg-opacity-90 {
-  background-color: rgba(0, 123, 255, 0.9) !important;
+  background-color: rgba(0, 31, 250, 0.9) !important;
 }
 
 .bg-sticky-primary.is_stuck {
-  background-color: #007bff !important;
+  background-color: #001ffa !important;
 }
 .bg-sticky-primary.is_stuck.bg-sticky-opacity-0 {
-  background-color: rgba(0, 123, 255, 0) !important;
+  background-color: rgba(0, 31, 250, 0) !important;
 }
 .bg-sticky-primary.is_stuck.bg-sticky-opacity-10 {
-  background-color: rgba(0, 123, 255, 0.1) !important;
+  background-color: rgba(0, 31, 250, 0.1) !important;
 }
 .bg-sticky-primary.is_stuck.bg-sticky-opacity-20 {
-  background-color: rgba(0, 123, 255, 0.2) !important;
+  background-color: rgba(0, 31, 250, 0.2) !important;
 }
 .bg-sticky-primary.is_stuck.bg-sticky-opacity-30 {
-  background-color: rgba(0, 123, 255, 0.3) !important;
+  background-color: rgba(0, 31, 250, 0.3) !important;
 }
 .bg-sticky-primary.is_stuck.bg-sticky-opacity-40 {
-  background-color: rgba(0, 123, 255, 0.4) !important;
+  background-color: rgba(0, 31, 250, 0.4) !important;
 }
 .bg-sticky-primary.is_stuck.bg-sticky-opacity-50 {
-  background-color: rgba(0, 123, 255, 0.5) !important;
+  background-color: rgba(0, 31, 250, 0.5) !important;
 }
 .bg-sticky-primary.is_stuck.bg-sticky-opacity-60 {
-  background-color: rgba(0, 123, 255, 0.6) !important;
+  background-color: rgba(0, 31, 250, 0.6) !important;
 }
 .bg-sticky-primary.is_stuck.bg-sticky-opacity-70 {
-  background-color: rgba(0, 123, 255, 0.7) !important;
+  background-color: rgba(0, 31, 250, 0.7) !important;
 }
 .bg-sticky-primary.is_stuck.bg-sticky-opacity-80 {
-  background-color: rgba(0, 123, 255, 0.8) !important;
+  background-color: rgba(0, 31, 250, 0.8) !important;
 }
 .bg-sticky-primary.is_stuck.bg-sticky-opacity-90 {
-  background-color: rgba(0, 123, 255, 0.9) !important;
+  background-color: rgba(0, 31, 250, 0.9) !important;
 }
 .bg-sticky-primary.is_stuck.bg-sticky-opacity-100 {
-  background-color: #007bff !important;
+  background-color: #001ffa !important;
 }
 
 .bg-secondary.bg-opacity-10 {
-  background-color: rgba(108, 117, 125, 0.1) !important;
+  background-color: rgba(0, 234, 255, 0.1) !important;
 }
 .bg-secondary.bg-opacity-20 {
-  background-color: rgba(108, 117, 125, 0.2) !important;
+  background-color: rgba(0, 234, 255, 0.2) !important;
 }
 .bg-secondary.bg-opacity-30 {
-  background-color: rgba(108, 117, 125, 0.3) !important;
+  background-color: rgba(0, 234, 255, 0.3) !important;
 }
 .bg-secondary.bg-opacity-40 {
-  background-color: rgba(108, 117, 125, 0.4) !important;
+  background-color: rgba(0, 234, 255, 0.4) !important;
 }
 .bg-secondary.bg-opacity-50 {
-  background-color: rgba(108, 117, 125, 0.5) !important;
+  background-color: rgba(0, 234, 255, 0.5) !important;
 }
 .bg-secondary.bg-opacity-60 {
-  background-color: rgba(108, 117, 125, 0.6) !important;
+  background-color: rgba(0, 234, 255, 0.6) !important;
 }
 .bg-secondary.bg-opacity-70 {
-  background-color: rgba(108, 117, 125, 0.7) !important;
+  background-color: rgba(0, 234, 255, 0.7) !important;
 }
 .bg-secondary.bg-opacity-80 {
-  background-color: rgba(108, 117, 125, 0.8) !important;
+  background-color: rgba(0, 234, 255, 0.8) !important;
 }
 .bg-secondary.bg-opacity-90 {
-  background-color: rgba(108, 117, 125, 0.9) !important;
+  background-color: rgba(0, 234, 255, 0.9) !important;
 }
 
 .bg-sticky-secondary.is_stuck {
-  background-color: #6c757d !important;
+  background-color: #00eaff !important;
 }
 .bg-sticky-secondary.is_stuck.bg-sticky-opacity-0 {
-  background-color: rgba(108, 117, 125, 0) !important;
+  background-color: rgba(0, 234, 255, 0) !important;
 }
 .bg-sticky-secondary.is_stuck.bg-sticky-opacity-10 {
-  background-color: rgba(108, 117, 125, 0.1) !important;
+  background-color: rgba(0, 234, 255, 0.1) !important;
 }
 .bg-sticky-secondary.is_stuck.bg-sticky-opacity-20 {
-  background-color: rgba(108, 117, 125, 0.2) !important;
+  background-color: rgba(0, 234, 255, 0.2) !important;
 }
 .bg-sticky-secondary.is_stuck.bg-sticky-opacity-30 {
-  background-color: rgba(108, 117, 125, 0.3) !important;
+  background-color: rgba(0, 234, 255, 0.3) !important;
 }
 .bg-sticky-secondary.is_stuck.bg-sticky-opacity-40 {
-  background-color: rgba(108, 117, 125, 0.4) !important;
+  background-color: rgba(0, 234, 255, 0.4) !important;
 }
 .bg-sticky-secondary.is_stuck.bg-sticky-opacity-50 {
-  background-color: rgba(108, 117, 125, 0.5) !important;
+  background-color: rgba(0, 234, 255, 0.5) !important;
 }
 .bg-sticky-secondary.is_stuck.bg-sticky-opacity-60 {
-  background-color: rgba(108, 117, 125, 0.6) !important;
+  background-color: rgba(0, 234, 255, 0.6) !important;
 }
 .bg-sticky-secondary.is_stuck.bg-sticky-opacity-70 {
-  background-color: rgba(108, 117, 125, 0.7) !important;
+  background-color: rgba(0, 234, 255, 0.7) !important;
 }
 .bg-sticky-secondary.is_stuck.bg-sticky-opacity-80 {
-  background-color: rgba(108, 117, 125, 0.8) !important;
+  background-color: rgba(0, 234, 255, 0.8) !important;
 }
 .bg-sticky-secondary.is_stuck.bg-sticky-opacity-90 {
-  background-color: rgba(108, 117, 125, 0.9) !important;
+  background-color: rgba(0, 234, 255, 0.9) !important;
 }
 .bg-sticky-secondary.is_stuck.bg-sticky-opacity-100 {
-  background-color: #6c757d !important;
+  background-color: #00eaff !important;
+}
+
+.bg-indigo.bg-opacity-10 {
+  background-color: rgba(84, 95, 146, 0.1) !important;
+}
+.bg-indigo.bg-opacity-20 {
+  background-color: rgba(84, 95, 146, 0.2) !important;
+}
+.bg-indigo.bg-opacity-30 {
+  background-color: rgba(84, 95, 146, 0.3) !important;
+}
+.bg-indigo.bg-opacity-40 {
+  background-color: rgba(84, 95, 146, 0.4) !important;
+}
+.bg-indigo.bg-opacity-50 {
+  background-color: rgba(84, 95, 146, 0.5) !important;
+}
+.bg-indigo.bg-opacity-60 {
+  background-color: rgba(84, 95, 146, 0.6) !important;
+}
+.bg-indigo.bg-opacity-70 {
+  background-color: rgba(84, 95, 146, 0.7) !important;
+}
+.bg-indigo.bg-opacity-80 {
+  background-color: rgba(84, 95, 146, 0.8) !important;
+}
+.bg-indigo.bg-opacity-90 {
+  background-color: rgba(84, 95, 146, 0.9) !important;
+}
+
+.bg-sticky-indigo.is_stuck {
+  background-color: #545f92 !important;
+}
+.bg-sticky-indigo.is_stuck.bg-sticky-opacity-0 {
+  background-color: rgba(84, 95, 146, 0) !important;
+}
+.bg-sticky-indigo.is_stuck.bg-sticky-opacity-10 {
+  background-color: rgba(84, 95, 146, 0.1) !important;
+}
+.bg-sticky-indigo.is_stuck.bg-sticky-opacity-20 {
+  background-color: rgba(84, 95, 146, 0.2) !important;
+}
+.bg-sticky-indigo.is_stuck.bg-sticky-opacity-30 {
+  background-color: rgba(84, 95, 146, 0.3) !important;
+}
+.bg-sticky-indigo.is_stuck.bg-sticky-opacity-40 {
+  background-color: rgba(84, 95, 146, 0.4) !important;
+}
+.bg-sticky-indigo.is_stuck.bg-sticky-opacity-50 {
+  background-color: rgba(84, 95, 146, 0.5) !important;
+}
+.bg-sticky-indigo.is_stuck.bg-sticky-opacity-60 {
+  background-color: rgba(84, 95, 146, 0.6) !important;
+}
+.bg-sticky-indigo.is_stuck.bg-sticky-opacity-70 {
+  background-color: rgba(84, 95, 146, 0.7) !important;
+}
+.bg-sticky-indigo.is_stuck.bg-sticky-opacity-80 {
+  background-color: rgba(84, 95, 146, 0.8) !important;
+}
+.bg-sticky-indigo.is_stuck.bg-sticky-opacity-90 {
+  background-color: rgba(84, 95, 146, 0.9) !important;
+}
+.bg-sticky-indigo.is_stuck.bg-sticky-opacity-100 {
+  background-color: #545f92 !important;
 }
 
 .bg-success.bg-opacity-10 {
@@ -15281,68 +17340,68 @@ video {
 }
 
 .bg-light.bg-opacity-10 {
-  background-color: rgba(248, 249, 250, 0.1) !important;
+  background-color: rgba(250, 247, 246, 0.1) !important;
 }
 .bg-light.bg-opacity-20 {
-  background-color: rgba(248, 249, 250, 0.2) !important;
+  background-color: rgba(250, 247, 246, 0.2) !important;
 }
 .bg-light.bg-opacity-30 {
-  background-color: rgba(248, 249, 250, 0.3) !important;
+  background-color: rgba(250, 247, 246, 0.3) !important;
 }
 .bg-light.bg-opacity-40 {
-  background-color: rgba(248, 249, 250, 0.4) !important;
+  background-color: rgba(250, 247, 246, 0.4) !important;
 }
 .bg-light.bg-opacity-50 {
-  background-color: rgba(248, 249, 250, 0.5) !important;
+  background-color: rgba(250, 247, 246, 0.5) !important;
 }
 .bg-light.bg-opacity-60 {
-  background-color: rgba(248, 249, 250, 0.6) !important;
+  background-color: rgba(250, 247, 246, 0.6) !important;
 }
 .bg-light.bg-opacity-70 {
-  background-color: rgba(248, 249, 250, 0.7) !important;
+  background-color: rgba(250, 247, 246, 0.7) !important;
 }
 .bg-light.bg-opacity-80 {
-  background-color: rgba(248, 249, 250, 0.8) !important;
+  background-color: rgba(250, 247, 246, 0.8) !important;
 }
 .bg-light.bg-opacity-90 {
-  background-color: rgba(248, 249, 250, 0.9) !important;
+  background-color: rgba(250, 247, 246, 0.9) !important;
 }
 
 .bg-sticky-light.is_stuck {
-  background-color: #f8f9fa !important;
+  background-color: #faf7f6 !important;
 }
 .bg-sticky-light.is_stuck.bg-sticky-opacity-0 {
-  background-color: rgba(248, 249, 250, 0) !important;
+  background-color: rgba(250, 247, 246, 0) !important;
 }
 .bg-sticky-light.is_stuck.bg-sticky-opacity-10 {
-  background-color: rgba(248, 249, 250, 0.1) !important;
+  background-color: rgba(250, 247, 246, 0.1) !important;
 }
 .bg-sticky-light.is_stuck.bg-sticky-opacity-20 {
-  background-color: rgba(248, 249, 250, 0.2) !important;
+  background-color: rgba(250, 247, 246, 0.2) !important;
 }
 .bg-sticky-light.is_stuck.bg-sticky-opacity-30 {
-  background-color: rgba(248, 249, 250, 0.3) !important;
+  background-color: rgba(250, 247, 246, 0.3) !important;
 }
 .bg-sticky-light.is_stuck.bg-sticky-opacity-40 {
-  background-color: rgba(248, 249, 250, 0.4) !important;
+  background-color: rgba(250, 247, 246, 0.4) !important;
 }
 .bg-sticky-light.is_stuck.bg-sticky-opacity-50 {
-  background-color: rgba(248, 249, 250, 0.5) !important;
+  background-color: rgba(250, 247, 246, 0.5) !important;
 }
 .bg-sticky-light.is_stuck.bg-sticky-opacity-60 {
-  background-color: rgba(248, 249, 250, 0.6) !important;
+  background-color: rgba(250, 247, 246, 0.6) !important;
 }
 .bg-sticky-light.is_stuck.bg-sticky-opacity-70 {
-  background-color: rgba(248, 249, 250, 0.7) !important;
+  background-color: rgba(250, 247, 246, 0.7) !important;
 }
 .bg-sticky-light.is_stuck.bg-sticky-opacity-80 {
-  background-color: rgba(248, 249, 250, 0.8) !important;
+  background-color: rgba(250, 247, 246, 0.8) !important;
 }
 .bg-sticky-light.is_stuck.bg-sticky-opacity-90 {
-  background-color: rgba(248, 249, 250, 0.9) !important;
+  background-color: rgba(250, 247, 246, 0.9) !important;
 }
 .bg-sticky-light.is_stuck.bg-sticky-opacity-100 {
-  background-color: #f8f9fa !important;
+  background-color: #faf7f6 !important;
 }
 
 .bg-dark.bg-opacity-10 {
@@ -15673,7 +17732,7 @@ main {
   padding-bottom: 0px;
 }
 .fw-page-section:nth-of-type(even) {
-  background-color: #f8f9fa;
+  background-color: #f0eae9;
 }
 .fw-page-section .subsection {
   padding: 80px 0;
@@ -15682,7 +17741,7 @@ main {
   padding-top: 0;
 }
 .fw-page-section .subsection:nth-of-type(even) {
-  background-color: #f8f9fa;
+  background-color: #faf7f6;
 }
 .fw-page-section.has-head .subsection:first-of-type {
   padding-top: 80px;
@@ -15712,6 +17771,19 @@ main {
 }
 .fw-container.full-size {
   position: absolute;
+}
+
+.fw-container.has-max-width {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.fw-container.has-max-width .row {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+.fw-container.has-max-width .fw-block {
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .fw-page-section .fw-container {
@@ -16043,16 +18115,16 @@ body.has-alert.alert-closing .first-section, body.has-alert.alert-closed .first-
   position: relative;
   cursor: pointer;
   font-size: 1rem;
-  color: #212529;
+  color: #252525;
   transition: 0.25s;
   z-index: 20;
 }
 .carousel-controls .carousel-arrow:hover {
-  color: #007bff;
+  color: #001ffa;
 }
 .carousel-controls .carousel-arrow.slick-disabled {
   cursor: not-allowed;
-  color: rgba(33, 37, 41, 0.3);
+  color: rgba(37, 37, 37, 0.3);
   pointer-events: none;
   opacity: 0.25;
 }
@@ -16075,7 +18147,7 @@ body.has-alert.alert-closing .first-section, body.has-alert.alert-closed .first-
   width: 10px;
   height: 10px;
   padding: 0;
-  background-color: #212529;
+  background-color: #252525;
   border: none;
   border-radius: 50%;
   text-indent: -9999px;
@@ -16083,7 +18155,7 @@ body.has-alert.alert-closing .first-section, body.has-alert.alert-closed .first-
   transition: 0.25s;
 }
 .carousel-controls .carousel-dots li.slick-active button {
-  background-color: #007bff;
+  background-color: #001ffa;
 }
 
 .carousel-container > .row {
@@ -16092,7 +18164,7 @@ body.has-alert.alert-closing .first-section, body.has-alert.alert-closed .first-
 
 .block-type-big_list ul {
   font-size: 2em;
-  color: #6c757d;
+  color: #00eaff;
 }
 .block-type-big_list ul li {
   margin-bottom: 0.8em;
@@ -16119,14 +18191,14 @@ body.has-alert.alert-closing .first-section, body.has-alert.alert-closed .first-
 
 .query-filter-toggle .btn {
   width: auto;
-  padding: 0.375rem;
+  padding: 0.5rem;
   background-color: #fff;
-  color: #007bff;
+  color: #001ffa;
 }
 
 .query-filter-wrap {
   background-color: #fff;
-  color: #212529;
+  color: #252525;
 }
 
 .query-items-wrap.filter-position-left .query-filter {
@@ -16225,7 +18297,7 @@ body.has-alert.alert-closing .first-section, body.has-alert.alert-closed .first-
 }
 
 .query-filter-head {
-  color: #007bff !important;
+  color: #001ffa !important;
 }
 
 .query-filter-items {
@@ -16251,32 +18323,10 @@ body.has-alert.alert-closing .first-section, body.has-alert.alert-closed .first-
   opacity: 1;
 }
 
-.query-type-grid .query-filter-wrap {
-  left: calc(-25vw - 15px);
-}
-.query-type-grid .query-filter-toggle {
-  left: -15px;
-}
-.query-type-grid .query-filter-toggle.is_stuck {
-  left: 0;
-}
-.query-type-grid.filter-open .query-filter-toggle {
-  left: calc(25vw - 15px);
-}
-.query-type-grid.filter-open .query-filter-toggle.is_stuck:not(.bottomed) {
-  left: 25vw;
-}
-.query-type-grid.filter-open .query-filter-wrap {
-  left: -15px;
-}
-.query-type-grid.filter-open .query-filter-wrap.is_stuck:not(.bottomed) {
-  left: 0;
-}
-
 .block-type-post_grid.col {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0;
+  padding-left: 0;
   margin-right: auto;
   margin-left: auto;
 }
@@ -16291,8 +18341,8 @@ body.has-alert.alert-closing .first-section, body.has-alert.alert-closed .first-
 @media (max-width: 767.98px) {
   .block-type-post_grid.col-12 {
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     margin-right: auto;
     margin-left: auto;
   }
@@ -16502,7 +18552,7 @@ body.spinner-on .spinner:after {
 }
 
 .query-filter-item.selected {
-  color: #007bff;
+  color: #001ffa;
 }
 
 #ajax-output {
@@ -16511,7 +18561,7 @@ body.spinner-on .spinner:after {
 
 .social-widget {
   position: relative;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: "HTGSans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 .social-widget .widget-trigger {
   padding: 10px;
@@ -16521,26 +18571,26 @@ body.spinner-on .spinner:after {
 }
 .social-widget .widget-trigger .icon {
   margin: 0 10px 0 0;
-  color: #007bff;
+  color: #001ffa;
 }
 .social-widget .widget-menu {
   margin: 0;
   padding: 0;
   list-style: none;
-  color: #007bff;
+  color: #001ffa;
   font-size: 1em;
 }
 .social-widget .widget-menu-item a:hover {
   text-decoration: none;
 }
 .social-widget .widget-menu-item .icon {
-  color: #007bff;
+  color: #001ffa;
 }
 .social-widget .widget-menu-item.share-permalink-wrap {
   transition: background-color 0.25s;
 }
 .social-widget .widget-menu-item.share-permalink-wrap.open {
-  background-color: #f8f9fa;
+  background-color: #faf7f6;
 }
 .social-widget .widget-menu-item .share-permalink-input {
   margin-top: 4px;
@@ -16598,7 +18648,7 @@ body.spinner-on .spinner:after {
 }
 .social-widget-wrap {
   position: relative;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: "HTGSans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 .social-widget-wrap .social-widget {
   position: absolute;
@@ -16610,7 +18660,7 @@ body.spinner-on .spinner:after {
   background-color: #fff;
   opacity: 0;
   list-style: none;
-  color: #007bff;
+  color: #001ffa;
   font-size: 1em;
   transition: right 0s ease 0.25s, opacity 0.25s ease 0s;
   z-index: 1;
@@ -16621,7 +18671,7 @@ body.spinner-on .spinner:after {
   display: flex;
   align-items: center;
   float: none;
-  color: #007bff;
+  color: #001ffa;
 }
 .social-widget-wrap .social-widget a .icon {
   width: 20px;
@@ -16659,7 +18709,7 @@ body.spinner-on .spinner:after {
 }
 
 body.supermenu-disabled .supermenu-active {
-  color: #dee2e6;
+  color: #ece9f0;
 }
 body.supermenu-open .supermenu-wrap {
   top: 100%;
@@ -16922,8 +18972,8 @@ body.overlay-open .overlay-content {
 .scroll-progress li a {
   display: block;
   padding: 0;
-  color: #212529;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  color: #252525;
+  font-family: "HTGSans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   text-decoration: none;
   transition: 0.5s;
 }
@@ -16945,7 +18995,7 @@ body.overlay-open .overlay-content {
   left: 0;
   top: 0;
   height: 100%;
-  background-color: #007bff;
+  background-color: #001ffa;
 }
 .scroll-progress li .sp-text {
   display: block;
@@ -16954,7 +19004,7 @@ body.overlay-open .overlay-content {
   line-height: 1.4;
 }
 .scroll-progress li.active a {
-  color: #007bff;
+  color: #001ffa;
 }
 .scroll-progress.stuck {
   position: fixed;
@@ -16992,7 +19042,7 @@ body.overlay-open .overlay-content {
   position: absolute;
   width: 36px;
   height: 36px;
-  border: 2px solid #007bff;
+  border: 2px solid #001ffa;
   border-radius: 50%;
   clip: rect(0px, 18px, 36px, 0px);
 }
