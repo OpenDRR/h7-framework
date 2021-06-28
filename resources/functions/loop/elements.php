@@ -488,6 +488,9 @@ function setup_element ( $layout, $generator, $acf_ID ) {
 
 				case 'aos' :
 
+					wp_enqueue_style ( 'aos' );
+					wp_enqueue_script ( 'aos' );
+
 					if ( get_sub_field ( 'animation' ) != '' ) {
 						$GLOBALS['elements']['current']['atts']['aos'] = get_sub_field ( 'animation' );
 					}
