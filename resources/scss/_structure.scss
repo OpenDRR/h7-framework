@@ -165,6 +165,18 @@ main {
 }
 
 //
+// COLUMNS
+//
+
+.fw-column {
+	&.has-bg {
+		.fw-block {
+			z-index: $bg-z-index + 1;
+		}
+	}
+}
+
+//
 // BLOCKS
 //
 

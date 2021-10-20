@@ -453,9 +453,9 @@ function setup_element ( $layout, $generator, $acf_ID ) {
         case 'carousel' :
         case 'swiper' :
 
-					add_filter ( 'element_setup_classes', function ( $classes ) { $classes[] = 'carousel-container'; return $classes; } );
+					// add_filter ( 'element_setup_classes', function ( $classes ) { $classes[] = 'carousel-container'; return $classes; } );
 
-          // $GLOBALS['elements']['current']['classes'][] = 'carousel-container';
+          $GLOBALS['elements']['current']['classes'][] = 'carousel-container';
 
           $GLOBALS['elements']['types'][$layout['type']]['carousel'] = new Carousel ( get_current_element_ID() );
 					$GLOBALS['elements']['types'][$layout['type']]['carousel']->init();
@@ -497,6 +497,10 @@ function setup_element ( $layout, $generator, $acf_ID ) {
 
 					if ( get_sub_field ( 'easing' ) != '' ) {
 						$GLOBALS['elements']['current']['atts']['aos-easing'] = get_sub_field ( 'easing' );
+					}
+
+					if ( get_sub_field ( 'delay' ) != '' ) {
+						$GLOBALS['elements']['current']['atts']['aos-delay'] = get_sub_field ( 'delay' );
 					}
 
 					break;

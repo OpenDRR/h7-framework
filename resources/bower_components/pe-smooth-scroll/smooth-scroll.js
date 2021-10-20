@@ -65,151 +65,7 @@
 
       if ($('.' + plugin_settings.classes.init).length) {
 
-        // find all .smooth-scroll elements
-
-        $('.' + plugin_settings.classes.init).each(function () {
-          if ($(this).is('a')) {
-
-            // if it's an <a> tag, add the class
-
-            $(this).addClass(plugin_settings.classes.link)
-          } else {
-
-            // or, add the class to all <a> tags inside it
-
-            $(this).find('a').each(function () {
-              $(this).addClass(plugin_settings.classes.link)
-            })
-          }
-        })
-
-        //
-        // CHECK EACH .smooth-scroll-link TO SEE IF ITS TARGET EXISTS ON THIS PAGE
-        //
-
-        $('.' + plugin_settings.classes.link).each(function () {
-          var is_valid = true
-
-          if (plugin_settings.debug == true) {
-            console.log('checking', $(this).attr('href'))
-          }
-
-          var this_href = $(this).attr('href')
-
-          if (typeof this_href !== 'undefined' && this_href !== null && this_href != '') {
-
-            // the href is not blank
-
-            if (this_href.charAt(0) == '#') {
-
-              // the link is an anchor
-
-              if (plugin_settings.debug == true) {
-                console.log('href is an anchor')
-              }
-
-            } else {
-
-              // if the URL part of the link is the current page
-
-              this_path = this_href.substring(0, this_href.indexOf('#'))
-
-              if (window.location.href.indexOf(this_path) !== -1) {
-
-                if (plugin_settings.debug == true) {
-                  console.log('href contains the current URL')
-                }
-
-                // replace the href with just the anchor
-
-                this_href = this_href.substring(this_href.indexOf("#"))
-
-                $(this).attr('href', this_href)
-
-                console.log($(this).attr('href'))
-
-              } else {
-
-                if (plugin_settings.debug == true) {
-                  console.log('href goes to another page')
-                }
-
-                is_valid = false
-
-                $(this).addClass('smooth-scroll-external')
-
-              }
-            }
-
-          } else {
-
-            is_valid = false
-
-            $(this).addClass('smooth-scroll-no-href')
-
-          }
-
-          if (is_valid == true) {
-
-            // the link is still valid
-
-            if (this_href == '#') {
-
-              // the link is an empty # anchor, try and locate its parent
-
-              if ($(this).parents(plugin_settings.next).length) {
-
-                $(this).addClass(plugin_settings.classes.next);
-
-              } else {
-
-                is_valid = false
-
-                $(this).addClass('smooth-scroll-no-target')
-
-                if (plugin_settings.debug == true) {
-                  console.log('no matching parent')
-                }
-
-              }
-
-            } else if ($(this_href).length) {
-
-              if (plugin_settings.debug == true) {
-
-                // the ID exists on the page
-                console.log(this_href + ' exists')
-
-              }
-
-            } else {
-
-              if (plugin_settings.debug == true) {
-                console.log(this_href + ' doesn\'t exist')
-              }
-
-              is_valid = false
-
-              $(this).addClass('smooth-scroll-no-element')
-
-            }
-
-          }
-
-          if (is_valid == false) {
-
-            // if the link is no longer valid,
-            // remove the .smooth-scroll-link class
-            // and add the .smooth-scroll-deactivated class
-
-            $(this).removeClass(plugin_settings.classes.link).addClass('smooth-scroll-deactivated')
-
-          } else {
-
-
-          }
-
-        })
+        plugin_instance.check_links()
 
         //
         // ACTIONS
@@ -248,8 +104,6 @@
           }
 
           plugin_instance.scroll_to(scroll_settings)
-
-
 
         })
 
@@ -364,6 +218,161 @@
       }
     },
 
+		check_links: function(fn_options) {
+
+      var plugin_instance = this
+      var plugin_item = this.item
+      var plugin_settings = plugin_instance.options
+      var plugin_elements = plugin_settings.elements
+
+			// find all .smooth-scroll elements
+
+			$('.' + plugin_settings.classes.init).each(function () {
+				if ($(this).is('a')) {
+
+					// if it's an <a> tag, add the class
+
+					$(this).addClass(plugin_settings.classes.link)
+				} else {
+
+					// or, add the class to all <a> tags inside it
+
+					$(this).find('a').each(function () {
+						$(this).addClass(plugin_settings.classes.link)
+					})
+				}
+			})
+
+			//
+			// CHECK EACH .smooth-scroll-link TO SEE IF ITS TARGET EXISTS ON THIS PAGE
+			//
+
+			$('.' + plugin_settings.classes.link).each(function () {
+				var is_valid = true
+
+				if (plugin_settings.debug == true) {
+					console.log('checking', $(this).attr('href'))
+				}
+
+				var this_href = $(this).attr('href')
+
+				if (typeof this_href !== 'undefined' && this_href !== null && this_href != '') {
+
+					// the href is not blank
+
+					if (this_href.charAt(0) == '#') {
+
+						// the link is an anchor
+
+						if (plugin_settings.debug == true) {
+							console.log('href is an anchor')
+						}
+
+					} else {
+
+						// if the URL part of the link is the current page
+
+						this_path = this_href.substring(0, this_href.indexOf('#'))
+
+						if (window.location.href.indexOf(this_path) !== -1) {
+
+							if (plugin_settings.debug == true) {
+								console.log('href contains the current URL')
+							}
+
+							// replace the href with just the anchor
+
+							this_href = this_href.substring(this_href.indexOf("#"))
+
+							$(this).attr('href', this_href)
+
+							console.log($(this).attr('href'))
+
+						} else {
+
+							if (plugin_settings.debug == true) {
+								console.log('href goes to another page')
+							}
+
+							is_valid = false
+
+							$(this).addClass('smooth-scroll-external')
+
+						}
+					}
+
+				} else {
+
+					is_valid = false
+
+					$(this).addClass('smooth-scroll-no-href')
+
+				}
+
+				if (is_valid == true) {
+
+					// the link is still valid
+
+					if (this_href == '#') {
+
+						// the link is an empty # anchor, try and locate its parent
+
+						if ($(this).parents(plugin_settings.next).length) {
+
+							$(this).addClass(plugin_settings.classes.next);
+
+						} else {
+
+							is_valid = false
+
+							$(this).addClass('smooth-scroll-no-target')
+
+							if (plugin_settings.debug == true) {
+								console.log('no matching parent')
+							}
+
+						}
+
+					} else if ($(this_href).length) {
+
+						if (plugin_settings.debug == true) {
+
+							// the ID exists on the page
+							console.log(this_href + ' exists')
+
+						}
+
+					} else {
+
+						if (plugin_settings.debug == true) {
+							console.log(this_href + ' doesn\'t exist')
+						}
+
+						is_valid = false
+
+						$(this).addClass('smooth-scroll-no-element')
+
+					}
+
+				}
+
+				if (is_valid == false) {
+
+					// if the link is no longer valid,
+					// remove the .smooth-scroll-link class
+					// and add the .smooth-scroll-deactivated class
+
+					$(this).removeClass(plugin_settings.classes.link).addClass('smooth-scroll-deactivated')
+
+				} else {
+
+
+				}
+
+			})
+
+		},
+
     next: function (fn_options) {
       var plugin_instance = this
       var plugin_item = this.item
@@ -397,8 +406,6 @@
         next_element = settings.clicked.parents(settings.next)
 
       }
-
-
 
       // plugin_instance.scroll_to({
       //   target_id: settings.next

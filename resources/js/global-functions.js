@@ -141,7 +141,11 @@ var sticky_offset = 0,
 
     // SMOOTH SCROLL
 
-		var smooth_scroll_offset = $('#page-header').outerHeight() + $('#wpadminbar').outerHeight()
+		var smooth_scroll_offset = 0
+
+		if ($('#wpadminbar').length) {
+			smooth_scroll_offset += $('#wpadminbar').outerHeight()
+		}
 
     $(document).smooth_scroll({
       debug: false,
@@ -312,7 +316,10 @@ var sticky_offset = 0,
         //   sticky_options.offset_top += element_height
         // }
 
-        if (typeof sticky_element.attr('data-sticky-parent') !== 'undefined') {
+        if (
+					typeof sticky_element.attr('data-sticky-parent') !== 'undefined' &&
+					$(sticky_element.attr('data-sticky-parent')).length
+				) {
           sticky_options.parent = sticky_element.attr('data-sticky-parent')
         }
 
@@ -328,7 +335,7 @@ var sticky_offset = 0,
           if (sticky_element.attr('data-sticky-offset') == 'center') {
             sticky_options.offset_top = ($(window).height() / 2) - (sticky_element.outerHeight() / 2)
           } else {
-            sticky_options.offset_top = sticky_element.attr('data-sticky-offset')
+            sticky_options.offset_top = parseInt(sticky_element.attr('data-sticky-offset'))
           }
 
         }

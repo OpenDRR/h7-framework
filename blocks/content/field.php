@@ -1,6 +1,6 @@
 <?php
 
-$field_post_ID = get_the_ID();
+$field_post_ID = $GLOBALS['vars']['current_query']->ID;
 $field_key = get_sub_field ( 'field' );
 
 if ( is_archive () ) {
@@ -13,7 +13,7 @@ if ( get_sub_field ( 'post_id' ) != '' ) {
   $field_post_ID = get_sub_field ( 'post_id' );
 }
 
-if ( get_sub_field ( 'display') == 'block' ) {
+if ( get_sub_field ( 'display' ) == 'block' ) {
 
 	$field_type = get_sub_field ( 'template' );
 

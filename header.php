@@ -28,27 +28,37 @@
 
 ?>
 <!doctype html>
-<html class="no-js">
+<html class="no-js" <?php language_attributes(); ?>>
   <head>
 		<meta charset="<?php bloginfo ( 'charset' ); ?>">
 
-		<title><?php
+		<?php
 
-			// current object
+			/*
 
-			wp_title ( '—', true, 'right' );
+			title - replaced with theme_support ( 'title-tag' )
 
-			// site title
+			<title><?php
 
-			bloginfo ( 'title' );
+				// current object
 
-			// description on home page
+				wp_title ( '—', true, 'right' );
 
-			if ( is_front_page() && get_bloginfo ( 'description' ) != '' ) {
-				echo ' — ' . get_bloginfo ( 'description' );
-			}
+				// site title
 
-		?></title>
+				bloginfo ( 'title' );
+
+				// description on home page
+
+				if ( is_front_page() && get_bloginfo ( 'description' ) != '' ) {
+					echo ' — ' . get_bloginfo ( 'description' );
+				}
+
+			?></title>
+
+			*/
+
+		?>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 

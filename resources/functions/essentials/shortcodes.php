@@ -39,3 +39,13 @@ function shortcode_icon ( $atts ) {
 }
 
 add_shortcode ( 'i', 'shortcode_icon' );
+
+//
+// OBFUSCATE
+//
+
+function shortcode_obfuscate ( $atts , $content = null ) {
+	return obfuscate ( $content );
+}
+
+add_shortcode ( 'obfuscate', 'shortcode_obfuscate' );

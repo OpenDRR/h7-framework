@@ -16,10 +16,16 @@ function update_general_options ( $post_id ) {
 
     // get highcharts options JS
 
-    $highcharts_filename = get_bloginfo ( 'template_directory') . '/resources/json/highcharts.json';
+		$highcharts_options = array();
 
-    $highcharts_json = file_get_contents ( $highcharts_filename );
-    $highcharts_options = json_decode ( $highcharts_json, true );
+		if ( locate_template ( 'resources/json/highcharts.json' ) != '' ) {
+
+	    $highcharts_filename = get_bloginfo ( 'template_directory') . '/resources/json/highcharts.json';
+
+	    $highcharts_json = file_get_contents ( $highcharts_filename );
+	    $highcharts_options = json_decode ( $highcharts_json, true );
+
+		}
 
     // echo 'current:<br>';
     // print_r($highcharts_options);

@@ -59,7 +59,7 @@
 @mixin full-size($position: absolute, $important: false) {
 
 	$pos-suffix: '';
-	
+
 	@if $important {
 		$pos-suffix: '!important';
 	}
