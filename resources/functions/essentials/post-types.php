@@ -42,7 +42,7 @@ function posttype_template() {
 		'supports'              => array( 'title', 'revisions' ),
     'taxonomies'            => array ( 'template_tag' ),
 		'hierarchical'          => true,
-		'public'                => true,
+		'public'                => false,
 		'show_ui'               => true,
 		'show_in_menu'          => true,
 		'menu_position'         => 20,
@@ -64,7 +64,6 @@ add_action( 'init', 'posttype_template', 0 );
 // LAYOUTS
 //
 
-// Register Custom Post Type
 function posttype_layout() {
 
 	$labels = array(
@@ -112,7 +111,7 @@ function posttype_layout() {
 		'can_export'            => true,
 		'has_archive'           => false,
 		'exclude_from_search'   => true,
-		'publicly_queryable'    => true,
+		'publicly_queryable'    => false,
 		'capability_type'       => 'page',
 	);
 	register_post_type( 'layout', $args );

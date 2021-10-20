@@ -56,6 +56,29 @@ $GLOBALS['fw_fields']['admin']['template_settings'] = array (
 // LAYOUT
 //
 
+// get all of the template posts to populate the select menu
+
+$layout_builder_templates = get_posts ( array (
+	'post_type' => 'template',
+	'posts_per_page' => -1,
+	'orderby' => 'menu_order',
+	'order' => 'asc',
+	'tax_query' => array (
+		'taxonomy' => 'template_tag',
+		'field' => 'slug',
+		'terms' => array ( 'layout' )
+	)
+) );
+
+if ( !empty ( $layout_builder_templates ) ) {
+	$layout_builder_template_IDs = array();
+
+	foreach ( $layout_builder_templates as $template ) {
+		$layout_builder_template_IDs[$template->ID] = get_the_title ( $template->ID );
+	}
+
+}
+
 $GLOBALS['fw_fields']['admin']['layout'] = array (
 	'settings' => array (
 		'title' => 'Layout'
@@ -114,28 +137,26 @@ $GLOBALS['fw_fields']['admin']['layout'] = array (
 						'label' => 'Template',
 						'display' => 'block',
 						'sub_fields' => array(
+
 							array(
-								'key' => 'field_60c76ee7b4cf6',
+								'key' => 'admin_layout_builder_template_post',
 								'label' => 'Template',
 								'name' => 'template',
-								'type' => 'post_object',
-								'instructions' => '',
-								'required' => 0,
-								'conditional_logic' => 0,
+								'type' => 'select',
+								'instructions' => 'Post templates tagged as \'Layout\' are shown here.',
 								'wrapper' => array(
 									'width' => '',
 									'class' => '',
 									'id' => '',
 								),
-								'post_type' => array(
-									0 => 'template',
-								),
-								'taxonomy' => '',
+								'choices' => $layout_builder_template_IDs,
+								'default_value' => '',
 								'allow_null' => 0,
 								'multiple' => 0,
-								'return_format' => 'id',
-								'ui' => 1,
+								'ui' => 0,
+								'return_format' => 'value',
 							),
+
 						),
 						'min' => '',
 						'max' => '',

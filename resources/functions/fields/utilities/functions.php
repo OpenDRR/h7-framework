@@ -645,6 +645,17 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 	)
 );
 
+//
+// QUERY
+//
+
+// create an array of post types
+
+$query_selectable_types = array();
+
+if ( !empty ( get_post_types ( array ( 'publicly_queryable' => true ) ) ) )
+	$query_selectable_types = get_post_types ( array ( 'publicly_queryable' => true ) );
+
 $GLOBALS['fw_fields']['common']['function']['query'] = array(
 	'settings' => array (
 		'title' => 'Function — Query'
@@ -772,11 +783,12 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 						),
 						'layout' => 'block',
 						'sub_fields' => array(
+
 							array(
 								'key' => 'field_5bc0e7785c846',
 								'label' => 'Post Types',
 								'name' => 'post_type',
-								'type' => 'post_type_selector',
+								'type' => 'checkbox',
 								'instructions' => 'Check the boxes to limit the query to specific post types.',
 								'required' => 0,
 								'conditional_logic' => 0,
@@ -785,8 +797,16 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 									'class' => '',
 									'id' => '',
 								),
-								'select_type' => 2,
+								'choices' => $query_selectable_types,
+								'allow_custom' => 0,
+								'save_custom' => 0,
+								'default_value' => array(
+								),
+								'layout' => 'vertical',
+								'toggle' => 0,
+								'return_format' => 'value',
 							),
+
 							array(
 								'key' => 'field_5bc0e78f5c847',
 								'label' => 'Show in Filter',
