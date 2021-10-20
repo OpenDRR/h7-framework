@@ -161,15 +161,11 @@ add_action ( 'acf/init', 'fw_acf_fields_init' );
 //
 
 function fw_register_session() {
-  if ( !session_id() ) {
+  if ( !session_id() )
 		session_start();
-  } else {
-		print_r($_SESSION);
-	}
 }
 
 add_action ( 'init', 'fw_register_session' );
-// session_start();
 
 //
 // GLOBAL VARS

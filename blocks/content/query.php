@@ -255,6 +255,8 @@
 
 <?php
 
-// echo '<pre>';
-// print_r ( $query_block[$current_block_ID] );
-// echo '</pre>';
+if ( get_sub_field ( 'debug' ) == 1 ) {
+	echo '<pre class="p-3 bg-light font-size-smaller">';
+	print_r ( $query_block[$current_block_ID] );
+	echo '</pre>';
+}
