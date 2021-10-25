@@ -43,9 +43,11 @@
 						    // THIS PAGE CONTENT LOOP
 						    //
 
-								echo "\n\n";
-								echo '<!-- MAIN CONTENT LOOP -->';
-								echo "\n\n";
+								if ( current_user_can ( 'administrator' ) ) {
+									echo "\n\n";
+									echo '<!-- MAIN CONTENT LOOP -->';
+									echo "\n\n";
+								}
 
 								do_action ( 'fw_before_content_loop' );
 
@@ -61,9 +63,11 @@
 								// PULL A TEMPLATE
 								//
 
-								echo "\n\n";
-								echo '<!-- TEMPLATE LOOP: ' . get_sub_field ( 'template' ) . ' -->';
-								echo "\n\n";
+								if ( current_user_can ( 'administrator' ) ) {
+									echo "\n\n";
+									echo '<!-- TEMPLATE LOOP: ' . get_sub_field ( 'template' ) . ' -->';
+									echo "\n\n";
+								}
 
 								content_loop ( 'elements', get_sub_field ( 'template' ) );
 								break;

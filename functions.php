@@ -208,7 +208,7 @@ function theme_global_vars() {
 
   $ids['body'] = 'page';
 
-  $classes['body'] = array( 'spinner-on' );
+  $classes['body'] = array ( 'spinner-on' );
 
   if (is_front_page()) {
 
@@ -561,13 +561,12 @@ function theme_global_vars() {
 
     if ( current_user_can ( 'administrator' ) ) {
       $classes['body'][] = 'logged-in-admin';
-
     }
   }
 
 }
 
-add_action ( 'wp', 'theme_global_vars' );
+add_action ( 'wp', 'theme_global_vars', 10 );
 
 //
 // THEME OPTIONS

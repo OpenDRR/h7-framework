@@ -10,26 +10,11 @@
 
     function fw_build_menu ( array &$elements, $parent_id = 0, $level ) {
 
-			// echo "\n";
-			// echo "\n";
-			// echo 'build level ' . $level . '<br>';
-			// echo "\n";
-			// echo "\n";
-
       $branch = array();
 
       $i = 0;
 
       foreach ( $elements as &$element ) {
-
-				// if ( current_user_can( 'administrator' ) ) {
-				// 	echo "\n";
-	      //   echo $element['title'] . ' (' . $element['id'] . ')<br>';
-				// 	echo "\n";
-				// 	echo 'item parent: ' . $element['parent'] . ', menu parent: ' . $parent_id . '<br>';
-				// 	echo "\n";
-				// 	echo "\n";
-				// }
 
         if ( $element['parent'] == $parent_id ) {
 
@@ -48,12 +33,6 @@
         $i++;
 
       }
-
-			if ( current_user_can( 'administrator' ) ) {
-				// echo '<pre>';
-				// print_r($branch);
-				// echo '</pre>';
-			}
 
       return $branch;
 
@@ -112,7 +91,7 @@
           echo ' class="';
 
           if ( $item['url'] == $GLOBALS['vars']['current_url'] ) {
-            echo 'current-nav-link';
+            echo 'current-nav-link ';
           }
 
           if ( isset ( $item['classes'] ) && is_array ( $item['classes'] ) ) {
