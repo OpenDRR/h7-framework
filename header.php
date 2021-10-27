@@ -87,5 +87,3 @@
 			wp_body_open();
 
     ?>
-
-    <main>

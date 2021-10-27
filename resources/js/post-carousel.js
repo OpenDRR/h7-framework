@@ -60,7 +60,7 @@
       // ELEMENTS
       //
 
-      plugin_elements.carousel = plugin_item.find('.swiper-container')
+      plugin_elements.carousel = plugin_item.find('.swiper')
 
       var this_swiper_id = plugin_elements.carousel.attr('id')
 
@@ -107,6 +107,10 @@
       //
       // INIT
       //
+
+			console.log(plugin_item.attr('per-page'))
+			console.log(plugin_elements.carousel)
+			console.log(plugin_elements.carousel.params)
 
 			if (parseInt(plugin_item.attr('per-page')) <= plugin_elements.carousel.params.slidesPerView) {
 				console.log('init, get next')

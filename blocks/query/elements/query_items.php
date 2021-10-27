@@ -27,6 +27,8 @@
 
 	<?php
 
+		$GLOBALS['elements']['types']['block']['carousel']->open ( $GLOBALS['elements']['current'] );
+
 		//
 		// PRE-LOOP
 		//
@@ -36,7 +38,7 @@
 			case 'carousel' :
 
 	    // open carousel element
-	    carousel_output ( 'open', 'block', false );
+	    //carousel_output ( 'open', 'block', false );
 
 			break;
 
@@ -118,12 +120,14 @@
 		// POST-LOOP
 		//
 
+		$GLOBALS['elements']['types']['block']['carousel']->close ( 'block' );
+
 		switch ( $query_block[$current_block_ID]['display']['type'] ) {
 
 			case 'carousel' :
 
 			// close carousel element
-	    carousel_output ( 'close', 'block' );
+	    //carousel_output ( 'close', 'block' );
 
 			break;
 

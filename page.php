@@ -49,11 +49,15 @@
 									echo "\n\n";
 								}
 
+								echo '<main>';
+
 								do_action ( 'fw_before_content_loop' );
 
 								content_loop ( 'elements', $this_ID );
 
 								do_action ( 'fw_after_content_loop' );
+
+								echo '</main>';
 
 								break;
 

@@ -441,3 +441,22 @@ $colour_fields = array (
 foreach ( $colour_fields as $colour_field ) {
   // add_filter ( 'acf/load_field/name=' . $colour_field, 'acf_load_color_field_choices' );
 }
+
+
+//
+// ADD EDIT LINK TO TEMPLATE ELEMENTS
+//
+
+function template_field_add_edit_link ( $field ) {
+	if (
+		$field['type'] == 'post_object' &&
+		!empty ( $field['value'] )
+	) {
+		echo '<a href="' . get_edit_post_link ( $field['value'] ) . '" target="_blank" style="display: inline-flex; align-items: center; margin-top: 1em; font-size: 0.75em; text-decoration: none;"><span class="dashicons-before dashicons-edit" style="margin-right: 0.25em;"></span>Edit this template</a>';
+	}
+}
+
+add_action (
+	'acf/render_field/key=builder_layout_template_post',
+	'template_field_add_edit_link'
+);

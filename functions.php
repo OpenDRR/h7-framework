@@ -722,6 +722,7 @@ $includes = array (
 foreach ( $includes as $include ) {
 
   if ( locate_template ( $include ) != '' ) {
+
     include_once ( locate_template ( $include ) );
   }
 
@@ -854,7 +855,7 @@ function theme_enqueue() {
 
   wp_register_script ( 'slick', $bower_dir . 'slick-carousel/slick/slick.min.js', array ( 'jquery' ), NULL, true );
   wp_register_script ( 'sticky-kit', $bower_dir . 'sticky-kit/dist/sticky-kit.js', array ( 'jquery' ), NULL, true );
-  wp_register_script ( 'swiper', 'https://unpkg.com/swiper/swiper-bundle.min.js', NULL, NULL, true );
+  wp_register_script ( 'swiper', 'https://unpkg.com/swiper@7.2.0/swiper-bundle.min.js', NULL, NULL, true );
   wp_register_script ( 'lazy', $bower_dir . 'jquery.lazy/jquery.lazy.min.js', array ( 'jquery' ), NULL, true );
   wp_register_script ( 'rellax', $bower_dir . 'rellax/rellax.min.js', NULL, NULL, true );
   wp_register_script ( 'magnify', $bower_dir . 'magnify/dist/js/jquery.magnify.js', NULL, NULL, true );

@@ -674,6 +674,7 @@ function open_element ( $layout, $generator, $acf_ID ) {
 
   echo '>';
 
+
 	do_action ( 'after_element_open', $GLOBALS['elements']['current'], 'open' );
 
   // BACKGROUND

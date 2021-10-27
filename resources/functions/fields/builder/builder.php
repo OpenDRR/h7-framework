@@ -347,27 +347,20 @@ $GLOBALS['fw_fields']['builder'] = array(
 						),
 					),
 				),
-				'layout_5dbc5c8f0d7b7' => array(
-					'key' => 'layout_5dbc5c8f0d7b7',
+				'builder_layout_template' => array(
+					'key' => 'builder_layout_template',
 					'name' => 'template',
 					'label' => 'Template',
 					'display' => 'block',
 					'sub_fields' => array(
 						array(
-							'key' => 'field_5dbc5b0e75b25',
+							'key' => 'builder_layout_template_post',
 							'label' => 'Template',
 							'name' => 'template',
 							'type' => 'post_object',
 							'instructions' => '',
 							'required' => 0,
-							'conditional_logic' => array(
-								array(
-									array(
-										'field' => 'field_5dbc59c419a9e',
-										'operator' => '!=empty',
-									),
-								),
-							),
+							'conditional_logic' => 0,
 							'wrapper' => array(
 								'width' => '75',
 								'class' => '',
@@ -383,7 +376,7 @@ $GLOBALS['fw_fields']['builder'] = array(
 							'ui' => 1,
 						),
 						array(
-							'key' => 'field_5f6cb33202911',
+							'key' => 'builder_layout_template_resolve',
 							'label' => 'Resolve elements',
 							'name' => 'resolve',
 							'type' => 'true_false',

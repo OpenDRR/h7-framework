@@ -76,7 +76,10 @@
 				while ( have_rows ( 'swiper' ) ) {
 					the_row();
 
-					$GLOBALS['elements']['types']['block']['carousel'] = carousel_setup ( get_current_element_ID() );
+					$GLOBALS['elements']['types']['block']['carousel'] = new Carousel ( get_current_element_ID() );
+					$GLOBALS['elements']['types']['block']['carousel']->init();
+
+					//$GLOBALS['elements']['types']['block']['carousel'] = carousel_setup ( get_current_element_ID() );
 
 				}
 			}

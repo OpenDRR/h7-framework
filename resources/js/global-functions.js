@@ -189,11 +189,11 @@ var sticky_offset = 0,
 
 	  $(document).overlay()
 
-    if ($('.swiper-container').length) {
+    if ($('.swiper').length) {
 
 			// console.log($('.swiper-container'))
 
-      $('.swiper-container').each(function(i) {
+      $('.swiper').each(function(i) {
 
         var this_id = $(this).attr('id')
 
