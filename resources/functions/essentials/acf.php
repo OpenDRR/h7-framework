@@ -460,3 +460,20 @@ add_action (
 	'acf/render_field/key=builder_layout_template_post',
 	'template_field_add_edit_link'
 );
+
+//
+// DISABLE AUTOCOMPLETE
+//
+
+function text_field_disable_autocomplete ( $field ) {
+
+	echo "\n" . '<script type="text/javascript">';
+	echo 'jQuery(\'[name="' . $field['name'] . '"]\').attr(\'autocomplete\', \'off\')';
+	echo '</script>';
+
+}
+
+add_action (
+	'acf/render_field/key=builder_layout_include_filename',
+	'text_field_disable_autocomplete'
+);

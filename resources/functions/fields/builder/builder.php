@@ -398,14 +398,14 @@ $GLOBALS['fw_fields']['builder'] = array(
 					'min' => '',
 					'max' => '',
 				),
-				'layout_5dbc5ca90d7b8' => array(
-					'key' => 'layout_5dbc5ca90d7b8',
+				'builder_layout_include' => array(
+					'key' => 'builder_layout_include',
 					'name' => 'include',
 					'label' => 'File Include',
 					'display' => 'block',
 					'sub_fields' => array(
 						array(
-							'key' => 'field_5dbc5b0e75b26',
+							'key' => 'builder_layout_include_filename',
 							'label' => 'Filename',
 							'name' => 'filename',
 							'type' => 'text',
@@ -424,7 +424,7 @@ $GLOBALS['fw_fields']['builder'] = array(
 							'maxlength' => '',
 						),
 						array(
-							'key' => 'field_5f1063e4b2c55',
+							'key' => 'builder_layout_include_resolve',
 							'label' => 'Resolve elements',
 							'name' => 'resolve',
 							'type' => 'true_false',
