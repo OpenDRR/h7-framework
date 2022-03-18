@@ -54,9 +54,17 @@
       //
 
       if (plugin_settings.auto_init == true) {
-        $('[href^="#"]').each(function() {
-          $(this).addClass('smooth-scroll')
+
+        $('a[href^="#"]').each(function() {
+
+					if ($(this).attr('role') != 'tab') {
+
+		        $(this).addClass('smooth-scroll')
+
+					}
+
         })
+
       }
 
       //

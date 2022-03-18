@@ -4246,12 +4246,12 @@ input[type=button].btn-block {
 }
 
 .nav-pills .nav-link {
-  border-radius: 0;
+  border-radius: 50rem;
 }
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
-  background-color: #007bff;
+  background-color: #d90429;
 }
 
 .nav-fill .nav-item {
