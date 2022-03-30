@@ -4250,8 +4250,8 @@ input[type=button].btn-block {
 }
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #d90429;
+  color: #2b2c42;
+  background-color: #dde0e7;
 }
 
 .nav-fill .nav-item {

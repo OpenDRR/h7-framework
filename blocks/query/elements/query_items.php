@@ -27,8 +27,6 @@
 
 	<?php
 
-		$GLOBALS['elements']['types']['block']['carousel']->open ( $GLOBALS['elements']['current'] );
-
 		//
 		// PRE-LOOP
 		//
@@ -37,16 +35,18 @@
 
 			case 'carousel' :
 
-	    // open carousel element
-	    //carousel_output ( 'open', 'block', false );
+				$GLOBALS['elements']['types']['block']['carousel']->open ( $GLOBALS['elements']['current'] );
 
-			break;
+		    // open carousel element
+		    //carousel_output ( 'open', 'block', false );
 
-		case 'list' :
+				break;
 
-			// echo '<ul id=' . $current_block_ID . '-items" class="post-list-wrap list-group">';
+			case 'list' :
 
-			break;
+				// echo '<ul id=' . $current_block_ID . '-items" class="post-list-wrap list-group">';
+
+				break;
 
 		}
 
@@ -120,22 +120,22 @@
 		// POST-LOOP
 		//
 
-		$GLOBALS['elements']['types']['block']['carousel']->close ( 'block' );
-
 		switch ( $query_block[$current_block_ID]['display']['type'] ) {
 
 			case 'carousel' :
 
-			// close carousel element
-	    //carousel_output ( 'close', 'block' );
+				$GLOBALS['elements']['types']['block']['carousel']->close ( 'block' );
 
-			break;
+				// close carousel element
+		    //carousel_output ( 'close', 'block' );
 
-		case 'list' :
+				break;
 
-			// echo '</ul>';
+			case 'list' :
 
-			break;
+				// echo '</ul>';
+
+				break;
 
 		}
 
