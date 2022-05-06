@@ -16,21 +16,41 @@
 
       foreach ( $elements as &$element ) {
 
-        if ( $element['parent'] == $parent_id ) {
+				// if ( $element['type'] != 'wpml_ls_menu_item' ) {
 
-          $children = fw_build_menu ( $elements, $element['id'], $level + 1 );
+					// echo 'item: ';
 
-          if ( $children ) {
-            $element['children'] = $children;
-          }
+	        if ( $element['parent'] == $parent_id ) {
 
-          $branch[] = $element;
+						if ( is_int ( $element['id'] ) ) {
 
-          unset ( $elements[$i] );
+		          $children = fw_build_menu ( $elements, $element['id'], $level + 1 );
 
-        }
+		          if ( $children ) {
+		            $element['children'] = $children;
+		          }
 
-        $i++;
+						}
+
+	          $branch[] = $element;
+
+	          unset ( $elements[$i] );
+
+	        }
+
+	        $i++;
+
+				// } else {
+				//
+				// 	echo '<pre>';
+				// 	echo 'switcher: ';
+				//
+				// 	print_r($element);
+				// 	echo '<pre>';
+				//
+				// 	unset ( $elements[$i] );
+				//
+				// }
 
       }
 
@@ -144,9 +164,13 @@
 
       $nav_items = wp_get_nav_menu_items ( $menu_ID );
 
-			// if ( current_user_can( 'administrator' ) ) {
+			// if ( current_user_can ( 'administrator' ) ) {
 			// 	echo '<pre>';
+			//
+			// 	echo "\n\n -- PRE -- \n\n";
+			//
 			// 	print_r(wp_get_nav_menu_items($menu_ID));
+			//
 			// 	echo '</pre>';
 			// }
 
@@ -157,20 +181,21 @@
       foreach ( $nav_items as &$item ) {
 
         $menu_items[] = array (
-          // 'id' => $item->object_id,
 					'id' => $item->ID,
+					'type' => $item->type,
           'url' => $item->url,
           'title' => $item->title,
           'classes' => $item->classes,
-          // 'parent' => $item->post_parent,
 					'parent' => $item->menu_item_parent,
           'icon' => get_field ( 'icon', $item->ID )
         );
 
       }
 
-			// if ( current_user_can( 'administrator' ) ) {
+			// if ( current_user_can ( 'administrator' ) ) {
 	    //   echo '<pre>';
+			//
+			// 	echo "\n\n -- POST -- \n\n";
 			//
 	    //   print_r($menu_items);
 	    //   echo '<hr>';
