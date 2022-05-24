@@ -144,6 +144,7 @@ $overlay-content-padding: 60px 0 !default;
     background-color: $overlay-inline-bg;
     display: flex;
     align-items: center;
+		z-index: 1;
 
     &[data-position="right"] {
       background-color: $overlay-position-right-bg;
