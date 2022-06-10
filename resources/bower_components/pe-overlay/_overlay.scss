@@ -207,7 +207,7 @@ $overlay-content-padding: 60px 0 !default;
 .overlay-close {
   display: block;
   position: absolute;
-  top: $overlay-close-right;
+  top: $overlay-close-top;
   right: $overlay-close-right;
   color: $overlay-close-color;
   font-size: $overlay-close-font-size;
