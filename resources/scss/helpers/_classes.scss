@@ -340,7 +340,7 @@ $theme-colors-merged: map-merge($theme-colors, $custom-colors);
 
     @for $z from 1 through 9 {
 
-      $current-opacity: 1 - ($z / 10);
+      $current-opacity: 1 - (calc($z / 10));
 
       &.bg-opacity-#{$z * 10} {
         background-color: transparentize($value, $current-opacity) !important;
@@ -354,7 +354,7 @@ $theme-colors-merged: map-merge($theme-colors, $custom-colors);
 
       @for $z from 0 through 10 {
 
-        $current-opacity: 1 - ($z / 10);
+        $current-opacity: 1 - (calc($z / 10));
 
         &.bg-sticky-opacity-#{$z * 10} {
           background-color: transparentize($value, $current-opacity) !important;

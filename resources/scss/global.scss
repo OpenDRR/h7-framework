@@ -9,14 +9,10 @@ $all-grid-breakpoint-sizes: 576, 768, 992, 1200;
 // BOOTSTRAP
 //
 
+@import "../vendor/bootstrap/scss/functions";
+@import "../vendor/bootstrap/scss/variables";
 @import 'bootstrap/setup';
-@import 'bootstrap/extensions';
-
-//
-// CHILD THEME OVERRIDES
-//
-
-// @import '../../../fw-child/resources/scss/setup';
+@import 'bootstrap/extras';
 
 //
 // HELPERS
@@ -85,9 +81,3 @@ $container-max-width: 1200px !default;
 //
 
 @import 'vendor';
-
-//
-// COMPONENTS
-//
-
-@import 'components';

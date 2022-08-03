@@ -2,6 +2,18 @@
 // NESTED COLUMNS
 //
 
+// mixins
+
+@mixin nested-column($x: 12, $y: 12) {
+	@include make-col-ready();
+	@include make-col($x, $y);
+	width: #{((calc($x / $y)) * 100) + '%'};
+}
+
+@mixin nested-offset($x: 12, $y: 12) {
+	margin-left: #{((calc($x / $y)) * 100) + '%'};
+}
+
 // standard widths
 
 @for $z from 3 through 11 {
@@ -52,7 +64,7 @@
 @for $z from 1 through 11 {
 
 	.offset-n#{$z} {
-		margin-left: #{( ( $z / 12 ) * -100 ) + '%'};
+		margin-left: #{( calc($z / 12) * -100 ) + '%'};
   }
 
 }
@@ -69,70 +81,11 @@
     @for $z from 1 through 11 {
 
       .offset-#{$current-breakpoint}-n#{$z} {
-				margin-left: #{( ( $z / 12 ) * -100 ) + '%'};
+				margin-left: #{( calc($z / 12) * -100 ) + '%'};
 			}
 
     }
 
   }
 
-}
-
-//
-// FONT UTILITIES
-//
-
-.font-size-smaller {
-  font-size: 0.8em;
-}
-
-.font-size-larger {
-  font-size: 1.4em;
-}
-
-//
-// BUTTON CLASSES
-//
-
-$btn-white-text-color: $primary !default;
-$btn-black-text-color: $white !default;
-
-.btn-white {
-  background-color: $white;
-  color: $btn-white-text-color;
-}
-
-.btn-black {
-  background-color: $black;
-  color: $btn-black-text-color;
-}
-
-.btn-outline-white {
-  border-color: $white !important;
-}
-
-.btn-outline-black {
-  border-color: $black !important;
-}
-
-// disabled
-
-.btn.disabled {
-  pointer-events: none !important;
-}
-
-//
-// CARDS
-//
-
-.card {
-	&.has-bg {
-		.card-body {
-			z-index: 5;
-		}
-	}
-
-	a.full-size {
-		z-index: 10;
-	}
 }

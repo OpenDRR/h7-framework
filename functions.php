@@ -965,6 +965,10 @@ function theme_enqueue() {
 
   // VENDOR
 
+  // magnify
+  
+  wp_register_script ( 'magnify', $vendor_dir . 'magnify/dist/css/magnify.css' );
+  
   // font awesome
 
   wp_register_style ( 'font-awesome', '//use.fontawesome.com/releases/v5.9.0/css/all.css', NULL, NULL, 'all' );

@@ -137,7 +137,7 @@ $sp-well-bg: #eee !default;
         position: absolute;
         width: $sp-number-width;
         height: $sp-number-width;
-        clip: rect(0px, $sp-number-width, $sp-number-width, $sp-number-width / 2);
+        clip: rect(0px, $sp-number-width, $sp-number-width, calc($sp-number-width / 2));
       }
 
       .circle-half {
@@ -147,7 +147,7 @@ $sp-well-bg: #eee !default;
         height: $sp-number-width;
         border: $sp-progress-width solid $sp-progress-color;
         border-radius: 50%;
-        clip: rect(0px, $sp-number-width / 2, $sp-number-width, 0px);
+        clip: rect(0px, calc($sp-number-width / 2), $sp-number-width, 0px);
 
         &.left {
           transform: rotate(0deg);

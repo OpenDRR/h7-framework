@@ -41,11 +41,7 @@ $overlay-content-padding: 60px 0 !default;
 
   // fixed header height adjustment
 
-  $overlay-top-buffer: $header-height;
-
-  @if ($header-height == auto) {
-    $overlay-top-buffer: 0px;
-  }
+  $overlay-top-buffer: 100px !default;
 
   // right
 
@@ -221,7 +217,7 @@ $overlay-content-padding: 60px 0 !default;
 body.overlay-position-right {
   .overlay-close {
     top: $overlay-position-right-close-top;
-    left: (100% - $overlay-position-right-width) / 2;
+    left: calc((100% - $overlay-position-right-width) / 2);
     right: auto;
     transform: translate(-50%, -50%);
     color: $overlay-position-right-close-color;
