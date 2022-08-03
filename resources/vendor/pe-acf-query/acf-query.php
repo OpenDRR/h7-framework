@@ -1,6 +1,6 @@
 <?php
 
-wp_enqueue_script ( 'acf-query', get_bloginfo ( 'template_directory' ) . '/resources/bower_components/pe-acf-query/acf-query.js', array ( 'jquery' ), NULL, true );
+wp_enqueue_script ( 'acf-query', get_bloginfo ( 'template_directory' ) . '/resources/vendor/pe-acf-query/acf-query.js', array ( 'jquery' ), NULL, true );
 
 if ( !isset ( $new_query ) ) $new_query = array();
 

@@ -22,10 +22,6 @@ main {
 }
 
 .fw-page-section {
-  .section-wrap {
-    padding-top: $section-wrap-padding-top;
-    padding-bottom: $section-wrap-padding-bottom;
-  }
 
   // alternating sections
 
@@ -82,18 +78,6 @@ main {
   }
 }
 
-.header-position-fixed {
-  main {
-    .fw-page-section {
-      &.first-of-type {
-				.section-wrap {
-	        // padding-top: $first-section-padding-top;
-				}
-      }
-    }
-  }
-}
-
 //
 // CONTAINERS
 //
@@ -133,25 +117,7 @@ main {
 
 .fw-page-section {
   .fw-container {
-    // margin-top: $container-margin-top;
-    // margin-bottom: $container-margin-bottom;
-    // padding-top: $container-padding-top;
-    // padding-bottom: $container-padding-bottom;
     z-index: 2; // always position above .bg
-
-    &.my-extra {
-      margin-top: $container-margin-top-extra !important;
-      margin-bottom: $container-margin-bottom-extra !important;
-    }
-
-    &.py-extra {
-      padding-top: $container-padding-top-extra !important;
-      padding-bottom: $container-padding-bottom-extra !important;
-    }
-
-    &:last-of-type {
-      // margin-bottom: 0;
-    }
   }
 }
 
@@ -199,9 +165,6 @@ main {
 .fw-page-section {
   .fw-container {
     .fw-block {
-      // padding-top: $block-padding-top;
-      // padding-bottom: $block-padding-bottom;
-      // margin-bottom: $block-margin-bottom;
 
       &:last-of-type {
         // margin-bottom: 0;
@@ -222,10 +185,6 @@ body {
       transition: top 0.4s;
     }
 
-    .first-section {
-      padding-top: #{$first-section-padding-top + $alert-height};
-    }
-
     &.alert-closing {
       #main-header {
         top: 0;
@@ -235,13 +194,6 @@ body {
     &.alert-closed {
       #main-header {
         position: fixed;
-      }
-    }
-
-    &.alert-closing,
-    &.alert-closed {
-      .first-section {
-        padding-top: $first-section-padding-top;
       }
     }
   }
