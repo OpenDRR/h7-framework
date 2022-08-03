@@ -417,6 +417,19 @@ function setup_element ( $layout, $generator, $acf_ID ) {
           break;
 
         case 'spacing' :
+					
+					if ( have_rows ( 'spacing' ) ) {
+						while ( have_rows ( 'spacing' ) ) {
+							the_row();
+							
+							$new_class = get_sub_field ( 'property' ) . get_sub_field ( 'sides' );
+							$new_class .= ( get_sub_field ( 'breakpoint' ) != '' ) ? '-' . get_sub_field ( 'breakpoint' ) : '';
+							$new_class .= '-' . get_sub_field ( 'value' );
+							
+							$GLOBALS['elements']['current']['classes'][] = $new_class;
+							
+						}
+					}
 
           $GLOBALS['elements']['current']['settings']['margin_top'] = get_sub_field ( 'margin_top' );
           $GLOBALS['elements']['current']['settings']['margin_bottom'] = get_sub_field ( 'margin_bottom' );

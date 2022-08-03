@@ -1,5 +1,135 @@
 <?php
 
+add_action ( 'admin_head', function() {
+  
+  $theme_ready = true;
+  
+  $notice_pre = '<div class="notice notice-error"><h3>Theme Errors</h3><ul style="list-style: square; padding-left: 24px;">';
+  $notice_post = '</ul></div>';
+  $GLOBALS['admin_notice'] = '';
+   
+  // $GLOBALS['admin_notice'] = ;
+  
+  // make sure ACF is installed
+  
+  if ( function_exists ( 'acf_add_local_field_group' ) ) {
+    
+    //
+    // CREATE DEFAULT HEADER/FOOTER TEMPLATES
+    //
+    
+    // HEADER
+    
+    if ( get_option ( 'fw_default_header' ) == false ) {
+    
+      $default_header_ID = wp_insert_post ( array (
+        'post_type' => 'template',
+        'post_status' => 'publish',
+        'post_title' => 'Default Header',
+        'menu_order' => 0
+      ), true );
+      
+      update_option ( 'fw_default_header', $default_header_ID );
+      
+    }
+    
+    // FOOTER
+    
+    if ( get_option ( 'fw_default_footer' ) == false ) {
+    
+      $default_footer_ID = wp_insert_post ( array (
+        'post_type' => 'template',
+        'post_status' => 'publish',
+        'post_title' => 'Default Footer',
+        'menu_order' => 1
+      ), true );
+      
+      update_option ( 'fw_default_footer', $default_footer_ID );
+      
+    }
+    
+    //
+    // DEFAULT LAYOUT
+    //
+    
+    if ( get_option ( 'fw_default_layout' ) == false ) {
+      
+      // create the post
+    
+      $default_layout_ID = wp_insert_post ( array (
+        'post_type' => 'layout',
+        'post_status' => 'publish',
+        'post_title' => 'Default Layout',
+        'menu_order' => 0
+      ), true );
+  
+      // set the layout_file field to have all of the boxes checked
+      
+      update_field ( 'layout_file', array ( 'index', 'page', 'front-page', 'single', 'archive', 'search', '404' ), $default_layout_ID );
+      
+      // build the default layout
+      
+      $default_layout_items = array (
+        array (
+          'acf_fc_layout' => 'template',
+          'template' => get_option ( 'fw_default_header' )
+        ),
+        array (
+          'acf_fc_layout' => 'content'
+        ),
+        array (
+          'acf_fc_layout' => 'template',
+          'template' => get_option ( 'fw_default_footer' )
+        )
+      );
+      
+      update_field ( 'layout_builder', $default_layout_items, $default_layout_ID );
+      
+      // set option
+      
+      update_option ( 'fw_default_layout', $default_layout_ID );
+      
+    }
+    
+  } else {
+  
+    $GLOBALS['admin_notice'] .= '<li>ACF Pro not installed.</li>';
+    
+    $theme_ready = false;
+    
+  }
+  
+  $GLOBALS['admin_notice'] = $notice_pre . $GLOBALS['admin_notice'] . $notice_post;
+    
+  if ( $theme_ready == true ) {
+    
+    // update_option ( 'fw_theme_ready', true );
+    
+  } else {
+    
+    add_action ( 'admin_notices', function() {
+      
+      echo $GLOBALS['admin_notice'];
+      
+    } );
+    
+  }
+  
+  update_option ( 'fw_theme_ready', $theme_ready );
+
+  // delete_option ( 'fw_theme_ready' );
+  // delete_option ( 'fw_default_header' );
+  // delete_option ( 'fw_default_footer' );
+  // delete_option ( 'fw_default_layout' );
+  
+});
+
+add_action ( 'after_switch_theme', function() {
+  
+  // echo 'switched theme';
+  
+} );
+
 function fw_acf_fields_init() {
 
 	if ( function_exists ( 'acf_add_local_field_group' ) ) {
@@ -819,6 +949,7 @@ function theme_enqueue() {
   //
 
   wp_dequeue_style ( 'wp-block-library' );
+  wp_dequeue_style ( 'global-styles' );
 
   // global
 
