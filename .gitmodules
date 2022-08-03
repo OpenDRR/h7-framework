@@ -19,3 +19,6 @@
 [submodule "resources/vendor/jquery.lazy"]
 	path = resources/vendor/jquery.lazy
 	url = https://github.com/dkern/jquery.lazy
+[submodule "resources/vendor/bootstrap"]
+	path = resources/vendor/bootstrap
+	url = https://github.com/twbs/bootstrap

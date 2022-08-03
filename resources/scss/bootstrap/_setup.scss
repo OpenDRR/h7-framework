@@ -12,10 +12,6 @@
 
 @import "../../vendor/bootstrap/scss/variables";
 
-// CHILD THEME
-
-// @import '../../../../fw-child/resources/scss/variables';
-
 //
 // BEGIN BOOTSTRAP IMPORTS
 //
@@ -55,9 +51,3 @@
 @import "../../vendor/bootstrap/scss/spinners";
 @import "../../vendor/bootstrap/scss/utilities";
 @import "../../vendor/bootstrap/scss/print";
-
-//
-// EXTENSIONS
-//
-
-@import 'mixins';

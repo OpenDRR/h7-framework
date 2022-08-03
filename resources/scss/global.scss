@@ -40,13 +40,6 @@ $bg-z-index: 1 !default;
 // HEADER
 // template/_header.scss
 
-$header-height: auto !default;
-$header-font-size: 0.875rem !default;
-
-$header-dropdown-bg: $white !default;
-
-$admin-bar-height: 32px !default;
-
 $alert-height: auto !default;
 $alert-bg: $danger !default;
 $alert-text-color: $white !default;
@@ -54,21 +47,7 @@ $alert-link-color: $alert-text-color !default;
 $alert-close-color: $alert-link-color !default;
 $alert-z-index: 1030 !default;
 
-$filter-height: auto !default;
-
 @import 'template/header';
-
-// FOOTER
-// template/_footer.scss
-
-$footer-padding-top: 80px !default;
-$footer-padding-bottom: 0 !default;
-$footer-section-padding-top: 0 !default;
-$footer-section-padding-bottom: 40px !default;
-$footer-block-margin-bottom: 20px !default;
-$footer-z-index: 2 !default;
-
-@import 'template/footer';
 
 //
 // STRUCTURE
@@ -100,14 +79,6 @@ $container-max-width: 1200px !default;
 @import 'blocks/post-carousel';
 @import 'blocks/terms';
 @import 'blocks/tabs';
-
-//
-// LAYOUTS
-//
-
-@import 'layouts/home';
-@import 'layouts/archive';
-@import 'layouts/chapter';
 
 //
 // VENDOR

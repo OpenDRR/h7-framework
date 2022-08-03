@@ -126,10 +126,6 @@ main {
   z-index: 2;
 }
 
-.section-footer {
-  padding-bottom: 80px;
-}
-
 //
 // COLUMNS
 //
@@ -150,29 +146,6 @@ main {
   position: relative;
 }
 
-.fw-header-block {
-  padding-top: 0;
-  padding-bottom: 0;
-  margin-bottom: 0;
-}
-
-.fw-hero-block {
-  padding-top: 0;
-  padding-bottom: 0;
-  margin-bottom: 0;
-}
-
-.fw-page-section {
-  .fw-container {
-    .fw-block {
-
-      &:last-of-type {
-        // margin-bottom: 0;
-      }
-    }
-  }
-}
-
 //
 // PAGE STATES
 //
@@ -181,7 +154,6 @@ body {
   &.has-alert {
     #main-header {
       position: absolute;
-      //top: $alert-height;
       transition: top 0.4s;
     }
 
