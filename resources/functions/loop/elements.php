@@ -330,6 +330,8 @@ function setup_element ( $layout, $generator, $acf_ID ) {
     $GLOBALS['elements']['current']['settings'] = array_merge ( $GLOBALS['defaults'][$layout['type']], get_element_defaults ( $GLOBALS['elements']['current'] ) );
 
   }
+	
+	$GLOBALS['elements']['current']['settings']['has_spacing'] = false;
 
   //
   // SETTINGS FIELDS
@@ -340,8 +342,6 @@ function setup_element ( $layout, $generator, $acf_ID ) {
   if ( $generator != 'auto' && have_rows ( 'settings', $acf_ID ) ) {
     while ( have_rows ( 'settings', $acf_ID ) ) {
       the_row();
-
-			// include ( locate_template ( 'setting') )
 
       switch ( get_row_layout() ) {
 
@@ -419,6 +419,9 @@ function setup_element ( $layout, $generator, $acf_ID ) {
         case 'spacing' :
 					
 					if ( have_rows ( 'spacing' ) ) {
+						
+						$GLOBALS['elements']['current']['settings']['has_spacing'] = true;
+						
 						while ( have_rows ( 'spacing' ) ) {
 							the_row();
 							
@@ -430,11 +433,6 @@ function setup_element ( $layout, $generator, $acf_ID ) {
 							
 						}
 					}
-
-          $GLOBALS['elements']['current']['settings']['margin_top'] = get_sub_field ( 'margin_top' );
-          $GLOBALS['elements']['current']['settings']['margin_bottom'] = get_sub_field ( 'margin_bottom' );
-          $GLOBALS['elements']['current']['settings']['padding_top'] = get_sub_field ( 'padding_top' );
-          $GLOBALS['elements']['current']['settings']['padding_bottom'] = get_sub_field ( 'padding_bottom' );
 
           break;
 
@@ -523,29 +521,26 @@ function setup_element ( $layout, $generator, $acf_ID ) {
 
     }
   }
-
+	
   // spacing
+	
+	if (
+		$GLOBALS['elements']['current']['settings']['has_spacing'] == false &&
+		!empty ( $GLOBALS['elements']['current']['settings']['spacing'] )
+	) {
 
-  if ( $GLOBALS['elements']['current']['settings']['margin_top'] != 0 || $GLOBALS['elements']['current']['settings']['margin_bottom'] != 0 ) {
-    if ( $GLOBALS['elements']['current']['settings']['margin_top'] == $GLOBALS['elements']['current']['settings']['margin_bottom'] ) {
-      $GLOBALS['elements']['current']['classes'][] = 'my-' . $GLOBALS['elements']['current']['settings']['margin_top'];
-    } else {
-      $GLOBALS['elements']['current']['classes'][] = 'mt-' . $GLOBALS['elements']['current']['settings']['margin_top'];
-      $GLOBALS['elements']['current']['classes'][] = 'mb-' . $GLOBALS['elements']['current']['settings']['margin_bottom'];
-    }
+		foreach ( $GLOBALS['elements']['current']['settings']['spacing'] as $prop ) {
+		
+			$new_class = $prop['property'] . $prop['sides'];
+			$new_class .= ( $prop['breakpoint'] != '' ) ? '-' . $prop['breakpoint'] : '';
+			$new_class .= '-' . $prop['value'];
+			
+			$GLOBALS['elements']['current']['classes'][] = $new_class;
+			
+		}
+		
   }
-
-  if ( $GLOBALS['elements']['current']['settings']['padding_top'] != 0 || $GLOBALS['elements']['current']['settings']['padding_bottom'] != 0 ) {
-
-    if ( $GLOBALS['elements']['current']['settings']['padding_top'] == $GLOBALS['elements']['current']['settings']['padding_bottom'] ) {
-      $GLOBALS['elements']['current']['classes'][] = 'py-' . $GLOBALS['elements']['current']['settings']['padding_top'];
-    } else {
-      $GLOBALS['elements']['current']['classes'][] = 'pt-' . $GLOBALS['elements']['current']['settings']['padding_top'];
-      $GLOBALS['elements']['current']['classes'][] = 'pb-' . $GLOBALS['elements']['current']['settings']['padding_bottom'];
-    }
-
-  }
-
+	
   // colours
 
   if ( isset ( $GLOBALS['elements']['current']['settings']['colours'] ) ) {
