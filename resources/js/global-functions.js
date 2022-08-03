@@ -8,6 +8,8 @@ const global_logging = true;
 
 var swipers = []
 
+
+
 //
 // LANGUAGE
 //
@@ -37,6 +39,8 @@ var sticky_offset = 0,
 (function($) {
 
   $(function() {
+		$('[data-toggle="tooltip"]').tooltip()
+
 
     //
     // URLs

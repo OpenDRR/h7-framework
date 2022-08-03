@@ -81,6 +81,10 @@
   </head>
 
   <body id="<?php echo $GLOBALS['ids']['body']; ?>" <?php body_class ( implode ( ' ', $GLOBALS['classes']['body'] ) ); ?>>
+	
+	<button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">
+		Tooltip on bottom
+	</button>
 
     <?php
 

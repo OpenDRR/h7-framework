@@ -125,7 +125,7 @@
 
 	// include acf-query component
 
-	include ( locate_template ( 'resources/bower_components/pe-acf-query/acf-query.php' ) );
+	include ( locate_template ( 'resources/vendor/pe-acf-query/acf-query.php' ) );
 
 	//
 	// MERGE

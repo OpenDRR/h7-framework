@@ -941,7 +941,6 @@ function theme_enqueue() {
   //
 
   $theme_dir = get_bloginfo('template_directory') . '/';
-  $bower_dir = $theme_dir . 'resources/bower_components/';
   $vendor_dir = $theme_dir . 'resources/vendor/';
   $js_dir = $theme_dir . 'resources/js/';
 
@@ -966,10 +965,6 @@ function theme_enqueue() {
 
   // VENDOR
 
-  // leaflet
-
-  // wp_register_style ( 'leaflet', $bower_dir . 'leaflet/leaflet.css', NULL, NULL, 'all' );
-
   // font awesome
 
   wp_register_style ( 'font-awesome', '//use.fontawesome.com/releases/v5.9.0/css/all.css', NULL, NULL, 'all' );
@@ -985,27 +980,25 @@ function theme_enqueue() {
 
   // vendor
 
-  wp_register_script ( 'slick', $bower_dir . 'slick-carousel/slick/slick.min.js', array ( 'jquery' ), NULL, true );
-  wp_register_script ( 'sticky-kit', $bower_dir . 'sticky-kit/dist/sticky-kit.js', array ( 'jquery' ), NULL, true );
+  wp_register_script ( 'slick', $vendor_dir . 'slick-carousel/slick/slick.min.js', array ( 'jquery' ), NULL, true );
+  wp_register_script ( 'sticky-kit', $vendor_dir . 'sticky-kit/dist/sticky-kit.js', array ( 'jquery' ), NULL, true );
   wp_register_script ( 'swiper', 'https://unpkg.com/swiper@7.2.0/swiper-bundle.min.js', NULL, NULL, true );
-  wp_register_script ( 'lazy', $bower_dir . 'jquery.lazy/jquery.lazy.min.js', array ( 'jquery' ), NULL, true );
+  wp_register_script ( 'lazy', $vendor_dir . 'jquery.lazy/jquery.lazy.min.js', array ( 'jquery' ), NULL, true );
   wp_register_script ( 'rellax', $vendor_dir . 'rellax/rellax.min.js', NULL, NULL, true );
-  wp_register_script ( 'magnify', $bower_dir . 'magnify/dist/js/jquery.magnify.js', NULL, NULL, true );
-  wp_register_script ( 'in-view', $theme_dir . 'resources/vendor/in-view/dist/in-view.min.js', NULL, NULL, true );
+  wp_register_script ( 'magnify', $vendor_dir . 'magnify/dist/js/jquery.magnify.js', NULL, NULL, true );
+  wp_register_script ( 'in-view', $vendor_dir . 'in-view/dist/in-view.min.js', NULL, NULL, true );
 	wp_register_script ( 'lottie', 'https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.9/lottie.min.js', NULL, NULL, true );
   wp_register_script ( 'animation', $js_dir . 'animation-functions.js', array ( 'jquery' ), NULL, true );
   wp_register_script ( 'isotope', 'https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js', array ( 'jquery' ), NULL, true );
-  wp_register_script ( 'select2', 'https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js', array ( 'jquery' ), NULL, true );
+  wp_register_script ( 'select2', $vendor_dir . 'select2/dist/js/select2.full.min.js', array ( 'jquery' ), NULL, true );
 
   // bootstrap
 
-  wp_register_script ( 'popper-utils', $bower_dir . 'popper.js/dist/umd/popper-utils.min.js', NULL, NULL, true);
-  wp_register_script ( 'popper', $bower_dir . 'popper.js/dist/umd/popper.min.js', NULL, NULL, true);
-  wp_register_script ( 'bootstrap-js', $theme_dir . 'resources/vendor/bootstrap/dist/js/bootstrap.bundle.min.js', array( 'jquery'), NULL, true );
+  wp_register_script ( 'bootstrap-js', $vendor_dir . 'bootstrap/dist/js/bootstrap.bundle.min.js', array( 'jquery' ), NULL, true );
 
   // utilities
 
-  wp_register_script ( 'smooth-scroll', $bower_dir . 'pe-smooth-scroll/smooth-scroll.js', array ( 'jquery' ), NULL, true );
+  wp_register_script ( 'smooth-scroll', $vendor_dir . 'pe-smooth-scroll/smooth-scroll.js', array ( 'jquery' ), NULL, true );
 
   // components
 
@@ -1016,22 +1009,22 @@ function theme_enqueue() {
 
     // social widgets
 
-    wp_register_script ( 'share-widget', $bower_dir . 'pe-social-widget/share-widget.js', array ( 'jquery' ), NULL, true );
-    wp_register_script ( 'follow-widget', $bower_dir . 'pe-social-widget/follow-widget.js', array ( 'jquery' ), NULL, true );
+    wp_register_script ( 'share-widget', $vendor_dir . 'pe-social-widget/share-widget.js', array ( 'jquery' ), NULL, true );
+    wp_register_script ( 'follow-widget', $vendor_dir . 'pe-social-widget/follow-widget.js', array ( 'jquery' ), NULL, true );
 
     // supermenu
 
-    wp_register_script ( 'supermenu', $bower_dir . 'pe-supermenu/supermenu.js', array ( 'jquery', 'bootstrap-js', 'slick' ), NULL, true );
+    wp_register_script ( 'supermenu', $vendor_dir . 'pe-supermenu/supermenu.js', array ( 'jquery', 'bootstrap-js', 'slick' ), NULL, true );
 
     // overlay
 
-    wp_register_script ( 'overlay', $bower_dir . 'pe-overlay/overlay.js', array ( 'jquery' ), NULL, true );
+    wp_register_script ( 'overlay', $vendor_dir . 'pe-overlay/overlay.js', array ( 'jquery' ), NULL, true );
 
   // renderables
 
     // dependencies
 
-    wp_register_script ( 'scroll-progress', $bower_dir . 'pe-scroll-progress/scroll-progress.js', array ( 'jquery' ), NULL, true );
+    wp_register_script ( 'scroll-progress', $vendor_dir . 'pe-scroll-progress/scroll-progress.js', array ( 'jquery' ), NULL, true );
 
     // renderer
 
@@ -1078,7 +1071,7 @@ add_action ( 'wp_enqueue_scripts', 'theme_enqueue' );
 function load_custom_wp_admin_style() {
 
   $theme_dir = get_bloginfo ( 'template_directory' ) . '/';
-  $bower_dir = $theme_dir . 'resources/bower_components/';
+  $vendor_dir = $theme_dir . 'resources/vendor/';
   $js_dir = $theme_dir . 'resources/js/';
 
   //
@@ -1353,7 +1346,6 @@ add_filter ( 'acf/prepare_field/key=field_5dc0533eec190', 'get_container_default
 function field_defaults_js() {
 
   $theme_dir = get_bloginfo ( 'template_directory' ) . '/';
-  $bower_dir = $theme_dir . 'resources/bower_components/';
   $js_dir = $theme_dir . 'resources/js/';
 
   // wp_register_script ( 'block-defaults', $js_dir . 'block-defaults.js', array ( 'jquery' ), NULL, true );
