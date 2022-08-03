@@ -1,0 +1,3 @@
+[submodule "resources/vendor/rellax"]
+	path = resources/vendor/rellax
+	url = https://github.com/dixonandmoe/rellax

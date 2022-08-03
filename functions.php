@@ -942,6 +942,7 @@ function theme_enqueue() {
 
   $theme_dir = get_bloginfo('template_directory') . '/';
   $bower_dir = $theme_dir . 'resources/bower_components/';
+  $vendor_dir = $theme_dir . 'resources/vendor/';
   $js_dir = $theme_dir . 'resources/js/';
 
   //
@@ -988,7 +989,7 @@ function theme_enqueue() {
   wp_register_script ( 'sticky-kit', $bower_dir . 'sticky-kit/dist/sticky-kit.js', array ( 'jquery' ), NULL, true );
   wp_register_script ( 'swiper', 'https://unpkg.com/swiper@7.2.0/swiper-bundle.min.js', NULL, NULL, true );
   wp_register_script ( 'lazy', $bower_dir . 'jquery.lazy/jquery.lazy.min.js', array ( 'jquery' ), NULL, true );
-  wp_register_script ( 'rellax', $bower_dir . 'rellax/rellax.min.js', NULL, NULL, true );
+  wp_register_script ( 'rellax', $vendor_dir . 'rellax/rellax.min.js', NULL, NULL, true );
   wp_register_script ( 'magnify', $bower_dir . 'magnify/dist/js/jquery.magnify.js', NULL, NULL, true );
   wp_register_script ( 'in-view', $theme_dir . 'resources/vendor/in-view/dist/in-view.min.js', NULL, NULL, true );
 	wp_register_script ( 'lottie', 'https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.9/lottie.min.js', NULL, NULL, true );
