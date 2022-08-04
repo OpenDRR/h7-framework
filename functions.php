@@ -7,12 +7,16 @@ add_action ( 'admin_head', function() {
   $notice_pre = '<div class="notice notice-error"><h3>Theme Errors</h3><ul style="list-style: square; padding-left: 24px;">';
   $notice_post = '</ul></div>';
   $GLOBALS['admin_notice'] = '';
-   
-  // $GLOBALS['admin_notice'] = ;
   
   // make sure ACF is installed
   
-  if ( function_exists ( 'acf_add_local_field_group' ) ) {
+  if ( !class_exists('ACF') ) {
+  
+    $GLOBALS['admin_notice'] .= '<li>ACF Pro not installed.</li>';
+    
+    $theme_ready = false;
+    
+  } else {
     
     //
     // CREATE DEFAULT HEADER/FOOTER TEMPLATES
@@ -22,12 +26,60 @@ add_action ( 'admin_head', function() {
     
     if ( get_option ( 'fw_default_header' ) == false ) {
     
+      // create the post
+      
       $default_header_ID = wp_insert_post ( array (
         'post_type' => 'template',
         'post_status' => 'publish',
         'post_title' => 'Default Header',
         'menu_order' => 0
       ), true );
+      
+      // set the 'default' tag
+      
+      wp_set_post_terms ( $default_header_ID, 'Default', 'template_tag', true );
+      
+      // insert content
+      
+      $default_header_content = array (
+        array (
+          'acf_fc_layout' => 'section',
+          'section_id' => 'main-header',
+          'classes' => 'default-template-element',
+          'settings' => false
+        ),
+        array (
+          'acf_fc_layout' => 'column',
+          'column_id' => '',
+          'classes' => 'default-template-element',
+          'settings' => false,
+          'breakpoints' => array (
+            'xs' => array ( 'hide' => false, 'col' => '', 'offset' => '', 'order' => '' ),
+            'sm' => array ( 'hide' => false, 'col' => '', 'offset' => '', 'order' => '' ),
+            'md' => array ( 'hide' => false, 'col' => '', 'offset' => '', 'order' => '' ),
+            'lg' => array ( 'hide' => false, 'col' => '', 'offset' => '', 'order' => '' ),
+            'xl' => array ( 'hide' => false, 'col' => '', 'offset' => '', 'order' => '' )
+          )
+        ),
+        array (
+          'acf_fc_layout' => 'block_content',
+          'block_id' => '',
+          'classes' => 'default-template-element',
+          'blocks' => array (
+            array (
+              'acf_fc_layout' => 'heading',
+              'text' => 'header',
+              'level' => 'h6',
+              'classes' => ''
+            )
+          ),
+          'settings' => false,
+        )
+      );
+      
+      update_field ( 'elements', $default_header_content, $default_header_ID );
+      
+      // set option
       
       update_option ( 'fw_default_header', $default_header_ID );
       
@@ -37,12 +89,62 @@ add_action ( 'admin_head', function() {
     
     if ( get_option ( 'fw_default_footer' ) == false ) {
     
+      // create the post
+      
       $default_footer_ID = wp_insert_post ( array (
         'post_type' => 'template',
         'post_status' => 'publish',
         'post_title' => 'Default Footer',
         'menu_order' => 1
       ), true );
+      
+      // set the 'default' tag
+      
+      wp_set_post_terms ( $default_footer_ID, 'Default', 'template_tag', true );
+      
+      // insert content
+      
+      // insert content
+      
+      $default_footer_content = array (
+        array (
+          'acf_fc_layout' => 'section',
+          'section_id' => 'main-footer',
+          'classes' => 'default-template-element',
+          'settings' => false
+        ),
+        array (
+          'acf_fc_layout' => 'column',
+          'column_id' => '',
+          'classes' => 'default-template-element',
+          'settings' => false,
+          'breakpoints' => array (
+            'xs' => array ( 'hide' => false, 'col' => '', 'offset' => '', 'order' => '' ),
+            'sm' => array ( 'hide' => false, 'col' => '', 'offset' => '', 'order' => '' ),
+            'md' => array ( 'hide' => false, 'col' => '', 'offset' => '', 'order' => '' ),
+            'lg' => array ( 'hide' => false, 'col' => '', 'offset' => '', 'order' => '' ),
+            'xl' => array ( 'hide' => false, 'col' => '', 'offset' => '', 'order' => '' )
+          )
+        ),
+        array (
+          'acf_fc_layout' => 'block_content',
+          'block_id' => '',
+          'classes' => 'default-template-element',
+          'blocks' => array (
+            array (
+              'acf_fc_layout' => 'heading',
+              'text' => 'footer',
+              'level' => 'h6',
+              'classes' => ''
+            )
+          ),
+          'settings' => false,
+        )
+      );
+      
+      update_field ( 'elements', $default_footer_content, $default_footer_ID );
+      
+      // set option
       
       update_option ( 'fw_default_footer', $default_footer_ID );
       
@@ -91,11 +193,73 @@ add_action ( 'admin_head', function() {
       
     }
     
-  } else {
-  
-    $GLOBALS['admin_notice'] .= '<li>ACF Pro not installed.</li>';
+    //
+    // HOME PAGE
+    //
     
-    $theme_ready = false;
+    if ( get_option ( 'fw_home_page' ) == false ) {
+    
+      $home_page_ID = wp_insert_post ( array (
+        'post_type' => 'page',
+        'post_status' => 'publish',
+        'post_title' => 'Home Page',
+        'menu_order' => 0
+      ), true );
+      
+      update_option ( 'show_on_front', 'page' );
+      update_option ( 'page_on_front', $home_page_ID );
+      update_option ( 'fw_home_page', true );
+      
+    }
+    
+    //
+    // DEFAULT SETTINGS
+    //
+    
+    if ( get_option ( 'fw_section_defaults' ) == false ) {
+    
+      // add py-5 as default spacing setting for sections
+      
+      $section_defaults = array (
+        'classes' => '',
+        'spacing' => array (
+          array (
+            'property' => 'p',
+            'sides' => 'y',
+            'breakpoint' => '',
+            'value' => 5
+          )
+        )
+      );
+      
+      update_field ( 'section_defaults', $section_defaults, 'option' );
+      
+      update_option ( 'fw_section_defaults', true );
+      
+    }
+    
+    if ( get_option ( 'fw_theme_colours' ) == false ) {
+    
+      // add colour options to the 'theme colours' field
+      
+      $theme_colours = '';
+      $i = 0;
+      
+      foreach ( $GLOBALS['defaults']['theme_colours'] as $key => $colour ) {
+        
+        if ( $i != 0) $theme_colours .= "\n";
+          
+        $theme_colours .= $key . ' : ' . $colour;
+        
+        $i++;
+        
+      }
+      
+      update_field ( 'theme_colours', $theme_colours, 'option' );
+      
+      update_option ( 'fw_theme_colours', true );
+      
+    }
     
   }
   
@@ -121,6 +285,8 @@ add_action ( 'admin_head', function() {
   // delete_option ( 'fw_default_header' );
   // delete_option ( 'fw_default_footer' );
   // delete_option ( 'fw_default_layout' );
+  // delete_option ( 'fw_section_defaults' );
+  // delete_option ( 'fw_theme_colours' );
   
 });
 
@@ -131,7 +297,7 @@ add_action ( 'after_switch_theme', function() {
 } );
 
 function fw_acf_fields_init() {
-
+  
 	if ( function_exists ( 'acf_add_local_field_group' ) ) {
 
 		$GLOBALS['fw_fields'] = array (
@@ -148,11 +314,17 @@ function fw_acf_fields_init() {
 		//
 
 		include ( locate_template ( 'resources/functions/fields/utilities/defaults.php' ) );
-
-		$GLOBALS['defaults']['theme_colours'] = array (
-			'primary' => 'Primary',
-			'secondary' => 'Secondary'
-		);
+    
+    $GLOBALS['defaults']['theme_colours'] = array (
+      'primary' => 'Primary',
+      'secondary' => 'Secondary',
+      'light' => 'Light',
+      'dark' => 'Dark',
+      'white' => 'White',
+      'black' => 'Black',
+      'body' => 'Body Colour',
+      'transparent' => 'Transparent'
+    );
 
 		if ( get_field ( 'theme_colours', 'option' ) != '' ) {
 

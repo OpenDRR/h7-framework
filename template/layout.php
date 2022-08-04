@@ -1,5 +1,5 @@
 <?php
-//test
+
   do_action ( 'fw_before_header' );
 
   get_header();
@@ -82,8 +82,9 @@
 				}
 
 			}
+			
 		} else {
-
+		
 			do_action ( 'fw_before_content_loop' );
 
 			content_loop ( 'elements', $this_ID );

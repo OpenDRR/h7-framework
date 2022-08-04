@@ -16,7 +16,7 @@ $fixed-items-calc-mobile: $admin-bar-height-mobile + $alert-height-mobile;
 
 .admin-bar {
   .fixed-top {
-    top: $admin-bar-height;
+    // top: $admin-bar-height;
   }
 
   .header-alert {
