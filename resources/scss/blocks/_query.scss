@@ -297,11 +297,11 @@ $query-filter-toggle-color: $primary !default;
 
   .query-type-grid {
     .query-filter-wrap {
-      left: calc(-#{$query-filter-width} - #{$grid-gutter-width / 2});
+      left: calc(-#{$query-filter-width} - #{calc($grid-gutter-width / 2)});
     }
 
     .query-filter-toggle {
-      left: -#{$grid-gutter-width / 2};
+      left: -#{calc($grid-gutter-width / 2)};
 
       &.is_stuck {
         left: 0;
@@ -310,7 +310,7 @@ $query-filter-toggle-color: $primary !default;
 
     &.filter-open {
       .query-filter-toggle {
-        left: calc(#{$query-filter-width} - #{$grid-gutter-width / 2});
+        left: calc(#{$query-filter-width} - #{calc($grid-gutter-width / 2)});
 
         &.is_stuck {
           &:not(.bottomed) {
@@ -320,7 +320,7 @@ $query-filter-toggle-color: $primary !default;
       }
 
       .query-filter-wrap {
-        left: -#{$grid-gutter-width / 2};
+        left: -#{calc($grid-gutter-width / 2)};
 
         &.is_stuck {
           &:not(.bottomed) {

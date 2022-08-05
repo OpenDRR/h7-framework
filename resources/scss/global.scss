@@ -9,14 +9,10 @@ $all-grid-breakpoint-sizes: 576, 768, 992, 1200;
 // BOOTSTRAP
 //
 
+@import "../vendor/bootstrap/scss/functions";
+@import "../vendor/bootstrap/scss/variables";
 @import 'bootstrap/setup';
-@import 'bootstrap/extensions';
-
-//
-// CHILD THEME OVERRIDES
-//
-
-@import '../../../fw-child/resources/scss/setup';
+@import 'bootstrap/extras';
 
 //
 // HELPERS
@@ -26,9 +22,6 @@ $all-grid-breakpoint-sizes: 576, 768, 992, 1200;
 @import 'helpers/tags';
 
 // classes
-
-$smaller-font-size: 0.8em !default;
-$larger-font-size: 1.4em !default;
 
 $full-height-height: 100vh !default;
 
@@ -43,13 +36,6 @@ $bg-z-index: 1 !default;
 // HEADER
 // template/_header.scss
 
-$header-height: auto !default;
-$header-font-size: 0.875rem !default;
-
-$header-dropdown-bg: $white !default;
-
-$admin-bar-height: 32px !default;
-
 $alert-height: auto !default;
 $alert-bg: $danger !default;
 $alert-text-color: $white !default;
@@ -57,65 +43,17 @@ $alert-link-color: $alert-text-color !default;
 $alert-close-color: $alert-link-color !default;
 $alert-z-index: 1030 !default;
 
-$filter-height: auto !default;
-
 @import 'template/header';
-
-// FOOTER
-// template/_footer.scss
-
-$footer-padding-top: 80px !default;
-$footer-padding-bottom: 0 !default;
-$footer-section-padding-top: 0 !default;
-$footer-section-padding-bottom: 40px !default;
-$footer-block-margin-bottom: 20px !default;
-$footer-z-index: 2 !default;
-
-@import 'template/footer';
-
-// HERO
-// template/_hero.scss
-
-// $hero-bg: $gray-700 !default;
-// $hero-accent: $primary !default;
-// $hero-text-color: $white !default;
-// $hero-link-color: $white !default;
-
-// $hero-padding-top: 150px !default;
-
-// @import 'template/hero';
 
 //
 // STRUCTURE
 //
-
-// sections
-
-$section-wrap-padding-top: 0px !default;
-$section-wrap-padding-bottom: 0px !default;
-$first-section-padding-top: 240px !default;
 
 $section-bg-alt: $light !default;
 
 // containers
 
 $container-max-width: 1200px !default;
-
-$container-margin-top: 0 !default;
-$container-margin-bottom: 0 !default;
-$container-margin-top-extra: 80px !default;
-$container-margin-bottom-extra: 80px !default;
-
-$container-padding-top: 80px !default;
-$container-padding-bottom: 80px !default;
-$container-padding-top-extra: $container-padding-top * 1.8 !default;
-$container-padding-bottom-extra: $container-padding-bottom * 1.8 !default;
-
-// blocks
-
-$block-padding-top: 0px !default;
-$block-padding-bottom: 0px !default;
-$block-margin-bottom: 40px !default;
 
 @import 'structure';
 
@@ -138,26 +76,8 @@ $block-margin-bottom: 40px !default;
 @import 'blocks/terms';
 @import 'blocks/tabs';
 
-// interactive
-
-@import 'blocks/interactive/map';
-
-//
-// LAYOUTS
-//
-
-@import 'layouts/home';
-@import 'layouts/archive';
-@import 'layouts/chapter';
-
 //
 // VENDOR
 //
 
 @import 'vendor';
-
-//
-// COMPONENTS
-//
-
-@import 'components';

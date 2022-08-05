@@ -130,7 +130,9 @@
 
         if ( get_sub_field ( 'magnify' ) == 1 ) {
 
-          wp_enqueue_script ( 'magnify' );
+          wp_enqueue_style ( 'magnify' );
+					wp_enqueue_script ( 'magnify' );
+					
           $img_class[] = 'magnify';
           $img_atts['data-magnify-src'] = wp_get_attachment_image_url ( $img_ID, 'full' );
 
