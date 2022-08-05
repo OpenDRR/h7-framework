@@ -1,0 +1,7 @@
+$article-head-height: 50vh !default;
+
+.fw-article-head {
+  display: flex;
+  align-items: center;
+  height: $article-head-height;
+}

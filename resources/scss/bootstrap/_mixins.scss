@@ -1,0 +1,13 @@
+//
+// NESTED COLUMNS
+//
+
+@mixin nested-column($x: 12, $y: 12) {
+  @include make-col-ready();
+  @include make-col($x, $y);
+  width: #{(($x / $y) * 100) + '%'};
+}
+
+@mixin nested-offset($x: 12, $y: 12) {
+  margin-left: #{(($x / $y) * 100) + '%'};
+}

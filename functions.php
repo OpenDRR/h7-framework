@@ -1,305 +1,7 @@
 <?php
 
-// branch test
-
-add_action ( 'admin_head', function() {
-  
-  $theme_ready = true;
-  
-  $notice_pre = '<div class="notice notice-error"><h3>Theme Errors</h3><ul style="list-style: square; padding-left: 24px;">';
-  $notice_post = '</ul></div>';
-  $GLOBALS['admin_notice'] = '';
-  
-  // make sure ACF is installed
-  
-  if ( !class_exists('ACF') ) {
-  
-    $GLOBALS['admin_notice'] .= '<li>ACF Pro not installed.</li>';
-    
-    $theme_ready = false;
-    
-  } else {
-    
-    //
-    // CREATE DEFAULT HEADER/FOOTER TEMPLATES
-    //
-    
-    // HEADER
-    
-    if ( get_option ( 'fw_default_header' ) == false ) {
-    
-      // create the post
-      
-      $default_header_ID = wp_insert_post ( array (
-        'post_type' => 'template',
-        'post_status' => 'publish',
-        'post_title' => 'Default Header',
-        'menu_order' => 0
-      ), true );
-      
-      // set the 'default' tag
-      
-      wp_set_post_terms ( $default_header_ID, 'Default', 'template_tag', true );
-      
-      // insert content
-      
-      $default_header_content = array (
-        array (
-          'acf_fc_layout' => 'section',
-          'section_id' => 'main-header',
-          'classes' => 'default-template-element',
-          'settings' => false
-        ),
-        array (
-          'acf_fc_layout' => 'column',
-          'column_id' => '',
-          'classes' => 'default-template-element',
-          'settings' => false,
-          'breakpoints' => array (
-            'xs' => array ( 'hide' => false, 'col' => '', 'offset' => '', 'order' => '' ),
-            'sm' => array ( 'hide' => false, 'col' => '', 'offset' => '', 'order' => '' ),
-            'md' => array ( 'hide' => false, 'col' => '', 'offset' => '', 'order' => '' ),
-            'lg' => array ( 'hide' => false, 'col' => '', 'offset' => '', 'order' => '' ),
-            'xl' => array ( 'hide' => false, 'col' => '', 'offset' => '', 'order' => '' )
-          )
-        ),
-        array (
-          'acf_fc_layout' => 'block_content',
-          'block_id' => '',
-          'classes' => 'default-template-element',
-          'blocks' => array (
-            array (
-              'acf_fc_layout' => 'heading',
-              'text' => 'header',
-              'level' => 'h6',
-              'classes' => ''
-            )
-          ),
-          'settings' => false,
-        )
-      );
-      
-      update_field ( 'elements', $default_header_content, $default_header_ID );
-      
-      // set option
-      
-      update_option ( 'fw_default_header', $default_header_ID );
-      
-    }
-    
-    // FOOTER
-    
-    if ( get_option ( 'fw_default_footer' ) == false ) {
-    
-      // create the post
-      
-      $default_footer_ID = wp_insert_post ( array (
-        'post_type' => 'template',
-        'post_status' => 'publish',
-        'post_title' => 'Default Footer',
-        'menu_order' => 1
-      ), true );
-      
-      // set the 'default' tag
-      
-      wp_set_post_terms ( $default_footer_ID, 'Default', 'template_tag', true );
-      
-      // insert content
-      
-      // insert content
-      
-      $default_footer_content = array (
-        array (
-          'acf_fc_layout' => 'section',
-          'section_id' => 'main-footer',
-          'classes' => 'default-template-element',
-          'settings' => false
-        ),
-        array (
-          'acf_fc_layout' => 'column',
-          'column_id' => '',
-          'classes' => 'default-template-element',
-          'settings' => false,
-          'breakpoints' => array (
-            'xs' => array ( 'hide' => false, 'col' => '', 'offset' => '', 'order' => '' ),
-            'sm' => array ( 'hide' => false, 'col' => '', 'offset' => '', 'order' => '' ),
-            'md' => array ( 'hide' => false, 'col' => '', 'offset' => '', 'order' => '' ),
-            'lg' => array ( 'hide' => false, 'col' => '', 'offset' => '', 'order' => '' ),
-            'xl' => array ( 'hide' => false, 'col' => '', 'offset' => '', 'order' => '' )
-          )
-        ),
-        array (
-          'acf_fc_layout' => 'block_content',
-          'block_id' => '',
-          'classes' => 'default-template-element',
-          'blocks' => array (
-            array (
-              'acf_fc_layout' => 'heading',
-              'text' => 'footer',
-              'level' => 'h6',
-              'classes' => ''
-            )
-          ),
-          'settings' => false,
-        )
-      );
-      
-      update_field ( 'elements', $default_footer_content, $default_footer_ID );
-      
-      // set option
-      
-      update_option ( 'fw_default_footer', $default_footer_ID );
-      
-    }
-    
-    //
-    // DEFAULT LAYOUT
-    //
-    
-    if ( get_option ( 'fw_default_layout' ) == false ) {
-      
-      // create the post
-    
-      $default_layout_ID = wp_insert_post ( array (
-        'post_type' => 'layout',
-        'post_status' => 'publish',
-        'post_title' => 'Default Layout',
-        'menu_order' => 0
-      ), true );
-  
-      // set the layout_file field to have all of the boxes checked
-      
-      update_field ( 'layout_file', array ( 'index', 'page', 'front-page', 'single', 'archive', 'search', '404' ), $default_layout_ID );
-      
-      // build the default layout
-      
-      $default_layout_items = array (
-        array (
-          'acf_fc_layout' => 'template',
-          'template' => get_option ( 'fw_default_header' )
-        ),
-        array (
-          'acf_fc_layout' => 'content'
-        ),
-        array (
-          'acf_fc_layout' => 'template',
-          'template' => get_option ( 'fw_default_footer' )
-        )
-      );
-      
-      update_field ( 'layout_builder', $default_layout_items, $default_layout_ID );
-      
-      // set option
-      
-      update_option ( 'fw_default_layout', $default_layout_ID );
-      
-    }
-    
-    //
-    // HOME PAGE
-    //
-    
-    if ( get_option ( 'fw_home_page' ) == false ) {
-    
-      $home_page_ID = wp_insert_post ( array (
-        'post_type' => 'page',
-        'post_status' => 'publish',
-        'post_title' => 'Home Page',
-        'menu_order' => 0
-      ), true );
-      
-      update_option ( 'show_on_front', 'page' );
-      update_option ( 'page_on_front', $home_page_ID );
-      update_option ( 'fw_home_page', true );
-      
-    }
-    
-    //
-    // DEFAULT SETTINGS
-    //
-    
-    if ( get_option ( 'fw_section_defaults' ) == false ) {
-    
-      // add py-5 as default spacing setting for sections
-      
-      $section_defaults = array (
-        'classes' => '',
-        'spacing' => array (
-          array (
-            'property' => 'p',
-            'sides' => 'y',
-            'breakpoint' => '',
-            'value' => 5
-          )
-        )
-      );
-      
-      update_field ( 'section_defaults', $section_defaults, 'option' );
-      
-      update_option ( 'fw_section_defaults', true );
-      
-    }
-    
-    if ( get_option ( 'fw_theme_colours' ) == false ) {
-    
-      // add colour options to the 'theme colours' field
-      
-      $theme_colours = '';
-      $i = 0;
-      
-      foreach ( $GLOBALS['defaults']['theme_colours'] as $key => $colour ) {
-        
-        if ( $i != 0) $theme_colours .= "\n";
-          
-        $theme_colours .= $key . ' : ' . $colour;
-        
-        $i++;
-        
-      }
-      
-      update_field ( 'theme_colours', $theme_colours, 'option' );
-      
-      update_option ( 'fw_theme_colours', true );
-      
-    }
-    
-  }
-  
-  $GLOBALS['admin_notice'] = $notice_pre . $GLOBALS['admin_notice'] . $notice_post;
-    
-  if ( $theme_ready == true ) {
-    
-    // update_option ( 'fw_theme_ready', true );
-    
-  } else {
-    
-    add_action ( 'admin_notices', function() {
-      
-      echo $GLOBALS['admin_notice'];
-      
-    } );
-    
-  }
-  
-  update_option ( 'fw_theme_ready', $theme_ready );
-
-  // delete_option ( 'fw_theme_ready' );
-  // delete_option ( 'fw_default_header' );
-  // delete_option ( 'fw_default_footer' );
-  // delete_option ( 'fw_default_layout' );
-  // delete_option ( 'fw_section_defaults' );
-  // delete_option ( 'fw_theme_colours' );
-  
-});
-
-add_action ( 'after_switch_theme', function() {
-  
-  // echo 'switched theme';
-  
-} );
-
 function fw_acf_fields_init() {
-  
+
 	if ( function_exists ( 'acf_add_local_field_group' ) ) {
 
 		$GLOBALS['fw_fields'] = array (
@@ -316,17 +18,11 @@ function fw_acf_fields_init() {
 		//
 
 		include ( locate_template ( 'resources/functions/fields/utilities/defaults.php' ) );
-    
-    $GLOBALS['defaults']['theme_colours'] = array (
-      'primary' => 'Primary',
-      'secondary' => 'Secondary',
-      'light' => 'Light',
-      'dark' => 'Dark',
-      'white' => 'White',
-      'black' => 'Black',
-      'body' => 'Body Colour',
-      'transparent' => 'Transparent'
-    );
+
+		$GLOBALS['defaults']['theme_colours'] = array (
+			'primary' => 'Primary',
+			'secondary' => 'Secondary'
+		);
 
 		if ( get_field ( 'theme_colours', 'option' ) != '' ) {
 
@@ -1115,7 +811,7 @@ function theme_enqueue() {
   //
 
   $theme_dir = get_bloginfo('template_directory') . '/';
-  $vendor_dir = $theme_dir . 'resources/vendor/';
+  $bower_dir = $theme_dir . 'resources/bower_components/';
   $js_dir = $theme_dir . 'resources/js/';
 
   //
@@ -1123,7 +819,6 @@ function theme_enqueue() {
   //
 
   wp_dequeue_style ( 'wp-block-library' );
-  wp_dequeue_style ( 'global-styles' );
 
   // global
 
@@ -1139,10 +834,10 @@ function theme_enqueue() {
 
   // VENDOR
 
-  // magnify
-  
-  wp_register_script ( 'magnify', $vendor_dir . 'magnify/dist/css/magnify.css' );
-  
+  // leaflet
+
+  // wp_register_style ( 'leaflet', $bower_dir . 'leaflet/leaflet.css', NULL, NULL, 'all' );
+
   // font awesome
 
   wp_register_style ( 'font-awesome', '//use.fontawesome.com/releases/v5.9.0/css/all.css', NULL, NULL, 'all' );
@@ -1158,25 +853,27 @@ function theme_enqueue() {
 
   // vendor
 
-  wp_register_script ( 'slick', $vendor_dir . 'slick-carousel/slick/slick.min.js', array ( 'jquery' ), NULL, true );
-  wp_register_script ( 'sticky-kit', $vendor_dir . 'sticky-kit/dist/sticky-kit.js', array ( 'jquery' ), NULL, true );
+  wp_register_script ( 'slick', $bower_dir . 'slick-carousel/slick/slick.min.js', array ( 'jquery' ), NULL, true );
+  wp_register_script ( 'sticky-kit', $bower_dir . 'sticky-kit/dist/sticky-kit.js', array ( 'jquery' ), NULL, true );
   wp_register_script ( 'swiper', 'https://unpkg.com/swiper@7.2.0/swiper-bundle.min.js', NULL, NULL, true );
-  wp_register_script ( 'lazy', $vendor_dir . 'jquery.lazy/jquery.lazy.min.js', array ( 'jquery' ), NULL, true );
-  wp_register_script ( 'rellax', $vendor_dir . 'rellax/rellax.min.js', NULL, NULL, true );
-  wp_register_script ( 'magnify', $vendor_dir . 'magnify/dist/js/jquery.magnify.js', NULL, NULL, true );
-  wp_register_script ( 'in-view', $vendor_dir . 'in-view/dist/in-view.min.js', NULL, NULL, true );
+  wp_register_script ( 'lazy', $bower_dir . 'jquery.lazy/jquery.lazy.min.js', array ( 'jquery' ), NULL, true );
+  wp_register_script ( 'rellax', $bower_dir . 'rellax/rellax.min.js', NULL, NULL, true );
+  wp_register_script ( 'magnify', $bower_dir . 'magnify/dist/js/jquery.magnify.js', NULL, NULL, true );
+  wp_register_script ( 'in-view', $theme_dir . 'resources/vendor/in-view/dist/in-view.min.js', NULL, NULL, true );
 	wp_register_script ( 'lottie', 'https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.9/lottie.min.js', NULL, NULL, true );
   wp_register_script ( 'animation', $js_dir . 'animation-functions.js', array ( 'jquery' ), NULL, true );
   wp_register_script ( 'isotope', 'https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js', array ( 'jquery' ), NULL, true );
-  wp_register_script ( 'select2', $vendor_dir . 'select2/dist/js/select2.full.min.js', array ( 'jquery' ), NULL, true );
+  wp_register_script ( 'select2', 'https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js', array ( 'jquery' ), NULL, true );
 
   // bootstrap
 
-  wp_register_script ( 'bootstrap-js', $vendor_dir . 'bootstrap/dist/js/bootstrap.bundle.min.js', array( 'jquery' ), NULL, true );
+  wp_register_script ( 'popper-utils', $bower_dir . 'popper.js/dist/umd/popper-utils.min.js', NULL, NULL, true);
+  wp_register_script ( 'popper', $bower_dir . 'popper.js/dist/umd/popper.min.js', NULL, NULL, true);
+  wp_register_script ( 'bootstrap-js', $theme_dir . 'resources/vendor/bootstrap/dist/js/bootstrap.bundle.min.js', array( 'jquery'), NULL, true );
 
   // utilities
 
-  wp_register_script ( 'smooth-scroll', $vendor_dir . 'pe-smooth-scroll/smooth-scroll.js', array ( 'jquery' ), NULL, true );
+  wp_register_script ( 'smooth-scroll', $bower_dir . 'pe-smooth-scroll/smooth-scroll.js', array ( 'jquery' ), NULL, true );
 
   // components
 
@@ -1187,22 +884,22 @@ function theme_enqueue() {
 
     // social widgets
 
-    wp_register_script ( 'share-widget', $vendor_dir . 'pe-social-widget/share-widget.js', array ( 'jquery' ), NULL, true );
-    wp_register_script ( 'follow-widget', $vendor_dir . 'pe-social-widget/follow-widget.js', array ( 'jquery' ), NULL, true );
+    wp_register_script ( 'share-widget', $bower_dir . 'pe-social-widget/share-widget.js', array ( 'jquery' ), NULL, true );
+    wp_register_script ( 'follow-widget', $bower_dir . 'pe-social-widget/follow-widget.js', array ( 'jquery' ), NULL, true );
 
     // supermenu
 
-    wp_register_script ( 'supermenu', $vendor_dir . 'pe-supermenu/supermenu.js', array ( 'jquery', 'bootstrap-js', 'slick' ), NULL, true );
+    wp_register_script ( 'supermenu', $bower_dir . 'pe-supermenu/supermenu.js', array ( 'jquery', 'bootstrap-js', 'slick' ), NULL, true );
 
     // overlay
 
-    wp_register_script ( 'overlay', $vendor_dir . 'pe-overlay/overlay.js', array ( 'jquery' ), NULL, true );
+    wp_register_script ( 'overlay', $bower_dir . 'pe-overlay/overlay.js', array ( 'jquery' ), NULL, true );
 
   // renderables
 
     // dependencies
 
-    wp_register_script ( 'scroll-progress', $vendor_dir . 'pe-scroll-progress/scroll-progress.js', array ( 'jquery' ), NULL, true );
+    wp_register_script ( 'scroll-progress', $bower_dir . 'pe-scroll-progress/scroll-progress.js', array ( 'jquery' ), NULL, true );
 
     // renderer
 
@@ -1249,7 +946,7 @@ add_action ( 'wp_enqueue_scripts', 'theme_enqueue' );
 function load_custom_wp_admin_style() {
 
   $theme_dir = get_bloginfo ( 'template_directory' ) . '/';
-  $vendor_dir = $theme_dir . 'resources/vendor/';
+  $bower_dir = $theme_dir . 'resources/bower_components/';
   $js_dir = $theme_dir . 'resources/js/';
 
   //
@@ -1524,6 +1221,7 @@ add_filter ( 'acf/prepare_field/key=field_5dc0533eec190', 'get_container_default
 function field_defaults_js() {
 
   $theme_dir = get_bloginfo ( 'template_directory' ) . '/';
+  $bower_dir = $theme_dir . 'resources/bower_components/';
   $js_dir = $theme_dir . 'resources/js/';
 
   // wp_register_script ( 'block-defaults', $js_dir . 'block-defaults.js', array ( 'jquery' ), NULL, true );

@@ -70,11 +70,8 @@ $layout_builder_templates = get_posts ( array (
 	)
 ) );
 
-if ( !isset ( $layout_builder_template_IDs ) ) {
-	$layout_builder_template_IDs = array();
-}
-
 if ( !empty ( $layout_builder_templates ) ) {
+	$layout_builder_template_IDs = array();
 
 	foreach ( $layout_builder_templates as $template ) {
 		$layout_builder_template_IDs[$template->ID] = get_the_title ( $template->ID );

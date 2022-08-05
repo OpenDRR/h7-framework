@@ -2,6 +2,10 @@
 // TEXT TREATMENT
 //
 
+.screen-reader-text {
+  display: none;
+}
+
 .all-caps {
   @include all-caps;
 }
@@ -14,6 +18,14 @@
     text-transform: none;
     letter-spacing: normal;
   }
+}
+
+.smaller {
+  font-size: $smaller-font-size;
+}
+
+.larger {
+  font-size: $larger-font-size;
 }
 
 //
@@ -29,6 +41,10 @@
     min-height: $full-height-height;
     justify-content: center;
   }
+}
+
+.center-on-top {
+	@include centering(true);
 }
 
 $min-heights: 25, 50, 75, 90, 100 !default;
@@ -54,6 +70,10 @@ $min-heights: 25, 50, 75, 90, 100 !default;
 
   }
 
+}
+
+.sticky {
+  z-index: 1;
 }
 
 .full-size {
@@ -90,6 +110,10 @@ $min-heights: 25, 50, 75, 90, 100 !default;
 
 .alignleft {
 	float: left;
+}
+
+.clear-both {
+	clear: both;
 }
 
 //
@@ -156,6 +180,28 @@ $close-btn-line-height: 60px !default;
 :root {
   --black: #{$black};
   --body: #{$body-color};
+}
+
+$scheme-dark-bg: $primary !default;
+$scheme-dark-head-color: $white !default;
+$scheme-dark-text-color: $white !default;
+
+*[class^="bg-"] {
+  &.scheme-dark {
+    background-color: $scheme-dark-bg;
+  }
+}
+
+.scheme-dark {
+  color: $scheme-dark-text-color;
+
+  h1, h2, h3, h4, h5, h6 {
+    color: $scheme-dark-head-color;
+  }
+
+  p {
+    color: $scheme-dark-text-color;
+  }
 }
 
 //
@@ -340,7 +386,7 @@ $theme-colors-merged: map-merge($theme-colors, $custom-colors);
 
     @for $z from 1 through 9 {
 
-      $current-opacity: 1 - (calc($z / 10));
+      $current-opacity: 1 - ($z / 10);
 
       &.bg-opacity-#{$z * 10} {
         background-color: transparentize($value, $current-opacity) !important;
@@ -354,7 +400,7 @@ $theme-colors-merged: map-merge($theme-colors, $custom-colors);
 
       @for $z from 0 through 10 {
 
-        $current-opacity: 1 - (calc($z / 10));
+        $current-opacity: 1 - ($z / 10);
 
         &.bg-sticky-opacity-#{$z * 10} {
           background-color: transparentize($value, $current-opacity) !important;
@@ -385,4 +431,64 @@ $theme-colors-merged: map-merge($theme-colors, $custom-colors);
     opacity: 1;
     transition: opacity 0.25s ease 0s, left 0s ease 0s;
   }
+}
+
+// spinner-on
+//
+// .spinner {
+//   @include full-size(fixed);
+//   top: calc(100% + 100px);
+//   opacity: 0;
+//   transition: top 0s ease 0.25s, opacity 0.25s ease 0s;
+//   z-index: 2000;
+//
+//   &:after {
+//     content: '';
+//     display: block;
+//     @include centering(true);
+//     top: calc(100% + 100px);
+//     width: 72px;
+//     height: 72px;
+//     transition: 0.25s ease-in-out;
+//   }
+// }
+//
+// body {
+//   &.spinner-on {
+//     .spinner {
+//       top: 0;
+//       opacity: 1;
+//       transition: top 0s ease 0s, opacity 0.25s ease 0s;
+//
+//       &:after {
+//         top: 50%;
+//       }
+//     }
+//   }
+// }
+
+
+//
+// ICONS
+//
+
+/*
+.icon {
+  display: inline-block;
+  margin: 0 15px 0 0;
+  vertical-align: middle;
+  @include icon;
+}
+*/
+
+$icons: () !default;
+
+@each $icon, $i in $icons {
+
+  .icon-#{$icon} {
+    &:before {
+      content: $i;
+    }
+  }
+
 }
