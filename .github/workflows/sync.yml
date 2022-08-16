@@ -2,10 +2,41 @@ name: Sync with H7
 
 on:
   push:
+    branches: [gh-workflows]
+
+  # "Scheduled workflows run on the latest commit on the default or base branch."
+  # However, this workflow is not on the default branch, so it does not actually run automatically.
+  schedule:
+    - cron: '8 */6 * * *'
+
+  # "To trigger the workflow_dispatch event, your workflow must be in the default branch."
+  # However, this workflow is not in the default branch.
+  # Instead, use the following command to run this workflow manually:
+  #   gh workflow run sync.yml --repo OpenDRR/h7-framework --ref gh-workflows
   workflow_dispatch:
 
 jobs:
   sync-with-h7:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
+      - name: "Checkout our own repo: OpenDRR/h7-framework"
+        uses: actions/checkout@v3
+        with:
+          ref: master
+          token: ${{ secrets.GH_PAT }}
+          fetch-depth: 0
+
+      - name: Fetch and merge latest commits from upstream, and push to GitHub
+        run: |
+          set -x
+          git config checkout.defaultRemote origin
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git remote add h7 ${{ secrets.UPSTREAM_GIT_REPO }}
+          git fetch h7 --tags
+          git merge --ff-only h7/master
+          git switch v2
+          git merge --ff-only h7/v2
+          git switch master
+          git push origin --all
+          git push origin --tags
