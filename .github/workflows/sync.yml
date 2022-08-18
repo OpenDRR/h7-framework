@@ -11,13 +11,14 @@ on:
 
   # "To trigger the workflow_dispatch event, your workflow must be in the default branch."
   # However, this workflow is not in the default branch.
-  # Instead, use the following command to run this workflow manually:
+  # The following command may be used to run this workflow manually:
   #   gh workflow run sync.yml --repo OpenDRR/h7-framework --ref gh-workflows
+  # which the scheduled sync.yml workflow at OpenDRR/h7-riskprofiler does use to trigger this workflow.
   workflow_dispatch:
 
 jobs:
   sync-with-h7:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - name: "Checkout our own repo: OpenDRR/h7-framework"
         uses: actions/checkout@v3
@@ -32,11 +33,11 @@ jobs:
           git config checkout.defaultRemote origin
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git remote add h7 ${{ secrets.UPSTREAM_GIT_REPO }}
-          git fetch h7 --tags
-          git merge --ff-only h7/master
+          git remote add upstream ${{ secrets.UPSTREAM_GIT_REPO }}
+          git fetch upstream --tags
+          git merge --ff-only upstream/master
           git switch v2
-          git merge --ff-only h7/v2
+          git merge --ff-only upstream/v2
           git switch master
           git push origin --all
           git push origin --tags
