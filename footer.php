@@ -26,6 +26,8 @@
     <?php
 
       }
+			
+			do_action ( 'fw_body_close' );
 
     ?>
 
