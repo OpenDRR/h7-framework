@@ -864,6 +864,8 @@ function theme_enqueue() {
   wp_register_script ( 'animation', $js_dir . 'animation-functions.js', array ( 'jquery' ), NULL, true );
   wp_register_script ( 'isotope', 'https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js', array ( 'jquery' ), NULL, true );
   wp_register_script ( 'select2', 'https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js', array ( 'jquery' ), NULL, true );
+	
+	wp_register_script ( 'fw-cookie' , $theme_dir . 'resources/vendor/js.cookie.min.js', null, '3.0.1', true );
 
   // bootstrap
 
@@ -920,6 +922,8 @@ function theme_enqueue() {
 
   wp_enqueue_script ( 'sticky-kit' );
   wp_enqueue_script ( 'in-view' );
+	
+	wp_enqueue_script ( 'fw-cookie' );
 
   //wp_enqueue_script ( 'follow-widget' );
   //wp_enqueue_script ( 'share-widget' );
