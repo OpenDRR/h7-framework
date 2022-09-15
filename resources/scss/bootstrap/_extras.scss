@@ -89,3 +89,46 @@
   }
 
 }
+
+//
+// FONT UTILITIES
+//
+
+.font-size-smaller {
+	font-size: $font-size-lg;
+}
+
+.font-size-larger {
+	font-size: $font-size-sm;
+}
+
+//
+// BUTTON CLASSES
+//
+
+$btn-white-text-color: $primary !default;
+$btn-black-text-color: $white !default;
+
+.btn-white {
+	background-color: $white;
+	color: $btn-white-text-color;
+}
+
+.btn-black {
+	background-color: $black;
+	color: $btn-black-text-color;
+}
+
+.btn-outline-white {
+	border-color: $white !important;
+}
+
+.btn-outline-black {
+	border-color: $black !important;
+}
+
+// disabled
+
+.btn.disabled {
+	pointer-events: none !important;
+}

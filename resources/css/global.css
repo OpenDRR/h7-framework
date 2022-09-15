@@ -13174,6 +13174,36 @@ h3 {
     margin-left: -91.6666666667%;
   }
 }
+.font-size-smaller {
+  font-size: 1.25rem;
+}
+
+.font-size-larger {
+  font-size: 0.875rem;
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #007bff;
+}
+
+.btn-black {
+  background-color: #000;
+  color: #fff;
+}
+
+.btn-outline-white {
+  border-color: #fff !important;
+}
+
+.btn-outline-black {
+  border-color: #000 !important;
+}
+
+.btn.disabled {
+  pointer-events: none !important;
+}
+
 * {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
