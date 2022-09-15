@@ -711,6 +711,7 @@ function theme_enqueue() {
   wp_register_script ( 'animation', $js_dir . 'animation-functions.js', array ( 'jquery' ), NULL, true );
   wp_register_script ( 'isotope', 'https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js', array ( 'jquery' ), NULL, true );
   wp_register_script ( 'select2', $vendor_dir . 'select2/dist/js/select2.full.min.js', array ( 'jquery' ), NULL, true );
+	wp_register_script ( 'fw-cookie' , $theme_dir . 'resources/vendor/js.cookie.min.js', null, '3.0.1', true );
 
   // bootstrap
 
