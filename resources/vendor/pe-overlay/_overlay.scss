@@ -2,36 +2,34 @@
 // VARIABLES
 //
 
-$admin-bar-height: 32px !default;
-
 // ELEMENTS
 
-  // wrap
+	// wrap
 
-  $overlay-wrap-bg: transparentize($black, 0.4) !default;
-  $overlay-bg: $white !default;
-  $overlay-wrap-z-index: 1035 !default;
+	$overlay-wrap-bg: transparentize($black, 0.4) !default;
+	$overlay-bg: $white !default;
+	$overlay-wrap-z-index: 1035 !default;
 
-  // caption
+	// caption
 
-  $overlay-caption-color: $white !default;
+	$overlay-caption-color: $white !default;
 
-  // close button
+	// close button
 
-  $overlay-close-top: 2rem !default;
-  $overlay-close-right: $overlay-close-top !default;
-  $overlay-close-color: $white !default;
-  $overlay-close-font-size: 2rem !default;
+	$overlay-close-top: 2rem !default;
+	$overlay-close-right: $overlay-close-top !default;
+	$overlay-close-color: $white !default;
+	$overlay-close-font-size: 2rem !default;
 
 // CONTENT TYPES
 
-  // inline
+	// inline
 
-  $overlay-inline-bg: $overlay-bg !default;
+	$overlay-inline-bg: $overlay-bg !default;
 
-  // image
+	// image
 
-  $overlay-image-bg: transparent !default;
+	$overlay-image-bg: transparent !default;
 
 // CONTENT
 
@@ -39,35 +37,39 @@ $overlay-content-padding: 60px 0 !default;
 
 // POSITIONING
 
-  // fixed header height adjustment
+	// fixed header height adjustment
 
-  $overlay-top-buffer: 100px !default;
+	$overlay-top-buffer: $header-height;
 
-  // right
+	@if ($header-height == auto) {
+		$overlay-top-buffer: 0px;
+	}
 
-  $overlay-position-right-width: 75% !default;
-  $overlay-position-right-bg: $overlay-bg !default;
-  $overlay-position-right-close-top: 50% !default;
-  $overlay-position-right-close-color: $overlay-close-color !default;
+	// right
+
+	$overlay-position-right-width: 75% !default;
+	$overlay-position-right-bg: $overlay-bg !default;
+	$overlay-position-right-close-top: 50% !default;
+	$overlay-position-right-close-color: $overlay-close-color !default;
 
 //
 // WRAPPER
 //
 
 .no-js {
-  .overlay-wrap {
-    display: none;
-  }
+	.overlay-wrap {
+		display: none;
+	}
 }
 
 .overlay-wrap {
-  @include full-size(fixed);
-  top: 0;
-  left: -9999px;
-  opacity: 0;
-  background-color: $overlay-wrap-bg;
-  transition: left 0s ease 0.4s, opacity 0.4s ease 0s;
-  z-index: $overlay-wrap-z-index;
+	@include full-size(fixed);
+	top: 0;
+	left: -9999px;
+	opacity: 0;
+	background-color: $overlay-wrap-bg;
+	transition: left 0s ease 0.4s, opacity 0.4s ease 0s;
+	z-index: $overlay-wrap-z-index;
 }
 
 //
@@ -75,24 +77,24 @@ $overlay-content-padding: 60px 0 !default;
 //
 
 .overlay {
-  position: absolute;
-  top: -100%;
-  left: 0;
-  width: 100%;
-  height: calc(100% - #{$overlay-top-buffer});
-  background-color: $overlay-bg;
-  overflow: auto;
-  transition: top 0.4s;
+	position: absolute;
+	top: -100%;
+	left: 0;
+	width: 100%;
+	height: calc(100% - #{$overlay-top-buffer});
+	background-color: $overlay-bg;
+	overflow: auto;
+	transition: top 0.4s;
 
-  // POSITION
+	// POSITION
 
-  &[data-position="right"] {
-    top: $overlay-top-buffer;
-    left: 100%;
-    width: $overlay-position-right-width;
-    background-color: $overlay-position-right-bg;
-    transition: left 0.4s ease 0s;
-  }
+	&[data-position="right"] {
+		top: $overlay-top-buffer;
+		left: 100%;
+		width: $overlay-position-right-width;
+		background-color: $overlay-position-right-bg;
+		transition: left 0.4s ease 0s;
+	}
 
 }
 
@@ -101,13 +103,13 @@ $overlay-content-padding: 60px 0 !default;
 //
 
 .overlay-content-wrap {
-  overflow: auto;
+	overflow: auto;
 }
 
 .overlay-content {
-  padding: $overlay-content-padding;
-  opacity: 0;
-  transition: opacity 0.4s ease 0.4s;
+	padding: $overlay-content-padding;
+	opacity: 0;
+	transition: opacity 0.4s ease 0.4s;
 }
 
 //
@@ -117,47 +119,47 @@ $overlay-content-padding: 60px 0 !default;
 // IMAGE
 
 .overlay {
-  &[data-content="image"] {
-    height: 100%;
-    padding: 5%;
-    background-color: $overlay-image-bg;
+	&[data-content="image"] {
+		height: 100%;
+		padding: 5%;
+		background-color: $overlay-image-bg;
 
-    .overlay-image {
-      position: relative;
-      width: 80%;
-      margin: auto;
-      z-index: 1;
-    }
+		.overlay-image {
+			position: relative;
+			width: 80%;
+			margin: auto;
+			z-index: 1;
+		}
 
-    img {
-      margin: auto;
-    }
-  }
+		img {
+			margin: auto;
+		}
+	}
 }
 
 // INLINE HTML
 
 .overlay {
-  &[data-content="inline"] {
-    background-color: $overlay-inline-bg;
-    display: flex;
-    align-items: center;
+	&[data-content="inline"] {
+		background-color: $overlay-inline-bg;
+		display: flex;
+		align-items: center;
 		z-index: 1;
 
-    &[data-position="right"] {
-      background-color: $overlay-position-right-bg;
-    }
+		&[data-position="right"] {
+			background-color: $overlay-position-right-bg;
+		}
 
-    .overlay-content {
-      width: 100%;
-      margin-top: auto;
-      margin-bottom: auto;
-    }
+		.overlay-content {
+			width: 100%;
+			margin-top: auto;
+			margin-bottom: auto;
+		}
 
-    // .overlay-content-inline {
-    //   display: block;
-    // }
-  }
+		// .overlay-content-inline {
+		//   display: block;
+		// }
+	}
 }
 
 // YOUTUBE
@@ -189,13 +191,13 @@ $overlay-content-padding: 60px 0 !default;
 // VIDEO
 
 .overlay-video-embed {
-  width: 100%;
-  height: 0;
-  padding-bottom: 50%;
+	width: 100%;
+	height: 0;
+	padding-bottom: 50%;
 
-  iframe {
-    @include full-size;
-  }
+	iframe {
+		@include full-size;
+	}
 }
 
 //
@@ -203,25 +205,25 @@ $overlay-content-padding: 60px 0 !default;
 //
 
 .overlay-close {
-  display: block;
-  position: absolute;
-  top: $overlay-close-top;
-  right: $overlay-close-right;
-  color: $overlay-close-color;
-  font-size: $overlay-close-font-size;
-  line-height: $overlay-close-font-size;
-  cursor: pointer;
-  z-index: 2;
+	display: block;
+	position: absolute;
+	top: $overlay-close-top;
+	right: $overlay-close-right;
+	color: $overlay-close-color;
+	font-size: $overlay-close-font-size;
+	line-height: $overlay-close-font-size;
+	cursor: pointer;
+	z-index: 2;
 }
 
 body.overlay-position-right {
-  .overlay-close {
-    top: $overlay-position-right-close-top;
-    left: calc((100% - $overlay-position-right-width) / 2);
-    right: auto;
-    transform: translate(-50%, -50%);
-    color: $overlay-position-right-close-color;
-  }
+	.overlay-close {
+		top: $overlay-position-right-close-top;
+		left: calc((100% - $overlay-position-right-width) / 2);
+		right: auto;
+		transform: translate(-50%, -50%);
+		color: $overlay-position-right-close-color;
+	}
 }
 
 //
@@ -229,9 +231,9 @@ body.overlay-position-right {
 //
 
 .overlay-caption {
-  width: 80%;
-  margin: 30px auto;
-  color: $overlay-caption-color;
+	width: 80%;
+	margin: 30px auto;
+	color: $overlay-caption-color;
 }
 
 //
@@ -241,49 +243,49 @@ body.overlay-position-right {
 // adjust top value for open overlay
 
 body.overlay-open {
-  .overlay {
-    top: $overlay-top-buffer;
-  }
+	.overlay {
+		top: $overlay-top-buffer;
+	}
 
-  // alert
+	// alert
 
-  &.has-alert {
-    .overlay {
-      top: calc(#{$overlay-top-buffer} + #{$alert-height});
-    }
+	&.has-alert {
+		.overlay {
+			top: calc(#{$overlay-top-buffer} + #{$alert-height});
+		}
 
-    &.header-stuck,
-    &.alert-closing,
-    &.alert-closed {
-      .overlay {
-        top: calc(#{$overlay-top-buffer});
-      }
-    }
-  }
+		&.header-stuck,
+		&.alert-closing,
+		&.alert-closed {
+			.overlay {
+				top: calc(#{$overlay-top-buffer});
+			}
+		}
+	}
 
-  // admin bar
+	// admin bar
 
-  &.admin-bar {
-    .overlay {
-      top: calc(#{$overlay-top-buffer} + #{$admin-bar-height});
-    }
+	&.admin-bar {
+		.overlay {
+			top: calc(#{$overlay-top-buffer} + #{$admin-bar-height});
+		}
 
-    // alert
+		// alert
 
-    &.has-alert {
-      .overlay {
-        top: calc(#{$overlay-top-buffer} + #{$alert-height} + #{$admin-bar-height});
-      }
+		&.has-alert {
+			.overlay {
+				top: calc(#{$overlay-top-buffer} + #{$alert-height} + #{$admin-bar-height});
+			}
 
-      &.header-stuck,
-      &.alert-closing,
-      &.alert-closed {
-        .overlay {
-          top: calc(#{$overlay-top-buffer} + #{$admin-bar-height});
-        }
-      }
-    }
-  }
+			&.header-stuck,
+			&.alert-closing,
+			&.alert-closed {
+				.overlay {
+					top: calc(#{$overlay-top-buffer} + #{$admin-bar-height});
+				}
+			}
+		}
+	}
 
 }
 
@@ -291,106 +293,106 @@ body.overlay-open {
 
 body {
 
-  &.has-alert {
-    .overlay {
-      height: calc(100% - #{$overlay-top-buffer} - #{$alert-height});
+	&.has-alert {
+		.overlay {
+			height: calc(100% - #{$overlay-top-buffer} - #{$alert-height});
 
-      &[data-position="right"] {
-        top: calc(#{$overlay-top-buffer} + #{$alert-height});
-      }
-    }
-  }
+			&[data-position="right"] {
+				top: calc(#{$overlay-top-buffer} + #{$alert-height});
+			}
+		}
+	}
 
-  &.admin-bar {
-    .overlay {
-      height: calc(100% - #{$overlay-top-buffer} - #{$admin-bar-height});
-    }
+	&.admin-bar {
+		.overlay {
+			height: calc(100% - #{$overlay-top-buffer} - #{$admin-bar-height});
+		}
 
-    .overlay-close {
-      top: calc(#{$overlay-close-top} + #{$admin-bar-height});
-    }
+		.overlay-close {
+			top: calc(#{$overlay-close-top} + #{$admin-bar-height});
+		}
 
-    &.overlay-position-right {
-      .overlay-close {
-        top: calc(#{$overlay-position-right-close-top} + 32px);
-      }
-    }
+		&.overlay-position-right {
+			.overlay-close {
+				top: calc(#{$overlay-position-right-close-top} + 32px);
+			}
+		}
 
-    &.has-alert {
-      .overlay {
-        height: calc(100% - #{$overlay-top-buffer} - #{$alert-height} - #{$admin-bar-height});
+		&.has-alert {
+			.overlay {
+				height: calc(100% - #{$overlay-top-buffer} - #{$alert-height} - #{$admin-bar-height});
 
-        &[data-position="right"] {
-          top: calc(#{$overlay-top-buffer} + #{$alert-height} + #{$admin-bar-height});
-        }
-      }
+				&[data-position="right"] {
+					top: calc(#{$overlay-top-buffer} + #{$alert-height} + #{$admin-bar-height});
+				}
+			}
 
-      &.header-stuck,
-      &.alert-closing,
-      &.alert-closed {
-        .overlay {
-          height: calc(100% - #{$overlay-top-buffer} - #{$admin-bar-height});
+			&.header-stuck,
+			&.alert-closing,
+			&.alert-closed {
+				.overlay {
+					height: calc(100% - #{$overlay-top-buffer} - #{$admin-bar-height});
 
-          &[data-position="right"] {
-            top: calc(#{$overlay-top-buffer} + #{$admin-bar-height});
-          }
-        }
-      }
-    }
-  }
+					&[data-position="right"] {
+						top: calc(#{$overlay-top-buffer} + #{$admin-bar-height});
+					}
+				}
+			}
+		}
+	}
 }
 
 
 
 body {
 
-  // FIXED ELEMENTS
+	// FIXED ELEMENTS
 
-  // alert
+	// alert
 
-  &.has-alert {
-    .overlay {
-      //top: 120px;
-      height: calc(100% - 120px);
-    }
+	&.has-alert {
+		.overlay {
+			//top: 120px;
+			height: calc(100% - 120px);
+		}
 
-    &.alert-closing,
-    &.alert-closed {
-      .overlay {
-        //top: 80px;
-        height: calc(100% - 80px);
-      }
-    }
-  }
+		&.alert-closing,
+		&.alert-closed {
+			.overlay {
+				//top: 80px;
+				height: calc(100% - 80px);
+			}
+		}
+	}
 
-  &.header-stuck {
-    .overlay {
-      //top: 80px;
-      height: calc(100% - 80px);
-    }
-  }
+	&.header-stuck {
+		.overlay {
+			//top: 80px;
+			height: calc(100% - 80px);
+		}
+	}
 
-  // OVERLAY OPEN
+	// OVERLAY OPEN
 
-  &.overlay-open {
-    overflow: hidden;
+	&.overlay-open {
+		overflow: hidden;
 
-    .overlay-wrap {
-      left: 0;
-      opacity: 1;
-      transition: left 0s ease 0s, opacity 0.4s ease 0s;
-    }
+		.overlay-wrap {
+			left: 0;
+			opacity: 1;
+			transition: left 0s ease 0s, opacity 0.4s ease 0s;
+		}
 
-    .overlay {
-      top: $overlay-top-buffer;
+		.overlay {
+			top: $overlay-top-buffer;
 
-      &[data-position="right"] {
-        left: 25%;
-      }
-    }
+			&[data-position="right"] {
+				left: 25%;
+			}
+		}
 
-    .overlay-content {
-      opacity: 1;
-    }
-  }
+		.overlay-content {
+			opacity: 1;
+		}
+	}
 }

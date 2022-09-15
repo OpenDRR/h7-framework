@@ -1,18 +1,19 @@
 //
-// GLOBAL VARIABLES
-//
-
-$all-grid-breakpoints: 'sm', 'md', 'lg', 'xl';
-$all-grid-breakpoint-sizes: 576, 768, 992, 1200;
-
-//
 // BOOTSTRAP
 //
 
-@import "../vendor/bootstrap/scss/functions";
-@import "../vendor/bootstrap/scss/variables";
+@import 'variables-global';
+
+@import '../vendor/bootstrap/scss/functions';
+@import '../vendor/bootstrap/scss/variables';
 @import 'bootstrap/setup';
 @import 'bootstrap/extras';
+
+//
+// FRAMEWORK VARIABLES
+//
+
+@import 'variables-fw';
 
 //
 // HELPERS
@@ -23,10 +24,6 @@ $all-grid-breakpoint-sizes: 576, 768, 992, 1200;
 
 // classes
 
-$full-height-height: 100vh !default;
-
-$bg-z-index: 1 !default;
-
 @import 'helpers/classes';
 
 //
@@ -36,24 +33,13 @@ $bg-z-index: 1 !default;
 // HEADER
 // template/_header.scss
 
-$alert-height: auto !default;
-$alert-bg: $danger !default;
-$alert-text-color: $white !default;
-$alert-link-color: $alert-text-color !default;
-$alert-close-color: $alert-link-color !default;
-$alert-z-index: 1030 !default;
-
 @import 'template/header';
 
 //
 // STRUCTURE
 //
 
-$section-bg-alt: $light !default;
-
 // containers
-
-$container-max-width: 1200px !default;
 
 @import 'structure';
 

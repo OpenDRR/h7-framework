@@ -14651,7 +14651,7 @@ body.has-alert.alert-closed #main-header {
   position: relative;
   cursor: pointer;
   font-size: 1rem;
-  color: #212529;
+  color: #adb5bd;
   transition: 0.25s;
   z-index: 20;
 }
@@ -14660,7 +14660,7 @@ body.has-alert.alert-closed #main-header {
 }
 .carousel-controls .carousel-arrow.slick-disabled {
   cursor: not-allowed;
-  color: rgba(33, 37, 41, 0.3);
+  color: rgba(173, 181, 189, 0.3);
   pointer-events: none;
   opacity: 0.25;
 }
@@ -14683,7 +14683,7 @@ body.has-alert.alert-closed #main-header {
   width: 10px;
   height: 10px;
   padding: 0;
-  background-color: #212529;
+  background-color: #adb5bd;
   border: none;
   border-radius: 50%;
   text-indent: -9999px;
@@ -15159,13 +15159,13 @@ body.supermenu-open.supermenu-disabled .supermenu-wrap {
   top: -100%;
   left: 0;
   width: 100%;
-  height: calc(100% - 100px);
+  height: calc(100% - 0px);
   background-color: #fff;
   overflow: auto;
   transition: top 0.4s;
 }
 .overlay[data-position=right] {
-  top: 100px;
+  top: 0px;
   left: 100%;
   width: 75%;
   background-color: #fff;
@@ -15247,9 +15247,9 @@ body.supermenu-open.supermenu-disabled .supermenu-wrap {
 .overlay-close {
   display: block;
   position: absolute;
-  top: 2rem;
+  top: 150px;
   right: 2rem;
-  color: #fff;
+  color: #007bff;
   font-size: 2rem;
   line-height: 2rem;
   cursor: pointer;
@@ -15261,7 +15261,7 @@ body.overlay-position-right .overlay-close {
   left: 12.5%;
   right: auto;
   transform: translate(-50%, -50%);
-  color: #fff;
+  color: #007bff;
 }
 
 .overlay-caption {
@@ -15271,50 +15271,50 @@ body.overlay-position-right .overlay-close {
 }
 
 body.overlay-open .overlay {
-  top: 100px;
+  top: 0px;
 }
 body.overlay-open.has-alert .overlay {
-  top: calc(100px + auto);
+  top: calc(0px + auto);
 }
 body.overlay-open.has-alert.header-stuck .overlay, body.overlay-open.has-alert.alert-closing .overlay, body.overlay-open.has-alert.alert-closed .overlay {
-  top: calc(100px);
+  top: calc(0px);
 }
 body.overlay-open.admin-bar .overlay {
-  top: calc(100px + 32px);
+  top: calc(0px + 32px);
 }
 body.overlay-open.admin-bar.has-alert .overlay {
-  top: calc(100px + auto + 32px);
+  top: calc(0px + auto + 32px);
 }
 body.overlay-open.admin-bar.has-alert.header-stuck .overlay, body.overlay-open.admin-bar.has-alert.alert-closing .overlay, body.overlay-open.admin-bar.has-alert.alert-closed .overlay {
-  top: calc(100px + 32px);
+  top: calc(0px + 32px);
 }
 
 body.has-alert .overlay {
-  height: calc(100% - 100px - auto);
+  height: calc(100% - 0px - auto);
 }
 body.has-alert .overlay[data-position=right] {
-  top: calc(100px + auto);
+  top: calc(0px + auto);
 }
 body.admin-bar .overlay {
-  height: calc(100% - 100px - 32px);
+  height: calc(100% - 0px - 32px);
 }
 body.admin-bar .overlay-close {
-  top: calc(2rem + 32px);
+  top: calc(150px + 32px);
 }
 body.admin-bar.overlay-position-right .overlay-close {
   top: calc(50% + 32px);
 }
 body.admin-bar.has-alert .overlay {
-  height: calc(100% - 100px - auto - 32px);
+  height: calc(100% - 0px - auto - 32px);
 }
 body.admin-bar.has-alert .overlay[data-position=right] {
-  top: calc(100px + auto + 32px);
+  top: calc(0px + auto + 32px);
 }
 body.admin-bar.has-alert.header-stuck .overlay, body.admin-bar.has-alert.alert-closing .overlay, body.admin-bar.has-alert.alert-closed .overlay {
-  height: calc(100% - 100px - 32px);
+  height: calc(100% - 0px - 32px);
 }
 body.admin-bar.has-alert.header-stuck .overlay[data-position=right], body.admin-bar.has-alert.alert-closing .overlay[data-position=right], body.admin-bar.has-alert.alert-closed .overlay[data-position=right] {
-  top: calc(100px + 32px);
+  top: calc(0px + 32px);
 }
 
 body.has-alert .overlay {
@@ -15335,7 +15335,7 @@ body.overlay-open .overlay-wrap {
   transition: left 0s ease 0s, opacity 0.4s ease 0s;
 }
 body.overlay-open .overlay {
-  top: 100px;
+  top: 0px;
 }
 body.overlay-open .overlay[data-position=right] {
   left: 25%;
