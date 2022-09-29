@@ -29,11 +29,14 @@
     $img_post = get_post ( $img_ID );
 
     $img_URL = wp_get_attachment_image_url ( $img_ID, 'large' );
-    $img_alt = get_post_meta ( $img_ID, '_wp_attachment_image_alt', true );
 
     $img_title = get_the_title ( $img_ID );
     $img_caption = get_the_excerpt ( $img_ID );
     $img_content = $img_post->post_content;
+		
+		$img_alt = get_post_meta ( $img_ID, '_wp_attachment_image_alt', true );
+		
+		if ( $img_alt == '' ) $img_alt = $img_caption;
 
     // OPTIONS
 
@@ -192,7 +195,7 @@
         echo ' ' . $att . '="' . $val . '"';
       }
 
-    ?>>
+    ?> alt="<?php echo $img_alt; ?>">
 
     <?php
 
