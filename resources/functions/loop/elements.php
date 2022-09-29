@@ -155,8 +155,13 @@ function setup_element ( $layout, $generator, $acf_ID ) {
 		'subtype' => $layout['subtype'],
     'bg' => array(),
     'classes' => array(),
-    'settings' => array()
+    'settings' => array(),
+		'generator' => $generator
   );
+	
+	if ( $generator == 'field' ) {
+		$GLOBALS['elements']['current']['row_index'] = (int) get_row_index() - 1;
+	}
 
   //
   // BLOCK ADJUSTMENTS
@@ -248,9 +253,13 @@ function setup_element ( $layout, $generator, $acf_ID ) {
   $GLOBALS['elements']['current']['classes'] = array_merge ( $GLOBALS['elements']['current']['classes'], $GLOBALS['elements']['types'][$layout['type']]['classes'] );
 
   if ( $generator == 'auto' ) {
+		
     $GLOBALS['elements']['current']['classes'][] = 'auto-generated';
+		
   } elseif ( get_sub_field ( 'classes' ) != '' ) {
+		
     $GLOBALS['elements']['current']['classes'][] = get_sub_field ( 'classes' );
+		
   }
 
 	// first of type

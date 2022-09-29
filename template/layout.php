@@ -40,7 +40,7 @@
 							case 'content' :
 
 						    //
-						    // THIS PAGE CONTENT LOOP
+						    // THIS PAGE'S CONTENT LOOP
 						    //
 
 								if ( current_user_can ( 'administrator' ) ) {
@@ -50,8 +50,10 @@
 								}
 
 								echo '<main>';
-
-								do_action ( 'fw_before_content_loop' );
+								
+								// add the requested builder field to the global vars
+								
+								do_action ( 'fw_before_content_loop', 'elements', $this_ID );
 
 								content_loop ( 'elements', $this_ID );
 
@@ -72,8 +74,13 @@
 									echo '<!-- TEMPLATE LOOP: ' . get_sub_field ( 'template' ) . ' -->';
 									echo "\n\n";
 								}
+								
+								do_action ( 'fw_before_content_loop', 'elements', get_sub_field ( 'template' ) );
 
 								content_loop ( 'elements', get_sub_field ( 'template' ) );
+								
+								do_action ( 'fw_after_content_loop' );
+								
 								break;
 
 						}
@@ -85,7 +92,7 @@
 			
 		} else {
 		
-			do_action ( 'fw_before_content_loop' );
+			do_action ( 'fw_before_content_loop', 'elements', $this_ID );
 
 			content_loop ( 'elements', $this_ID );
 

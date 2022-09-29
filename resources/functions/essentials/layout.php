@@ -12,7 +12,7 @@
 //
 
 function get_breakpoints ( $field, $block_type = null ) {
-
+	
   $classes = array();
 
   if ( is_array ( $field ) ) {
