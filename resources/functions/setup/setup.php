@@ -182,7 +182,7 @@ function fw_create_default_objects() {
 	
 	// HOME PAGE
 	
-	if ( get_option ( 'fw_home_page' ) == false ) {
+	if ( get_option ( 'fw_default_home' ) == false ) {
 		$obj = fw_create_default_obj ( 'home' );
 		if ( $obj !== true ) $success = false;
 	}
