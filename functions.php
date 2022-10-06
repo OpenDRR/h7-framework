@@ -5,8 +5,13 @@
 //
 
 function fw_register_session() {
-  if ( !session_id() )
-		session_start();
+  
+  if ( !session_id() ) {
+    session_start( [
+      'read_and_close' => true,
+    ] );
+  }
+  
 }
 
 add_action ( 'init', 'fw_register_session' );
