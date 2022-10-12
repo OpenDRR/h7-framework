@@ -92,41 +92,45 @@ if ( $new_query['type'] == 'posts' ) {
       if ( have_rows ( 'sort' ) ) {
         while ( have_rows ( 'sort' ) ) {
           the_row();
+					
+					if ( get_sub_field ( 'orderby' ) != '' ) {
 
-          $new_query['args']['orderby'] = get_sub_field ( 'orderby' );
-
-          if ( get_sub_field ( 'orderby' ) != 'rand' ) {
-            $new_query['args']['order'] = get_sub_field ( 'order' );
-          }
-
-          if ( $new_query['args']['orderby'] == 'meta_value_num' || $new_query['args']['orderby'] == 'meta_value' ) {
-            $new_query['args']['meta_key'] = get_sub_field ( 'meta_key' );
-          }
-
-					// random seed
-
-					if ( get_sub_field ( 'orderby' ) == 'rand' ) {
-
-						$new_seed = mt_rand ( 100000, 999999 );
-
-						// if this element has never created a seed
-
-						if ( !isset ( $_SESSION['seeds'][get_current_element_ID()] ) ) {
-							$_SESSION['seeds'][get_current_element_ID()] = $new_seed;
+          	$new_query['args']['orderby'] = get_sub_field ( 'orderby' );
+	
+          	if ( get_sub_field ( 'orderby' ) != 'rand' ) {
+            	$new_query['args']['order'] = get_sub_field ( 'order' );
+          	}
+	
+          	if ( $new_query['args']['orderby'] == 'meta_value_num' || $new_query['args']['orderby'] == 'meta_value' ) {
+            	$new_query['args']['meta_key'] = get_sub_field ( 'meta_key' );
+          	}
+	
+						// random seed
+	
+						if ( get_sub_field ( 'orderby' ) == 'rand' ) {
+	
+							$new_seed = mt_rand ( 100000, 999999 );
+	
+							// if this element has never created a seed
+	
+							if ( !isset ( $_SESSION['seeds'][get_current_element_ID()] ) ) {
+								$_SESSION['seeds'][get_current_element_ID()] = $new_seed;
+							}
+	
+							// if resetting to page 1 because of a filter change
+	
+							if ( !empty ( $_GET ) && $new_query['args']['paged'] == 1 ) {
+								$_SESSION['seeds'][get_current_element_ID()] = $new_seed;
+							}
+	
+							// update the query arg
+	
+							$new_query['args']['orderby'] = 'RAND(' . $_SESSION['seeds'][get_current_element_ID()] . ')';
+	
 						}
-
-						// if resetting to page 1 because of a filter change
-
-						if ( !empty ( $_GET ) && $new_query['args']['paged'] == 1 ) {
-							$_SESSION['seeds'][get_current_element_ID()] = $new_seed;
-						}
-
-						// update the query arg
-
-						$new_query['args']['orderby'] = 'RAND(' . $_SESSION['seeds'][get_current_element_ID()] . ')';
 
 					}
-
+					
         }
       }
 

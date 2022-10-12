@@ -16,6 +16,9 @@
 [submodule "resources/vendor/sticky-kit"]
 	path = resources/vendor/sticky-kit
 	url = https://github.com/leafo/sticky-kit
+[submodule "resources/vendor/aos"]
+	path = resources/vendor/aos
+	url = https://github.com/michalsnik/aos.git
 [submodule "resources/vendor/jquery.lazy"]
 	path = resources/vendor/jquery.lazy
 	url = https://github.com/dkern/jquery.lazy
