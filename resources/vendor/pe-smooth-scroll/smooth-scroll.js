@@ -57,7 +57,10 @@
 
         $('a[href^="#"]').each(function() {
 
-					if ($(this).attr('role') != 'tab') {
+					if (
+						$(this).attr('role') != 'tab' &&
+						!$(this).hasClass('overlay-toggle')
+					) {
 
 		        $(this).addClass('smooth-scroll')
 
