@@ -56,11 +56,15 @@
       if (plugin_settings.auto_init == true) {
 
         $('a[href^="#"]').each(function() {
-
+					
 					if (
 						$(this).attr('role') != 'tab' &&
 						!$(this).hasClass('overlay-toggle')
 					) {
+						
+						if (plugin_settings.debug == true) {
+							console.log('smooth-scroll', 'initializing ', $(this))
+						}
 
 		        $(this).addClass('smooth-scroll')
 

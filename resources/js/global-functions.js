@@ -138,6 +138,10 @@ var sticky_offset = 0,
     if ($('.footnote').length) {
       $(document).footnotes()
     }
+		
+		// OVERLAY
+		
+		$(document).overlay()
 
     // SMOOTH SCROLL
 
@@ -185,10 +189,6 @@ var sticky_offset = 0,
     // 	  }
   	//   }
 	  // });
-
-	  // OVERLAY
-
-	  $(document).overlay()
 
     if ($('.swiper').length) {
 
@@ -261,26 +261,6 @@ var sticky_offset = 0,
 			$('.lazy').Lazy()
 		}
 
-    // SLICK CAROUSEL
-
-    // $('[data-slick]').each(function() {
-		//
-    //   $(this).on('beforeChange', function(event, slick, currentSlide, nextSlide) {
-    //     $(this).addClass('sliding');
-    //   });
-		//
-    //   $(this).on('afterChange', function(event, slick, currentSlide) {
-    //     $(this).removeClass('sliding');
-    //   });
-		//
-		//   if (!$(this).hasClass('slick-initialized')) {
-  	// 	  $(this).slick();
-  	// 	}
-		//
-    //   // $(this).slick('refresh');
-		//
-    // });
-
 	  // STICKY KIT
 
     function sticky_responsive(element, breakpoint, options) {
@@ -308,14 +288,7 @@ var sticky_offset = 0,
         }
 
         // if the page header is sticky or fixed
-        // and this is NOT the page header,
-
-        // if (
-        //   $(this).attr('id') != 'page-header' &&
-        //   ($('body').hasClass('header-position-sticky') || $('body').hasClass('header-position-fixed'))
-        // ) {
-        //   sticky_options.offset_top += element_height
-        // }
+        // and this is NOT the page header
 
         if (
 					typeof sticky_element.attr('data-sticky-parent') !== 'undefined' &&

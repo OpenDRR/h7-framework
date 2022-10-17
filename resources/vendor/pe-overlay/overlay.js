@@ -322,7 +322,7 @@
 
       // plugin_elements.wrap.css('background-color', 'rgba(0,0,0,' + plugin_settings.opacity + ')');
 
-      plugin_elements.wrap.css('background-color', 'rgba(' + plugin_settings.bg + ')');
+      // plugin_elements.wrap.css('background-color', 'rgba(' + plugin_settings.bg + ')');
 
       setTimeout(function() {
 
