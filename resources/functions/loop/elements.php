@@ -518,9 +518,17 @@ function setup_element ( $layout, $generator, $acf_ID ) {
 					if ( get_sub_field ( 'easing' ) != '' ) {
 						$GLOBALS['elements']['current']['atts']['aos-easing'] = get_sub_field ( 'easing' );
 					}
-
+					
 					if ( get_sub_field ( 'delay' ) != '' ) {
 						$GLOBALS['elements']['current']['atts']['aos-delay'] = get_sub_field ( 'delay' );
+					}
+					
+					if ( get_sub_field ( 'offset' ) != '' ) {
+						$GLOBALS['elements']['current']['atts']['aos-offset'] = get_sub_field ( 'offset' );
+					}
+					
+					if ( get_sub_field ( 'once' ) == 1 ) {
+						$GLOBALS['elements']['current']['atts']['aos-once'] = 'true';
 					}
 
 					break;
