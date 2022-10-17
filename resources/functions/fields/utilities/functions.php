@@ -653,13 +653,8 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 
 $query_selectable_types = array();
 
-if ( !empty ( get_post_types ( array ( 'publicly_queryable' => true ) ) ) ) {
-	
+if ( !empty ( get_post_types ( array ( 'publicly_queryable' => true ) ) ) )
 	$query_selectable_types = get_post_types ( array ( 'publicly_queryable' => true ) );
-	
-	$query_selectable_types['page'] = 'page';
-
-}
 
 $GLOBALS['fw_fields']['common']['function']['query'] = array(
 	'settings' => array (
@@ -868,10 +863,9 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 									'meta_value_num' => 'Custom Field Value (0–9)',
 									'meta_value' => 'Custom Field Value (A–Z)',
 									'rand' => 'Random',
-									'post__in' => 'Selected Post Order'
 								),
 								'default_value' => false,
-								'allow_null' => 1,
+								'allow_null' => 0,
 								'multiple' => 0,
 								'ui' => 0,
 								'return_format' => 'value',

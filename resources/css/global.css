@@ -13175,11 +13175,11 @@ h3 {
   }
 }
 .font-size-smaller {
-  font-size: 0.875rem;
+  font-size: 1.25rem;
 }
 
 .font-size-larger {
-  font-size: 1.25rem;
+  font-size: 0.875rem;
 }
 
 .btn-white {
