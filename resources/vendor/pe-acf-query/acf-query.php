@@ -215,12 +215,28 @@ if ( $new_query['type'] == 'posts' ) {
           if ( have_rows ( 'arguments' ) ) {
             while ( have_rows ( 'arguments' ) ) {
               the_row();
+							
+							// are we adding an argument
+							
+							if ( get_sub_field ( 'compare' ) != '' ) {
+								
+								$args[] = array (
+									'key' => get_sub_field ( 'key' ),
+									'value' => get_sub_field ( 'value' ),
+									'compare' => get_sub_field ( 'compare' )
+								);
+								
+							}
 
-              $args[] = array (
-                'key' => get_sub_field ( 'key' ),
-                'value' => get_sub_field ( 'value' ),
-                'compare' => get_sub_field ( 'compare' )
-              );
+              if ( get_sub_field ( 'filterable' ) == 1 ) {
+							
+								$new_query['filters'][] = array (
+									'type' => 'meta',
+									'multi' => get_sub_field ( 'multiple' ),
+									'key' => get_sub_field ( 'key' )
+								);
+							
+							}
 
             }
           }
@@ -361,12 +377,13 @@ if ( $new_query['type'] == 'posts' ) {
 
     $pt_reset = false;
     $tx_reset = false;
+		$meta_reset = false;
 
     // echo 'has query string';
 
     foreach ( $new_query['filter_args'] as $arg ) {
 
-      $new_arg = explode ( '_', $arg );
+      $new_arg = explode ( '|', $arg );
 
 			switch ( $new_arg[0] ) {
 				case 'search' :
@@ -434,6 +451,74 @@ if ( $new_query['type'] == 'posts' ) {
 	          'terms' => $new_arg[2]
 	        );
 
+					break;
+					
+				case 'cf' :
+					
+					// grab the last element of new arg as the value
+					
+					$cf_val = array_pop ( $new_arg );
+					
+					// drop the first element from new arg ('cf_')
+					
+					$cf_remove = array_shift ( $new_arg );
+					
+					// implode what's left as the key
+					
+					$new_arg = implode( '_', $new_arg );
+					
+					// does this filter allow multiple selections
+					
+					$filter_multi = false;
+					
+					foreach ( $new_query['filters'] as $filter ) {
+						
+						if ( $filter['key'] == $new_arg && $filter['multi'] == 'true' ) {
+							$filter_multi = true;
+						}
+					} 
+					
+					// if meta_query exists in query['args']
+					
+					if (
+						is_array ( $new_query['args']['meta_query'] ) &&
+						!empty ( $new_query['args']['meta_query'] )
+					) {
+						
+						$new_query['args']['meta_query']['relation'] = 'AND';
+						
+						// if this filter doesn't allow multiple selections
+						
+						if ( $filter_multi == false ) {
+						
+							$i = 0;
+						
+							foreach ( $new_query['args']['meta_query'] as $meta_arg ) {
+						
+								// unset any meta_query argument
+								// where the key matches the one that
+								// is being filtered
+						
+								if ( $meta_arg['key'] == $new_arg ) {
+									unset ( $new_query['args']['meta_query'][$i] );
+								}
+						
+								$i++;
+						
+							}
+							
+						}
+					
+					}
+					
+					// add this filter
+					
+					$new_query['args']['meta_query'][] = array (
+						'key' => $new_arg,
+						'value' => $cf_val,
+						'compare' => '='
+					);
+					
 					break;
 
       }

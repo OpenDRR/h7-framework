@@ -220,11 +220,16 @@
 				foreach ( $container['elements'] as $element ) {
 
 					// element classes
+					
+					$element_classes = array();
 
-					if ( is_array ( $element['classes'] ) ) {
+					if ( 
+						isset ( $element['classes'] ) && 
+						is_array ( $element['classes'] ) 
+					) {
+						
 						$element_classes = explode ( ' ', $element['classes']['element'] );
-					} else {
-						$element_classes = explode ( ' ', $element['classes'] );
+							
 					}
 
 					// display type
