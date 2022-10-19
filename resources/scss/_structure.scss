@@ -18,7 +18,11 @@ main {
 //
 
 .fw-section {
-  position: relative;
+	&:not(.fixed-top) {
+		&:not(.fixed-bottom) {
+			position: relative;
+		}
+	}
 }
 
 .fw-page-section {

@@ -25,6 +25,7 @@
     .col-#{$y}-of-#{$z} { @include nested-column($y, $z) }
     .offset-#{$y}-of-#{$z} { @include nested-offset($y, $z) }
 
+		.offset-n#{$y}-of-#{$z} { @include nested-offset(calc($y * -1), $z) }
   }
 
 }
@@ -46,6 +47,8 @@
 
         .col-#{$current-breakpoint}-#{$y}-of-#{$z} { @include nested-column($y, $z) }
         .offset-#{$current-breakpoint}-#{$y}-of-#{$z} { @include nested-offset($y, $z) }
+				
+				.offset-#{$current-breakpoint}-n#{$y}-of-#{$z} { @include nested-offset(calc($y * -1), $z) }
 
       }
 
