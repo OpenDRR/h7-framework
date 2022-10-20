@@ -155,8 +155,13 @@ function setup_element ( $layout, $generator, $acf_ID ) {
 		'subtype' => $layout['subtype'],
     'bg' => array(),
     'classes' => array(),
-    'settings' => array()
+    'settings' => array(),
+		'generator' => $generator
   );
+	
+	if ( $generator == 'field' ) {
+		$GLOBALS['elements']['current']['row_index'] = (int) get_row_index() - 1;
+	}
 
   //
   // BLOCK ADJUSTMENTS
@@ -248,9 +253,13 @@ function setup_element ( $layout, $generator, $acf_ID ) {
   $GLOBALS['elements']['current']['classes'] = array_merge ( $GLOBALS['elements']['current']['classes'], $GLOBALS['elements']['types'][$layout['type']]['classes'] );
 
   if ( $generator == 'auto' ) {
+		
     $GLOBALS['elements']['current']['classes'][] = 'auto-generated';
+		
   } elseif ( get_sub_field ( 'classes' ) != '' ) {
+		
     $GLOBALS['elements']['current']['classes'][] = get_sub_field ( 'classes' );
+		
   }
 
 	// first of type
@@ -330,6 +339,8 @@ function setup_element ( $layout, $generator, $acf_ID ) {
     $GLOBALS['elements']['current']['settings'] = array_merge ( $GLOBALS['defaults'][$layout['type']], get_element_defaults ( $GLOBALS['elements']['current'] ) );
 
   }
+	
+	$GLOBALS['elements']['current']['settings']['has_spacing'] = false;
 
   //
   // SETTINGS FIELDS
@@ -340,8 +351,6 @@ function setup_element ( $layout, $generator, $acf_ID ) {
   if ( $generator != 'auto' && have_rows ( 'settings', $acf_ID ) ) {
     while ( have_rows ( 'settings', $acf_ID ) ) {
       the_row();
-
-			// include ( locate_template ( 'setting') )
 
       switch ( get_row_layout() ) {
 
@@ -417,11 +426,22 @@ function setup_element ( $layout, $generator, $acf_ID ) {
           break;
 
         case 'spacing' :
-
-          $GLOBALS['elements']['current']['settings']['margin_top'] = get_sub_field ( 'margin_top' );
-          $GLOBALS['elements']['current']['settings']['margin_bottom'] = get_sub_field ( 'margin_bottom' );
-          $GLOBALS['elements']['current']['settings']['padding_top'] = get_sub_field ( 'padding_top' );
-          $GLOBALS['elements']['current']['settings']['padding_bottom'] = get_sub_field ( 'padding_bottom' );
+					
+					if ( have_rows ( 'spacing' ) ) {
+						
+						$GLOBALS['elements']['current']['settings']['has_spacing'] = true;
+						
+						while ( have_rows ( 'spacing' ) ) {
+							the_row();
+							
+							$new_class = get_sub_field ( 'property' ) . get_sub_field ( 'sides' );
+							$new_class .= ( get_sub_field ( 'breakpoint' ) != '' ) ? '-' . get_sub_field ( 'breakpoint' ) : '';
+							$new_class .= '-' . get_sub_field ( 'value' );
+							
+							$GLOBALS['elements']['current']['classes'][] = $new_class;
+							
+						}
+					}
 
           break;
 
@@ -510,29 +530,26 @@ function setup_element ( $layout, $generator, $acf_ID ) {
 
     }
   }
-
+	
   // spacing
+	
+	if (
+		$GLOBALS['elements']['current']['settings']['has_spacing'] == false &&
+		!empty ( $GLOBALS['elements']['current']['settings']['spacing'] )
+	) {
 
-  if ( $GLOBALS['elements']['current']['settings']['margin_top'] != 0 || $GLOBALS['elements']['current']['settings']['margin_bottom'] != 0 ) {
-    if ( $GLOBALS['elements']['current']['settings']['margin_top'] == $GLOBALS['elements']['current']['settings']['margin_bottom'] ) {
-      $GLOBALS['elements']['current']['classes'][] = 'my-' . $GLOBALS['elements']['current']['settings']['margin_top'];
-    } else {
-      $GLOBALS['elements']['current']['classes'][] = 'mt-' . $GLOBALS['elements']['current']['settings']['margin_top'];
-      $GLOBALS['elements']['current']['classes'][] = 'mb-' . $GLOBALS['elements']['current']['settings']['margin_bottom'];
-    }
+		foreach ( $GLOBALS['elements']['current']['settings']['spacing'] as $prop ) {
+		
+			$new_class = $prop['property'] . $prop['sides'];
+			$new_class .= ( $prop['breakpoint'] != '' ) ? '-' . $prop['breakpoint'] : '';
+			$new_class .= '-' . $prop['value'];
+			
+			$GLOBALS['elements']['current']['classes'][] = $new_class;
+			
+		}
+		
   }
-
-  if ( $GLOBALS['elements']['current']['settings']['padding_top'] != 0 || $GLOBALS['elements']['current']['settings']['padding_bottom'] != 0 ) {
-
-    if ( $GLOBALS['elements']['current']['settings']['padding_top'] == $GLOBALS['elements']['current']['settings']['padding_bottom'] ) {
-      $GLOBALS['elements']['current']['classes'][] = 'py-' . $GLOBALS['elements']['current']['settings']['padding_top'];
-    } else {
-      $GLOBALS['elements']['current']['classes'][] = 'pt-' . $GLOBALS['elements']['current']['settings']['padding_top'];
-      $GLOBALS['elements']['current']['classes'][] = 'pb-' . $GLOBALS['elements']['current']['settings']['padding_bottom'];
-    }
-
-  }
-
+	
   // colours
 
   if ( isset ( $GLOBALS['elements']['current']['settings']['colours'] ) ) {

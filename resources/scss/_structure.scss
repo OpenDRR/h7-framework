@@ -18,14 +18,14 @@ main {
 //
 
 .fw-section {
-  position: relative;
+	&:not(.fixed-top) {
+		&:not(.fixed-bottom) {
+			position: relative;
+		}
+	}
 }
 
 .fw-page-section {
-  .section-wrap {
-    padding-top: $section-wrap-padding-top;
-    padding-bottom: $section-wrap-padding-bottom;
-  }
 
   // alternating sections
 
@@ -82,18 +82,6 @@ main {
   }
 }
 
-.header-position-fixed {
-  main {
-    .fw-page-section {
-      &.first-of-type {
-				.section-wrap {
-	        // padding-top: $first-section-padding-top;
-				}
-      }
-    }
-  }
-}
-
 //
 // CONTAINERS
 //
@@ -133,35 +121,13 @@ main {
 
 .fw-page-section {
   .fw-container {
-    // margin-top: $container-margin-top;
-    // margin-bottom: $container-margin-bottom;
-    // padding-top: $container-padding-top;
-    // padding-bottom: $container-padding-bottom;
     z-index: 2; // always position above .bg
-
-    &.my-extra {
-      margin-top: $container-margin-top-extra !important;
-      margin-bottom: $container-margin-bottom-extra !important;
-    }
-
-    &.py-extra {
-      padding-top: $container-padding-top-extra !important;
-      padding-bottom: $container-padding-bottom-extra !important;
-    }
-
-    &:last-of-type {
-      // margin-bottom: 0;
-    }
   }
 }
 
 .fw-container-row {
   position: relative;
   z-index: 2;
-}
-
-.section-footer {
-  padding-bottom: 80px;
 }
 
 //
@@ -184,32 +150,6 @@ main {
   position: relative;
 }
 
-.fw-header-block {
-  padding-top: 0;
-  padding-bottom: 0;
-  margin-bottom: 0;
-}
-
-.fw-hero-block {
-  padding-top: 0;
-  padding-bottom: 0;
-  margin-bottom: 0;
-}
-
-.fw-page-section {
-  .fw-container {
-    .fw-block {
-      // padding-top: $block-padding-top;
-      // padding-bottom: $block-padding-bottom;
-      // margin-bottom: $block-margin-bottom;
-
-      &:last-of-type {
-        // margin-bottom: 0;
-      }
-    }
-  }
-}
-
 //
 // PAGE STATES
 //
@@ -218,12 +158,7 @@ body {
   &.has-alert {
     #main-header {
       position: absolute;
-      //top: $alert-height;
       transition: top 0.4s;
-    }
-
-    .first-section {
-      padding-top: #{$first-section-padding-top + $alert-height};
     }
 
     &.alert-closing {
@@ -235,13 +170,6 @@ body {
     &.alert-closed {
       #main-header {
         position: fixed;
-      }
-    }
-
-    &.alert-closing,
-    &.alert-closed {
-      .first-section {
-        padding-top: $first-section-padding-top;
       }
     }
   }

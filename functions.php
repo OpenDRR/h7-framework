@@ -1,168 +1,17 @@
 <?php
 
-function fw_acf_fields_init() {
-
-	if ( function_exists ( 'acf_add_local_field_group' ) ) {
-
-		$GLOBALS['fw_fields'] = array (
-			'defaults' => array(),					// default values i.e. colour choices
-			'common' => array(),						// common field groups i.e. settings, functions, elements
-			'builder_groups' => array(),		// inactive field groups to be used as clones in the builder flex i.e. heading, text
-			'builder_flex' => array(),			// content flex fields to be used as clones in the page builder i.e. block (content), block (navigation)
-			'builder' => array(),						// the main page builder field group
-			'admin' => array()							// backend & admin utilities
-		);
-
-		//
-		// DEFAULTS
-		//
-
-		include ( locate_template ( 'resources/functions/fields/utilities/defaults.php' ) );
-
-		$GLOBALS['defaults']['theme_colours'] = array (
-			'primary' => 'Primary',
-			'secondary' => 'Secondary'
-		);
-
-		if ( get_field ( 'theme_colours', 'option' ) != '' ) {
-
-			$GLOBALS['defaults']['theme_colours'] = array();
-
-			$colours = explode ( "\n", get_field ( 'theme_colours', 'option' ) );
-
-			foreach ( $colours as $choice ) {
-				$GLOBALS['defaults']['theme_colours'][explode ( ' : ', $choice )[0]] = explode ( ' : ', $choice )[1];
-			}
-
-		}
-
-		//
-		// COMMON
-		//
-
-		// common elements i.e. background, button
-		// populates ['common']['elements']
-		include ( locate_template ( 'resources/functions/fields/utilities/elements.php' ) );
-
-		// functions i.e. breakpoints, query builder
-		// populates ['common']['function']
-		include ( locate_template ( 'resources/functions/fields/utilities/functions.php' ) );
-
-		// settings i.e. flexbox, spacing
-		// populates ['common']['settings']
-		include ( locate_template ( 'resources/functions/fields/builder/settings.php' ) );
-
-		// admin
-		// populates ['admin']
-		include ( locate_template ( 'resources/functions/fields/utilities/admin.php' ) );
-
-		// filter
-		// $GLOBALS['fw_fields']['common'] = apply_filters ( 'custom_field_groups', $GLOBALS['fw_fields']['common'] );
-
-		//
-		// POPULATE BUILDER FIELD GROUPS
-		// 1. include template files containing the field group arrays
-		// 2. filter the arrays to get custom elements from the child theme or plugins
-		//
-
-		// BLOCKS
-
-		include ( locate_template ( 'resources/functions/fields/builder/blocks_content.php' ) );
-		include ( locate_template ( 'resources/functions/fields/builder/blocks_navigation.php' ) );
-
-		$GLOBALS['fw_fields']['builder_groups'] = apply_filters ( 'custom_builder_groups', $GLOBALS['fw_fields']['builder_groups'] );
-
-		// BUILDER FLEX
-		include ( locate_template ( 'resources/functions/fields/builder/builder_flex.php' ) );
-
-		// BUILDER
-		include ( locate_template ( 'resources/functions/fields/builder/builder.php' ) );
-
-		//
-		// REGISTER FIELD GROUPS
-		//
-
-		// COMMON
-
-		foreach ( $GLOBALS['fw_fields']['common'] as $key => $type ) {
-
-			foreach ( $type as $name => $field_group ) {
-
-				acf_add_local_field_group ( $field_group['field_group'] );
-
-			}
-		}
-
-		// ADMIN
-
-		foreach ( $GLOBALS['fw_fields']['admin'] as $key => $type ) {
-
-			//echo $key . '<br>';
-
-			foreach ( $type as $name => $field_group ) {
-
-				//echo $name . '<br>';
-
-				acf_add_local_field_group ( $field_group );
-
-			}
-		}
-
-		// SETTINGS FLEX
-		// after common elements are registered but before content flex
-
-		acf_add_local_field_group ( $GLOBALS['fw_fields']['settings_flex']['field_group'] );
-
-		// BUILDER GROUPS
-
-		foreach ( $GLOBALS['fw_fields']['builder_groups'] as $key => $type ) {
-
-			foreach ( $type as $name => $field_group ) {
-
-				acf_add_local_field_group ( $field_group['field_group'] );
-
-			}
-		}
-
-		//
-		// BUILDER
-		//
-
-		// FLEX
-
-		foreach ( $GLOBALS['fw_fields']['builder_flex'] as $key => $type ) {
-
-			acf_add_local_field_group ( $type );
-
-		}
-
-		// FIELD GROUP
-
-		acf_add_local_field_group ( $GLOBALS['fw_fields']['builder'] );
-
-	}
-
-	if ( !is_admin() ) {
-		// echo '<pre style="font-size: 9px;">';
-		//
-		// // print_r($GLOBALS['fw_fields']['settings_flex']);
-		//
-		// 		echo '<hr>';
-		// 		print_r(get_field_object('field_5dc1d75b83c2c'));
-		//
-		// echo '</pre>';
-	}
-}
-
-add_action ( 'acf/init', 'fw_acf_fields_init' );
-
 //
 // INIT
 //
 
 function fw_register_session() {
-  if ( !session_id() )
-		session_start();
+  
+  if ( !session_id() ) {
+    session_start( [
+      'read_and_close' => true,
+    ] );
+  }
+  
 }
 
 add_action ( 'init', 'fw_register_session' );
@@ -696,6 +545,8 @@ add_action ( 'wp', 'theme_options' );
 //
 
 $includes = array (
+  'resources/functions/setup/setup.php',
+  'resources/functions/setup/fields.php',
   'resources/functions/essentials/overrides.php',
   'resources/functions/essentials/blocks.php',
   'resources/functions/essentials/post.php',
@@ -764,8 +615,8 @@ function theme_features() {
   	) );
 
   	acf_add_options_sub_page ( array (
-  		'page_title'  => 'Page Builder',
-  		'menu_title'  => 'Page Builder',
+  		'page_title'  => 'Theme Setup',
+  		'menu_title'  => 'Setup',
   		'parent_slug' => 'theme-settings',
   	) );
 
@@ -811,7 +662,7 @@ function theme_enqueue() {
   //
 
   $theme_dir = get_bloginfo('template_directory') . '/';
-  $bower_dir = $theme_dir . 'resources/bower_components/';
+  $vendor_dir = $theme_dir . 'resources/vendor/';
   $js_dir = $theme_dir . 'resources/js/';
 
   //
@@ -819,6 +670,7 @@ function theme_enqueue() {
   //
 
   wp_dequeue_style ( 'wp-block-library' );
+  wp_dequeue_style ( 'global-styles' );
 
   // global
 
@@ -834,10 +686,10 @@ function theme_enqueue() {
 
   // VENDOR
 
-  // leaflet
-
-  // wp_register_style ( 'leaflet', $bower_dir . 'leaflet/leaflet.css', NULL, NULL, 'all' );
-
+  // magnify
+  
+  wp_register_script ( 'magnify', $vendor_dir . 'magnify/dist/css/magnify.css' );
+  
   // font awesome
 
   wp_register_style ( 'font-awesome', '//use.fontawesome.com/releases/v5.9.0/css/all.css', NULL, NULL, 'all' );
@@ -853,29 +705,26 @@ function theme_enqueue() {
 
   // vendor
 
-  wp_register_script ( 'slick', $bower_dir . 'slick-carousel/slick/slick.min.js', array ( 'jquery' ), NULL, true );
-  wp_register_script ( 'sticky-kit', $bower_dir . 'sticky-kit/dist/sticky-kit.js', array ( 'jquery' ), NULL, true );
+  wp_register_script ( 'slick', $vendor_dir . 'slick-carousel/slick/slick.min.js', array ( 'jquery' ), NULL, true );
+  wp_register_script ( 'sticky-kit', $vendor_dir . 'sticky-kit/dist/sticky-kit.js', array ( 'jquery' ), NULL, true );
   wp_register_script ( 'swiper', 'https://unpkg.com/swiper@7.2.0/swiper-bundle.min.js', NULL, NULL, true );
-  wp_register_script ( 'lazy', $bower_dir . 'jquery.lazy/jquery.lazy.min.js', array ( 'jquery' ), NULL, true );
-  wp_register_script ( 'rellax', $bower_dir . 'rellax/rellax.min.js', NULL, NULL, true );
-  wp_register_script ( 'magnify', $bower_dir . 'magnify/dist/js/jquery.magnify.js', NULL, NULL, true );
-  wp_register_script ( 'in-view', $theme_dir . 'resources/vendor/in-view/dist/in-view.min.js', NULL, NULL, true );
+  wp_register_script ( 'lazy', $vendor_dir . 'jquery.lazy/jquery.lazy.min.js', array ( 'jquery' ), NULL, true );
+  wp_register_script ( 'rellax', $vendor_dir . 'rellax/rellax.min.js', NULL, NULL, true );
+  wp_register_script ( 'magnify', $vendor_dir . 'magnify/dist/js/jquery.magnify.js', NULL, NULL, true );
+  wp_register_script ( 'in-view', $vendor_dir . 'in-view/dist/in-view.min.js', NULL, NULL, true );
 	wp_register_script ( 'lottie', 'https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.9/lottie.min.js', NULL, NULL, true );
   wp_register_script ( 'animation', $js_dir . 'animation-functions.js', array ( 'jquery' ), NULL, true );
   wp_register_script ( 'isotope', 'https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js', array ( 'jquery' ), NULL, true );
-  wp_register_script ( 'select2', 'https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js', array ( 'jquery' ), NULL, true );
-	
+  wp_register_script ( 'select2', $vendor_dir . 'select2/dist/js/select2.full.min.js', array ( 'jquery' ), NULL, true );
 	wp_register_script ( 'fw-cookie' , $theme_dir . 'resources/vendor/js.cookie.min.js', null, '3.0.1', true );
 
   // bootstrap
 
-  wp_register_script ( 'popper-utils', $bower_dir . 'popper.js/dist/umd/popper-utils.min.js', NULL, NULL, true);
-  wp_register_script ( 'popper', $bower_dir . 'popper.js/dist/umd/popper.min.js', NULL, NULL, true);
-  wp_register_script ( 'bootstrap-js', $theme_dir . 'resources/vendor/bootstrap/dist/js/bootstrap.bundle.min.js', array( 'jquery'), NULL, true );
+  wp_register_script ( 'bootstrap-js', $vendor_dir . 'bootstrap/dist/js/bootstrap.bundle.min.js', array( 'jquery' ), NULL, true );
 
   // utilities
 
-  wp_register_script ( 'smooth-scroll', $bower_dir . 'pe-smooth-scroll/smooth-scroll.js', array ( 'jquery' ), NULL, true );
+  wp_register_script ( 'smooth-scroll', $vendor_dir . 'pe-smooth-scroll/smooth-scroll.js', array ( 'jquery' ), NULL, true );
 
   // components
 
@@ -886,22 +735,22 @@ function theme_enqueue() {
 
     // social widgets
 
-    wp_register_script ( 'share-widget', $bower_dir . 'pe-social-widget/share-widget.js', array ( 'jquery' ), NULL, true );
-    wp_register_script ( 'follow-widget', $bower_dir . 'pe-social-widget/follow-widget.js', array ( 'jquery' ), NULL, true );
+    wp_register_script ( 'share-widget', $vendor_dir . 'pe-social-widget/share-widget.js', array ( 'jquery' ), NULL, true );
+    wp_register_script ( 'follow-widget', $vendor_dir . 'pe-social-widget/follow-widget.js', array ( 'jquery' ), NULL, true );
 
     // supermenu
 
-    wp_register_script ( 'supermenu', $bower_dir . 'pe-supermenu/supermenu.js', array ( 'jquery', 'bootstrap-js', 'slick' ), NULL, true );
+    wp_register_script ( 'supermenu', $vendor_dir . 'pe-supermenu/supermenu.js', array ( 'jquery', 'bootstrap-js', 'slick' ), NULL, true );
 
     // overlay
 
-    wp_register_script ( 'overlay', $bower_dir . 'pe-overlay/overlay.js', array ( 'jquery' ), NULL, true );
+    wp_register_script ( 'overlay', $vendor_dir . 'pe-overlay/overlay.js', array ( 'jquery' ), NULL, true );
 
   // renderables
 
     // dependencies
 
-    wp_register_script ( 'scroll-progress', $bower_dir . 'pe-scroll-progress/scroll-progress.js', array ( 'jquery' ), NULL, true );
+    wp_register_script ( 'scroll-progress', $vendor_dir . 'pe-scroll-progress/scroll-progress.js', array ( 'jquery' ), NULL, true );
 
     // renderer
 
@@ -950,7 +799,7 @@ add_action ( 'wp_enqueue_scripts', 'theme_enqueue' );
 function load_custom_wp_admin_style() {
 
   $theme_dir = get_bloginfo ( 'template_directory' ) . '/';
-  $bower_dir = $theme_dir . 'resources/bower_components/';
+  $vendor_dir = $theme_dir . 'resources/vendor/';
   $js_dir = $theme_dir . 'resources/js/';
 
   //
@@ -1225,7 +1074,6 @@ add_filter ( 'acf/prepare_field/key=field_5dc0533eec190', 'get_container_default
 function field_defaults_js() {
 
   $theme_dir = get_bloginfo ( 'template_directory' ) . '/';
-  $bower_dir = $theme_dir . 'resources/bower_components/';
   $js_dir = $theme_dir . 'resources/js/';
 
   // wp_register_script ( 'block-defaults', $js_dir . 'block-defaults.js', array ( 'jquery' ), NULL, true );
