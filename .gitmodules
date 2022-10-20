@@ -1,24 +1,6 @@
-[submodule "resources/vendor/rellax"]
-	path = resources/vendor/rellax
-	url = https://github.com/dixonandmoe/rellax
 [submodule "resources/vendor/in-view"]
 	path = resources/vendor/in-view
 	url = https://github.com/camwiegert/in-view
-[submodule "resources/vendor/magnify"]
-	path = resources/vendor/magnify
-	url = https://github.com/thdoan/magnify
-[submodule "resources/vendor/select2"]
-	path = resources/vendor/select2
-	url = https://github.com/select2/select2
-[submodule "resources/vendor/pe-listnav"]
-	path = resources/vendor/pe-listnav
-	url = https://github.com/phil-evans/pe-listnav
-[submodule "resources/vendor/sticky-kit"]
-	path = resources/vendor/sticky-kit
-	url = https://github.com/leafo/sticky-kit
-[submodule "resources/vendor/jquery.lazy"]
-	path = resources/vendor/jquery.lazy
-	url = https://github.com/dkern/jquery.lazy
 [submodule "resources/vendor/bootstrap"]
 	path = resources/vendor/bootstrap
 	url = https://github.com/twbs/bootstrap

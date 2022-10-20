@@ -771,6 +771,8 @@ function theme_enqueue() {
 
   wp_enqueue_script ( 'sticky-kit' );
   wp_enqueue_script ( 'in-view' );
+	
+	wp_enqueue_script ( 'fw-cookie' );
 
   //wp_enqueue_script ( 'follow-widget' );
   //wp_enqueue_script ( 'share-widget' );
