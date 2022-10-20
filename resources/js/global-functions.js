@@ -170,26 +170,6 @@ var sticky_offset = 0,
     //
 	  // }
 
-	  // SUPERMENU
-
-    // $('#header-primary .supermenu-toggle').each(function() {
-    //   var caret = $('<i class="nav-item-caret fas fa-caret-down"></i>').appendTo($(this));
-    // });
-    //
-	  // $('#supermenu').supermenu({
-  	//   events: {
-    // 	  slide_change: function() {
-    //
-    //   	  if ($('#supermenu').find('.slick-current').find('.select2').length) {
-    //
-    //     	  $('#location-search').select2('open');
-    //
-    //   	  }
-    //
-    // 	  }
-  	//   }
-	  // });
-
     if ($('.swiper').length) {
 
 			// console.log($('.swiper-container'))
@@ -202,19 +182,8 @@ var sticky_offset = 0,
 
         swiper_settings = JSON.parse(swiper_settings)
 
-        // console.log($(this).attr('id'))
-
-        // if ($(this).attr('id') == 'hero-images-swiper-container') {
-        //   swiper_settings.navigation = {
-        //     'prevEl': '#hero-text-prev',
-        //     'nextEl': '#hero-text-next'
-        //   }
-        // }
-
 				// if the swiper is a bootstrap .container,
 				// wrap each .col-* slide in a .row
-
-				// console.log($(this).parent().hasClass())
 
 				if ($(this).parent().hasClass('row')) {
 
@@ -358,6 +327,52 @@ var sticky_offset = 0,
     if ($('.magnify').length) {
       $('.magnify img').magnify()
     }
+		
+		// INVIEW
+		
+		if ($('[data-header-style]').length) {
+			
+			inView.offset({
+				top: 100,
+				bottom: $(window).outerHeight() - 100
+			})
+			
+			$(window).scroll(function() {
+			
+				// check for dark styles in view
+		
+				var header_style = 'light'
+		
+				$('[data-header-style="dark"]').each(function() {
+		
+					if (inView.is(document.querySelector('#' + $(this).attr('id')))) {
+						header_style = 'dark'
+					}
+		
+				})
+		
+				// check for hidden styles in view
+				
+				$('[data-header-style="hidden"]').each(function() {
+					
+					if (inView.is(document.querySelector('#' + $(this).attr('id')))) {
+						
+						header_style = 'hidden'
+					}
+		
+				})
+		
+				// default to light
+		
+				$('#main-header').attr('data-header-style', header_style)
+		
+			})
+			
+		}
+		
+		//
+		// PAGE STATES
+		//
 
 		if (!$('body').hasClass('has-query')) {
 			$('body').removeClass('spinner-on')
