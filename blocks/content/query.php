@@ -230,6 +230,10 @@
 						
 						$element_classes = explode ( ' ', $element['classes']['element'] );
 							
+					} else {
+						
+						$element_classes = explode ( ' ', $element['classes'] );
+							
 					}
 
 					// display type
