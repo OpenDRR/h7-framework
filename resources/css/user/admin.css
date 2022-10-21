@@ -89,7 +89,7 @@
           content: '\f013';
           display: inline-block;
           margin-right: 10px;
-          font-family: "Font Awesome 5 Free";
+          font-family: "Font Awesome 5 Pro";
         }
       }
     }
@@ -132,7 +132,7 @@
           content: '\f0db';
           display: inline-block;
           margin-right: 10px;
-          font-family: "Font Awesome 5 Free";
+          font-family: "Font Awesome 5 Pro";
         }
       }
     }
@@ -303,7 +303,7 @@
   content: "\f013";
   display: inline-block;
   margin-right: 10px;
-  font-family: "Font Awesome 5 Free";
+  font-family: "Font Awesome 5 Pro";
 }
 .acf-field.section-settings-accordion.-open > .acf-accordion-title label, .acf-field.container-settings-accordion.-open > .acf-accordion-title label, .acf-field.column-settings-accordion.-open > .acf-accordion-title label, .acf-field.block-settings-accordion.-open > .acf-accordion-title label, .acf-field.acf-field-5dc19e4dbe054.-open > .acf-accordion-title label, .acf-field.acf-field-5dc19e62be055.-open > .acf-accordion-title label, .acf-field.acf-field-5dc5b174572e8.-open > .acf-accordion-title label, .acf-field.acf-field-5dc1e431e1aa6.-open > .acf-accordion-title label, .acf-field.acf-field-5dc31ad69ca7f.-open > .acf-accordion-title label, .acf-field.acf-field-5dc442ad42103.-open > .acf-accordion-title label {
   color: #666;
@@ -331,7 +331,7 @@
   content: "\f0db";
   display: inline-block;
   margin-right: 10px;
-  font-family: "Font Awesome 5 Free";
+  font-family: "Font Awesome 5 Pro";
 }
 .acf-field.column-breakpoints-accordion.-open > .acf-accordion-title label, .acf-field.acf-field-5dc1a2aaa2a50.-open > .acf-accordion-title label {
   color: #666;
