@@ -692,7 +692,7 @@ function theme_enqueue() {
   
   // font awesome
 
-  wp_register_style ( 'font-awesome', '//use.fontawesome.com/releases/v5.9.0/css/all.css', NULL, NULL, 'all' );
+  wp_register_style ( 'font-awesome', $vendor_dir . 'font-awesome-pro/css/all.css', NULL, NULL, 'all' );
   wp_enqueue_style ( 'font-awesome' );
 
   //
