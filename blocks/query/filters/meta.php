@@ -12,7 +12,9 @@
 			'post_type' => $query_block[$current_block_ID]['args']['post_type'],
 			'posts_per_page' => -1,
 			'post_status' => 'publish',
-			'meta_query' => array ( 
+			'orderby' => 'meta_value',
+			'order' => 'asc',
+			'meta_query' => array (
 				array (
 					'key' => $filter['key'],
 					'value' => '',

@@ -313,7 +313,7 @@ var sticky_offset = 0,
         // see if this is the page header or a child of the page header
         // if so, add its height to the sticky_offset value for future sticky elements
 
-        if (sticky_element.parents('#page-header').length) {
+        if (sticky_element.parents('#main-header').length) {
           sticky_offset += element_height
         }
 
