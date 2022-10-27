@@ -387,7 +387,7 @@ body {
 			top: $overlay-top-buffer;
 
 			&[data-position="right"] {
-				left: 25%;
+				left: calc(100% - $overlay-position-right-width);
 			}
 		}
 

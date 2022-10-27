@@ -47,7 +47,7 @@ var sticky_offset = 0,
 
     // console.log($(document).data())
 
-    scroll_offset += $('#page-header').outerHeight();
+    scroll_offset += $('#main-header').outerHeight();
 
     if ($('body').hasClass('lang-fr')) {
       current_lang = 'fr';
@@ -127,8 +127,8 @@ var sticky_offset = 0,
       }
     }
 
-    if ($('#page-header').hasClass('fixed-top')) {
-      sticky_offset += $('#page-header').outerHeight()
+    if ($('#main-header').hasClass('fixed-top')) {
+      sticky_offset += $('#main-header').outerHeight()
     }
 
     // console.log(sticky_offset)
