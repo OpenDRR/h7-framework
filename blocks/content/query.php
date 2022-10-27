@@ -14,10 +14,10 @@
 
 	// display (grid/carousel/list)
 	if ( !isset ( $new_query['display']['type'] ) )
-		$new_query['display']['type'] = get_sub_field ( 'display' );
+		$new_query['display']['type'] = $block ['display'];
 
 	if ( !isset ( $new_query['display']['classes']['object'] ) )
-		$new_query['display']['classes']['object'] = explode ( ' ', get_sub_field ( 'object_classes' ) );
+		$new_query['display']['classes']['object'] = explode ( ' ', $block ['object_classes'] );
 
 	array_push ( $new_query['display']['classes']['object'], 'renderable', 'query-type-' . $new_query['display']['type'] );
 
@@ -27,7 +27,7 @@
 	//
 
 	if ( !isset ( $new_query['display']['containers'] ) )
-	$new_query['display']['containers'] = get_sub_field ( 'containers' );
+	$new_query['display']['containers'] = $block ['containers'];
 
 	// defaults
 
@@ -71,17 +71,15 @@
 			wp_enqueue_script ( 'post-carousel' );
 
 			$new_query['paginate'] = true;
-
-			if ( have_rows ( 'swiper' ) ) {
-				while ( have_rows ( 'swiper' ) ) {
-					the_row();
-
-					$GLOBALS['elements']['types']['block']['carousel'] = new Carousel ( get_current_element_ID() );
-					$GLOBALS['elements']['types']['block']['carousel']->init();
-
-					//$GLOBALS['elements']['types']['block']['carousel'] = carousel_setup ( get_current_element_ID() );
-
-				}
+			
+			if ( 
+				isset ( $block['swiper'] ) &&
+				!empty ( $block['swiper'] ) 
+			) {
+				
+				$GLOBALS['elements']['types']['block']['carousel'] = new Carousel ( get_current_element_ID() );
+				$GLOBALS['elements']['types']['block']['carousel']->init();
+				
 			}
 
 			break;
@@ -99,7 +97,7 @@
 	// item template
 
 	if ( !isset ( $new_query['display']['template'] ) )
-		$new_query['display']['template'] = get_sub_field ( 'template' );
+		$new_query['display']['template'] = $block ['template'];
 
 	//
 	// BEGIN SETTING UP ACF QUERY
@@ -267,7 +265,7 @@
 
 <?php
 
-if ( get_sub_field ( 'debug' ) == 1 ) {
+if ( $block ['debug'] == 1 ) {
 	echo '<pre class="p-3 bg-light font-size-smaller">';
 	print_r ( $query_block[$current_block_ID] );
 	echo '</pre>';

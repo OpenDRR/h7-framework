@@ -72,7 +72,7 @@ function container_output ( $action ) {
 
 // BLOCK
 
-function block_output ( $action ) {
+function block_output ( $action, $acf_ID = null ) {
 
 	echo "\n";
 
@@ -93,46 +93,93 @@ function block_output ( $action ) {
     if ( $GLOBALS['elements']['current']['subtype'] != '' ) {
 			$theme_include_path .= $current_element['subtype'] . '/';
 		}
-
-    if ( have_rows ( 'blocks' ) ) {
-      while ( have_rows ( 'blocks' ) ) {
-        the_row();
-
-				$theme_include_path .= get_row_layout() . '.php';
-
-				$field_obj = $GLOBALS['fw_fields']['builder_groups']['block_' . $current_element['subtype']][get_row_layout()];
-
+		
+		// echo 'sub:<br>';
+		// dumpit ( get_sub_field ( 'blocks', $acf_ID ) );
+		
+		$field_array = get_sub_field ( 'blocks', $acf_ID );
+		
+		if ( have_rows ( 'blocks', $acf_ID ) ) {
+			
+			foreach ( $field_array as $block ) {
+				
+				$theme_include_path .= $block['acf_fc_layout'] . '.php';
+				
+				$field_obj = $GLOBALS['fw_fields']['builder_groups']['block_' . $current_element['subtype']][$block['acf_fc_layout']];
+				
 				if (
 					isset ( $field_obj['settings']['template'] ) &&
 					!empty ( $field_obj['settings']['template'] )
 				) {
 					$field_include_path = $field_obj['settings']['template'];
 				}
-
-        if ( locate_template ( $theme_include_path ) != '' ) {
-
+				
+				if ( locate_template ( $theme_include_path ) != '' ) {
+				
 					// look for a template in the theme folders
-
-          include ( locate_template ( $theme_include_path ) );
-
-        } elseif ( isset ( $field_include_path ) ) {
-
+					
+					// echo $theme_include_path . '<br>';
+				
+					include ( locate_template ( $theme_include_path ) );
+				
+				} elseif ( isset ( $field_include_path ) ) {
+				
 					// then in the builder field settings
-
+				
 					include ( $field_include_path );
-
+				
 				} else {
-
+				
 					// then throw an error
+				
+					echo '<p class="alert alert-secondary">';
+					echo $field_include_path . ' not found';
+					echo '</p>';
+				
+				}
+				
+			}
+		}
 
-          echo '<p class="alert alert-secondary">';
-          echo $field_include_path . ' not found';
-          echo '</p>';
-
-        }
-
-      }
-    }
+//     if ( have_rows ( 'blocks' ) ) {
+//       while ( have_rows ( 'blocks' ) ) {
+//         the_row();
+// 
+// 				$theme_include_path .= get_row_layout() . '.php';
+// 
+// 				$field_obj = $GLOBALS['fw_fields']['builder_groups']['block_' . $current_element['subtype']][get_row_layout()];
+// 
+// 				if (
+// 					isset ( $field_obj['settings']['template'] ) &&
+// 					!empty ( $field_obj['settings']['template'] )
+// 				) {
+// 					$field_include_path = $field_obj['settings']['template'];
+// 				}
+// 
+//         if ( locate_template ( $theme_include_path ) != '' ) {
+// 
+// 					// look for a template in the theme folders
+// 
+//           include ( locate_template ( $theme_include_path ) );
+// 
+//         } elseif ( isset ( $field_include_path ) ) {
+// 
+// 					// then in the builder field settings
+// 
+// 					include ( $field_include_path );
+// 
+// 				} else {
+// 
+// 					// then throw an error
+// 
+//           echo '<p class="alert alert-secondary">';
+//           echo $field_include_path . ' not found';
+//           echo '</p>';
+// 
+//         }
+// 
+//       }
+//     }
 
   } elseif ( $action == 'close' ) {
 

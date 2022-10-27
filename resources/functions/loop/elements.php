@@ -722,7 +722,7 @@ function open_element ( $layout, $generator, $acf_ID ) {
 
   // BLOCK
 
-  block_output ( 'open' );
+  block_output ( 'open', $acf_ID );
 
   // set the element to 'open'
 

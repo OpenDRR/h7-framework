@@ -1,10 +1,10 @@
 <?php
 
-if ( get_sub_field ( 'filename' ) != '' ) {
+if ( $block['filename'] != '' ) {
 
-  if ( locate_template ( 'template/' . get_sub_field ( 'filename' ) . '.php' ) != '' ) {
+  if ( locate_template ( 'template/' . $block['filename'] . '.php' ) != '' ) {
 
-    include ( locate_template ( 'template/' . get_sub_field ( 'filename' ) . '.php' ) );
+    include ( locate_template ( 'template/' . $block['filename'] . '.php' ) );
 
   }
 

@@ -6,36 +6,36 @@
   // BUTTON ELEMENT
   //
 
-  if ( !isset ( $button ) )
-    $button = array();
+  if ( !isset ( $button_element ) )
+    $button_element = array();
 
-  if ( !isset ( $button['href'] ) )
-    $button['href'] = '#';
+  if ( !isset ( $button_element['href'] ) )
+    $button_element['href'] = '#';
 
-  if ( !isset ( $button['text'] ) )
-    $button['text'] = 'Learn more';
+  if ( !isset ( $button_element['text'] ) )
+    $button_element['text'] = 'Learn more';
 
-  if ( !isset ( $button['target'] ) )
-    $button['target'] = '';
+  if ( !isset ( $button_element['target'] ) )
+    $button_element['target'] = '';
 
-  if ( !isset ( $button['class'] ) ) {
-    $button['class'] = array ( 'btn' );
+  if ( !isset ( $button_element['class'] ) ) {
+    $button_element['class'] = array ( 'btn' );
   } else {
-    $button['class'][] = 'btn';
+    $button_element['class'][] = 'btn';
   }
 
   //
   // LINK TYPE
   //
 
-  switch ( get_sub_field ( 'type' ) ) {
+  switch ( $button['type'] ) {
 
     case 'scroll' :
 
-      if ( get_sub_field ( 'id' ) != '' ) {
-        $button['href'] = '#' . get_sub_field ( 'id' );
+      if ( $button['id'] != '' ) {
+        $button_element['href'] = '#' . $button['id'];
       } else {
-        $button['class'][] = 'next-section';
+        $button_element['class'][] = 'next-section';
       }
 
       break;
@@ -43,16 +43,16 @@
     case 'post' :
     case 'page' :
 
-      if ( get_sub_field ( get_sub_field ( 'type' ) ) != '' ) {
-        $button['href'] = get_permalink ( get_sub_field ( get_sub_field ( 'type' ) ) );
-        $button['text'] = get_the_title ( get_sub_field ( get_sub_field ( 'type' ) ) );
+      if ( get_sub_field ( $button['type'] ) != '' ) {
+        $button_element['href'] = get_permalink ( get_sub_field ( $button['type'] ) );
+        $button_element['text'] = get_the_title ( get_sub_field ( $button['type'] ) );
       }
 
       break;
 
     case 'url' :
 
-      $button['href'] = get_sub_field ( 'url' );
+      $button_element['href'] = $button['url'];
 
       break;
 
@@ -67,24 +67,24 @@
   // TARGET
   //
 
-  if ( get_sub_field ( 'target' ) != 'default' ) {
-    $button['target'] = get_sub_field ( 'target' );
+  if ( $button['target'] != 'default' ) {
+    $button_element['target'] = $button['target'];
   }
 
   //
   // ID
   //
 
-  if ( get_sub_field ( 'button_id' ) != '' ) {
-    $button['id'] = get_sub_field ( 'button_id' );
+  if ( $button['button_id'] != '' ) {
+    $button_element['id'] = $button['button_id'];
   }
 
   //
   // CLASS
   //
 
-  if ( get_sub_field ( 'classes' ) != '' ) {
-    $button['class'][] = get_sub_field ( 'classes' );
+  if ( $button['classes'] != '' ) {
+    $button_element['class'][] = $button['classes'];
   }
 
   //
@@ -92,77 +92,72 @@
   // override the default if the text field has any value
   //
 
-  if ( get_sub_field ( 'text' ) != '' ) {
-    $button['text'] = get_sub_field ( 'text' );
+  if ( $button['text'] != '' ) {
+    $button_element['text'] = $button['text'];
   }
 
   // wrap in .btn-text span
 
-  $button['text'] = '<span class="btn-text">' . $button['text'] . '</span>';
+  $button_element['text'] = '<span class="btn-text">' . $button_element['text'] . '</span>';
 
   //
   // ICON
   //
 
-  if ( have_rows ( 'icon' ) ) {
-    while ( have_rows ( 'icon' ) ) {
-      the_row();
+	if ( !empty ( $button['icon'] ) ) {
+		
+    if ( $button['icon']['placement'] != 'none' ) {
 
-      if ( get_sub_field ( 'placement' ) != 'none' ) {
+      $button_element['class'][] = 'has-icon';
+      $button_element['icon'] = '<i class="icon ' . $button['icon']['icon'] . '"></i>';
 
-        $button['class'][] = 'has-icon';
-        $button['icon'] = '<i class="icon ' . get_sub_field ( 'icon' ) . '"></i>';
+      if ( $button['icon']['placement'] == 'before' ) {
 
-        if ( get_sub_field ( 'placement' ) == 'before' ) {
+        $button_element['class'][] = 'icon-before';
+        $button_element['text'] = $button_element['icon'] . $button_element['text'];
 
-          $button['class'][] = 'icon-before';
-          $button['text'] = $button['icon'] . $button['text'];
+      } elseif ( $button['icon']['placement'] == 'after' ) {
 
-        } elseif ( get_sub_field ( 'placement' ) == 'after' ) {
-
-          $button['class'][] = 'icon-after';
-          $button['text'] .= $button['icon'];
-
-        }
+        $button_element['class'][] = 'icon-after';
+        $button_element['text'] .= $button_element['icon'];
 
       }
 
     }
+
   }
 
   //
   // COLOURS
   //
 
-  if ( have_rows ( 'colours' ) ) {
-    while ( have_rows ( 'colours' ) ) {
-      the_row();
-
-      if ( get_sub_field ( 'btn_bg' ) != '' ) {
-        $button['class'][] = 'btn-' . get_sub_field ( 'btn_bg' );
-      }
-
-      if ( get_sub_field ( 'btn_text' ) != '' ) {
-        $button['class'][] = 'text-' . get_sub_field ( 'btn_text' );
-      }
-
-      if ( get_sub_field ( 'btn_border' ) != '' ) {
-        $button['class'][] = 'btn-outline-' . get_sub_field ( 'btn_border' );
-      }
-
+	if ( !empty ( $button['colours'] ) ) {
+		
+    if ( $button['colours']['btn_bg'] != '' ) {
+      $button_element['class'][] = 'btn-' . $button['colours']['btn_bg'];
     }
+
+    if ( $button['colours']['btn_text'] != '' ) {
+      $button_element['class'][] = 'text-' . $button['colours']['btn_text'];
+    }
+
+    if ( $button['colours']['btn_border'] != '' ) {
+      $button_element['class'][] = 'btn-outline-' . $button['colours']['btn_border'];
+    }
+
+  
   }
 
   if ( $show_btn == true ) {
 
-    echo '<a href="' . $button['href'] . '"';
+    echo '<a href="' . $button_element['href'] . '"';
 
-    echo ( isset ( $button['id'] ) ) ? ' id="' . $button['id'] . '"' : '';
+    echo ( isset ( $button_element['id'] ) ) ? ' id="' . $button_element['id'] . '"' : '';
 
-    echo ( $button['target'] != '' ) ? ' target="' . $button['target'] . '"' : '';
+    echo ( $button_element['target'] != '' ) ? ' target="' . $button_element['target'] . '"' : '';
 
-    echo ' class="' . implode ( ' ', $button['class'] ) . '"';
+    echo ' class="' . implode ( ' ', $button_element['class'] ) . '"';
 
-    echo '>' . $button['text'] . '</a>';
+    echo '>' . $button_element['text'] . '</a>';
 
   }

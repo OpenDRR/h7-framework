@@ -17,7 +17,13 @@ function get_current_element_type() {
 //
 
 function get_current_element_ID() {
-  return $GLOBALS['elements']['current']['id'];
+	
+	if ( isset ( $GLOBALS['elements']['current']['id'] ) ) {
+		return $GLOBALS['elements']['current']['id'];
+	} else {
+		return 'element';
+	}
+	
 }
 
 //

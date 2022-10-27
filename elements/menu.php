@@ -359,13 +359,13 @@
   // GET MENU BY TYPE
   //
 
-  switch ( get_sub_field ( 'type' ) ) {
+  switch ( $block['type'] ) {
 
     case 'wp' :
 
       // WP MENU
 
-      $menu = fw_wp_menu ( get_sub_field ( 'menu' ) );
+      $menu = fw_wp_menu ( $block['menu'] );
 
       break;
 
@@ -373,7 +373,7 @@
 
       // ACF MENU
 
-      $menu = fw_acf_menu ( get_sub_field ( 'items' ) );
+      $menu = fw_acf_menu ( $block['items'] );
 
       break;
 
