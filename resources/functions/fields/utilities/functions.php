@@ -1212,7 +1212,7 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 											'BETWEEN' => 'BETWEEN',
 											'NOT BETWEEN' => 'NOT BETWEEN',
 										),
-										'default_value' => '=',
+										'default_value' => false,
 										'allow_null' => 1,
 										'multiple' => 0,
 										'ui' => 0,

@@ -8,12 +8,18 @@
 
   if ( have_posts() ) : while ( have_posts() ) : the_post();
 
+		// post ID
 		$this_ID = get_the_ID();
-
+		
 		//
 		// LAYOUT
 		// figure out which layout to use
 		//
+		
+		// take '.php' off of the template filename
+		// to use in the layout meta query
+		
+		$this_template = str_replace ( '.php', '', $GLOBALS['vars']['current_template'] );
 
 		$layout_query = new WP_Query ( array (
 			'post_type' => 'layout',
@@ -21,7 +27,7 @@
 			'meta_query' => array (
 				array (
 					'key' => 'layout_file',
-					'value' => str_replace ( '.php', '', $GLOBALS['vars']['current_template'] ),
+					'value' => sprintf ( '"%s"', $this_template ),
 					'compare' => 'LIKE'
 				)
 			)
@@ -30,7 +36,10 @@
 		if ( $layout_query->have_posts() ) {
 			while ( $layout_query->have_posts() ) {
 				$layout_query->the_post();
-
+				
+				// found the post,
+				// iterate through the builder field
+				
 				if ( have_rows ( 'layout_builder' ) ) {
 					while ( have_rows ( 'layout_builder' ) ) {
 						the_row();
