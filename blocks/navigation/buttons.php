@@ -7,7 +7,7 @@
 		$block['btn_size'] != '' && 
 		$block['btn_size'] != 'default' 
 	) {
-    $btn_size = get_sub_field ( 'btn_size' );
+    $btn_size = $block['btn_size'];
 	}
 
   if ( $block['btn_classes'] != '' )
