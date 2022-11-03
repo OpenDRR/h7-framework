@@ -469,6 +469,7 @@ if ( $new_query['type'] == 'posts' ) {
 					// if meta_query exists in query['args']
 					
 					if (
+						isset ( $new_query['args']['meta_query'] ) &&
 						is_array ( $new_query['args']['meta_query'] ) &&
 						!empty ( $new_query['args']['meta_query'] )
 					) {

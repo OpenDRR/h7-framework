@@ -358,13 +358,14 @@ var sticky_offset = 0,
 					if (inView.is(document.querySelector('#' + $(this).attr('id')))) {
 						
 						header_style = 'hidden'
+						
 					}
 		
 				})
 		
 				// default to light
 		
-				$('#main-header').attr('data-header-style', header_style)
+				$('#main-header').attr('data-current-style', header_style)
 		
 			})
 			
