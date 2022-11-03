@@ -31,10 +31,14 @@
 				
 				$this_val = get_field ( $filter['key'], $item->ID );
 				
-				$filter['items'][$this_val] = $this_val;
-				
-				if ( $field_obj['type'] == 'post_object' ) {
-					$filter['items'][$this_val] = get_the_title ( $this_val );
+				if ( $this_val != '' ) {
+					
+					$filter['items'][$this_val] = $this_val;
+					
+					if ( $field_obj['type'] == 'post_object' ) {
+						$filter['items'][$this_val] = get_the_title ( $this_val );
+					}
+					
 				}
 				
 			}
