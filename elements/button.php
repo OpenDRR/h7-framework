@@ -43,9 +43,9 @@
     case 'post' :
     case 'page' :
 
-      if ( get_sub_field ( $button['type'] ) != '' ) {
-        $button_element['href'] = get_permalink ( get_sub_field ( $button['type'] ) );
-        $button_element['text'] = get_the_title ( get_sub_field ( $button['type'] ) );
+      if ( $button[$button['type']] != '' ) {
+        $button_element['href'] = get_permalink ( $button[$button['type']] );
+        $button_element['text'] = get_the_title ( $button[$button['type']] );
       }
 
       break;
