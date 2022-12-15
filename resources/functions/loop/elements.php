@@ -614,21 +614,6 @@ function setup_element ( $layout, $generator, $acf_ID ) {
 
   }
 
-  // BLOCK
-
-  if ( $GLOBALS['elements']['current']['type'] == 'block' ) {
-
-    $block_content = get_sub_field ( 'blocks' );
-
-    $block_type = $block_content[0]['acf_fc_layout'];
-
-    // $GLOBALS['elements']['current']['classes'][] = 'block-type-' . $block_type;
-
-		// add_action ( 'after_element_open', 'block_output', 20, 2 );
-		// add_action ( 'before_element_close', 'block_output', 20, 2 );
-
-  }
-
   // echo "\n\n" . '<!--' . "\n\n";
   // print_r($element);
   // echo "\n\n" . '-->' . "\n\n";

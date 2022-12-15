@@ -279,6 +279,10 @@ var sticky_offset = 0,
             sticky_options.offset_top = ($(window).height() / 2) - (sticky_element.outerHeight() / 2)
           } else {
             sticky_options.offset_top = parseInt(sticky_element.attr('data-sticky-offset'))
+            
+            if ($('body').hasClass('admin-bar')) {
+              sticky_options.offset_top += 32
+            }
           }
 
         }
