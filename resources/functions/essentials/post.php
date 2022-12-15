@@ -79,22 +79,29 @@ function get_ID_by_title ( $title ) {
 // returns title, slug or ID
 //
 
-function get_top_parent ( $parent_id = null ) {
+function get_top_parent ( $this_id = null ) {
 
-	if ( $parent_id === null ) {
+	if ( $this_id === null ) {
   	global $post;
-  	$parent_id = $post->post_parent;
+  	$this_id = $post->post_parent;
 	}
 
-	if ( !empty ( $parent_id ) ) {
+	if ( !empty ( $this_id ) ) {
 
-		while ( $parent_id ) {
+    // while this_id exists
+    
+		while ( $this_id ) {
 
-			$hasparents = true;
-			$parent = get_post ( $parent_id );
-			$parent_id = $parent->post_parent;
+      // get the post
+			$parent = get_post ( $this_id );
+      
+      // this ID = the retrieved post's parent
+			$this_id = $parent->post_parent;
 
-			if ($parent_id == '0') {
+      // if the ID is 0 we got to the top,
+      // so return the retrieved post's own ID
+      
+			if ( $this_id == '0' || $this_id == 0 ) {
 				$top_parent = $parent->ID;
 			}
 
@@ -107,4 +114,5 @@ function get_top_parent ( $parent_id = null ) {
 	}
 
 	return $top_parent;
+  
 }
