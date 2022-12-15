@@ -66,52 +66,91 @@
 
 						var template_modal = elements_field.find('#template-modal'),
 								template_menu = elements_field.find('#template-menu'),
+								template_index = elements_field.find('#template-index'),
 								template_submit = elements_field.find('#template-submit'),
-								template_cancel = elements_field.find('#template-cancel')
+								template_cancel = elements_field.find('#template-cancel'),
+								template_reload = elements_field.find('#template-reload')
 
 						insert_btn.click(function(e) {
 							e.preventDefault()
-
+							
+							// populate the 'index' select
+							
+							template_index.empty().append('<option value="0">Before existing content</option>')
+							
+							let index_i = 1
+							
+							$('[data-key="builder_elements"] > .acf-input > .acf-flexible-content > .values > .layout').each(function() {
+								
+								let this_label = 'After ' + $(this).find('.acf-fc-layout-handle').first().text().split(' ')[1]
+								
+								if (
+									$(this).find('[data-key="builder_layout_section_id"] input').length &&
+									$(this).find('[data-key="builder_layout_section_id"] input').val() != ''
+								) {
+									this_label += ' — #' + $(this).find('[data-key="builder_layout_section_id"] input').val()
+								}
+								
+								$('<option value="' + index_i + '">' + this_label + '</option>').appendTo(template_index)
+								
+								index_i += 1
+								
+							})
+							
+							// open the modal
 							overlay.addClass('open')
 							template_modal.show()
 
 						})
-
+						
 						template_menu.change(function() {
 							if ($(this).val() != '') {
+								template_index.prop('disabled', false)
 								template_submit.prop('disabled', false)
 							} else {
 								template_submit.prop('disabled', true)
+								template_index.prop('disabled', true)
 							}
 						})
 
 						// submit
 
-						template_submit.click(function() {
+						template_submit.click(function(e) {
+							e.preventDefault()
 
 							if (template_menu.val() != '') {
 
 								$.ajax({
 									type: 'POST',
 									url: admin_ajax_data.url,
+									dataType: 'json',
 									data: {
-										'source': template_menu.val(),
-										'target': acf.get('post_id'),
-										'action': 'get_template_fields'
+										source: template_menu.val(),
+										index: template_index.val(),
+										target: acf.get('post_id'),
+										action: 'fw_get_template_fields'
 									},
-									success: function (data) {
+									success: function(data) {
 
 										console.log(data)
+										
+										if (data.status == 'success') {
+											
+											$('#template-modal-footer').remove()
+											$('#template-modal-reload').show()
+											
+											template_modal.find('.page-builder-modal-body').html('<h3>Success</h3><p>' + data.message + ' Reload this page now to see the new elements.</p>')
+										}
 
 									},
-									error: function () {
+									error: function(huh, wha) {
 
-										console.log('error')
+										console.log('error', huh, wha)
 
 									},
 									complete: function() {
 
-										location.reload()
+										// location.reload()
 
 									}
 								})
@@ -126,6 +165,13 @@
 							e.preventDefault()
 							overlay.removeClass('open')
 							template_modal.hide()
+						})
+						
+						// reload
+						
+						template_reload.click(function(e) {
+							e.preventDefault()
+							location.reload()
 						})
 
 					}

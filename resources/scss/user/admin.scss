@@ -792,10 +792,18 @@ html .acf-fields > .acf-field {
 	padding: 0 1.5em 1em 1.5em;
 }
 
+.page-builder-modal-body-section {
+  margin-bottom: 1em;
+}
+
 .page-builder-modal-footer {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	padding: 1.5em;
 	border-top: 1px solid #ddd;
+}
+
+#template-modal-reload {
+  display: none;
 }

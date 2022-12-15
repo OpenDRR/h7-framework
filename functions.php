@@ -1176,55 +1176,68 @@ function get_page_builder_toolbar() {
 	<div id="template-modal" class="page-builder-modal">
 		<div class="page-builder-modal-body">
 			<h3>Insert fields from a template</h3>
-			<p>Select a template to copy its fields into this page.</p>
 			<p><strong>Save your page before using this tool.</strong> Unsaved changes will be lost when you click 'Insert and Reload.'</strong></p>
-
-			<?php
-
-				$templates = new WP_Query ( array (
-					'post_type' => 'template',
-					'posts_per_page' => -1,
-					'meta_key' => 'template_insertable',
-					'meta_value' => 1
-				));
-
-				if ( $templates->have_posts() ) :
-
-			?>
-
-			<select id="template-menu">
-				<option selected disabled>- Select a template -</option>
-
-				<?php
-
-					while ( $templates->have_posts() ) :
-						$templates->the_post();
-
-				?>
-
-				<option value="<?php echo get_the_ID(); ?>"><?php the_title(); ?></option>
-
-				<?php
-
-					endwhile;
-
-				?>
-
-			</select>
-
-			<?php
-
-				endif;
-
-				wp_reset_postdata();
-
-			?>
+      
+      <div class="page-builder-modal-body-section">
+        <label for="template-menu">Which template to insert:</label>
+  
+			  <?php
+  
+				  $templates = new WP_Query ( array (
+					  'post_type' => 'template',
+					  'posts_per_page' => -1,
+					  'meta_key' => 'template_insertable',
+					  'meta_value' => 1
+				  ));
+  
+				  if ( $templates->have_posts() ) :
+  
+			  ?>
+  
+			  <select id="template-menu" name="template-menu">
+				  <option selected disabled>- Select a template -</option>
+  
+				  <?php
+  
+					  while ( $templates->have_posts() ) :
+						  $templates->the_post();
+  
+				  ?>
+  
+				  <option value="<?php echo get_the_ID(); ?>"><?php the_title(); ?></option>
+  
+				  <?php
+  
+					  endwhile;
+  
+				  ?>
+  
+			  </select>
+  
+			  <?php
+  
+				  endif;
+  
+				  wp_reset_postdata();
+  
+			  ?>
+      </div>
+      
+      <div class="page-builder-modal-body-section">
+        <label for="template-index">Where to place the new fields:</label>
+        
+        <select id="template-index" name="template-index" disabled></select>
+      </div>
 		</div>
 
 		<div id="template-modal-footer" class="page-builder-modal-footer">
-			<button id="template-submit" class="button button-primary button-large" disabled>Insert and Reload</button>
+			<button id="template-submit" class="button button-primary button-large" disabled>Insert Fields</button>
 			<a id="template-cancel">Cancel</a>
 		</div>
+    
+    <div id="template-modal-reload" class="page-builder-modal-footer">
+      <button id="template-reload" class="button button-primary button-large">Reload Page</button>
+    </div>
 	</div>
 
 	<div id="some-other-modal" class="page-builder-modal">
@@ -1282,13 +1295,14 @@ add_action ( 'wp_ajax_get_page_builder_toolbar', 'get_page_builder_toolbar' );
 //
 // add_action ( 'wp_ajax_get_template_posts', 'get_template_posts' );
 
-function get_template_fields() {
+function fw_get_template_fields() {
+  
+  $insert_index = (int) $_POST['index'];
 
 	$source_fields = get_field ( 'elements', $_POST['source'] );
-
-	echo "\n\nSOURCE:\n\n";
-
-	print_r($source_fields);
+  
+	// echo "\n\nSOURCE:\n\n";
+	// print_r($source_fields);
 
 	$current_fields = get_field ( 'elements', $_POST['target'] );
 
@@ -1296,27 +1310,38 @@ function get_template_fields() {
 		$current_fields = array();
 	}
 
-	echo "\n\nCURRENT:\n\n";
+	// echo "\n\nCURRENT:\n\n";
+	// print_r($current_fields);
 
-	print_r($current_fields);
+  // add the existing fields up to the given index
+  
+  $current_pre = array_slice ( $current_fields, 0, $insert_index );
+  
+  // add the existing fields after the given index
+  
+  $current_post = array_slice ( $current_fields, $insert_index );
+  
+  // merge
+  
+  $new_builder = array_merge ( $current_pre, $source_fields, $current_post );
+  
+  // echo "\n\nNEW\n\n";
+  // print_r($new_builder);
 
-
-	$merged = array_merge ( $current_fields, $source_fields );
-
-
-	echo "\n\nMERGED:\n\n";
-
-	print_r($merged);
-
-	update_field ( 'elements', $merged, $_POST['target'] );
+	update_field ( 'elements', $new_builder, $_POST['target'] );
 
 	// print_r ( json_encode ( $merged ) );
 
+  print_r ( json_encode ( array (
+    'status' => 'success',
+    'message' => 'Inserted fields from template <strong>‘' . get_the_title ( $_POST['source'] ) . '’</strong> at row #' . ( $insert_index + 1 ) . '.'
+  ) ) );
+  
 	die();
 
 }
 
-add_action ( 'wp_ajax_get_template_fields', 'get_template_fields' );
+add_action ( 'wp_ajax_fw_get_template_fields', 'fw_get_template_fields' );
 // add_action ( 'wp_ajax_nopriv_get_template_fields', 'get_template_fields' );
 
 function dumpit ( $var ) {
