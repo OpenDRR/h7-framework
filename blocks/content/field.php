@@ -30,15 +30,27 @@ if ( $block['display'] == 'block' ) {
 	}
 
 } else {
-
+	
 	if ( get_post_meta ( $field_post_ID, $field_key, true ) != '' ) {
-
-		echo '<' . $block['display'] . '>';
-
-		echo get_post_meta ( $field_post_ID, $field_key, true );
-
-		echo '</' . $block['display'] . '>';
-
+		
+		$output = get_post_meta ( $field_post_ID, $field_key, true );
+		
+		// convert new lines to paragraphs if
+		
+		if ( $block['display'] == 'p' ) {
+			
+			echo apply_filters ( 'the_content', $output );
+			
+		} else {
+		
+			echo '<' . $block['display'] . '>';
+	
+			echo $output;
+	
+			echo '</' . $block['display'] . '>';
+			
+		}
+		
 	}
 
 }
