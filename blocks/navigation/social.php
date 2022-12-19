@@ -6,64 +6,62 @@
 
   wp_enqueue_script ( 'renderer' );
 
-  $widget_type = get_sub_field ( 'type' );
-
-  if ( $widget_type == 'share' ) {
+  if ( $block['type'] == 'share' ) {
     wp_enqueue_script ( 'share-widget' );
-  } elseif ( $widget_type == 'follow' ) {
+  } elseif ( $block['type'] == 'follow' ) {
     wp_enqueue_script ( 'follow-widget' );
   }
-
+  
   //
   // DISPLAY SETTINGS
   //
-
+  
   // global CSS
-
+  
   // bg
-
+  
   if (
-    get_sub_field ( 'social_menu_bg' ) != '' &&
-    get_sub_field ( 'social_menu_bg' ) != 'inherit'
+    $block['social_menu_bg'] != '' &&
+    $block['social_menu_bg'] != 'inherit'
   ) {
-
-    $GLOBALS['css'] .= "\n\n" . '#' . $GLOBALS['elements']['current']['id'] . '-' . $widget_type . ' .widget-menu,';
-    $GLOBALS['css'] .= "\n" . '#' . $GLOBALS['elements']['current']['id'] . '-' . $widget_type . ' .open .widget-trigger { background-color: var(--' . get_sub_field ( 'social_menu_bg' ) . '); }';
-
+  
+    $GLOBALS['css'] .= "\n\n" . '#' . $GLOBALS['elements']['current']['id'] . '-' . $block['type'] . ' .widget-menu,';
+    $GLOBALS['css'] .= "\n" . '#' . $GLOBALS['elements']['current']['id'] . '-' . $block['type'] . ' .open .widget-trigger { background-color: var(--' . $block['social_menu_bg'] . '); }';
+  
   }
-
+  
   // text
-
+  
   if (
-    get_sub_field ( 'social_menu_text' ) != '' &&
-    get_sub_field ( 'social_menu_text' ) != 'inherit'
+    $block['social_menu_text'] != '' &&
+    $block['social_menu_text'] != 'inherit'
   ) {
-
-    $GLOBALS['css'] .= "\n" . '#' . $GLOBALS['elements']['current']['id'] . '-' . $widget_type . ' .social-widget li { color: var(--' . get_sub_field ( 'social_menu_text' ) . '); }';
-
+  
+    $GLOBALS['css'] .= "\n" . '#' . $GLOBALS['elements']['current']['id'] . '-' . $block['type'] . ' .social-widget li { color: var(--' . $block['social_menu_text'] . '); }';
+  
   }
-
+  
   // link
-
+  
   if (
-    get_sub_field ( 'social_menu_link' ) != '' &&
-    get_sub_field ( 'social_menu_link' ) != 'inherit'
+    $block['social_menu_link'] != '' &&
+    $block['social_menu_link'] != 'inherit'
   ) {
-
-    $GLOBALS['css'] .= "\n\n" . '#' . $GLOBALS['elements']['current']['id'] . '-' . $widget_type . ' .social-widget li a,';
-    $GLOBALS['css'] .= "\n" . '#' . $GLOBALS['elements']['current']['id'] . '-' . $widget_type . ' .open .social-trigger { color: var(--' . get_sub_field ( 'social_menu_link' ) . '); }';
-
+  
+    $GLOBALS['css'] .= "\n\n" . '#' . $GLOBALS['elements']['current']['id'] . '-' . $block['type'] . ' .social-widget li a,';
+    $GLOBALS['css'] .= "\n" . '#' . $GLOBALS['elements']['current']['id'] . '-' . $block['type'] . ' .open .social-trigger { color: var(--' . $block['social_menu_link'] . '); }';
+  
   }
-
+  
   // icon
-
+  
   if (
-    get_sub_field ( 'social_menu_icon' ) != '' &&
-    get_sub_field ( 'social_menu_icon' ) != 'inherit'
+    $block['social_menu_icon'] != '' &&
+    $block['social_menu_icon'] != 'inherit'
   ) {
-
-    $GLOBALS['css'] .= "\n\n" . '#' . $GLOBALS['elements']['current']['id'] . '-' . $widget_type . ' .social-widget .icon { color: var(--' . get_sub_field ( 'social_menu_icon' ) . '); }';
-
+  
+    $GLOBALS['css'] .= "\n\n" . '#' . $GLOBALS['elements']['current']['id'] . '-' . $block['type'] . ' .social-widget .icon { color: var(--' . $block['social_menu_icon'] . '); }';
+  
   }
 
   //
@@ -79,7 +77,7 @@
   // share or follow
   //
 
-  if ( get_sub_field ( 'type' ) == 'follow' ) {
+  if ( $block['type'] == 'follow' ) {
 
     if ( isset ( $GLOBALS['vars']['social'] ) ) {
 
@@ -119,7 +117,7 @@
 
     }
 
-  } else if ( get_sub_field ( 'type' ) == 'share' ) {
+  } elseif ( $block['type'] == 'share' ) {
 
     // labels
 
@@ -133,7 +131,7 @@
 
     // attributes
 
-    switch ( get_sub_field ( 'url' ) ) {
+    switch ( $block['url'] ) {
       case 'site' :
         $share_URL = $GLOBALS['vars']['site_url'];
         break;
@@ -153,6 +151,10 @@
 
       case 'section' :
         $share_URL = $GLOBALS['vars']['social']['redirect_URL'] . '?path=' . get_permalink() . '&hash=' . $section_ID;
+        break;
+        
+      case 'id' :
+        $share_URL = get_permalink ( $block['url_id'] );
         break;
 
     }
@@ -175,7 +177,13 @@
         // tweet text
 
         if ( $item == 'twitter' ) {
-          $new_item['data-tweet-text'] = get_the_title() . 'via @';
+          $widget_atts['tweet-text'] = get_the_title ( $GLOBALS['vars']['current_query']->ID ) . ' via @';
+          
+          if ( $block['url'] == 'id' ) {
+            
+            $widget_atts['tweet-text'] = get_the_title ( $block['url_id'] );
+            
+          }
         }
 
         $widget_items[] = $new_item;
@@ -191,13 +199,13 @@
 ?>
 
 <div
-  id="<?php echo get_current_element_ID(); ?>-<?php echo get_sub_field ( 'type' ); ?>"
+  id="<?php echo get_current_element_ID(); ?>-<?php echo $block['type']; ?>"
   class="<?php echo get_sub_field ( 'classes' ); ?>"
 >
 
   <div
-    class="renderable social-widget type-<?php the_sub_field ( 'type' ); ?> display-<?php the_sub_field ( 'display' ); ?>"
-    data-renderable-type="<?php echo get_sub_field ( 'type' ); ?>"
+    class="renderable social-widget type-<?php echo $block['type']; ?> display-<?php echo $block['display']; ?>"
+    data-renderable-type="<?php echo $block['type']; ?>"
 
     <?php
 
@@ -214,6 +222,8 @@
 
     <ul class="widget-menu">
       <?php
+      
+      // dumpit ( $widget_items );
 
         foreach ( $widget_items as $item ) {
 
