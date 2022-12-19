@@ -56,15 +56,19 @@
       if (plugin_settings.auto_init == true) {
 
         $('a[href^="#"]').each(function() {
+					
+					if (
+						$(this).attr('role') != 'tab' &&
+						!$(this).hasClass('overlay-toggle')
+					) {
+						
+						if (plugin_settings.debug == true) {
+							console.log('smooth-scroll', 'initializing ', $(this))
+						}
 
-          if (
-            $(this).attr('role') != 'tab' &&
-            !$(this).hasClass('overlay-toggle')
-          ) {
+		        $(this).addClass('smooth-scroll')
 
-            $(this).addClass('smooth-scroll')
-
-          }
+					}
 
         })
 
@@ -111,19 +115,9 @@
           }
 
           if ($(this).hasClass(plugin_settings.classes.next)) {
-            
-            let this_parent = $(this).parents(plugin_settings.next)
-            let this_next = this_parent.nextAll(plugin_settings.next)[0]
-            let this_target = $(this_next).attr('id')
-            
-            if (typeof this_target != 'undefined') {
-              scroll_settings.target_id = $(this_next).attr('id')
-            } else {
-              scroll_settings.target_id = '#'
-            }
-            
+            scroll_settings.target_id = $(this).parents(plugin_settings.next).next(plugin_settings.next).attr('id')
           }
-          
+
           plugin_instance.scroll_to(scroll_settings)
 
         })
@@ -239,160 +233,160 @@
       }
     },
 
-    check_links: function(fn_options) {
+		check_links: function(fn_options) {
 
       var plugin_instance = this
       var plugin_item = this.item
       var plugin_settings = plugin_instance.options
       var plugin_elements = plugin_settings.elements
 
-      // find all .smooth-scroll elements
+			// find all .smooth-scroll elements
 
-      $('.' + plugin_settings.classes.init).each(function () {
-        if ($(this).is('a')) {
+			$('.' + plugin_settings.classes.init).each(function () {
+				if ($(this).is('a')) {
 
-          // if it's an <a> tag, add the class
+					// if it's an <a> tag, add the class
 
-          $(this).addClass(plugin_settings.classes.link)
-        } else {
+					$(this).addClass(plugin_settings.classes.link)
+				} else {
 
-          // or, add the class to all <a> tags inside it
+					// or, add the class to all <a> tags inside it
 
-          $(this).find('a').each(function () {
-            $(this).addClass(plugin_settings.classes.link)
-          })
-        }
-      })
+					$(this).find('a').each(function () {
+						$(this).addClass(plugin_settings.classes.link)
+					})
+				}
+			})
 
-      //
-      // CHECK EACH .smooth-scroll-link TO SEE IF ITS TARGET EXISTS ON THIS PAGE
-      //
+			//
+			// CHECK EACH .smooth-scroll-link TO SEE IF ITS TARGET EXISTS ON THIS PAGE
+			//
 
-      $('.' + plugin_settings.classes.link).each(function () {
-        var is_valid = true
+			$('.' + plugin_settings.classes.link).each(function () {
+				var is_valid = true
 
-        if (plugin_settings.debug == true) {
-          console.log('checking', $(this).attr('href'))
-        }
+				if (plugin_settings.debug == true) {
+					console.log('checking', $(this).attr('href'))
+				}
 
-        var this_href = $(this).attr('href')
+				var this_href = $(this).attr('href')
 
-        if (typeof this_href !== 'undefined' && this_href !== null && this_href != '') {
+				if (typeof this_href !== 'undefined' && this_href !== null && this_href != '') {
 
-          // the href is not blank
+					// the href is not blank
 
-          if (this_href.charAt(0) == '#') {
+					if (this_href.charAt(0) == '#') {
 
-            // the link is an anchor
+						// the link is an anchor
 
-            if (plugin_settings.debug == true) {
-              console.log('href is an anchor')
-            }
+						if (plugin_settings.debug == true) {
+							console.log('href is an anchor')
+						}
 
-          } else {
+					} else {
 
-            // if the URL part of the link is the current page
+						// if the URL part of the link is the current page
 
-            this_path = this_href.substring(0, this_href.indexOf('#'))
+						this_path = this_href.substring(0, this_href.indexOf('#'))
 
-            if (window.location.href.indexOf(this_path) !== -1) {
+						if (window.location.href.indexOf(this_path) !== -1) {
 
-              if (plugin_settings.debug == true) {
-                console.log('href contains the current URL')
-              }
+							if (plugin_settings.debug == true) {
+								console.log('href contains the current URL')
+							}
 
-              // replace the href with just the anchor
+							// replace the href with just the anchor
 
-              this_href = this_href.substring(this_href.indexOf("#"))
+							this_href = this_href.substring(this_href.indexOf("#"))
 
-              $(this).attr('href', this_href)
+							$(this).attr('href', this_href)
 
-              console.log($(this).attr('href'))
+							console.log($(this).attr('href'))
 
-            } else {
+						} else {
 
-              if (plugin_settings.debug == true) {
-                console.log('href goes to another page')
-              }
+							if (plugin_settings.debug == true) {
+								console.log('href goes to another page')
+							}
 
-              is_valid = false
+							is_valid = false
 
-              $(this).addClass('smooth-scroll-external')
+							$(this).addClass('smooth-scroll-external')
 
-            }
-          }
+						}
+					}
 
-        } else {
+				} else {
 
-          is_valid = false
+					is_valid = false
 
-          $(this).addClass('smooth-scroll-no-href')
+					$(this).addClass('smooth-scroll-no-href')
 
-        }
+				}
 
-        if (is_valid == true) {
+				if (is_valid == true) {
 
-          // the link is still valid
+					// the link is still valid
 
-          if (this_href == '#') {
+					if (this_href == '#') {
 
-            // the link is an empty # anchor, try and locate its parent
+						// the link is an empty # anchor, try and locate its parent
 
-            if ($(this).parents(plugin_settings.next).length) {
+						if ($(this).parents(plugin_settings.next).length) {
 
-              $(this).addClass(plugin_settings.classes.next);
+							$(this).addClass(plugin_settings.classes.next);
 
-            } else {
+						} else {
 
-              is_valid = false
+							is_valid = false
 
-              $(this).addClass('smooth-scroll-no-target')
+							$(this).addClass('smooth-scroll-no-target')
 
-              if (plugin_settings.debug == true) {
-                console.log('no matching parent')
-              }
+							if (plugin_settings.debug == true) {
+								console.log('no matching parent')
+							}
 
-            }
+						}
 
-          } else if ($(this_href).length) {
+					} else if ($(this_href).length) {
 
-            if (plugin_settings.debug == true) {
+						if (plugin_settings.debug == true) {
 
-              // the ID exists on the page
-              console.log(this_href + ' exists')
+							// the ID exists on the page
+							console.log(this_href + ' exists')
 
-            }
+						}
 
-          } else {
+					} else {
 
-            if (plugin_settings.debug == true) {
-              console.log(this_href + ' doesn\'t exist')
-            }
+						if (plugin_settings.debug == true) {
+							console.log(this_href + ' doesn\'t exist')
+						}
 
-            is_valid = false
+						is_valid = false
 
-            $(this).addClass('smooth-scroll-no-element')
+						$(this).addClass('smooth-scroll-no-element')
 
-          }
+					}
 
-        }
+				}
 
-        if (is_valid == false) {
+				if (is_valid == false) {
 
-          // if the link is no longer valid,
-          // remove the .smooth-scroll-link class
-          // and add the .smooth-scroll-deactivated class
+					// if the link is no longer valid,
+					// remove the .smooth-scroll-link class
+					// and add the .smooth-scroll-deactivated class
 
-          $(this).removeClass(plugin_settings.classes.link).addClass('smooth-scroll-deactivated')
+					$(this).removeClass(plugin_settings.classes.link).addClass('smooth-scroll-deactivated')
 
-        } else {
+				} else {
 
 
-        }
+				}
 
-      })
+			})
 
-    },
+		},
 
     next: function (fn_options) {
       var plugin_instance = this

@@ -1,47 +1,55 @@
 // share widget
-// v1.1.2
+// v2.0
 
 (function ($) {
 
   // custom select class
 
   function share_widget(item, options) {
-    
+
     // options
-  
+
     var defaults = {
       site_url: '//' + window.location.hostname,
       theme_dir: null,
       share_url: window.location.href,
       title: document.title,
-      
+      sites: null,
+      accounts: null,
       elements: {
+        list: null,
         facebook: {
           display: false,
           label: 'Facebook',
-          icon: 'icon-facebook'
+          icon: 'fab fa-facebook-f'
         },
         twitter: {
           display: false,
           label: 'Twitter',
-          icon: 'icon-twitter',
-          text: null,
-          via: null
+          icon: 'fab fa-twitter',
+          text: null
         },
         pinterest: {
           display: false,
           label: 'Pinterest',
-          icon: 'icon-pinterest'
+          icon: 'fab fa-pinterest-p'
+        },
+        linkedin: {
+          display: false,
+          label: 'LinkedIn',
+          icon: 'fab fa-linkedin-in'
         },
         permalink: {
-          display: false,
+          display: true,
           label: 'Copy Permalink',
-          icon: 'icon-permalink'
+          icon: 'fas fa-link'
         }
       },
       callback: null
     };
-    
+
+    defaults.share_page = defaults.site_url + '/share/'
+
     this.options = $.extend(true, defaults, options);
 
     this.item = $(item);
@@ -50,135 +58,169 @@
 
   share_widget.prototype = {
 
-    // init
-
     init: function () {
-      
-      var plugin_settings = this.options;
-      var plugin_item = this.item;
-      
-      // console.log('share', plugin_item);
-      
-      // URL hash
-      
-      var share_url = plugin_settings.share_url;
-      
-      if (share_url.indexOf("#") > -1) {
-        var path = share_url.split("#")[0];
-        var hash = share_url.split("#")[1];
-        
-        path = path.replace(plugin_settings.site_url, '');
-        
-        //share_url = site_url + '/share/?path=' + window.location.pathname + '&hash=' + hash;
+
+      var plugin_instance = this
+      var plugin_item = this.item
+      var plugin_settings = plugin_instance.options
+      var plugin_elements = plugin_settings.elements
+
+      //
+      // INIT
+      //
+
+      console.log('share', 'init');
+
+      // share URL
+
+      if (
+        typeof plugin_item.attr('data-social-url') != 'undefined' &&
+        plugin_item.attr('data-social-url') != ''
+      ) {
+        plugin_settings.share_url = plugin_item.attr('data-social-url')
       }
-      
-      // tweet text
-      
-      if (plugin_settings.elements.twitter.text == null) {
-        var window_title = document.title;
-        
-        if (window_title.indexOf(" — ") > -1) {
-          window_title = window_title.split(' — ')[0] + ' via ' + plugin_settings.elements.twitter.via;
-        }
-        
-        plugin_settings.elements.twitter.text =  window_title + ': ' + encodeURIComponent(share_url);
-      } else {
-        plugin_settings.elements.twitter.text = encodeURIComponent(plugin_settings.elements.twitter.text) + encodeURIComponent(share_url) + ' ';
-      }
-      
-      // build buttons
-      
-      plugin_item.addClass('social-trigger share-trigger').wrap('<div class="social-widget-wrap share-widget-wrap"/>');
-      
-      var button_list = '<ul class="social-widget share-widget">';
-      
-      if (plugin_settings.elements.twitter.display == true) {
-        button_list += '<li><a href="https://twitter.com/intent/tweet?text=' + plugin_settings.elements.twitter.text + '" class="share-link share-twitter"><i class="icon ' + plugin_settings.elements.twitter.icon + '"></i><span class="label">' + plugin_settings.elements.twitter.label + '</span></a></li>';
-      }
-      
-      if (plugin_settings.elements.facebook.display == true) {
-        button_list += '<li><a href="#" class="share-link share-facebook" data-href="' + share_url + '"><i class="icon ' + plugin_settings.elements.facebook.icon + '"></i><span class="label">' + plugin_settings.elements.facebook.label +'</span></a></li>';
-      }
-      
-      if (plugin_settings.elements.pinterest.display == true) {
-        button_list += '<li><a href="http://pinterest.com/pin/create/button/?url=' + share_url + '&description=' + plugin_settings.title + '" class="share-link share-pinterest"><i class="icon ' + plugin_settings.elements.pinterest.icon + '"></i><span class="label">' + plugin_settings.elements.pinterest.label + '</span></a></li>';
-      }
-      
-      if (plugin_settings.elements.permalink.display == true) {
-        
-        if (typeof navigator.clipboard !== 'undefined') {
-          
-          button_list += '<li class="share-permalink-wrap"><a href="#" class="share-link share-permalink" data-share-url="' + share_url + '"><i class="icon ' + plugin_settings.elements.permalink.icon + '"></i><span class="label">' + plugin_settings.elements.permalink.label + '</span></a></li>'
-          
-        }
-          
-      }
-      
-      $(button_list).insertAfter(plugin_item);
-      
-      // CLICK EVENTS
-      
+
+      console.log(plugin_settings.share_url)
+
+      //
+      // ELEMENTS
+      //
+
       // trigger
 
-      plugin_item.click(function(e) {
-        e.preventDefault();
-    	  e.stopImmediatePropagation();
+      plugin_elements.trigger = plugin_item.find('.widget-trigger')
 
-        if ($(this).hasClass('open')) {
-          $(this).removeClass('open');//.siblings('ul').slideUp(125);
-          $(this).parents('.share-widget-wrap').removeClass('open');
+      // list
 
-          $('.share-permalink-wrap').removeClass('open');
-          $('.share-permalink-input').slideUp(125);
+      plugin_elements.list = plugin_item.find('.widget-menu')
+
+      // permalink
+
+      if (plugin_elements.permalink.display == true) {
+
+        $('<li class="widget-menu-item share-permalink-wrap"><a href="#" class="widget-menu-link permalink"><i class="icon ' + plugin_elements.permalink.icon + '"></i><span class="label">' + plugin_elements.permalink.label + '</span></a><div class="share-permalink-input"><input type="text" value="' + plugin_settings.share_url +'"></div></li>').appendTo(plugin_elements.list)
+
+      }
+
+
+      // CLICK EVENTS
+
+      // trigger
+
+      plugin_elements.trigger.click(function(e) {
+        e.preventDefault()
+    	  // e.stopImmediatePropagation()
+
+        if (plugin_item.hasClass('open')) {
+
+          plugin_item.removeClass('open')
+
+          plugin_item.find('.share-permalink-wrap').removeClass('open')
+          $('.share-permalink-input').slideUp(125)
+
         } else {
-          
-          // close all other widgets
-          $('.social-widget-wrap').removeClass('open');//.siblings('ul').slideUp(125);
-          $('.social-trigger').removeClass('open');
-          $('.share-permalink-wrap').removeClass('open');
-          $('.share-permalink-input').slideUp(125);
-          
+
+          // // close all other widgets
+          // $('.social-widget-wrap').removeClass('open');//.siblings('ul').slideUp(125);
+          // $('.social-trigger').removeClass('open');
+          // $('.share-permalink-wrap').removeClass('open');
+          // $('.share-permalink-input').slideUp(125);
+
           // open this one
-          $(this).addClass('open');//.siblings('ul').slideDown(250);
-          $(this).parents('.share-widget-wrap').addClass('open');
+          plugin_item.addClass('open')
+          // $(this).parents('.share-widget-wrap').addClass('open');
+
         }
       });
-      
+
       // share link
-  
-      $('.share-link').click(function(e) {
-    	  e.preventDefault();
-    	  e.stopImmediatePropagation();
-    	  
-        // facebook
-  
-    	  if ($(this).hasClass('share-facebook')) {
-  
-      	  var share_URL = $(this).attr('data-href');
-  
-          FB.ui({
-            method: 'share',
-            href: plugin_settings.share_url
-          }, function(response) {
-            // nothing
-          });
-  
-    	  } else if ($(this).hasClass('share-permalink')) {
-          
-      	  navigator.clipboard.writeText($(this).attr('data-share-url')).then(() => {
-              
-              $(this).find('i').removeClass().addClass('fas fa-check text-success mr-2')
-              $(this).find('.label').text('Copied to clipboard')
-              
-          },() => {
-              
-              $(this).find('i').removeClass().addClass('fas fa-times text-warning mr-2')
-              $(this).find('.label').text('Error')
-              
-          })
-  
+
+      plugin_item.find('.widget-menu-link').click(function(e) {
+    	  e.preventDefault()
+    	  e.stopImmediatePropagation()
+
+        var share_popup
+
+        var menu_item = $(this).closest('.widget-menu-item')
+
+    	  if ($(this).hasClass('site-facebook')) {
+
+          // facebook
+
+          share_popup = window.open(
+            'https://www.facebook.com/sharer/sharer.php?u=' + plugin_settings.share_url,
+            'fw_share_popup', 'width=600, height=400'
+          )
+
+    	  } else if ($(this).hasClass('site-twitter')) {
+
+          // tweet text
+
+          var window_title = document.title
+
+          if (window_title.indexOf(" — ") > -1) {
+            window_title = window_title.split(' — ')[0]
+          }
+
+          tweet_text = window_title
+
+          // if a twitter account is set, add 'via @XXX'
+
+          if (menu_item.attr('data-social-account') != '') {
+            tweet_text += ' via @' + menu_item.attr('data-social-account')
+          }
+
+          // add URL
+
+          tweet_text += ': ' + encodeURIComponent(plugin_settings.share_url)
+
+          share_popup = window.open(
+            'https://twitter.com/intent/tweet?text=' + tweet_text,
+            'fw_share_popup', 'width=600, height=400'
+          )
+
+        } else if ($(this).hasClass('site-pinterest')) {
+
+          // pinterest
+
+          share_popup = window.open(
+            'http://pinterest.com/pin/create/button/?url=' + plugin_settings.share_url,
+            'fw_share_popup', 'width=600, height=400'
+          )
+
+        } else if ($(this).hasClass('site-linkedin')) {
+
+          // linkedin
+
+          share_popup = window.open(
+            'https://www.linkedin.com/shareArticle?mini=true&url=' + plugin_settings.share_url,
+            'fw_share_popup', 'width=600, height=400'
+          )
+
+        } else if ($(this).hasClass('permalink')) {
+
+      	  var permalink_wrap = $(this).closest('.share-permalink-wrap')
+
+      	  var permalink_input = permalink_wrap.find('.share-permalink-input')
+
+          console.log($(this))
+          console.log(permalink_wrap)
+          console.log(permalink_input)
+
+      	  if (permalink_wrap.hasClass('open')) {
+
+        	  permalink_wrap.removeClass('open')
+        	  permalink_input.slideUp(250)
+
+      	  } else {
+
+        	  permalink_wrap.addClass('open')
+        	  permalink_input.slideDown().find('input').focus().select()
+
+      	  }
+
         } else {
-  
+
       	  var width  = 575,
               height = 320,
               left   = ($(window).width()  - width)  / 2,
@@ -189,14 +231,14 @@
                        ',height=' + height +
                        ',top='    + top    +
                        ',left='   + left;
-  
+
           window.open(url, 'sharepopup', opts);
-  
+
     	  }
   	  });
-      
+
     }
-    
+
   }
 
   // jQuery plugin interface

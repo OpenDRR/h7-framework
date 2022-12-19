@@ -1,0 +1,264 @@
+$social-font: $font-family-base !default;
+
+$social-menu-align: right !default;
+$social-menu-width: auto !default;
+$social-menu-min-width: 120px !default;
+$social-menu-bg: $white !default;
+$social-menu-padding: 0px !default;
+
+$social-trigger-padding: 10px !default;
+$social-trigger-color: inherit !default;
+$social-trigger-icon-margin: 0 10px 0 0 !default;
+
+$social-link-color: $primary !default;
+
+$social-icon-width: 20px !default;
+$social-icon-color: $primary !default;
+
+$social-item-icon-color: $social-icon-color !default;
+$social-item-padding-x: 10px !default;
+$social-item-padding-y: 4px !default;
+
+$social-permalink-open-bg: $gray-100 !default;
+
+.social-widget {
+  position: relative;
+  font-family: $social-font;
+
+  //
+  // GLOBAL
+  //
+
+  .widget-trigger {
+    padding: $social-trigger-padding;
+    cursor: pointer;
+    color: $social-trigger-color;
+    transition: 0.25s;
+
+    .icon {
+      margin: $social-trigger-icon-margin;
+      color: $social-icon-color;
+    }
+  }
+
+  .widget-menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: $social-link-color;
+    font-size: 1em;
+  }
+
+  .widget-menu-item {
+    a {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    .icon {
+      color: $social-item-icon-color;
+    }
+
+    &.share-permalink-wrap {
+      transition: background-color 0.25s;
+
+      &.open {
+        background-color: $social-permalink-open-bg;
+      }
+    }
+
+    .share-permalink-input {
+      margin-top: $social-item-padding-y;
+    }
+  }
+
+  //
+  // DISPLAY
+  //
+
+  // dropdown
+
+  &.display-dropdown {
+    display: inline-block;
+
+    .widget-menu {
+      position: absolute;
+      top: 100%;
+      width: $social-menu-width;
+      min-width: $social-menu-min-width;
+      opacity: 0;
+      transition: left 0s ease 0.25s, opacity 0.25s ease 0s;
+      z-index: 100;
+
+      @if ( $social-menu-align == right ) {
+        right: 9999px;
+        left: auto;
+        transition: right 0s ease 0.25s, opacity 0.25s ease 0s;
+      } @else {
+        left: -9999px;
+        right: 0;
+      }
+    }
+
+    &.open {
+      .widget-menu {
+        opacity: 1;
+        transition: right 0s ease 0s, opacity 0.25s ease 0s;
+
+        @if ( $social-menu-align == right ) {
+          right: 0;
+        } @else if ( $social-menu-align == left ) {
+          left: 0;
+        }
+      }
+    }
+  }
+
+  // list AND dropdown
+
+  &.display-dropdown,
+  &.display-list {
+    .widget-menu {
+      padding: $social-menu-padding;
+      padding-top: $social-item-padding-y;
+      background-color: $social-menu-bg;
+    }
+
+    .widget-menu-item {
+      padding: $social-item-padding-y $social-item-padding-x;
+
+      a {
+        display: flex;
+        align-items: center;
+        float: none;
+
+        .icon {
+          width: $social-icon-width;
+        }
+      }
+
+      &.share-permalink-wrap {
+        padding-bottom: $social-item-padding-y * 2;
+      }
+    }
+  }
+
+  // icons
+
+  &.display-icons {
+    .widget-trigger {
+      display: none;
+    }
+
+    .widget-menu {
+      display: flex;
+    }
+
+    .widget-menu-item {
+      margin-right: 10px;
+    }
+
+    .site-name {
+      display: none;
+    }
+  }
+
+  &.type-follow {
+
+  }
+
+  &.type-share {
+
+  }
+}
+
+//
+//
+//
+//
+//
+// OLD
+//
+//
+//
+
+//
+// DROPDOWN
+//
+
+.social-widget-wrap {
+  position: relative;
+  font-family: $social-font;
+
+  .icon {
+  }
+
+  .social-trigger {
+
+
+    &.open {
+
+    }
+  }
+
+  .social-widget {
+    position: absolute;
+    top: 100%;
+    width: $social-menu-width;
+    min-width: $social-menu-min-width;
+    margin: 0;
+    padding: $social-menu-padding;
+    background-color: $social-menu-bg;
+    opacity: 0;
+    list-style: none;
+    color: $social-link-color;
+    font-size: 1em;
+    transition: right 0s ease 0.25s, opacity 0.25s ease 0s;
+    z-index: 1;
+
+    @if ( $social-menu-align == right ) {
+      right: 9999px;
+      left: auto;
+    } @else {
+      left: -9999px;
+      right: 0;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      float: none;
+      color: $social-link-color;
+
+      .icon {
+        width: $social-icon-width;
+      }
+    }
+  }
+
+  &.open {
+    .social-widget {
+      opacity: 1;
+      transition: right 0s ease 0s, opacity 0.25s ease 0s;
+
+      @if ( $social-menu-align == right ) {
+        right: 0;
+      } @else if ( $social-menu-align == left ) {
+        left: 0;
+      }
+    }
+  }
+}
+
+.share-permalink-input {
+  display: none;
+
+  input {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 4px;
+    outline: none;
+  }
+}
