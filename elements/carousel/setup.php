@@ -32,21 +32,20 @@ class Carousel {
 
 	}
 
-	public function init() {
+	public function init ( $swiper ) {
 
 		//
 		// CLASSES
 		//
+		
+		// dumpit ( $swiper );
+		
+		if ( !empty ( $swiper['carousel_classes'] ) ) {
 
-		if ( have_rows ( 'carousel_classes' ) ) {
-			while ( have_rows ( 'carousel_classes' ) ) {
-				the_row();
+			$this->classes['container'] = explode ( ' ' , $swiper['carousel_classes']['container'] );
+			$this->classes['content'] = explode ( ' ', $swiper['carousel_classes']['item'] );
+			$this->classes['controls'] = explode ( ' ', $swiper['carousel_classes']['controls'] );
 
-				$this->classes['container'][] = get_sub_field ( 'container' );
-				$this->classes['content'][] = get_sub_field ( 'item' );
-				$this->classes['controls'][] = get_sub_field ( 'controls' );
-
-			}
 		}
 
 		//
@@ -61,45 +60,44 @@ class Carousel {
 			992 => array(),		// lg
 			1200 => array()		// xl
 		);
-
-	  while ( have_rows ( 'slidesPerView' ) ) {
+		
+		if ( !empty ( $swiper['slidesPerView'] ) ) {
 	    the_row();
 
-	    if ( get_sub_field ( 'xs' ) != '' ) {
-	      $this->settings['slidesPerView'] = (int) get_sub_field ( 'xs' );
-	    }
+	    if ( $swiper['slidesPerView']['xs'] != '' )
+				$this->settings['slidesPerView'] = (int) $swiper['slidesPerView']['xs'];
 
-			if ( get_sub_field ( 'sm' ) != '' )
-				$breakpoints[576]['slidesPerView'] = (int) get_sub_field ( 'sm' );
+			if ( $swiper['slidesPerView']['sm'] != '' )
+				$breakpoints[576]['slidesPerView'] = (int) $swiper['slidesPerView']['sm'];
 
-	    if ( get_sub_field ( 'md' ) != '' )
-	      $breakpoints[768]['slidesPerView'] = (int) get_sub_field ( 'md' );
+	    if ( $swiper['slidesPerView']['md'] != '' )
+	      $breakpoints[768]['slidesPerView'] = (int) $swiper['slidesPerView']['md'];
 
-	    if ( get_sub_field ( 'lg' ) != '' )
-	      $breakpoints[992]['slidesPerView'] = (int) get_sub_field ( 'lg' );
+	    if ( $swiper['slidesPerView']['lg'] != '' )
+	      $breakpoints[992]['slidesPerView'] = (int) $swiper['slidesPerView']['lg'];
 
-	    if ( get_sub_field ( 'xl' ) != '' )
-	      $breakpoints[1200]['slidesPerView'] = (int) get_sub_field ( 'xl' );
+	    if ( $swiper['slidesPerView']['xl'] != '' )
+	      $breakpoints[1200]['slidesPerView'] = (int) $swiper['slidesPerView']['xl'];
 
 	  }
-
-	  while ( have_rows ( 'slidesPerGroup' ) ) {
-	    the_row();
-
-	    if ( get_sub_field ( 'xs' ) != '' )
-	      $this->settings['slidesPerGroup'] = (int) get_sub_field ( 'xs' );
-
-	    if ( get_sub_field ( 'sm' ) != '' )
-	      $breakpoints[576]['slidesPerGroup'] = (int) get_sub_field ( 'sm' );
-
-	    if ( get_sub_field ( 'md' ) != '' )
-	      $breakpoints[768]['slidesPerGroup'] = (int) get_sub_field ( 'md' );
-
-	    if ( get_sub_field ( 'lg' ) != '' )
-	      $breakpoints[992]['slidesPerGroup'] = (int) get_sub_field ( 'lg' );
-
-	    if ( get_sub_field ( 'xl' ) != '' )
-	      $breakpoints[1200]['slidesPerGroup'] = (int) get_sub_field ( 'xl' );
+		
+		if ( !empty ( $swiper['slidesPerGroup'] ) ) {
+			
+			if ( $swiper['slidesPerGroup']['xs'] != '' ) {
+				$this->settings['slidesPerGroup'] = (int) $swiper['slidesPerGroup']['xs'];
+			}
+			
+			if ( $swiper['slidesPerGroup']['sm'] != '' )
+				$breakpoints[576]['slidesPerGroup'] = (int) $swiper['slidesPerGroup']['sm'];
+			
+			if ( $swiper['slidesPerGroup']['md'] != '' )
+				$breakpoints[768]['slidesPerGroup'] = (int) $swiper['slidesPerGroup']['md'];
+			
+			if ( $swiper['slidesPerGroup']['lg'] != '' )
+				$breakpoints[992]['slidesPerGroup'] = (int) $swiper['slidesPerGroup']['lg'];
+			
+			if ( $swiper['slidesPerGroup']['xl'] != '' )
+				$breakpoints[1200]['slidesPerGroup'] = (int) $swiper['slidesPerGroup']['xl'];
 
 	  }
 
@@ -122,95 +120,104 @@ class Carousel {
 	  // }
 
 	  // transition effect
-		if ( get_sub_field ( 'effect' ) != '' ) {
-	  	$this->settings['effect'] = get_sub_field ( 'effect' );
+		
+		if ( $swiper['effect'] != '' ) {
+	  	$this->settings['effect'] = $swiper['effect'];
 		}
 
 	  // loop
 
-	  if ( get_sub_field ( 'loop' ) == 1 ) {
+	  if ( $swiper['loop'] == 1 ) {
 	    $this->settings['loop'] = true;
 	  }
 
 	  // adaptive height
 
-	  if ( get_sub_field ( 'autoHeight' ) == 1 ) {
+	  if ( $swiper['autoHeight'] == 1 ) {
 	    $this->settings['autoHeight'] = true;
 	  }
 
 	  // arrows
 
-	  if ( get_sub_field ( 'arrows' ) == 1 ) {
+	  if ( $swiper['arrows'] == 1 ) {
 
-	  $this->classes['controls'][] = 'has-navigation';
+	  	$this->classes['controls'][] = 'has-navigation';
 
 	    $this->settings['navigation'] = array (
 	      'prevEl' => '#' . $this->carousel['id'] . '-prev',
 	      'nextEl' => '#' . $this->carousel['id'] . '-next'
 	    );
-
+			
 	  }
 
 		// centered
 
-		if ( get_sub_field ( 'centeredSlides' ) == 1 ) {
+		if ( $swiper['centeredSlides'] == 1 ) {
 			$this->settings['centeredSlides'] = true;
 		}
 
 	  // pagination
 
-	  if ( get_sub_field ( 'pagination' ) != 'none' ) {
+	  if ( $swiper['pagination'] != 'none' ) {
 
 	    $this->classes['controls'][] = 'has-pagination';
-	    $this->classes['controls'][] = 'pagination-type-' . get_sub_field ( 'pagination' );
+	    $this->classes['controls'][] = 'pagination-type-' . $swiper['pagination'];
 
 	    $this->settings['pagination'] = array (
 	      'el' => '#' . $this->carousel['id'] . '-pagination',
-	      'type' => get_sub_field ( 'pagination' ),
+	      'type' => $swiper['pagination'],
 	      'clickable' => true
 	    );
 
-	    if ( get_sub_field ( 'pagination' ) == 'dynamic' ) {
+	    if ( $swiper['pagination'] == 'dynamic' ) {
 	      $this->settings['pagination']['type'] = 'bullets';
 	      $this->settings['pagination']['dynamicBullets'] = true;
 	    }
 	  }
 
-	  if ( (int) get_sub_field ( 'autoplaySpeed' ) != 0 && (int) get_sub_field ( 'autoplaySpeed' ) != '' ) {
-	    $this->settings['autoplay'] = array ( 'delay' => (int) get_sub_field ( 'autoplaySpeed' ) * 1000 );
+	  if (
+			$swiper['autoplaySpeed'] != '' &&
+			(int) $swiper['autoplaySpeed'] != 0
+		) {
+			
+	    $this->settings['autoplay'] = array (
+				'delay' => (int) $swiper['autoplaySpeed'] * 1000
+			);
+			
 	  }
 
 	  // other
+		
+		if ( !empty ( $swiper['other'] ) ) {
+			
+			foreach ( $swiper['other'] as $other ) {
 
-	  if ( have_rows ( 'other' ) ) {
-	    while ( have_rows ( 'other' ) ) {
-	      the_row();
-
-	      $setting_name = get_sub_field ( 'setting' );
-	      $setting_val = get_sub_field ( 'value' );
-				$setting_type = get_sub_field ( 'type' );
-
+      	$setting_name = $other['setting'];
+      	$setting_val = $other['value'];
+				$setting_type = $other['type'];
+	
 				switch ( $setting_type ) {
 					case 'boolean' :
-
+	
 						if ( $setting_val == 'true' ) {
-			        $setting_val = true;
-			      } else {
-			        $setting_val = false;
-			      }
-
+		        	$setting_val = true;
+		      	} else {
+		        	$setting_val = false;
+		      	}
+	
 						break;
-
+	
 					case 'int' :
-
+	
 						$setting_val = (int) $setting_val;
 						break;
-
+	
 				}
+	
+      	$this->settings[$setting_name] = $setting_val;
+				
+			}
 
-	      $this->settings[$setting_name] = $setting_val;
-
-	    }
 	  }
 
 		// dumpit($this);
@@ -255,10 +262,10 @@ class Carousel {
 	public function close ( $type ) {
 
 		if ( isset ( $GLOBALS['elements']['types'][$type]['carousel'] ) ) {
-
-			// unset global carousel flag
-
-      $GLOBALS['vars']['current_carousel'] = '';
+			
+			// use the current active carousel element
+			
+			// $this_carousel = $GLOBALS['elements']['types'][$type]['carousel'];
 
       // close the .carousel container
       echo '</div><!-- .swiper-wrapper -->';
@@ -286,12 +293,22 @@ class Carousel {
         isset ( $this->settings['navigation'] ) ||
         isset ( $this->settings['pagination'] )
       ) {
-
+				
 				include ( locate_template ( 'elements/carousel/controls.php' ) );
 
 			}
+			
+			// unset global carousel flag
+			
+			$GLOBALS['vars']['current_carousel'] = '';
+			
+			// unset carousel
 
       unset ( $GLOBALS['elements']['types'][$type]['carousel'] );
+			
+			// stop trying to close this carousel in the future
+			
+			remove_action ( 'before_element_wrapper_close', array ( $this, 'close' ), 20, 2 );
 
 		}
 

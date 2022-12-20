@@ -196,11 +196,8 @@ var sticky_offset = 0,
 
       $('.swiper').each(function(i) {
 
-        var this_id = $(this).attr('id')
-
-        var swiper_settings = $(this).attr('data-swiper-settings')
-
-        swiper_settings = JSON.parse(swiper_settings)
+        let this_id = $(this).attr('id'),
+            swiper_settings = JSON.parse($(this).attr('data-swiper-settings'))
 
         // console.log($(this).attr('id'))
 
@@ -225,14 +222,26 @@ var sticky_offset = 0,
 				}
 
         // console.log(swiper_settings)
-
+        
         swipers[i] = {
-          id: $(this).attr('id'),
-          settings: swiper_settings,
-          instance: new Swiper('#' + this_id, swiper_settings)
+          id: this_id,
+          settings: swiper_settings
         }
 
       })
+      
+      if (swipers.length) {
+        
+        // console.log('swipers', swipers)
+        
+        swipers.forEach(function(swiper_element, i) {
+          
+          swipers[i]['instance'] = new Swiper('#' + swiper_element.id, swiper_element.settings)
+          
+        })
+        
+      }
+      
     }
 
 

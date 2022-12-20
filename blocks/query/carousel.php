@@ -20,25 +20,6 @@
 
   $query_block[$current_block_ID] = array_merge ( $settings, $query_block[$current_block_ID] );
 
-  // SLICK SETTINGS
-
-  // $query_block[$current_block_ID]['classes'] = array(
-  //   'container' => array(),
-  //   'content' => array(),
-  //   'controls' => array()
-  // );
-  //
-  // if ( have_rows ( 'carousel_classes' ) ) {
-  //   while ( have_rows ( 'carousel_classes' ) ) {
-  //     the_row();
-  //
-  //     $query_block[$current_block_ID]['classes']['container'][] = get_sub_field ( 'container' );
-  //     $query_block[$current_block_ID]['classes']['content'][] = get_sub_field ( 'content' );
-  //     $query_block[$current_block_ID]['classes']['controls'][] = get_sub_field ( 'controls' );
-  //
-  //   }
-  // }
-
   //
 
   // if set to infinite, there needs to be the exact number of posts to fill the slides
@@ -57,25 +38,6 @@
 
   }
 
-  /*echo '<pre>';
-
-  print_r($_GET);
-
-  echo '<hr>';
-
-  print_r($new_query['args']);
-
-  echo '<hr>';
-
-  while ($new_query['results']->have_posts()) :
-    $new_query['results']->the_post();
-
-    the_title();
-    echo '<br>';
-  endwhile;
-  echo '</pre>';
-wp_reset_postdata();*/
-
   //
   // DISPLAY SETTINGS
   //
@@ -92,6 +54,7 @@ wp_reset_postdata();*/
   // LAYOUT
   //
 
+echo 'ya';
   if ( isset ( $query_block[$current_block_ID]['items'] ) ) {
 
 ?>

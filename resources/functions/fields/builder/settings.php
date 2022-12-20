@@ -623,7 +623,7 @@ $GLOBALS['fw_fields']['common']['settings']['carousel'] = array(
 		'title' => 'Carousel',
 		'fields' => array(
 			array(
-				'key' => 'field_5e74ef46c0ce9',
+				'key' => 'builder_setting_carousel_classes',
 				'label' => 'Classes',
 				'name' => 'carousel_classes',
 				'type' => 'group',
@@ -638,7 +638,7 @@ $GLOBALS['fw_fields']['common']['settings']['carousel'] = array(
 				'layout' => 'block',
 				'sub_fields' => array(
 					array(
-						'key' => 'field_5e74ef46c24d0',
+						'key' => 'builder_setting_carousel_carousel_classes_container',
 						'label' => 'Container',
 						'name' => 'container',
 						'type' => 'text',
@@ -657,7 +657,7 @@ $GLOBALS['fw_fields']['common']['settings']['carousel'] = array(
 						'maxlength' => '',
 					),
 					array(
-						'key' => 'field_5f7b30b9aded6',
+						'key' => 'builder_setting_carousel_carousel_classes_item',
 						'label' => 'Item',
 						'name' => 'item',
 						'type' => 'text',
@@ -676,7 +676,7 @@ $GLOBALS['fw_fields']['common']['settings']['carousel'] = array(
 						'maxlength' => '',
 					),
 					array(
-						'key' => 'field_5e74ef46c24e3',
+						'key' => 'builder_setting_carousel_carousel_classes_controls',
 						'label' => 'Controls',
 						'name' => 'controls',
 						'type' => 'text',
@@ -697,7 +697,7 @@ $GLOBALS['fw_fields']['common']['settings']['carousel'] = array(
 				),
 			),
 			array(
-				'key' => 'field_5e74ef469d5d5',
+				'key' => 'builder_setting_carousel_slidesPerView',
 				'label' => 'Slides to Show',
 				'name' => 'slidesPerView',
 				'type' => 'group',
@@ -712,7 +712,7 @@ $GLOBALS['fw_fields']['common']['settings']['carousel'] = array(
 				'layout' => 'block',
 				'sub_fields' => array(
 					array(
-						'key' => 'field_5e74ef46a07fe',
+						'key' => 'builder_setting_carousel_slidesPerView_xs',
 						'label' => 'Default',
 						'name' => 'xs',
 						'type' => 'select',
@@ -740,7 +740,7 @@ $GLOBALS['fw_fields']['common']['settings']['carousel'] = array(
 						'placeholder' => '',
 					),
 					array(
-						'key' => 'field_5e74ef46a07f8',
+						'key' => 'builder_setting_carousel_slidesPerView_sm',
 						'label' => 'Small',
 						'name' => 'sm',
 						'type' => 'select',
@@ -768,7 +768,7 @@ $GLOBALS['fw_fields']['common']['settings']['carousel'] = array(
 						'placeholder' => '',
 					),
 					array(
-						'key' => 'field_5e74ef46a07f2',
+						'key' => 'builder_setting_carousel_slidesPerView_md',
 						'label' => 'Medium',
 						'name' => 'md',
 						'type' => 'select',
@@ -796,7 +796,7 @@ $GLOBALS['fw_fields']['common']['settings']['carousel'] = array(
 						'placeholder' => '',
 					),
 					array(
-						'key' => 'field_5e74ef46a07ec',
+						'key' => 'builder_setting_carousel_slidesPerView_lg',
 						'label' => 'Large',
 						'name' => 'lg',
 						'type' => 'select',
@@ -824,7 +824,7 @@ $GLOBALS['fw_fields']['common']['settings']['carousel'] = array(
 						'placeholder' => '',
 					),
 					array(
-						'key' => 'field_5e74ef46a07e3',
+						'key' => 'builder_setting_carousel_slidesPerView_xl',
 						'label' => 'X-Large',
 						'name' => 'xl',
 						'type' => 'select',
@@ -854,7 +854,7 @@ $GLOBALS['fw_fields']['common']['settings']['carousel'] = array(
 				),
 			),
 			array(
-				'key' => 'field_5e74ef46a840c',
+				'key' => 'builder_setting_carousel_slidesPerGroup',
 				'label' => 'Slides to Scroll',
 				'name' => 'slidesPerGroup',
 				'type' => 'group',
@@ -869,7 +869,7 @@ $GLOBALS['fw_fields']['common']['settings']['carousel'] = array(
 				'layout' => 'block',
 				'sub_fields' => array(
 					array(
-						'key' => 'field_5e74ef46a9996',
+						'key' => 'builder_setting_carousel_slidesPerGroup_xs',
 						'label' => 'Default',
 						'name' => 'xs',
 						'type' => 'select',
@@ -897,7 +897,7 @@ $GLOBALS['fw_fields']['common']['settings']['carousel'] = array(
 						'placeholder' => '',
 					),
 					array(
-						'key' => 'field_5e74ef46a998d',
+						'key' => 'builder_setting_carousel_slidesPerGroup_sm',
 						'label' => 'Small',
 						'name' => 'sm',
 						'type' => 'select',
@@ -925,7 +925,7 @@ $GLOBALS['fw_fields']['common']['settings']['carousel'] = array(
 						'placeholder' => '',
 					),
 					array(
-						'key' => 'field_5e74ef46a9987',
+						'key' => 'builder_setting_carousel_slidesPerGroup_md',
 						'label' => 'Medium',
 						'name' => 'md',
 						'type' => 'select',
@@ -953,7 +953,7 @@ $GLOBALS['fw_fields']['common']['settings']['carousel'] = array(
 						'placeholder' => '',
 					),
 					array(
-						'key' => 'field_5e74ef46a9980',
+						'key' => 'builder_setting_carousel_slidesPerGroup_lg',
 						'label' => 'Large',
 						'name' => 'lg',
 						'type' => 'select',
@@ -981,7 +981,7 @@ $GLOBALS['fw_fields']['common']['settings']['carousel'] = array(
 						'placeholder' => '',
 					),
 					array(
-						'key' => 'field_5e74ef46a9977',
+						'key' => 'builder_setting_carousel_slidesPerGroup_xl',
 						'label' => 'X-Large',
 						'name' => 'xl',
 						'type' => 'select',
@@ -1011,7 +1011,7 @@ $GLOBALS['fw_fields']['common']['settings']['carousel'] = array(
 				),
 			),
 			array(
-				'key' => 'field_5e74ef46b2549',
+				'key' => 'builder_setting_carousel_autoplaySpeed',
 				'label' => 'Autoplay Speed',
 				'name' => 'autoplaySpeed',
 				'type' => 'number',
@@ -1032,7 +1032,7 @@ $GLOBALS['fw_fields']['common']['settings']['carousel'] = array(
 				'step' => 1,
 			),
 			array(
-				'key' => 'field_5e7506d1026dd',
+				'key' => 'builder_setting_carousel_loop',
 				'label' => 'Loop',
 				'name' => 'loop',
 				'type' => 'true_false',
@@ -1051,7 +1051,7 @@ $GLOBALS['fw_fields']['common']['settings']['carousel'] = array(
 				'ui_off_text' => '',
 			),
 			array(
-				'key' => 'field_5e74ef46b3af9',
+				'key' => 'builder_setting_carousel_effect',
 				'label' => 'Effect',
 				'name' => 'effect',
 				'type' => 'select',
@@ -1079,7 +1079,7 @@ $GLOBALS['fw_fields']['common']['settings']['carousel'] = array(
 				'placeholder' => '',
 			),
 			array(
-				'key' => 'field_5e74ef46b5178',
+				'key' => 'builder_setting_carousel_autoHeight',
 				'label' => 'Auto Height',
 				'name' => 'autoHeight',
 				'type' => 'true_false',
@@ -1098,7 +1098,7 @@ $GLOBALS['fw_fields']['common']['settings']['carousel'] = array(
 				'ui_off_text' => '',
 			),
 			array(
-				'key' => 'field_5e74fe12d3d28',
+				'key' => 'builder_setting_carousel_centeredSlides',
 				'label' => 'Centered',
 				'name' => 'centeredSlides',
 				'type' => 'true_false',
@@ -1117,7 +1117,7 @@ $GLOBALS['fw_fields']['common']['settings']['carousel'] = array(
 				'ui_off_text' => '',
 			),
 			array(
-				'key' => 'field_5e74ef46b8045',
+				'key' => 'builder_setting_carousel_arrows',
 				'label' => 'Arrows',
 				'name' => 'arrows',
 				'type' => 'true_false',
@@ -1136,7 +1136,7 @@ $GLOBALS['fw_fields']['common']['settings']['carousel'] = array(
 				'ui_off_text' => '',
 			),
 			array(
-				'key' => 'field_5e7e0ab32e6ee',
+				'key' => 'builder_setting_carousel_pagination',
 				'label' => 'Pagination',
 				'name' => 'pagination',
 				'type' => 'select',
@@ -1164,7 +1164,7 @@ $GLOBALS['fw_fields']['common']['settings']['carousel'] = array(
 				'placeholder' => '',
 			),
 			array(
-				'key' => 'field_5e74ef46bad1f',
+				'key' => 'builder_setting_carousel_other',
 				'label' => 'Other Settings',
 				'name' => 'other',
 				'type' => 'repeater',
@@ -1183,7 +1183,7 @@ $GLOBALS['fw_fields']['common']['settings']['carousel'] = array(
 				'button_label' => 'Add Setting',
 				'sub_fields' => array(
 					array(
-						'key' => 'field_5e74ef46bc675',
+						'key' => 'builder_setting_carousel_other_setting',
 						'label' => 'Setting',
 						'name' => 'setting',
 						'type' => 'text',
@@ -1202,7 +1202,7 @@ $GLOBALS['fw_fields']['common']['settings']['carousel'] = array(
 						'maxlength' => '',
 					),
 					array(
-						'key' => 'field_5e74ef46bc67e',
+						'key' => 'builder_setting_carousel_other_value',
 						'label' => 'Value',
 						'name' => 'value',
 						'type' => 'text',
@@ -1221,7 +1221,7 @@ $GLOBALS['fw_fields']['common']['settings']['carousel'] = array(
 						'maxlength' => '',
 					),
 					array(
-						'key' => 'field_5f64d213a04fa',
+						'key' => 'builder_setting_carousel_other_type',
 						'label' => 'Type',
 						'name' => 'type',
 						'type' => 'select',

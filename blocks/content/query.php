@@ -71,17 +71,15 @@
 			wp_enqueue_script ( 'post-carousel' );
 
 			$new_query['paginate'] = true;
-
-			if ( have_rows ( 'swiper' ) ) {
-				while ( have_rows ( 'swiper' ) ) {
-					the_row();
-
-					$GLOBALS['elements']['types']['block']['carousel'] = new Carousel ( get_current_element_ID() );
-					$GLOBALS['elements']['types']['block']['carousel']->init();
-
-					//$GLOBALS['elements']['types']['block']['carousel'] = carousel_setup ( get_current_element_ID() );
-
-				}
+			
+			if ( 
+				isset ( $block['swiper'] ) &&
+				!empty ( $block['swiper'] ) 
+			) {
+				
+				$GLOBALS['elements']['types']['block']['carousel'] = new Carousel ( get_current_element_ID() );
+				$GLOBALS['elements']['types']['block']['carousel']->init ( $block['swiper'] );
+				
 			}
 
 			break;
