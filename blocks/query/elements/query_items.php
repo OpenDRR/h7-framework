@@ -124,11 +124,6 @@
 
 			case 'carousel' :
 
-				$GLOBALS['elements']['types']['block']['carousel']->close ( 'block' );
-
-				// close carousel element
-		    //carousel_output ( 'close', 'block' );
-
 				break;
 
 			case 'list' :
