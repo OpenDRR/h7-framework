@@ -284,9 +284,6 @@ function setup_element ( $layout, $generator, $acf_ID ) {
     isset ( $GLOBALS['vars']['current_carousel'] ) &&
     $GLOBALS['vars']['current_carousel'] != ''
   ) {
-    
-    $carousel_el = $GLOBALS['vars']['current_carousel'];
-    $carousel_classes = $GLOBALS['elements']['types'][$carousel_el]['carousel']->classes;
 
     // if this element is one level below the carousel
 
@@ -296,15 +293,10 @@ function setup_element ( $layout, $generator, $acf_ID ) {
 
     foreach ( $GLOBALS['elements']['types'] as $element_type => $element_data ) {
 
-      // if is_carousel was set to true on the previous level,
-      // the current element is a swiper slide
+      // if is_carousel was set to true on the previous level
 
       if ( $is_carousel == true && $element_type == $layout['type'] ) {
-        
         $GLOBALS['elements']['current']['classes'][] = 'swiper-slide';
-        
-        $GLOBALS['elements']['current']['classes'] = array_merge ( $GLOBALS['elements']['current']['classes'], $carousel_classes['content'] );
-      
       }
 
       if ( $element_type == $GLOBALS['vars']['current_carousel'] ) {
@@ -313,8 +305,6 @@ function setup_element ( $layout, $generator, $acf_ID ) {
 				// so set the flag for next time
 
         $is_carousel = true;
-        
-        $GLOBALS['elements']['current']['classes'] = array_merge ( $GLOBALS['elements']['current']['classes'], $carousel_classes['container'] );
 
       } else {
 
@@ -368,15 +358,9 @@ function setup_element ( $layout, $generator, $acf_ID ) {
   // and override the $element['settings'] keys that have just been set
   //
 
-  if (
-    $generator != 'auto' && 
-    have_rows ( 'settings', $acf_ID ) 
-  ) {
-    
+  if ( $generator != 'auto' && have_rows ( 'settings', $acf_ID ) ) {
     while ( have_rows ( 'settings', $acf_ID ) ) {
       the_row();
-      
-      $setting = get_row();
 
       switch ( get_row_layout() ) {
 
@@ -500,45 +484,12 @@ function setup_element ( $layout, $generator, $acf_ID ) {
         case 'swiper' :
 
 					// add_filter ( 'element_setup_classes', function ( $classes ) { $classes[] = 'carousel-container'; return $classes; } );
-          
-          // echo '<H2>' . get_current_element_ID() . '</H2>';
 
           $GLOBALS['elements']['current']['classes'][] = 'carousel-container';
 
           $GLOBALS['elements']['types'][$layout['type']]['carousel'] = new Carousel ( get_current_element_ID() );
-          
-          // convert $setting to $swiper
-          
-          $swiper = array();
-          
-          foreach ( $setting as $key => $value ) {
-            
-            $key = str_replace( 'builder_setting_carousel_clone_builder_setting_carousel_', '', $key );
-            
-            if ( $key == 'classes' ) $key = 'carousel_classes';
-            
-            if ( is_array ( $value ) ) {
-              
-              $swiper[$key] = array();
-              
-              foreach ( $value as $sub_key => $sub_val ) {
-                
-                $sub_key = str_replace( 'builder_setting_carousel_' . $key . '_', '', $sub_key );
-                
-                $swiper[$key][$sub_key] = $sub_val;
-                
-              }
-              
-            } else {
-              
-              $swiper[$key] = $value;
-              
-            }
-            
-          }
+					$GLOBALS['elements']['types'][$layout['type']]['carousel']->init();
 
-					$GLOBALS['elements']['types'][$layout['type']]['carousel']->init ( $swiper );
-          
           break;
 
         case 'tabs' :
