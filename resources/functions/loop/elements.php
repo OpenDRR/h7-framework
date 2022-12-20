@@ -66,23 +66,31 @@ function content_loop ( $loop_key = null, $loop_ID = null, $resolve = true ) {
 
         // get the post ID selected in the template sub-field
         $template_ID = get_sub_field ( 'template' );
+        
+        if ( $template_ID != '' ) {
 
-        $GLOBALS['vars']['loop_ID'] = $template_ID;
-
-				// print_r($GLOBALS['elements']['current'] );
-
-        // if the field layout is a template,
-        // run content_loop recursively for the given template ID
-        // if THAT template includes ANOTHER template,
-        // the function will run again (and again and again...)
-
-				$template_resolve = false;
-
-				if ( get_sub_field ( 'resolve' ) == 1 ) {
-					$template_resolve = true;
-				}
-
-        content_loop ( 'elements', $template_ID, $template_resolve );
+          $GLOBALS['vars']['loop_ID'] = $template_ID;
+  
+          // if the field layout is a template,
+          // run content_loop recursively for the given template ID
+          // if THAT template includes ANOTHER template,
+          // the function will run again (and again and again...)
+  
+          $template_resolve = false;
+          
+          if ( get_sub_field ( 'resolve' ) == 1 ) {
+            $template_resolve = true;
+          }
+          
+          content_loop ( 'elements', $template_ID, $template_resolve );
+          
+        } else {
+          
+          // echo '<p class="alert alert-primary">';
+          // echo 'Error: Empty template field in post ID <code>' . $loop_ID . '</code>';
+          // echo '</p>';
+          
+        }
 
       } else {
 
