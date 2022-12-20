@@ -199,15 +199,6 @@ var sticky_offset = 0,
         let this_id = $(this).attr('id'),
             swiper_settings = JSON.parse($(this).attr('data-swiper-settings'))
 
-        // console.log($(this).attr('id'))
-
-        // if ($(this).attr('id') == 'hero-images-swiper-container') {
-        //   swiper_settings.navigation = {
-        //     'prevEl': '#hero-text-prev',
-        //     'nextEl': '#hero-text-next'
-        //   }
-        // }
-
 				// if the swiper is a bootstrap .container,
 				// wrap each .col-* slide in a .row
 
