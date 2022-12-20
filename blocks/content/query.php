@@ -78,7 +78,7 @@
 			) {
 				
 				$GLOBALS['elements']['types']['block']['carousel'] = new Carousel ( get_current_element_ID() );
-				$GLOBALS['elements']['types']['block']['carousel']->init();
+				$GLOBALS['elements']['types']['block']['carousel']->init ( $block['swiper'] );
 				
 			}
 
