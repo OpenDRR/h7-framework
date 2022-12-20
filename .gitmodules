@@ -7,15 +7,18 @@
 [submodule "resources/vendor/magnify"]
 	path = resources/vendor/magnify
 	url = https://github.com/thdoan/magnify
+	ignore = dirty
 [submodule "resources/vendor/select2"]
 	path = resources/vendor/select2
 	url = https://github.com/select2/select2
+	ignore = dirty
 [submodule "resources/vendor/pe-listnav"]
 	path = resources/vendor/pe-listnav
 	url = https://github.com/phil-evans/pe-listnav
 [submodule "resources/vendor/sticky-kit"]
 	path = resources/vendor/sticky-kit
 	url = https://github.com/leafo/sticky-kit
+	ignore = dirty
 [submodule "resources/vendor/aos"]
 	path = resources/vendor/aos
 	url = https://github.com/michalsnik/aos.git
