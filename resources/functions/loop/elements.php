@@ -86,9 +86,11 @@ function content_loop ( $loop_key = null, $loop_ID = null, $resolve = true ) {
           
         } else {
           
-          // echo '<p class="alert alert-primary">';
-          // echo 'Error: Empty template field in post ID <code>' . $loop_ID . '</code>';
-          // echo '</p>';
+          if ( current_user_can ( 'administrator' ) ) {
+            echo '<p class="alert alert-primary">';
+            echo 'Error: Empty template field in post ID <code>' . $loop_ID . '</code>';
+            echo '</p>';
+          }
           
         }
 
