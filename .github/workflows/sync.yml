@@ -23,7 +23,7 @@ jobs:
       - name: "Checkout our own repo: OpenDRR/h7-framework"
         uses: actions/checkout@v3
         with:
-          ref: master
+          ref: riskprofiler
           token: ${{ secrets.GH_PAT }}
           fetch-depth: 0
 
@@ -35,9 +35,9 @@ jobs:
           git config user.email github-actions@github.com
           git remote add upstream ${{ secrets.UPSTREAM_GIT_REPO }}
           git fetch upstream --tags
-          git merge --ff-only upstream/master
-          git switch v2
-          git merge --ff-only upstream/v2
+          git switch riskprofiler
+          git merge --ff-only upstream/riskprofiler
           git switch master
+          git merge --ff-only upstream/master
           git push origin --all
           git push origin --tags
