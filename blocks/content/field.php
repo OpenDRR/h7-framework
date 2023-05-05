@@ -1,7 +1,7 @@
 <?php
 
 $field_post_ID = $GLOBALS['vars']['current_query']->ID;
-$field_key = get_sub_field ( 'field' );
+$field_key = $block['field'];
 
 if ( is_archive () ) {
 
@@ -9,13 +9,13 @@ if ( is_archive () ) {
 
 }
 
-if ( get_sub_field ( 'post_id' ) != '' ) {
-  $field_post_ID = get_sub_field ( 'post_id' );
+if ( $block['post_id'] != '' ) {
+  $field_post_ID = $block['post_id'];
 }
 
-if ( get_sub_field ( 'display' ) == 'block' ) {
+if ( $block['display'] == 'block' ) {
 
-	$field_type = get_sub_field ( 'template' );
+	$field_type = $block['template'];
 
 	if ( have_rows ( $field_key, $field_post_ID ) ) {
 
@@ -30,15 +30,27 @@ if ( get_sub_field ( 'display' ) == 'block' ) {
 	}
 
 } else {
-
+	
 	if ( get_post_meta ( $field_post_ID, $field_key, true ) != '' ) {
-
-		echo '<' . get_sub_field ( 'display' ) . '>';
-
-		echo get_field ( $field_key, $field_post_ID );
-
-		echo '</' . get_sub_field ( 'display' ) . '>';
-
+		
+		$output = get_post_meta ( $field_post_ID, $field_key, true );
+		
+		// convert new lines to paragraphs if
+		
+		if ( $block['display'] == 'p' ) {
+			
+			echo apply_filters ( 'the_content', $output );
+			
+		} else {
+		
+			echo '<' . $block['display'] . '>';
+	
+			echo $output;
+	
+			echo '</' . $block['display'] . '>';
+			
+		}
+		
 	}
 
 }

@@ -1326,7 +1326,7 @@ $GLOBALS['fw_fields']['common']['settings']['tabs'] = array(
 	)
 );
 
-$GLOBALS['fw_fields']['common']['settings']['header'] = array(
+$GLOBALS['fw_fields']['common']['settings']['header_style'] = array(
 	'settings' => array (
 		'title' => 'Setting — Header Style'
 	),

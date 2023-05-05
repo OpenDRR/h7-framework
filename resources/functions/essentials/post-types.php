@@ -39,7 +39,7 @@ function posttype_template() {
 		'label'                 => __( 'Template', 'fw-post-types' ),
 		'description'           => __( 'Post Type Description', 'fw-post-types' ),
 		'labels'                => $labels,
-		'supports'              => array( 'title', 'revisions' ),
+		'supports'              => array( 'title', 'revisions', 'page-attributes' ),
     'taxonomies'            => array ( 'template_tag' ),
 		'hierarchical'          => true,
 		'public'                => true,

@@ -577,17 +577,9 @@ function setup_element ( $layout, $generator, $acf_ID ) {
 					if ( get_sub_field ( 'easing' ) != '' ) {
 						$GLOBALS['elements']['current']['atts']['aos-easing'] = get_sub_field ( 'easing' );
 					}
-					
+
 					if ( get_sub_field ( 'delay' ) != '' ) {
 						$GLOBALS['elements']['current']['atts']['aos-delay'] = get_sub_field ( 'delay' );
-					}
-					
-					if ( get_sub_field ( 'offset' ) != '' ) {
-						$GLOBALS['elements']['current']['atts']['aos-offset'] = get_sub_field ( 'offset' );
-					}
-					
-					if ( get_sub_field ( 'once' ) == 1 ) {
-						$GLOBALS['elements']['current']['atts']['aos-once'] = 'true';
 					}
 
 					break;
@@ -678,21 +670,6 @@ function setup_element ( $layout, $generator, $acf_ID ) {
     } else {
       $GLOBALS['elements']['current']['classes'][] = 'col';
     }
-
-  }
-
-  // BLOCK
-
-  if ( $GLOBALS['elements']['current']['type'] == 'block' ) {
-
-    $block_content = get_sub_field ( 'blocks' );
-
-    $block_type = $block_content[0]['acf_fc_layout'];
-
-    // $GLOBALS['elements']['current']['classes'][] = 'block-type-' . $block_type;
-
-		// add_action ( 'after_element_open', 'block_output', 20, 2 );
-		// add_action ( 'before_element_close', 'block_output', 20, 2 );
 
   }
 
@@ -789,7 +766,7 @@ function open_element ( $layout, $generator, $acf_ID ) {
 
   // BLOCK
 
-  block_output ( 'open' );
+  block_output ( 'open', $acf_ID );
 
   // set the element to 'open'
 

@@ -5,7 +5,7 @@
 ?>
 
 <div class="block-text">
-	<?php the_sub_field ( 'body' ); ?>
+	<?php echo apply_filters ( 'the_content', $block['body'] ); ?>
 </div>
 
 <?php

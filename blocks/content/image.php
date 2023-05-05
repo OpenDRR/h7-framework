@@ -1,19 +1,6 @@
 <?php
 
-  // changed 'image' sub-field to 'image_file'
-  // so update the image_file field
-  // can be removed later
-
-  if (
-    get_sub_field ( 'image' ) != '' &&
-    get_sub_field ( 'image_file' ) == ''
-  ) {
-
-    update_sub_field ( 'image_file', get_sub_field ( 'image') );
-
-  }
-
-  $img_ID = get_sub_field ( 'image_file' );
+  $img_ID = $block['image_file'];
 
   if ( $img_ID != '' ) {
 
@@ -49,99 +36,96 @@
 
     $caption_show = false;
     $description_show = false;
+		
+		if ( !empty ( $block['options'] ) ) {
 
-    if ( have_rows ( 'options' ) ) {
-      while ( have_rows ( 'options' ) ) {
-        the_row();
+      // title
 
-        // title
+      $title_show = true;
 
-        $title_show = true;
+      switch ( $block['options']['title'] ) {
 
-        switch ( get_sub_field ( 'title' ) ) {
+        case 'none' :
+          $title_show = false;
+          break;
 
-          case 'none' :
-            $title_show = false;
-            break;
+        case 'above' :
+          $title_order = 1;
+          $img_order = 2;
+          $wrap_class[] = 'has-title';
+          break;
 
-          case 'above' :
-            $title_order = 1;
-            $img_order = 2;
-            $wrap_class[] = 'has-title';
-            break;
-
-          case 'below' :
-            $title_order = 2;
-            $img_order = 1;
-            $wrap_class[] = 'has-title';
-            break;
-
-        }
-
-        $img_class[] = 'order-' . $img_order;
-
-        // caption & description
-
-        if ( get_sub_field ( 'caption' ) == 1 ) {
-          $caption_show = true;
-          $wrap_class[] = 'has-caption';
-        }
-
-        if ( get_sub_field ( 'description' ) == 1 ) {
-          $description_show = true;
-          $wrap_class[] = 'has-description';
-        }
-
-        // behaviour
-
-        if ( get_sub_field ( 'link' ) == 'none' ) {
-
-          $has_link = true;
-          $wrap_class[] = 'has-link';
-
-        }
-
-        switch ( get_sub_field ( 'link' ) ) {
-
-          case 'zoom' :
-
-            // set link to the full image
-            $link_href = $img_URL;
-
-            // change output image to a smaller size
-            $img_URL = wp_get_attachment_image_url ( $img_ID, 'large' );
-
-            $link_atts['data-overlay-content'] = 'image';
-            $link_atts['data-overlay-title'] = $img_title;
-            $link_atts['data-overlay-caption'] = $img_content;
-            array_push ( $link_class, 'zoom', 'overlay-toggle' );
-            break;
-
-          case 'post' :
-            $link_href = get_permalink ( get_sub_field ( 'post' ) );
-            break;
-
-          case 'url' :
-            $link_href = get_sub_field ( 'url' );
-            $link_atts['target'] = '_blank';
-            break;
-
-
-        }
-
-        // magnify
-
-        if ( get_sub_field ( 'magnify' ) == 1 ) {
-
-          wp_enqueue_style ( 'magnify' );
-					wp_enqueue_script ( 'magnify' );
-					
-          $img_class[] = 'magnify';
-          $img_atts['data-magnify-src'] = wp_get_attachment_image_url ( $img_ID, 'full' );
-
-        }
+        case 'below' :
+          $title_order = 2;
+          $img_order = 1;
+          $wrap_class[] = 'has-title';
+          break;
 
       }
+
+      $img_class[] = 'order-' . $img_order;
+
+      // caption & description
+
+      if ( $block['options']['caption'] == 1 ) {
+        $caption_show = true;
+        $wrap_class[] = 'has-caption';
+      }
+
+      if ( $block['options']['description'] == 1 ) {
+        $description_show = true;
+        $wrap_class[] = 'has-description';
+      }
+
+      // behaviour
+
+      if ( $block['options']['link'] == 'none' ) {
+
+        $has_link = true;
+        $wrap_class[] = 'has-link';
+
+      }
+
+      switch ( $block['options']['link'] ) {
+
+        case 'zoom' :
+
+          // set link to the full image
+          $link_href = $img_URL;
+
+          // change output image to a smaller size
+          $img_URL = wp_get_attachment_image_url ( $img_ID, 'large' );
+
+          $link_atts['data-overlay-content'] = 'image';
+          $link_atts['data-overlay-title'] = $img_title;
+          $link_atts['data-overlay-caption'] = $img_content;
+          array_push ( $link_class, 'zoom', 'overlay-toggle' );
+          break;
+
+        case 'post' :
+          $link_href = get_permalink ( $block['options']['post'] );
+          break;
+
+        case 'url' :
+          $link_href = $block['options']['url'];
+          $link_atts['target'] = '_blank';
+          break;
+
+
+      }
+
+      // magnify
+
+      if ( $block['options']['magnify'] == 1 ) {
+
+        wp_enqueue_style ( 'magnify' );
+				wp_enqueue_script ( 'magnify' );
+				
+        $img_class[] = 'magnify';
+        $img_atts['data-magnify-src'] = wp_get_attachment_image_url ( $img_ID, 'full' );
+
+      }
+
     }
 
 ?>

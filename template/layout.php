@@ -27,7 +27,7 @@
 			'meta_query' => array (
 				array (
 					'key' => 'layout_file',
-					'value' => str_replace ( '.php', '', $GLOBALS['vars']['current_template'] ),
+					'value' => sprintf ( '"%s"', $this_template ),
 					'compare' => 'LIKE'
 				)
 			)
@@ -72,6 +72,30 @@
 
 								break;
 
+							case 'include' :
+								
+								// FILE INCLUDE
+								
+								// make sure the file exists
+								
+								if ( locate_template ( 'template/' . get_sub_field ( 'filename' ) . '.php' ) != '' ) {
+								
+									// close the previous element,
+									// dump the contents of the provided file name and move on
+									
+									if (
+										isset ( $GLOBALS['elements']['current'] ) &&
+										get_sub_field ( 'resolve' ) == 1
+									) {
+										close_element ( $GLOBALS['elements']['current']['type'] );
+									}
+								
+									include ( locate_template ( 'template/' . get_sub_field ( 'filename' ) . '.php' ) );
+								
+								}
+								
+								break;
+								
 							case 'template' :
 
 								//

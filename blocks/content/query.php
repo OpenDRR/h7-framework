@@ -14,10 +14,10 @@
 
 	// display (grid/carousel/list)
 	if ( !isset ( $new_query['display']['type'] ) )
-		$new_query['display']['type'] = get_sub_field ( 'display' );
+		$new_query['display']['type'] = $block ['display'];
 
 	if ( !isset ( $new_query['display']['classes']['object'] ) )
-		$new_query['display']['classes']['object'] = explode ( ' ', get_sub_field ( 'object_classes' ) );
+		$new_query['display']['classes']['object'] = explode ( ' ', $block ['object_classes'] );
 
 	array_push ( $new_query['display']['classes']['object'], 'renderable', 'query-type-' . $new_query['display']['type'] );
 
@@ -27,7 +27,7 @@
 	//
 
 	if ( !isset ( $new_query['display']['containers'] ) )
-	$new_query['display']['containers'] = get_sub_field ( 'containers' );
+	$new_query['display']['containers'] = $block ['containers'];
 
 	// defaults
 
@@ -97,7 +97,7 @@
 	// item template
 
 	if ( !isset ( $new_query['display']['template'] ) )
-		$new_query['display']['template'] = get_sub_field ( 'template' );
+		$new_query['display']['template'] = $block ['template'];
 
 	//
 	// BEGIN SETTING UP ACF QUERY
@@ -218,11 +218,20 @@
 				foreach ( $container['elements'] as $element ) {
 
 					// element classes
+					
+					$element_classes = array();
 
-					if ( is_array ( $element['classes'] ) ) {
+					if ( 
+						isset ( $element['classes'] ) && 
+						is_array ( $element['classes'] ) 
+					) {
+						
 						$element_classes = explode ( ' ', $element['classes']['element'] );
+							
 					} else {
+						
 						$element_classes = explode ( ' ', $element['classes'] );
+							
 					}
 
 					// display type
@@ -256,7 +265,7 @@
 
 <?php
 
-if ( get_sub_field ( 'debug' ) == 1 ) {
+if ( $block ['debug'] == 1 ) {
 	echo '<pre class="p-3 bg-light font-size-smaller">';
 	print_r ( $query_block[$current_block_ID] );
 	echo '</pre>';

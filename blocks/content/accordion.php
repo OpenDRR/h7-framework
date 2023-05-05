@@ -1,8 +1,8 @@
 <?php
 
-	$accordion_classes = get_sub_field ( 'accordion_classes' );
+	$accordion_classes = $block['accordion_classes'];
 
-	if ( have_rows ( 'accordion' ) ) {
+	if ( !empty ( $block['accordion'] ) ) {
 
 ?>
 
@@ -12,8 +12,7 @@
 
 		$accordion_section = 1;
 
-		while ( have_rows ( 'accordion' ) ) {
-			the_row();
+		foreach ( $block['accordion'] as $accordion ) {
 
 	?>
 
@@ -24,7 +23,7 @@
 				<?php echo $accordion_classes['heading']; ?>"
 			id="<?php echo $GLOBALS['elements']['current']['id']; ?>-accordion-head-<?php echo $accordion_section; ?>">
       <h4 class="mb-0" data-toggle="collapse" data-target="#<?php echo $GLOBALS['elements']['current']['id']; ?>-accordion-collapse-<?php echo $accordion_section; ?>" aria-expanded="true" aria-controls="<?php echo $GLOBALS['elements']['current']['id']; ?>-accordion-collapse-<?php echo $accordion_section; ?>">
-        <?php the_sub_field ( 'heading' ); ?>
+        <?php echo $accordion['heading']; ?>
       </h4>
     </div>
 
@@ -38,7 +37,7 @@
       <div class="card-body">
 				<?php
 
-					the_sub_field ( 'content' );
+					echo $accordion['content'];
 
 				?>
       </div>

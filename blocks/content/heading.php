@@ -2,19 +2,19 @@
 
   do_action ( 'fw_before_heading_block' );
 
-  $head_tag = get_sub_field ( 'level' );
+  $head_tag = $block['level'];
 
   $head_class = array();
 
-	if ( get_sub_field ( 'classes' ) != '' ) {
-		$head_class = explode ( ' ', get_sub_field ( 'classes' ) );
+	if ( $block['classes'] != '' ) {
+		$head_class = explode ( ' ', $block['classes'] );
 	}
 
-  if ( get_sub_field ( 'text' ) != '' ) {
+  if ( $block['text'] != '' ) {
 
     echo '<' . $head_tag . ' class="heading-text ' . implode ( ' ', $head_class ) . '">';
 
-    echo do_shortcode ( get_sub_field ( 'text' ) );
+    echo do_shortcode ( $block['text'] );
 
     echo '</' . $head_tag . '>';
 

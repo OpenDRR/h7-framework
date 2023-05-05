@@ -217,7 +217,7 @@
 
       // get all children of the top parent
 
-      $top_parent = get_top_parent ( $GLOBALS['vars']['current_query']->ID );
+      $top_parent = get_top_parent();
 
       $all_children = get_pages ( array (
         'posts_per_page' => -1,
@@ -242,7 +242,7 @@
 
       }
 
-      $menu = fw_build_menu ( $menu_items, $top_parent, 1 );
+      $menu = fw_build_menu ( $menu_items, get_top_parent(), 1 );
 
       array_unshift ( $menu, array (
         'id' => $top_parent,
@@ -359,13 +359,13 @@
   // GET MENU BY TYPE
   //
 
-  switch ( get_sub_field ( 'type' ) ) {
+  switch ( $block['type'] ) {
 
     case 'wp' :
 
       // WP MENU
 
-      $menu = fw_wp_menu ( get_sub_field ( 'menu' ) );
+      $menu = fw_wp_menu ( $block['menu'] );
 
       break;
 
@@ -373,7 +373,7 @@
 
       // ACF MENU
 
-      $menu = fw_acf_menu ( get_sub_field ( 'items' ) );
+      $menu = fw_acf_menu ( $block['items'] );
 
       break;
 

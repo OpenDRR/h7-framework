@@ -97,8 +97,8 @@
       // permalink
 
       if (plugin_elements.permalink.display == true) {
-
-        $('<li class="widget-menu-item share-permalink-wrap"><a href="#" class="widget-menu-link permalink"><i class="icon ' + plugin_elements.permalink.icon + '"></i><span class="label">' + plugin_elements.permalink.label + '</span></a><div class="share-permalink-input"><input type="text" value="' + plugin_settings.share_url +'"></div></li>').appendTo(plugin_elements.list)
+        
+        $('<li class="widget-menu-item share-permalink-wrap"><a href="#" class="widget-menu-link permalink"><i class="icon ' + plugin_settings.elements.permalink.icon + '"></i><span class="label">' + plugin_settings.elements.permalink.label + '</span></a></li>').appendTo(plugin_elements.list)
 
       }
 
@@ -115,20 +115,10 @@
 
           plugin_item.removeClass('open')
 
-          plugin_item.find('.share-permalink-wrap').removeClass('open')
-          $('.share-permalink-input').slideUp(125)
-
         } else {
-
-          // // close all other widgets
-          // $('.social-widget-wrap').removeClass('open');//.siblings('ul').slideUp(125);
-          // $('.social-trigger').removeClass('open');
-          // $('.share-permalink-wrap').removeClass('open');
-          // $('.share-permalink-input').slideUp(125);
 
           // open this one
           plugin_item.addClass('open')
-          // $(this).parents('.share-widget-wrap').addClass('open');
 
         }
       });
@@ -163,6 +153,14 @@
           }
 
           tweet_text = window_title
+          
+          // check for override in data- attribute
+          
+          // console.log(plugin_item.data())
+          
+          if (typeof plugin_item.attr('data-social-tweet-text') != 'undefined') {
+            tweet_text = plugin_item.attr('data-social-tweet-text')
+          }
 
           // if a twitter account is set, add 'via @XXX'
 
@@ -198,27 +196,31 @@
           )
 
         } else if ($(this).hasClass('permalink')) {
-
-      	  var permalink_wrap = $(this).closest('.share-permalink-wrap')
-
-      	  var permalink_input = permalink_wrap.find('.share-permalink-input')
-
-          console.log($(this))
-          console.log(permalink_wrap)
-          console.log(permalink_input)
-
-      	  if (permalink_wrap.hasClass('open')) {
-
-        	  permalink_wrap.removeClass('open')
-        	  permalink_input.slideUp(250)
-
-      	  } else {
-
-        	  permalink_wrap.addClass('open')
-        	  permalink_input.slideDown().find('input').focus().select()
-
-      	  }
-
+          
+          let copy_success = false
+          
+          console.log('copy ' + plugin_settings.share_url)
+          
+          if (typeof navigator.clipboard != 'undefined') {
+          
+            navigator.clipboard.writeText(plugin_settings.share_url).then(() => {
+                
+              $(this).find('i').removeClass().addClass('icon fas fa-check text-success')
+              $(this).find('.label').text('Copied to clipboard')
+              
+              copy_success = true
+                
+            })
+            
+          }
+          
+          if (copy_success == false) {
+            
+            $(this).find('i').removeClass().addClass('icon fas fa-times text-warning')
+            $(this).find('.label').text('Error')
+            
+          }
+          
         } else {
 
       	  var width  = 575,

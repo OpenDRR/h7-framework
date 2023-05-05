@@ -927,7 +927,7 @@ $GLOBALS['fw_fields']['builder_groups']['block_content']['query'] = array(
 										'layout' => 'block',
 										'sub_fields' => array(
 											array(
-												'key' => 'field_5f7b45468ed80',
+												'key' => 'builder_block_content_query_elements_items_classes_element',
 												'label' => 'Element',
 												'name' => 'element',
 												'type' => 'text',
@@ -946,7 +946,7 @@ $GLOBALS['fw_fields']['builder_groups']['block_content']['query'] = array(
 												'maxlength' => '',
 											),
 											array(
-												'key' => 'field_5f7b45528ed81',
+												'key' => 'builder_block_content_query_elements_items_classes_item',
 												'label' => 'Item',
 												'name' => 'item',
 												'type' => 'text',
@@ -965,7 +965,7 @@ $GLOBALS['fw_fields']['builder_groups']['block_content']['query'] = array(
 												'maxlength' => '',
 											),
 											array(
-												'key' => 'field_5f7b4d441a2ba',
+												'key' => 'builder_block_content_query_elements_carousel',
 												'label' => 'Carousel Controls',
 												'name' => 'controls',
 												'type' => 'text',
@@ -994,17 +994,17 @@ $GLOBALS['fw_fields']['builder_groups']['block_content']['query'] = array(
 										),
 									),
 								),
-								'min' => '1',
+								'min' => '0',
 								'max' => '1',
 							),
-							'layout_5f77357b7c883' => array(
-								'key' => 'layout_5f77357b7c883',
+							'builder_block_content_query_elements_filter' => array(
+								'key' => 'builder_block_content_query_elements_filter',
 								'name' => 'filter_items',
 								'label' => 'Filter Items',
 								'display' => 'block',
 								'sub_fields' => array(
 									array(
-										'key' => 'field_5f7736617c886',
+										'key' => 'builder_block_content_query_elements_filter_classes',
 										'label' => 'Classes',
 										'name' => 'classes',
 										'type' => 'group',
@@ -1019,7 +1019,7 @@ $GLOBALS['fw_fields']['builder_groups']['block_content']['query'] = array(
 										'layout' => 'block',
 										'sub_fields' => array(
 											array(
-												'key' => 'field_5f777991bd5e6',
+												'key' => 'builder_block_content_query_elements_filter_classes_element',
 												'label' => 'Element',
 												'name' => 'element',
 												'type' => 'text',
@@ -1038,7 +1038,7 @@ $GLOBALS['fw_fields']['builder_groups']['block_content']['query'] = array(
 												'maxlength' => '',
 											),
 											array(
-												'key' => 'field_5f777997bd5e7',
+												'key' => 'builder_block_content_query_elements_filter_classes_headings',
 												'label' => 'Headings',
 												'name' => 'headings',
 												'type' => 'text',
@@ -1057,7 +1057,7 @@ $GLOBALS['fw_fields']['builder_groups']['block_content']['query'] = array(
 												'maxlength' => '',
 											),
 											array(
-												'key' => 'field_5f7779b3bd5e8',
+												'key' => 'builder_block_content_query_elements_filter_classes_lists',
 												'label' => 'Lists',
 												'name' => 'lists',
 												'type' => 'text',
@@ -1078,7 +1078,7 @@ $GLOBALS['fw_fields']['builder_groups']['block_content']['query'] = array(
 										),
 									),
 									array(
-										'key' => 'field_5f7775b035532',
+										'key' => 'builder_block_content_query_elements_filter_settings',
 										'label' => 'Filter Settings',
 										'name' => '',
 										'type' => 'accordion',
@@ -1095,7 +1095,7 @@ $GLOBALS['fw_fields']['builder_groups']['block_content']['query'] = array(
 										'endpoint' => 0,
 									),
 									array(
-										'key' => 'field_5f7775e135534',
+										'key' => 'builder_block_content_query_elements_filter_settings_accordions',
 										'label' => 'Use Accordions',
 										'name' => 'accordions',
 										'type' => 'true_false',
@@ -1117,14 +1117,14 @@ $GLOBALS['fw_fields']['builder_groups']['block_content']['query'] = array(
 								'min' => '',
 								'max' => '1',
 							),
-							'layout_5f870c156d967' => array(
-								'key' => 'layout_5f870c156d967',
+							'builder_block_content_query_elements_sort' => array(
+								'key' => 'builder_block_content_query_elements_sort',
 								'name' => 'sort',
 								'label' => 'Sort Items',
 								'display' => 'block',
 								'sub_fields' => array(
 									array(
-										'key' => 'field_5f8710f732c55',
+										'key' => 'builder_block_content_query_elements_sort_classes',
 										'label' => 'Classes',
 										'name' => 'classes',
 										'type' => 'group',
@@ -1139,7 +1139,7 @@ $GLOBALS['fw_fields']['builder_groups']['block_content']['query'] = array(
 										'layout' => 'block',
 										'sub_fields' => array(
 											array(
-												'key' => 'field_5f8710f732c56',
+												'key' => 'builder_block_content_query_elements_sort_classes_element',
 												'label' => 'Element',
 												'name' => 'element',
 												'type' => 'text',
@@ -1158,7 +1158,7 @@ $GLOBALS['fw_fields']['builder_groups']['block_content']['query'] = array(
 												'maxlength' => '',
 											),
 											array(
-												'key' => 'field_5f8710f732c57',
+												'key' => 'builder_block_content_query_elements_sort_classes_headings',
 												'label' => 'Headings',
 												'name' => 'headings',
 												'type' => 'text',
@@ -1177,7 +1177,7 @@ $GLOBALS['fw_fields']['builder_groups']['block_content']['query'] = array(
 												'maxlength' => '',
 											),
 											array(
-												'key' => 'field_5f8710f732c58',
+												'key' => 'builder_block_content_query_elements_sort_classes_lists',
 												'label' => 'Lists',
 												'name' => 'lists',
 												'type' => 'text',
@@ -1198,7 +1198,7 @@ $GLOBALS['fw_fields']['builder_groups']['block_content']['query'] = array(
 										),
 									),
 									array(
-										'key' => 'field_5f870c396d968',
+										'key' => 'builder_block_content_query_elements_sort_options',
 										'label' => 'Sort Options',
 										'name' => 'options',
 										'type' => 'checkbox',
@@ -1228,14 +1228,14 @@ $GLOBALS['fw_fields']['builder_groups']['block_content']['query'] = array(
 								'min' => '',
 								'max' => '1',
 							),
-							'layout_5f77354a7c880' => array(
-								'key' => 'layout_5f77354a7c880',
+							'builder_block_content_query_elements_search' => array(
+								'key' => 'builder_block_content_query_elements_search',
 								'name' => 'search',
 								'label' => 'Search Field',
 								'display' => 'block',
 								'sub_fields' => array(
 									array(
-										'key' => 'field_5f7736787c887',
+										'key' => 'builder_block_content_query_elements_search_classes',
 										'label' => 'Classes',
 										'name' => 'classes',
 										'type' => 'text',
@@ -1254,7 +1254,7 @@ $GLOBALS['fw_fields']['builder_groups']['block_content']['query'] = array(
 										'maxlength' => '',
 									),
 									array(
-										'key' => 'field_5f777657588ba',
+										'key' => 'builder_block_content_query_elements_search_placeholder',
 										'label' => 'Placeholder',
 										'name' => 'placeholder',
 										'type' => 'text',
@@ -1276,14 +1276,14 @@ $GLOBALS['fw_fields']['builder_groups']['block_content']['query'] = array(
 								'min' => '',
 								'max' => '1',
 							),
-							'layout_5f77355b7c881' => array(
-								'key' => 'layout_5f77355b7c881',
+							'builder_block_content_query_elements_count' => array(
+								'key' => 'builder_block_content_query_elements_count',
 								'name' => 'post_count',
 								'label' => 'Post Count',
 								'display' => 'block',
 								'sub_fields' => array(
 									array(
-										'key' => 'field_5f77367f7c888',
+										'key' => 'builder_block_content_query_elements_count_classes',
 										'label' => 'Classes',
 										'name' => 'classes',
 										'type' => 'text',
@@ -1305,14 +1305,62 @@ $GLOBALS['fw_fields']['builder_groups']['block_content']['query'] = array(
 								'min' => '',
 								'max' => '',
 							),
-							'layout_5f7737577c88b' => array(
-								'key' => 'layout_5f7737577c88b',
+							'builder_block_content_query_elements_text' => array(
+								'key' => 'builder_block_content_query_elements_text',
+								'name' => 'text',
+								'label' => 'Text',
+								'display' => 'block',
+								'sub_fields' => array(
+									array(
+										'key' => 'builder_block_content_query_elements_text_content',
+										'label' => 'Text',
+										'name' => 'text',
+										'type' => 'wysiwyg',
+										'instructions' => '',
+										'required' => 0,
+										'conditional_logic' => 0,
+										'wrapper' => array(
+											'width' => '',
+											'class' => '',
+											'id' => '',
+										),
+										'default_value' => '',
+										'delay' => 0,
+										'tabs' => 'all',
+										'toolbar' => 'full',
+										'media_upload' => 0,
+									),
+									array(
+										'key' => 'builder_block_content_query_elements_text_classes',
+										'label' => 'Classes',
+										'name' => 'classes',
+										'type' => 'text',
+										'instructions' => '',
+										'required' => 0,
+										'conditional_logic' => 0,
+										'wrapper' => array(
+											'width' => '',
+											'class' => '',
+											'id' => '',
+										),
+										'default_value' => '',
+										'placeholder' => '',
+										'prepend' => '',
+										'append' => '',
+										'maxlength' => '',
+									),
+								),
+								'min' => '',
+								'max' => '',
+							),
+							'builder_block_content_query_elements_pagination' => array(
+								'key' => 'builder_block_content_query_elements_pagination',
 								'name' => 'pagination',
 								'label' => 'Pagination',
 								'display' => 'block',
 								'sub_fields' => array(
 									array(
-										'key' => 'field_5f777313a7680',
+										'key' => 'builder_block_content_query_elements_pagination_classes',
 										'label' => 'Classes',
 										'name' => 'classes',
 										'type' => 'text',
@@ -1331,7 +1379,7 @@ $GLOBALS['fw_fields']['builder_groups']['block_content']['query'] = array(
 										'maxlength' => '',
 									),
 									array(
-										'key' => 'field_5f7737627c88c',
+										'key' => 'builder_block_content_query_elements_pagination_history',
 										'label' => 'History',
 										'name' => 'history',
 										'type' => 'true_false',
@@ -1350,7 +1398,7 @@ $GLOBALS['fw_fields']['builder_groups']['block_content']['query'] = array(
 										'ui_off_text' => '',
 									),
 									array(
-										'key' => 'field_5f7f0fd9cc8a8',
+										'key' => 'builder_block_content_query_elements_pagination_type',
 										'label' => 'Type',
 										'name' => 'type',
 										'type' => 'radio',

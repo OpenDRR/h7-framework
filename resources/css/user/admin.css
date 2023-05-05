@@ -1,4 +1,4 @@
-@import url(//use.fontawesome.com/releases/v5.9.0/css/all.css);
+@import url(../../vendor/font-awesome-pro/css/all.css);
 /*
 //
 //
@@ -89,7 +89,7 @@
           content: '\f013';
           display: inline-block;
           margin-right: 10px;
-          font-family: "Font Awesome 5 Free";
+          font-family: "Font Awesome 5 Pro";
         }
       }
     }
@@ -132,7 +132,7 @@
           content: '\f0db';
           display: inline-block;
           margin-right: 10px;
-          font-family: "Font Awesome 5 Free";
+          font-family: "Font Awesome 5 Pro";
         }
       }
     }
@@ -303,7 +303,7 @@
   content: "\f013";
   display: inline-block;
   margin-right: 10px;
-  font-family: "Font Awesome 5 Free";
+  font-family: "Font Awesome 5 Pro";
 }
 .acf-field.section-settings-accordion.-open > .acf-accordion-title label, .acf-field.container-settings-accordion.-open > .acf-accordion-title label, .acf-field.column-settings-accordion.-open > .acf-accordion-title label, .acf-field.block-settings-accordion.-open > .acf-accordion-title label, .acf-field.acf-field-5dc19e4dbe054.-open > .acf-accordion-title label, .acf-field.acf-field-5dc19e62be055.-open > .acf-accordion-title label, .acf-field.acf-field-5dc5b174572e8.-open > .acf-accordion-title label, .acf-field.acf-field-5dc1e431e1aa6.-open > .acf-accordion-title label, .acf-field.acf-field-5dc31ad69ca7f.-open > .acf-accordion-title label, .acf-field.acf-field-5dc442ad42103.-open > .acf-accordion-title label {
   color: #666;
@@ -331,7 +331,7 @@
   content: "\f0db";
   display: inline-block;
   margin-right: 10px;
-  font-family: "Font Awesome 5 Free";
+  font-family: "Font Awesome 5 Pro";
 }
 .acf-field.column-breakpoints-accordion.-open > .acf-accordion-title label, .acf-field.acf-field-5dc1a2aaa2a50.-open > .acf-accordion-title label {
   color: #666;
@@ -531,12 +531,20 @@ html .acf-fields > .acf-field.blocks-loop-field {
   padding: 0 1.5em 1em 1.5em;
 }
 
+.page-builder-modal-body-section {
+  margin-bottom: 1em;
+}
+
 .page-builder-modal-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1.5em;
   border-top: 1px solid #ddd;
+}
+
+#template-modal-reload {
+  display: none;
 }
 
 /*# sourceMappingURL=admin.css.map */

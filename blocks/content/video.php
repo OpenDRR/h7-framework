@@ -1,9 +1,9 @@
 <div id="<?php echo get_current_element_ID(); ?>-video" class="embed-wrap">
   <?php
 
-    if ( get_sub_field ( 'source' ) == 'embed' ) {
+    if ( $block['source'] == 'embed' ) {
 
-      $embed_URL = get_sub_field ( 'url' );
+      $embed_URL = $block['url'];
 
       if ( $embed_URL != '' ) {
 
@@ -14,14 +14,14 @@
         } else {
 
           // $embed_code = wp_oembed_get (
-          //   get_sub_field ( 'url' ),
+          //   $block['url'],
           //   array(
           //     'width' => 600,
           //     'height' => 337
           //   )
           // );
 
-					$embed_code = wp_oembed_get ( get_sub_field ( 'url' ) );
+					$embed_code = wp_oembed_get ( $block['url'] );
 
         }
 
@@ -33,9 +33,9 @@
 
     $video_atts = array();
 
-    if ( !empty ( get_sub_field ( 'attributes' ) ) ) {
+    if ( !empty ( $block['attributes'] ) ) {
 
-      foreach ( get_sub_field ( 'attributes' ) as $attribute ) {
+      foreach ( $block['attributes'] as $attribute ) {
 
         $video_atts[] = $attribute;
 
@@ -51,14 +51,13 @@
 
   <video <?php echo implode ( ' ', $video_atts ); ?>>
     <?php
-
-      if ( have_rows ( 'files' ) ) {
-        while ( have_rows ( 'files' ) ) {
-          the_row();
+		
+			if ( !empty ( $block['files'] ) ) {
+				foreach ( $block['files'] as $file ) {
 
     ?>
 
-    <source src="<?php echo wp_get_attachment_url ( get_sub_field ( 'file' ) ); ?>" type="video/<?php echo get_sub_field ( 'type' ); ?>">
+    <source src="<?php echo wp_get_attachment_url ( $file['file'] ); ?>" type="video/<?php echo $file['type']; ?>">
 
     <?php
 

@@ -47,7 +47,7 @@ var sticky_offset = 0,
 
     // console.log($(document).data())
 
-    scroll_offset += $('#page-header').outerHeight();
+    scroll_offset += $('#main-header').outerHeight();
 
     if ($('body').hasClass('lang-fr')) {
       current_lang = 'fr';
@@ -127,8 +127,8 @@ var sticky_offset = 0,
       }
     }
 
-    if ($('#page-header').hasClass('fixed-top')) {
-      sticky_offset += $('#page-header').outerHeight()
+    if ($('#main-header').hasClass('fixed-top')) {
+      sticky_offset += $('#main-header').outerHeight()
     }
 
     // console.log(sticky_offset)
@@ -138,6 +138,10 @@ var sticky_offset = 0,
     if ($('.footnote').length) {
       $(document).footnotes()
     }
+		
+		// OVERLAY
+		
+		$(document).overlay()
 
     // SMOOTH SCROLL
 
@@ -166,30 +170,6 @@ var sticky_offset = 0,
     //
 	  // }
 
-	  // SUPERMENU
-
-    // $('#header-primary .supermenu-toggle').each(function() {
-    //   var caret = $('<i class="nav-item-caret fas fa-caret-down"></i>').appendTo($(this));
-    // });
-    //
-	  // $('#supermenu').supermenu({
-  	//   events: {
-    // 	  slide_change: function() {
-    //
-    //   	  if ($('#supermenu').find('.slick-current').find('.select2').length) {
-    //
-    //     	  $('#location-search').select2('open');
-    //
-    //   	  }
-    //
-    // 	  }
-  	//   }
-	  // });
-
-	  // OVERLAY
-
-	  $(document).overlay()
-
     if ($('.swiper').length) {
 
 			// console.log($('.swiper-container'))
@@ -201,8 +181,6 @@ var sticky_offset = 0,
 
 				// if the swiper is a bootstrap .container,
 				// wrap each .col-* slide in a .row
-
-				// console.log($(this).parent().hasClass())
 
 				if ($(this).parent().hasClass('row')) {
 
@@ -261,12 +239,6 @@ var sticky_offset = 0,
 			$('.lazy').Lazy()
 		}
 
-		// AOS
-		
-		if ($('[data-aos]').length) {
-			AOS.init()
-		}
-
 	  // STICKY KIT
 
     function sticky_responsive(element, breakpoint, options) {
@@ -294,14 +266,7 @@ var sticky_offset = 0,
         }
 
         // if the page header is sticky or fixed
-        // and this is NOT the page header,
-
-        // if (
-        //   $(this).attr('id') != 'page-header' &&
-        //   ($('body').hasClass('header-position-sticky') || $('body').hasClass('header-position-fixed'))
-        // ) {
-        //   sticky_options.offset_top += element_height
-        // }
+        // and this is NOT the page header
 
         if (
 					typeof sticky_element.attr('data-sticky-parent') !== 'undefined' &&
@@ -323,6 +288,10 @@ var sticky_offset = 0,
             sticky_options.offset_top = ($(window).height() / 2) - (sticky_element.outerHeight() / 2)
           } else {
             sticky_options.offset_top = parseInt(sticky_element.attr('data-sticky-offset'))
+            
+            if ($('body').hasClass('admin-bar')) {
+              sticky_options.offset_top += 32
+            }
           }
 
         }
@@ -357,7 +326,7 @@ var sticky_offset = 0,
         // see if this is the page header or a child of the page header
         // if so, add its height to the sticky_offset value for future sticky elements
 
-        if (sticky_element.parents('#page-header').length) {
+        if (sticky_element.parents('#main-header').length) {
           sticky_offset += element_height
         }
 
@@ -371,6 +340,53 @@ var sticky_offset = 0,
     if ($('.magnify').length) {
       $('.magnify img').magnify()
     }
+		
+		// INVIEW
+		
+		if ($('[data-header-style]').length) {
+			
+			inView.offset({
+				top: 100,
+				bottom: $(window).outerHeight() - 100
+			})
+			
+			$(window).scroll(function() {
+			
+				// check for dark styles in view
+		
+				var header_style = 'light'
+		
+				$('[data-header-style="dark"]').each(function() {
+		
+					if (inView.is(document.querySelector('#' + $(this).attr('id')))) {
+						header_style = 'dark'
+					}
+		
+				})
+		
+				// check for hidden styles in view
+				
+				$('[data-header-style="hidden"]').each(function() {
+					
+					if (inView.is(document.querySelector('#' + $(this).attr('id')))) {
+						
+						header_style = 'hidden'
+						
+					}
+		
+				})
+		
+				// default to light
+		
+				$('#main-header').attr('data-current-style', header_style)
+		
+			})
+			
+		}
+		
+		//
+		// PAGE STATES
+		//
 
 		if (!$('body').hasClass('has-query')) {
 			$('body').removeClass('spinner-on')

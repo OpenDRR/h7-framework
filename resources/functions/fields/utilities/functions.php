@@ -9,7 +9,7 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 		'title' => 'Breakpoints',
 		'fields' => array(
 			array(
-				'key' => 'field_5d07df1140b4a',
+				'key' => 'builder_function_breakpoints_group',
 				'label' => 'Breakpoints',
 				'name' => 'breakpoints',
 				'type' => 'group',
@@ -24,7 +24,7 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 				'layout' => 'block',
 				'sub_fields' => array(
 					array(
-						'key' => 'field_5d07df1c40b4b',
+						'key' => 'builder_function_breakpoints_default',
 						'label' => 'Default',
 						'name' => 'xs',
 						'type' => 'group',
@@ -39,7 +39,7 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 						'layout' => 'block',
 						'sub_fields' => array(
 							array(
-								'key' => 'field_5d07e72d8e974',
+								'key' => 'builder_function_breakpoints_default_hide',
 								'label' => 'Hide',
 								'name' => 'hide',
 								'type' => 'true_false',
@@ -58,7 +58,7 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 								'ui_off_text' => '',
 							),
 							array(
-								'key' => 'field_5d07df7540b4d',
+								'key' => 'builder_function_breakpoints_default_cols',
 								'label' => 'Columns',
 								'name' => 'col',
 								'type' => 'number',
@@ -67,7 +67,7 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 								'conditional_logic' => array(
 									array(
 										array(
-											'field' => 'field_5d07e72d8e974',
+											'field' => 'builder_function_breakpoints_default_hide',
 											'operator' => '!=',
 											'value' => '1',
 										),
@@ -87,7 +87,7 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 								'step' => 1,
 							),
 							array(
-								'key' => 'field_5d07df8740b4e',
+								'key' => 'builder_function_breakpoints_default_offset',
 								'label' => 'Offset',
 								'name' => 'offset',
 								'type' => 'number',
@@ -96,7 +96,7 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 								'conditional_logic' => array(
 									array(
 										array(
-											'field' => 'field_5d07e72d8e974',
+											'field' => 'builder_function_breakpoints_default_hide',
 											'operator' => '!=',
 											'value' => '1',
 										),
@@ -116,7 +116,7 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 								'step' => 1,
 							),
 							array(
-								'key' => 'field_5d07df9b40b4f',
+								'key' => 'builder_function_breakpoints_default_order',
 								'label' => 'Order',
 								'name' => 'order',
 								'type' => 'number',
@@ -125,7 +125,7 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 								'conditional_logic' => array(
 									array(
 										array(
-											'field' => 'field_5d07e72d8e974',
+											'field' => 'builder_function_breakpoints_default_hide',
 											'operator' => '!=',
 											'value' => '1',
 										),
@@ -147,7 +147,7 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 						),
 					),
 					array(
-						'key' => 'field_5d07e841be02e',
+						'key' => 'builder_function_breakpoints_small',
 						'label' => 'Small',
 						'name' => 'sm',
 						'type' => 'group',
@@ -162,7 +162,7 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 						'layout' => 'block',
 						'sub_fields' => array(
 							array(
-								'key' => 'field_5d07e841be02f',
+								'key' => 'builder_function_breakpoints_small_hide',
 								'label' => 'Hide',
 								'name' => 'hide',
 								'type' => 'true_false',
@@ -181,7 +181,7 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 								'ui_off_text' => '',
 							),
 							array(
-								'key' => 'field_5d07e841be030',
+								'key' => 'builder_function_breakpoints_small_cols',
 								'label' => 'Columns',
 								'name' => 'col',
 								'type' => 'number',
@@ -190,7 +190,7 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 								'conditional_logic' => array(
 									array(
 										array(
-											'field' => 'field_5d07e841be02f',
+											'field' => 'builder_function_breakpoints_small_hide',
 											'operator' => '!=',
 											'value' => '1',
 										),
@@ -210,7 +210,7 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 								'step' => 1,
 							),
 							array(
-								'key' => 'field_5d07e841be031',
+								'key' => 'builder_function_breakpoints_small_offset',
 								'label' => 'Offset',
 								'name' => 'offset',
 								'type' => 'number',
@@ -219,7 +219,7 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 								'conditional_logic' => array(
 									array(
 										array(
-											'field' => 'field_5d07e841be02f',
+											'field' => 'builder_function_breakpoints_small_hide',
 											'operator' => '!=',
 											'value' => '1',
 										),
@@ -239,7 +239,7 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 								'step' => 1,
 							),
 							array(
-								'key' => 'field_5d07e841be032',
+								'key' => 'builder_function_breakpoints_small_order',
 								'label' => 'Order',
 								'name' => 'order',
 								'type' => 'number',
@@ -248,7 +248,7 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 								'conditional_logic' => array(
 									array(
 										array(
-											'field' => 'field_5d07e841be02f',
+											'field' => 'builder_function_breakpoints_small_hide',
 											'operator' => '!=',
 											'value' => '1',
 										),
@@ -270,7 +270,7 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 						),
 					),
 					array(
-						'key' => 'field_5d07e847be033',
+						'key' => 'builder_function_breakpoints_medium',
 						'label' => 'Medium',
 						'name' => 'md',
 						'type' => 'group',
@@ -285,7 +285,7 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 						'layout' => 'block',
 						'sub_fields' => array(
 							array(
-								'key' => 'field_5d07e847be034',
+								'key' => 'builder_function_breakpoints_medium_hide',
 								'label' => 'Hide',
 								'name' => 'hide',
 								'type' => 'true_false',
@@ -304,7 +304,7 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 								'ui_off_text' => '',
 							),
 							array(
-								'key' => 'field_5d07e847be035',
+								'key' => 'builder_function_breakpoints_medium_cols',
 								'label' => 'Columns',
 								'name' => 'col',
 								'type' => 'number',
@@ -313,7 +313,7 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 								'conditional_logic' => array(
 									array(
 										array(
-											'field' => 'field_5d07e847be034',
+											'field' => 'builder_function_breakpoints_medium_hide',
 											'operator' => '!=',
 											'value' => '1',
 										),
@@ -333,7 +333,7 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 								'step' => 1,
 							),
 							array(
-								'key' => 'field_5d07e847be036',
+								'key' => 'builder_function_breakpoints_medium_offset',
 								'label' => 'Offset',
 								'name' => 'offset',
 								'type' => 'number',
@@ -342,7 +342,7 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 								'conditional_logic' => array(
 									array(
 										array(
-											'field' => 'field_5d07e847be034',
+											'field' => 'builder_function_breakpoints_medium_hide',
 											'operator' => '!=',
 											'value' => '1',
 										),
@@ -362,7 +362,7 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 								'step' => 1,
 							),
 							array(
-								'key' => 'field_5d07e847be037',
+								'key' => 'builder_function_breakpoints_medium_order',
 								'label' => 'Order',
 								'name' => 'order',
 								'type' => 'number',
@@ -371,7 +371,7 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 								'conditional_logic' => array(
 									array(
 										array(
-											'field' => 'field_5d07e847be034',
+											'field' => 'builder_function_breakpoints_medium_hide',
 											'operator' => '!=',
 											'value' => '1',
 										),
@@ -393,7 +393,7 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 						),
 					),
 					array(
-						'key' => 'field_5d07e84cbe038',
+						'key' => 'builder_function_breakpoints_large',
 						'label' => 'Large',
 						'name' => 'lg',
 						'type' => 'group',
@@ -408,7 +408,7 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 						'layout' => 'block',
 						'sub_fields' => array(
 							array(
-								'key' => 'field_5d07e84cbe039',
+								'key' => 'builder_function_breakpoints_large_hide',
 								'label' => 'Hide',
 								'name' => 'hide',
 								'type' => 'true_false',
@@ -427,7 +427,7 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 								'ui_off_text' => '',
 							),
 							array(
-								'key' => 'field_5d07e84cbe03a',
+								'key' => 'builder_function_breakpoints_large_cols',
 								'label' => 'Columns',
 								'name' => 'col',
 								'type' => 'number',
@@ -436,7 +436,7 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 								'conditional_logic' => array(
 									array(
 										array(
-											'field' => 'field_5d07e84cbe039',
+											'field' => 'builder_function_breakpoints_large_hide',
 											'operator' => '!=',
 											'value' => '1',
 										),
@@ -456,7 +456,7 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 								'step' => 1,
 							),
 							array(
-								'key' => 'field_5d07e84cbe03b',
+								'key' => 'builder_function_breakpoints_large_offset',
 								'label' => 'Offset',
 								'name' => 'offset',
 								'type' => 'number',
@@ -465,7 +465,7 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 								'conditional_logic' => array(
 									array(
 										array(
-											'field' => 'field_5d07e84cbe039',
+											'field' => 'builder_function_breakpoints_large_hide',
 											'operator' => '!=',
 											'value' => '1',
 										),
@@ -485,7 +485,7 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 								'step' => 1,
 							),
 							array(
-								'key' => 'field_5d07e84cbe03c',
+								'key' => 'builder_function_breakpoints_large_order',
 								'label' => 'Order',
 								'name' => 'order',
 								'type' => 'number',
@@ -494,7 +494,7 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 								'conditional_logic' => array(
 									array(
 										array(
-											'field' => 'field_5d07e84cbe039',
+											'field' => 'builder_function_breakpoints_large_hide',
 											'operator' => '!=',
 											'value' => '1',
 										),
@@ -516,7 +516,7 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 						),
 					),
 					array(
-						'key' => 'field_5d07e852be03d',
+						'key' => 'builder_function_breakpoints_xl',
 						'label' => 'X-Large',
 						'name' => 'xl',
 						'type' => 'group',
@@ -531,7 +531,7 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 						'layout' => 'block',
 						'sub_fields' => array(
 							array(
-								'key' => 'field_5d07e852be03e',
+								'key' => 'builder_function_breakpoints_xl_hide',
 								'label' => 'Hide',
 								'name' => 'hide',
 								'type' => 'true_false',
@@ -550,7 +550,7 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 								'ui_off_text' => '',
 							),
 							array(
-								'key' => 'field_5d07e852be03f',
+								'key' => 'builder_function_breakpoints_xl_cols',
 								'label' => 'Columns',
 								'name' => 'col',
 								'type' => 'number',
@@ -559,7 +559,7 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 								'conditional_logic' => array(
 									array(
 										array(
-											'field' => 'field_5d07e852be03e',
+											'field' => 'builder_function_breakpoints_xl_hide',
 											'operator' => '!=',
 											'value' => '1',
 										),
@@ -579,7 +579,7 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 								'step' => 1,
 							),
 							array(
-								'key' => 'field_5d07e852be040',
+								'key' => 'builder_function_breakpoints_xl_offset',
 								'label' => 'Offset',
 								'name' => 'offset',
 								'type' => 'number',
@@ -588,7 +588,7 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 								'conditional_logic' => array(
 									array(
 										array(
-											'field' => 'field_5d07e852be03e',
+											'field' => 'builder_function_breakpoints_xl_hide',
 											'operator' => '!=',
 											'value' => '1',
 										),
@@ -608,7 +608,7 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 								'step' => 1,
 							),
 							array(
-								'key' => 'field_5d07e852be041',
+								'key' => 'builder_function_breakpoints_xl_order',
 								'label' => 'Order',
 								'name' => 'order',
 								'type' => 'number',
@@ -617,7 +617,7 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 								'conditional_logic' => array(
 									array(
 										array(
-											'field' => 'field_5d07e852be03e',
+											'field' => 'builder_function_breakpoints_xl_hide',
 											'operator' => '!=',
 											'value' => '1',
 										),
@@ -653,13 +653,8 @@ $GLOBALS['fw_fields']['common']['function']['breakpoints'] = array(
 
 $query_selectable_types = array();
 
-if ( !empty ( get_post_types ( array ( 'publicly_queryable' => true ) ) ) ) {
-	
+if ( !empty ( get_post_types ( array ( 'publicly_queryable' => true ) ) ) )
 	$query_selectable_types = get_post_types ( array ( 'publicly_queryable' => true ) );
-	
-	$query_selectable_types['page'] = 'page';
-
-}
 
 $GLOBALS['fw_fields']['common']['function']['query'] = array(
 	'settings' => array (
@@ -670,7 +665,7 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 		'title' => 'Query',
 		'fields' => array(
 			array(
-				'key' => 'field_5bbcff04bef32',
+				'key' => 'builder_function_query_items',
 				'label' => 'Number of Items',
 				'name' => 'posts_per_page',
 				'type' => 'number',
@@ -691,7 +686,7 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 				'step' => 1,
 			),
 			array(
-				'key' => 'field_5bb3bbb6d5893',
+				'key' => 'builder_function_query_type',
 				'label' => 'Query Type',
 				'name' => 'query_type',
 				'type' => 'select',
@@ -716,7 +711,7 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 				'placeholder' => '',
 			),
 			array(
-				'key' => 'field_5e94742af8f17',
+				'key' => 'builder_function_query_debug',
 				'label' => 'Debug',
 				'name' => 'debug',
 				'type' => 'true_false',
@@ -735,7 +730,7 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 				'ui_off_text' => 'Off',
 			),
 			array(
-				'key' => 'field_5c548e7083376',
+				'key' => 'builder_function_query_post_params',
 				'label' => 'Post Parameters',
 				'name' => 'post',
 				'type' => 'group',
@@ -744,7 +739,7 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 				'conditional_logic' => array(
 					array(
 						array(
-							'field' => 'field_5bb3bbb6d5893',
+							'field' => 'builder_function_query_type',
 							'operator' => '==',
 							'value' => 'posts',
 						),
@@ -758,7 +753,7 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 				'layout' => 'block',
 				'sub_fields' => array(
 					array(
-						'key' => 'field_5c54931652f7b',
+						'key' => 'builder_function_query_post_basic',
 						'label' => 'Basic',
 						'name' => '',
 						'type' => 'tab',
@@ -774,7 +769,7 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 						'endpoint' => 0,
 					),
 					array(
-						'key' => 'field_5bb3bbd8d5894',
+						'key' => 'builder_function_query_post_types_group',
 						'label' => 'Post Types',
 						'name' => 'post_types',
 						'type' => 'group',
@@ -790,7 +785,7 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 						'sub_fields' => array(
 
 							array(
-								'key' => 'field_5bc0e7785c846',
+								'key' => 'builder_function_query_post_types',
 								'label' => 'Post Types',
 								'name' => 'post_type',
 								'type' => 'checkbox',
@@ -813,7 +808,7 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 							),
 
 							array(
-								'key' => 'field_5bc0e78f5c847',
+								'key' => 'builder_function_query_post_filterable',
 								'label' => 'Show in Filter',
 								'name' => 'filterable',
 								'type' => 'true_false',
@@ -834,7 +829,7 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 						),
 					),
 					array(
-						'key' => 'field_5c5492cd52f78',
+						'key' => 'builder_function_query_post_sort_group',
 						'label' => 'Sort',
 						'name' => 'sort',
 						'type' => 'group',
@@ -849,7 +844,7 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 						'layout' => 'block',
 						'sub_fields' => array(
 							array(
-								'key' => 'field_5bc0d6cfeeb46',
+								'key' => 'builder_function_query_post_orderby',
 								'label' => 'Sort By',
 								'name' => 'orderby',
 								'type' => 'select',
@@ -868,10 +863,9 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 									'meta_value_num' => 'Custom Field Value (0–9)',
 									'meta_value' => 'Custom Field Value (A–Z)',
 									'rand' => 'Random',
-									'post__in' => 'Selected Post Order'
 								),
 								'default_value' => false,
-								'allow_null' => 1,
+								'allow_null' => 0,
 								'multiple' => 0,
 								'ui' => 0,
 								'return_format' => 'value',
@@ -879,7 +873,7 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 								'placeholder' => '',
 							),
 							array(
-								'key' => 'field_5bc0d734eeb48',
+								'key' => 'builder_function_query_post_order',
 								'label' => 'Sort Order',
 								'name' => 'order',
 								'type' => 'select',
@@ -904,7 +898,7 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 								'placeholder' => '',
 							),
 							array(
-								'key' => 'field_5c5492e652f79',
+								'key' => 'builder_function_query_post_orderby_meta',
 								'label' => 'Meta Key',
 								'name' => 'meta_key',
 								'type' => 'text',
@@ -913,14 +907,14 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 								'conditional_logic' => array(
 									array(
 										array(
-											'field' => 'field_5bc0d6cfeeb46',
+											'field' => 'builder_function_query_post_orderby',
 											'operator' => '==',
 											'value' => 'meta_value_num',
 										),
 									),
 									array(
 										array(
-											'field' => 'field_5bc0d6cfeeb46',
+											'field' => 'builder_function_query_post_orderby',
 											'operator' => '==',
 											'value' => 'meta_value',
 										),
@@ -940,7 +934,7 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 						),
 					),
 					array(
-						'key' => 'field_5c54925e52f76',
+						'key' => 'builder_function_query_tax',
 						'label' => 'Taxonomy Query',
 						'name' => '',
 						'type' => 'tab',
@@ -956,7 +950,7 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 						'endpoint' => 0,
 					),
 					array(
-						'key' => 'field_5c548fd28337c',
+						'key' => 'builder_function_query_tax_group',
 						'label' => 'Taxonomy Arguments',
 						'name' => 'tax_query',
 						'type' => 'group',
@@ -971,7 +965,7 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 						'layout' => 'block',
 						'sub_fields' => array(
 							array(
-								'key' => 'field_5bb3bc25d5895',
+								'key' => 'builder_function_query_tax_args',
 								'label' => 'Arguments',
 								'name' => 'arguments',
 								'type' => 'repeater',
@@ -984,14 +978,14 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 									'id' => '',
 								),
 								'wpml_cf_preferences' => 0,
-								'collapsed' => 'field_5c548f0a83377',
+								'collapsed' => 'builder_function_query_tax_terms',
 								'min' => 0,
 								'max' => 0,
 								'layout' => 'block',
 								'button_label' => 'Add Taxonomy',
 								'sub_fields' => array(
 									array(
-										'key' => 'field_5bc0e96882625',
+										'key' => 'builder_function_query_tax_taxonomy',
 										'label' => 'Taxonomy',
 										'name' => 'taxonomy',
 										'type' => 'text',
@@ -1010,7 +1004,7 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 										'maxlength' => '',
 									),
 									array(
-										'key' => 'field_5c548f0a83377',
+										'key' => 'builder_function_query_tax_terms',
 										'label' => 'Terms',
 										'name' => 'terms',
 										'type' => 'text',
@@ -1029,7 +1023,7 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 										'maxlength' => '',
 									),
 									array(
-										'key' => 'field_5bc0ea4f8262a',
+										'key' => 'builder_function_query_tax_filterable',
 										'label' => 'Show in Filter',
 										'name' => 'filterable',
 										'type' => 'true_false',
@@ -1048,7 +1042,7 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 										'ui_off_text' => '',
 									),
 									array(
-										'key' => 'field_5d7652dabb557',
+										'key' => 'builder_function_query_tax_multiple',
 										'label' => 'Allow multiple selections',
 										'name' => 'multiple',
 										'type' => 'true_false',
@@ -1057,7 +1051,7 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 										'conditional_logic' => array(
 											array(
 												array(
-													'field' => 'field_5bc0ea4f8262a',
+													'field' => 'builder_function_query_tax_filterable',
 													'operator' => '==',
 													'value' => '1',
 												),
@@ -1077,7 +1071,7 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 								),
 							),
 							array(
-								'key' => 'field_5c548fdc8337d',
+								'key' => 'builder_function_query_tax_relation',
 								'label' => 'Relation',
 								'name' => 'relation',
 								'type' => 'select',
@@ -1104,7 +1098,7 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 						),
 					),
 					array(
-						'key' => 'field_5c5492a352f77',
+						'key' => 'builder_function_query_meta',
 						'label' => 'Meta Query',
 						'name' => '',
 						'type' => 'tab',
@@ -1120,7 +1114,7 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 						'endpoint' => 0,
 					),
 					array(
-						'key' => 'field_5c5490fa83384',
+						'key' => 'builder_function_query_meta_group',
 						'label' => 'Meta Query',
 						'name' => 'meta_query',
 						'type' => 'group',
@@ -1135,7 +1129,7 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 						'layout' => 'block',
 						'sub_fields' => array(
 							array(
-								'key' => 'field_5c5490fa83385',
+								'key' => 'builder_function_query_meta_args',
 								'label' => 'Arguments',
 								'name' => 'arguments',
 								'type' => 'repeater',
@@ -1147,14 +1141,14 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 									'class' => '',
 									'id' => '',
 								),
-								'collapsed' => 'field_5c5490fa83386',
+								'collapsed' => 'builder_function_query_meta_key',
 								'min' => 0,
 								'max' => 0,
 								'layout' => 'block',
 								'button_label' => 'Add Key',
 								'sub_fields' => array(
 									array(
-										'key' => 'field_5c5490fa83386',
+										'key' => 'builder_function_query_meta_key',
 										'label' => 'Key',
 										'name' => 'key',
 										'type' => 'text',
@@ -1173,7 +1167,7 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 										'maxlength' => '',
 									),
 									array(
-										'key' => 'field_5c5490fa83387',
+										'key' => 'builder_function_query_meta_value',
 										'label' => 'Value',
 										'name' => 'value',
 										'type' => 'text',
@@ -1192,7 +1186,7 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 										'maxlength' => '',
 									),
 									array(
-										'key' => 'field_5c5491298338a',
+										'key' => 'builder_function_query_meta_compare',
 										'label' => 'Compare',
 										'name' => 'compare',
 										'type' => 'select',
@@ -1226,10 +1220,56 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 										'ajax' => 0,
 										'placeholder' => '',
 									),
+									array(
+										'key' => 'builder_function_query_meta_filterable',
+										'label' => 'Show in Filter',
+										'name' => 'filterable',
+										'type' => 'true_false',
+										'instructions' => 'Allow the items to be filtered by this field value.',
+										'required' => 0,
+										'conditional_logic' => 0,
+										'wrapper' => array(
+											'width' => '50',
+											'class' => '',
+											'id' => '',
+										),
+										'message' => '',
+										'default_value' => 0,
+										'ui' => 1,
+										'ui_on_text' => '',
+										'ui_off_text' => '',
+									),
+									array(
+										'key' => 'builder_function_query_meta_multiple',
+										'label' => 'Allow multiple selections',
+										'name' => 'multiple',
+										'type' => 'true_false',
+										'instructions' => '',
+										'required' => 0,
+										'conditional_logic' => array(
+											array(
+												array(
+													'field' => 'builder_function_query_meta_filterable',
+													'operator' => '==',
+													'value' => '1',
+												),
+											),
+										),
+										'wrapper' => array(
+											'width' => '50',
+											'class' => '',
+											'id' => '',
+										),
+										'message' => '',
+										'default_value' => 0,
+										'ui' => 1,
+										'ui_on_text' => '',
+										'ui_off_text' => '',
+									),
 								),
 							),
 							array(
-								'key' => 'field_5c5490fa83389',
+								'key' => 'builder_function_query_meta_relation',
 								'label' => 'Relation',
 								'name' => 'relation',
 								'type' => 'select',
@@ -1256,7 +1296,7 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 						),
 					),
 					array(
-						'key' => 'field_5e8cc013c97b3',
+						'key' => 'builder_function_query_page',
 						'label' => 'Page Parameters',
 						'name' => '',
 						'type' => 'tab',
@@ -1272,7 +1312,7 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 						'endpoint' => 0,
 					),
 					array(
-						'key' => 'field_5e8cc037c97b4',
+						'key' => 'builder_function_query_page_group',
 						'label' => 'Page Parameters',
 						'name' => 'page_params',
 						'type' => 'group',
@@ -1287,7 +1327,7 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 						'layout' => 'block',
 						'sub_fields' => array(
 							array(
-								'key' => 'field_5ef4b03454843',
+								'key' => 'builder_function_query_page_depth',
 								'label' => 'Depth',
 								'name' => 'depth',
 								'type' => 'select',
@@ -1313,7 +1353,7 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 								'placeholder' => '',
 							),
 							array(
-								'key' => 'field_5e8cc05bc97b5',
+								'key' => 'builder_function_query_page_parent',
 								'label' => 'Parent',
 								'name' => 'post_parent',
 								'type' => 'post_object',
@@ -1322,7 +1362,7 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 								'conditional_logic' => array(
 									array(
 										array(
-											'field' => 'field_5ef4b03454843',
+											'field' => 'builder_function_query_page_depth',
 											'operator' => '==',
 											'value' => 'parent',
 										),
@@ -1341,7 +1381,7 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 								'ui' => 1,
 							),
 							array(
-								'key' => 'field_5e946ca65159f',
+								'key' => 'builder_function_query_page_manual',
 								'label' => 'Manually Select Items',
 								'name' => 'post__in',
 								'type' => 'post_object',
@@ -1365,7 +1405,7 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 				),
 			),
 			array(
-				'key' => 'field_5bc4cc9a9b051',
+				'key' => 'builder_function_query_terms_group',
 				'label' => 'Taxonomy Parameters',
 				'name' => 'taxonomy',
 				'type' => 'group',
@@ -1374,7 +1414,7 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 				'conditional_logic' => array(
 					array(
 						array(
-							'field' => 'field_5bb3bbb6d5893',
+							'field' => 'builder_function_query_type',
 							'operator' => '==',
 							'value' => 'terms',
 						),
@@ -1388,7 +1428,7 @@ $GLOBALS['fw_fields']['common']['function']['query'] = array(
 				'layout' => 'block',
 				'sub_fields' => array(
 					array(
-						'key' => 'field_5c5493ee0665d',
+						'key' => 'builder_function_query_terms_tax',
 						'label' => 'Taxonomy',
 						'name' => 'taxonomy',
 						'type' => 'text',
