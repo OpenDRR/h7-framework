@@ -27,7 +27,7 @@
 			'meta_query' => array (
 				array (
 					'key' => 'layout_file',
-					'value' => sprintf ( '"%s"', $this_template ),
+					'value' => str_replace ( '.php', '', $GLOBALS['vars']['current_template'] ),
 					'compare' => 'LIKE'
 				)
 			)
