@@ -171,10 +171,10 @@ if ( $new_query['type'] == 'posts' ) {
 							}
 					
 						}
-					
+						
 						// if filterable, add taxonomy to filters array
 					
-						if ( $arg['filterable'] == 1 ) {
+						if ( $tax_arg['filterable'] == 1 ) {
 					
 							$new_query['filters'][] = array (
 								'type' => 'taxonomy',
