@@ -238,6 +238,12 @@ var sticky_offset = 0,
 		if ($('.lazy').length) {
 			$('.lazy').Lazy()
 		}
+    
+    // AOS
+    
+    if ($('[data-aos]').length) {
+      AOS.init()
+    }
 
 	  // STICKY KIT
 
