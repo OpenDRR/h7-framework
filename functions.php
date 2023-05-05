@@ -686,6 +686,10 @@ function theme_enqueue() {
 
   // VENDOR
 
+  // aos
+  
+  wp_register_style ( 'aos', $vendor_dir . 'aos/dist/aos.css', NULL, NULL, 'all' );
+  
   // magnify
   
   wp_register_script ( 'magnify', $vendor_dir . 'magnify/dist/css/magnify.css' );
