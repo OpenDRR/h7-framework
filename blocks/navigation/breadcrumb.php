@@ -12,7 +12,7 @@
 
   $include_home = false;
 
-  if ( get_sub_field ( 'include_home' ) == 1 ) {
+  if ( $block['include_home'] == 1 ) {
     $include_home = true;
 
     $breadcrumb_items[] = array (
