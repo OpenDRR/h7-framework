@@ -712,6 +712,7 @@ function theme_enqueue() {
   wp_register_script ( 'rellax', $vendor_dir . 'rellax/rellax.min.js', NULL, NULL, true );
   wp_register_script ( 'magnify', $vendor_dir . 'magnify/dist/js/jquery.magnify.js', NULL, NULL, true );
   wp_register_script ( 'in-view', $vendor_dir . 'in-view/dist/in-view.min.js', NULL, NULL, true );
+  wp_register_script ( 'aos', $vendor_dir . 'aos/dist/aos.js', NULL, NULL, true );	
 	wp_register_script ( 'lottie', 'https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.9/lottie.min.js', NULL, NULL, true );
   wp_register_script ( 'animation', $js_dir . 'animation-functions.js', array ( 'jquery' ), NULL, true );
   wp_register_script ( 'isotope', 'https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js', array ( 'jquery' ), NULL, true );
