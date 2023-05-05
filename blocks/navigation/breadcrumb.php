@@ -1,5 +1,13 @@
 <?php
 
+  global $post;
+  
+  $old_post = $post;
+  
+  $post = get_post ( $GLOBALS['vars']['current_query']->ID );
+  
+  setup_postdata ( $post );
+
   $breadcrumb_items = array();
 
   $include_home = false;
@@ -9,7 +17,7 @@
 
     $breadcrumb_items[] = array (
       'id' => get_option( 'page_on_front' ),
-      'url' => get_permalink ( get_option( 'page_on_front' ) ),
+      'url' => get_permalink ( get_option ( 'page_on_front' ) ),
       'title' => 'Home',
       'current' => false
     );
@@ -103,3 +111,11 @@
     ?>
   </ol>
 </nav>
+
+<?php
+  
+  wp_reset_postdata();
+  
+  $post = $old_post;
+  
+  setup_postdata ( $post ); 
