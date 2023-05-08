@@ -364,7 +364,11 @@ function theme_global_vars() {
 
   // LANGUAGE
 
-  $current_lang = 'en';
+  $vars['current_lang'] = 'en';
+  
+  if ( has_action ( 'wpml_current_language' ) ) {
+    $vars['current_lang'] = apply_filters ( 'wpml_current_language', NULL );
+  }
 
   // $vars['current_lang'] = ICL_LANGUAGE_CODE;
   // $classes['body'][] = 'lang-' . $vars['current_lang'];
